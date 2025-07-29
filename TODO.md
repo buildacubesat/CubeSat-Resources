@@ -50,3 +50,5 @@ https://docs.proveskit.space/en/latest/publications/
 https://www.unoosa.org/documents/pdf/psa/access2space4all/KiboCUBE/AcademySeason2/On-demand_Pre-recorded_Lectures/KiboCUBE_Academy_2022_OPL18.pdf
 https://www.amsat.org/product/getting-started-with-amateur-satellites-digital-download/
 https://www.calgarytospace.ca/
+
+paper server wo ich bat paper gefunden habe

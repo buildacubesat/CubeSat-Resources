@@ -1,6 +1,6 @@
 site_name: CubeSat Resources
-site_url: https://manuel-imboden.github.io/CubeSat-Resources/
-repo_url: https://github.com/manuel-imboden/CubeSat-Resources
+site_url: https://cubesat-resources.space
+repo_url: https://github.com/buildacubesat/CubeSat-Resources
 language: en
 theme:
   name: material
@@ -43,7 +43,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/manuel-imboden/CubeSat-Resources
+      link: https://github.com/buildacubesat/CubeSat-Resources
 
 # Optional: custom nav if not using awesome-pages plugin structure
 # nav:
