@@ -2,7 +2,7 @@
 
 Thanks for helping improve this collection of resources!
 
-_CubeSat Resources_ is hosted on GitHub: [https://github.com/manuel-imboden/CubeSat-Resources]()
+_CubeSat Resources_ is hosted on GitHub: [https://github.com/buildacubesat/CubeSat-Resources]()
 
 To add a resource:
 
@@ -13,7 +13,7 @@ To add a resource:
 
 Alternatively, if you don't want to use git, you can submit your resource via this form: [Google Forms](https://forms.gle/KbrwNRWWMJXiBpk96).
 
-For other inquiries, [open an issue on GitHub](https://github.com/manuel-imboden/CubeSat-Resources/issues).
+For other inquiries, [open an issue on GitHub](https://github.com/buildacubesat/CubeSat-Resources/issues).
 
 ---
 
@@ -21,4 +21,4 @@ For other inquiries, [open an issue on GitHub](https://github.com/manuel-imboden
 
 Thanks to everyone who's helped improve this collection!
 
-- Manuel Imboden, [buildacubesat.space]()
+- Manuel Imboden, <buildacubesat.space>
