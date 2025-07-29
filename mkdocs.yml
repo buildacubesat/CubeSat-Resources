@@ -1,0 +1,54 @@
+site_name: CubeSat Resources
+site_url: https://manuel-imboden.github.io/CubeSat-Resources/
+repo_url: https://github.com/manuel-imboden/CubeSat-Resources
+language: en
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/cube-outline
+  palette:
+    - scheme: default
+      primary: grey
+      accent: blue grey
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: grey
+      accent: blue grey
+      media: "(prefers-color-scheme: dark)"
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search
+  - awesome-pages
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      enable_creation_date: false
+      locale: en
+      type: timeago
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - def_list
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/manuel-imboden/CubeSat-Resources
+
+# Optional: custom nav if not using awesome-pages plugin structure
+# nav:
+#   - Home: index.md
+#   - Hardware: hardware.md
+#   - Software: software.md
+#   - Reference: reference.md
+
