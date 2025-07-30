@@ -18,19 +18,47 @@ This section is for those new to CubeSats or small satellite development. It giv
 
 CubeSat projects usually fall into one of two categories: either you have a specific goal to achieve in orbit (e.g. a business case), or you're part of an academic program where the learning process is just as important as the outcome. In either case, it’s important to think of all parts of a CubeSat mission holistically, as they are interdependent:
 
-- Mission Development and Design  
-- Flight Segment  
-- Ground Segment  
-- Regulatory Approval  
-- Integration and Testing  
-- Launch  
+### Project Phases
+
+- Feasibility Study
+- Fundraising
+- Mission Design and Development
+- Launch Provider Procurement
+- Flight Segment Design and Development
+- Ground Segment Design and Development
+- Mission Insurance Procurement (optional)
+- Regulatory Approval
+- Assembly, Integration and Testing
+- Launch
 - Operations
 
-A full CubeSat development project typically takes 1–2 years from initial planning to launch and operations. That includes everything from prototyping and documentation to regulatory approvals and environmental testing.
+### Milestones
 
-If your CubeSat mission is result-oriented, you probably have a payload that needs to reach orbit and send data back. In that case, it's advisable to source a bus with flight heritage—i.e. structure and subsystems that have been flight-proven—from an established vendor. Check out [SatSearch](https://satsearch.co/) and [CubeSat Shop](https://www.cubesatshop.com/) for help with sourcing.
+- [ ] Feasibility studies completed
+- [ ] Funding is secured
+- [ ] Preliminary Design Review (PDR) completed
+- [ ] Critical Design Review (CDR) completed
+- [ ] Flight/qualification hardware procured
+- [ ] Flight/qualification hardware tested
+- [ ] FlatSat testing completed
+- [ ] Functional tests performed at system level
+- [ ] Environmental tests performed at system level
+- [ ] Launch service provider selected and contract signed
+- [ ] Mission insurance policy secured (optional)
+- [ ] All regulatory approvals granted
+- [ ] Flight ready
+- [ ] Launch opportunity is secured
+- [ ] Launched
+- [ ] Commissioned
+- [ ] Entered Nominal Operations
+- [ ] Passivated
+- [ ] Deorbited
 
-If your mission is process-oriented, you’re more likely to build a large portion of the flight segment yourself. This is absolutely feasible, but the process tends to be more iterative and may involve more work in integration, qualification, and testing. It’s common to build a FlatSat or engineering model first—a functional layout of all your subsystems on a testbench—for easier debugging and early verification.
+A full CubeSat development project typically takes 1-2 years or more from initial planning to launch and operations. That includes everything from prototyping and documentation to regulatory approvals and environmental testing. Most likely, the process will not be linear, and different aspects of your system will be in different stages.
+
+If your CubeSat mission is result-oriented, you probably have a payload that needs to reach orbit and send data back. In that case, it's advisable to source a bus with flight heritage – i.e. structure and subsystems that have been flight-proven – from an established vendor. Check out [SatSearch](https://satsearch.co/) and [CubeSat Shop](https://www.cubesatshop.com/) for help with sourcing.
+
+If your mission is process-oriented, you’re more likely to build a large portion of the flight segment yourself. This is absolutely feasible, but the process tends to be more iterative and may involve more work in integration, qualification, and testing. It’s common to build a FlatSat or engineering model first – a functional layout of all your subsystems on a testbench – for easier debugging and early verification.
 
 ## Launch Provider Procurement
 
@@ -38,7 +66,7 @@ Starting the process of finding a rideshare opportunity early will help you alig
 
 A common path to orbit is via a [SpaceX rideshare mission](https://www.spacex.com/rideshare), often coordinated through a launch services provider like [Exolaunch](https://exolaunch.com/).
 
-Note: Once you’re booked on a mission, launch integration begins. You’ll need to meet all interface and safety requirements and typically deliver your flight hardware well in advance—anywhere from 1 to 6 months before liftoff. If your CubeSat isn’t ready, it simply won’t fly.
+Note: Once you’re booked on a mission, launch integration begins. You’ll need to meet all interface and safety requirements and typically deliver your flight hardware well in advance – anywhere from 1 to 6 months before liftoff. If your CubeSat isn’t ready, it simply won’t fly.
 
 ## Regulatory Approval
 
@@ -58,11 +86,11 @@ If you plan on performing Earth Observation (EO) with cameras or sensors, you ma
 
 ## Mission Operations
 
-Once your CubeSat is deployed into orbit, you’ll begin the commissioning phase: acquiring the signal, establishing contact, and checking that all subsystems are operational. After that, your mission enters its operational phase—collecting data, sending commands, and maintaining the satellite. Plan time and resources for this part too: missions can last anywhere from a few months to several years, depending on your orbital lifetime and system performance.
+Once your CubeSat is deployed into orbit, you’ll begin the commissioning phase: acquiring the signal, establishing contact, and checking that all subsystems are operational. After that, your mission enters its operational phase – collecting data, sending commands, and maintaining the satellite. Plan time and resources for this part too: missions can last anywhere from a few months to several years, depending on your orbital lifetime and system performance.
 
 ## Communities & Learning Resources
 
-- [CubeSat Resources](topics/) – Head over to the main content to start learning.
+- [CubeSat Resources](/topics/) – Head over to the main content to start learning.
 - [r/CubeSats](https://www.reddit.com/r/CubeSats/) – Active Reddit community.  
 - [SatNOGS](https://satnogs.org/) – Open-source satellite ground station network.  
 - [Build a CubeSat Discord](https://discord.gg/yeusgM75ys) – Community focused on open-source hardware and software in CubeSat development.
