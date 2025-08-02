@@ -76,7 +76,7 @@ Regulatory approval depends on your location, your launch provider's location, a
 
 The most common way to communicate with a CubeSat is via UHF in the 430–440 MHz band. Someone on your team must hold an amateur radio license (HAM) or a Commercial Operator License. This person is responsible for compliance with national and international regulations.
 
-At a minimum, you’ll need authorization from your national regulatory body (e.g. the [FCC](https://www.fcc.gov/document/guidance-obtaining-licenses-small-satellites) in the USA). If you're using amateur bands, you’ll also need coordination through the [International Amateur Radio Union (IARU)](https://www.iaru.org/on-the-air/satellites/). Generally, either the IARU or your national regulator will handle coordination with the [International Telecommunication Union (ITU)](https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx).
+At a minimum, you’ll need authorization from your national regulatory body (e.g. the [FCC](https://www.fcc.gov/document/guidance-obtaining-licenses-small-satellites) in the USA). If you're using amateur bands, you’ll also need coordination through the [International Amateur Radio Union (IARU)](https://www.iaru.org/on-the-air/satellites/). Generally, either the IARU or your national regulator will handle coordination with the [International Telecommunication Union (ITU)](https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx). If you use non-amateur bands, you may have to file with the ITU directly.
 
 If required approvals aren't in place by launch day, your CubeSat will not be allowed to deploy. Start the licensing process early.
 

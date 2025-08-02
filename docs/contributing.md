@@ -21,4 +21,4 @@ For other inquiries, [open an issue on GitHub](https://github.com/buildacubesat/
 
 Thanks to everyone who's helped improve this collection!
 
-- Manuel Imboden, <buildacubesat.space>
+- Manuel Imboden, https://buildacubesat.space
