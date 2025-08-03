@@ -1,4 +1,4 @@
-# Getting Started with CubeSat Development
+# Getting Started
 
 CubeSats are satellites in the nanosat class built around established design specifications (the CubeSat Design Specification, or CDS). The basic “1U” CubeSat is a 10×10×10 cm cube. These standardized form factors use common deployer hardware, which lowers the cost of development and launch, making access to space more attainable – even for small teams or individuals. It’s important to note that launch provider capabilities and requirements may deviate from the CDS and will ultimately determine the allowable volume and weight of the satellite.
 
@@ -8,11 +8,12 @@ This section is for those new to CubeSats or small satellite development. It giv
 
 - [NASA's CubeSat 101](https://www.nasa.gov/sites/default/files/atoms/files/cubesat_101_508.pdf) is a great beginner-friendly overview of CubeSat design and mission planning, and a highly recommended starting point.
 - The [CubeSat Design Specification (CDS)](https://www.cubesat.org/cubesatinfo), maintained by Cal Poly, provides the official framework for CubeSat form factors. Reading through it helps you understand the physical and operational constraints of a CubeSat mission.
+- Check the [Wikipedia](https://en.wikipedia.org/wiki/CubeSat) page for some history and context.
 - For a general intro to the New Space economy, [this course by EPFL on edX](https://www.edx.org/learn/economics/ecole-polytechnique-federale-de-lausanne-new-space-economy) is a good place to start.
 - [Nano Avionic's CubeSat 101](nanoavionics.com/blog/cubesat-101-the-comprehensive-guide-to-understanding-satellite-technology) provides a brief, high-level overview.
 - To keep up to date with the space economy and space research at large, subscribing to the [Orbital Index](https://orbitalindex.com/) is highly recommended.
-- Shameless plug: I am developing an open-source CubeSat and documenting the process on YouTube. You may find this relevant: [Build a CubeSat Channel](https://www.youtube.com/@buildacubesat).
 - If you're building a company and looking to hire people, [Space Crew](https://spacecrew.com/) is a good place to start.
+- Shameless plug: I am developing an open source CubeSat and documenting the process on YouTube. You may find this relevant: [Build a CubeSat Channel](https://www.youtube.com/@buildacubesat).
 
 ## Development Flow
 
@@ -33,7 +34,6 @@ CubeSat projects usually fall into one of two categories: either you have a spec
 - Operations
 
 ### Milestones
-
 - [ ] Feasibility studies completed
 - [ ] Funding is secured
 - [ ] Preliminary Design Review (PDR) completed
@@ -54,7 +54,8 @@ CubeSat projects usually fall into one of two categories: either you have a spec
 - [ ] Passivated
 - [ ] Deorbited
 
-A full CubeSat development project typically takes 1-2 years or more from initial planning to launch and operations. That includes everything from prototyping and documentation to regulatory approvals and environmental testing. Most likely, the process will not be linear, and different aspects of your system will be in different stages.
+!!! note
+    A full CubeSat development project typically takes 1-2 years or more from initial planning to launch and operations. That includes everything from prototyping and documentation to regulatory approvals and environmental testing. Most likely, **the process will not be linear**, and different aspects of your system will be in different stages.
 
 If your CubeSat mission is result-oriented, you probably have a payload that needs to reach orbit and send data back. In that case, it's advisable to source a bus with flight heritage – i.e. structure and subsystems that have been flight-proven – from an established vendor. Check out [SatSearch](https://satsearch.co/) and [CubeSat Shop](https://www.cubesatshop.com/) for help with sourcing.
 
@@ -71,6 +72,9 @@ Note: Once you’re booked on a mission, launch integration begins. You’ll nee
 ## Regulatory Approval
 
 Regulatory approval depends on your location, your launch provider's location, and what you intend to do in orbit.
+
+!!! warning
+    Nothing on this site is legal advice. You will need to familiarize yourself with your countries legislation, rules and best practices around launching and operating a CubeSat.
 
 ### Radio Frequency Usage
 

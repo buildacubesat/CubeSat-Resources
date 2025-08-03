@@ -13,7 +13,7 @@ To add a resource:
 
 Alternatively, if you don't want to use git, you can submit your resource via this form: [Google Forms](https://forms.gle/KbrwNRWWMJXiBpk96).
 
-For other inquiries, [open an issue on GitHub](https://github.com/buildacubesat/CubeSat-Resources/issues).
+For problems with the site, [open an issue on GitHub](https://github.com/buildacubesat/CubeSat-Resources/issues).
 
 ---
 
@@ -21,4 +21,4 @@ For other inquiries, [open an issue on GitHub](https://github.com/buildacubesat/
 
 Thanks to everyone who's helped improve this collection!
 
-- Manuel Imboden, https://buildacubesat.space
+- Manuel Imboden, <https://buildacubesat.space>

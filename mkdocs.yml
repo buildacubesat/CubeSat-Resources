@@ -1,23 +1,32 @@
 site_name: CubeSat Resources
 site_url: https://cubesat-resources.space
 repo_url: https://github.com/buildacubesat/CubeSat-Resources
+edit_uri: edit/main/docs/
+site_description: Curated resources for CubeSat development
+site_author: Manuel Imboden from Build a CubeSat (buildacubesat.space)
 language: en
 theme:
   name: material
   language: en
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.action.edit
+    - content.icons
+    - content.tasklist
   icon:
     logo: material/cube-outline
   palette:
     - scheme: default
       primary: grey
-      accent: blue grey
+      accent: blue-grey
       media: "(prefers-color-scheme: light)"
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
       primary: grey
-      accent: blue grey
+      accent: blue-grey
       media: "(prefers-color-scheme: dark)"
       toggle:
         icon: material/weather-sunny
@@ -25,7 +34,7 @@ theme:
 
 plugins:
   - search
-  - awesome-pages
+  - awesome-nav
   - git-revision-date-localized:
       fallback_to_build_date: true
       enable_creation_date: false
@@ -34,21 +43,18 @@ plugins:
 
 markdown_extensions:
   - admonition
-  - codehilite
   - footnotes
   - def_list
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
-
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: true
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/buildacubesat/CubeSat-Resources
-
-# Optional: custom nav if not using awesome-pages plugin structure
-# nav:
-#   - Home: index.md
-#   - Hardware: hardware.md
-#   - Software: software.md
-#   - Reference: reference.md
-
