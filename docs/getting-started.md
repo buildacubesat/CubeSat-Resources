@@ -57,9 +57,11 @@ CubeSat projects usually fall into one of two categories: either you have a spec
 !!! note
     A full CubeSat development project typically takes 1-2 years or more from initial planning to launch and operations. That includes everything from prototyping and documentation to regulatory approvals and environmental testing. Most likely, **the process will not be linear**, and different aspects of your system will be in different stages.
 
-If your CubeSat mission is result-oriented, you probably have a payload that needs to reach orbit and send data back. In that case, it's advisable to source a bus with flight heritage – i.e. structure and subsystems that have been flight-proven – from an established vendor. Check out [SatSearch](https://satsearch.co/) and [CubeSat Shop](https://www.cubesatshop.com/) for help with sourcing.
+If your CubeSat mission is result-oriented, you probably have a payload that needs to reach orbit and send data back. In that case, it's advisable to source a bus with flight heritage – i.e. structure and subsystems that have been flight-proven – from an established vendor. Check out [SatSearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) and [CubeSat Shop](https://www.cubesatshop.com/) for help with sourcing.
 
 If your mission is process-oriented, you’re more likely to build a large portion of the flight segment yourself. This is absolutely feasible, but the process tends to be more iterative and may involve more work in integration, qualification, and testing. It’s common to build a FlatSat or engineering model first – a functional layout of all your subsystems on a testbench – for easier debugging and early verification.
+
+Most academic missions take a hybrid approach: Source some of the parts (usually, the structure and EPS) and build others in-house.
 
 ## Launch Provider Procurement
 
