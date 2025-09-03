@@ -21,4 +21,5 @@ For problems with the site, [open an issue on GitHub](https://github.com/buildac
 
 Thanks to everyone who's helped improve this collection!
 
-- Manuel Imboden, <https://buildacubesat.space>
+- Brett Muir, <https://www.cubesource.space/>
+- Manuel Imboden, <https://buildacubesat.space/>
