@@ -28,4 +28,5 @@ This section highlights interesting CubeSat missions and open-source satellite p
 ## Publicly Documented
 - [ANTEL-SAT](https://iie.fing.edu.uy/investigacion/grupos/lai/)
 - [BINAR](https://www.youtube.com/@binarspacewa)
-- Do you know missions that should be included here? [Contribute!](../contributing.md)!
+- [Orbit NTNU](https://orbitntnu.com/) (multiple missions)
+- Do you know any missions that should be included here? [Contribute](../contributing.md)!
