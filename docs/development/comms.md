@@ -2,7 +2,7 @@
 
 The Communications section focuses on radio communication systems used in CubeSats, including transceivers, antennas, modulation schemes, and ground station interfaces. It covers both UHF/VHF amateur radio systems and higher-bandwidth S-band and X-band setups. Optical communication is not yet common in CubeSats, but emerging concepts will be added here as they develop.
 
-## Radio Frequency Communications (RF)
+## Radio Frequency Communications (RF) Overview
 
 CubeSats typically employ RF communication for uplink (commands) and downlink (beacon, telemetry and payload data), operating in both amateur and licensed frequency bands. TT&C is a commonly used abbreviation:
 
@@ -43,3 +43,19 @@ Require coordination through ITU and national regulatory agencies:
 
 - **Ka-band (26–40 GHz)**  
   - Rare in CubeSats due to pointing precision and power constraints
+
+## Software (mainly Linux)
+- [List of SDR Software and Hardware](https://github.com/Slayingripper/Linux-SDR)
+- [Gqrx SDR](https://www.gqrx.dk/)
+- [SDR++Brown](https://sdrpp-brown.san.systems/)
+- [SkyRoof](https://ve3nea.github.io/SkyRoof/index.html)
+- [Airpsy](https://airspy.com/download/)
+- [Gpredict](https://oz9aec.dk/gpredict/)
+- [OpenwebRX](https://www.openwebrx.de/)
+- [SDRangel](https://www.sdrangel.org/)
+- [CubicSDR](https://cubicsdr.com/)S
+- [GNU Radio](https://www.gnuradio.org/)
+- [DragonOS](https://cemaxecuter.com/)
+
+## Hardware
+- [UniClOGS](https://www.uniclogs.org/)
