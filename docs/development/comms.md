@@ -58,4 +58,5 @@ Require coordination through ITU and national regulatory agencies:
 - [DragonOS](https://cemaxecuter.com/)
 
 ## Hardware
-- [UniClOGS](https://www.uniclogs.org/)
+- [UniClOGS Ground Station](https://www.uniclogs.org/)
+- [Bits and pieces of RF insights](https://www.notblackmagic.com/)
