@@ -2,7 +2,7 @@
 
 Thanks for helping improve this collection of resources!
 
-_CubeSat Resources_ is hosted on GitHub: [https://github.com/buildacubesat/CubeSat-Resources]()
+_CubeSat Resources_ is hosted on GitHub: https://github.com/buildacubesat/CubeSat-Resources
 
 To add a resource:
 
