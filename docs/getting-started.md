@@ -6,7 +6,7 @@ This section is for those new to CubeSats or small satellite development. It giv
 
 ## Where to Start
 
-- [NASA's CubeSat 101](https://www.nasa.gov/sites/default/files/atoms/files/cubesat_101_508.pdf) is a great beginner-friendly overview of CubeSat design and mission planning, and a highly recommended starting point.
+- [NASA's CubeSat 101](https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf) is a great beginner-friendly overview of CubeSat design and mission planning, and a highly recommended starting point.
 - The [CubeSat Design Specification (CDS)](https://www.cubesat.org/cubesatinfo), maintained by Cal Poly, provides the official framework for CubeSat form factors. Reading through it helps you understand the physical and operational constraints of a CubeSat mission.
 - Check the [Wikipedia](https://en.wikipedia.org/wiki/CubeSat) page for some history and context.
 - For a general intro to the New Space economy, [this course by EPFL on edX](https://www.edx.org/learn/economics/ecole-polytechnique-federale-de-lausanne-new-space-economy) is a good place to start.
