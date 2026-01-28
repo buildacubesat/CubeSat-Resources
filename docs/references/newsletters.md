@@ -4,7 +4,6 @@ This section collects newsletters and mailing lists that provide regular updates
 
 ## Space Industry Newsletters
 
-- [The Orbital Index](https://orbitalindex.com/) – The best of the bunch. If you only subscribe to one space newsletter, make it the OI.
 - [Payload](https://payloadspace.com/) – Mainly focused on industry and business news.
 - [Moon Monday](https://jatan.space/tag/moon-monday/) – Curated Moon news, highly recommended.
 - [Rocket Report](https://arstechnica.com/newsletters/) – A classic. Focused on launches, with witty and pertinent commentary by Eric Berger.
