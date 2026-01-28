@@ -15,17 +15,17 @@ All content is [open-source](https://github.com/buildacubesat/CubeSat-Resources)
 ## What You'll Find Here
 
 - **[Getting Started](getting-started.md)** – Basic concepts, project phases and milestones, further reading, relevant communities.
-- **[Development](development/)** – Systems and subsystems (Power, avionics, communication, software, etc.), integration, qualification, launch, tools and helpers.
-- **[References and Resources](references/)** – Design guides, payload user guides, best practices, books, papers.
-- **[Updates](updates/)** – Monthly logs of changes and additions to the site. 
+- **[Development](development/index.md)** – Systems and subsystems (Power, avionics, communication, software, etc.), integration, qualification, launch, tools and helpers.
+- **[References and Resources](references/index.md)** – Design guides, payload user guides, best practices, books, papers.
+- **[Updates](updates/index.md)** – Monthly logs of changes and additions to the site. 
 
-## Stay up to date
+## Newsletter
 
-To receive a monthly update of newly added resources to your inbox, [subscribe to the newsletter :material-open-in-new: ](https://buttondown.com/buildacubesat#subscribe-form){ target=_blank } (strictly one email a month).
+To receive a monthly update of newly added resources to your inbox, [subscribe here :material-open-in-new:](https://buttondown.com/buildacubesat#subscribe-form){ target=_blank } (no more than one email per month).
 
 ## Get in touch
 
-Feel free to reach out, I'm happy to meet other CubeSat enthusiasts: [Contact Form :material-open-in-new:](https://forms.gle/1jKRdRGtgHfFyRMA6){ target=_blank }
+Feel free to reach out, I'm happy to meet other CubeSat enthusiasts: [Contact Form :material-open-in-new:](https://buildacubesat.space/pages/contact){ target=_blank }
 
 ---
 

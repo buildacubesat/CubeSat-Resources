@@ -10,7 +10,7 @@ This section is for those new to CubeSats or small satellite development. It giv
 - The [CubeSat Design Specification (CDS)](https://www.cubesat.org/cubesatinfo), maintained by Cal Poly, provides the official framework for CubeSat form factors. Reading through it helps you understand the physical and operational constraints of a CubeSat mission.
 - Check the [Wikipedia](https://en.wikipedia.org/wiki/CubeSat) page for some history and context.
 - For a general intro to the New Space economy, [this course by EPFL on edX](https://www.edx.org/learn/economics/ecole-polytechnique-federale-de-lausanne-new-space-economy) is a good place to start.
-- [Nano Avionic's CubeSat 101](nanoavionics.com/blog/cubesat-101-the-comprehensive-guide-to-understanding-satellite-technology) provides a brief, high-level overview.
+- [Nano Avionic's CubeSat 101](https://nanoavionics.com/blog/cubesat-101-the-comprehensive-guide-to-understanding-satellite-technology) provides a brief, high-level overview.
 - To keep up to date with the space economy and space research at large, subscribing to the [Orbital Index](https://orbitalindex.com/) is highly recommended.
 - If you're building a company and looking to hire people, [Space Crew](https://spacecrew.com/) is a good place to start.
 - Shameless plug: I am developing an open source CubeSat and documenting the process on YouTube. You may find this relevant: [Build a CubeSat Channel](https://www.youtube.com/@buildacubesat).
@@ -96,7 +96,7 @@ Once your CubeSat is deployed into orbit, you’ll begin the commissioning phase
 
 ## Communities & Learning Resources
 
-- [CubeSat Resources](/topics/) – Head over to the main content to start learning.
+- [CubeSat Resources](development/index.md) – Head over to the main content to start learning.
 - [r/CubeSats](https://www.reddit.com/r/CubeSats/) – Active Reddit community.  
 - [SatNOGS](https://satnogs.org/) – Open-source satellite ground station network.  
 - [Build a CubeSat Discord](https://discord.gg/yeusgM75ys) – Community focused on open-source hardware and software in CubeSat development.

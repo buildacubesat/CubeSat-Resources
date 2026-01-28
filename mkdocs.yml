@@ -4,11 +4,10 @@ repo_url: https://github.com/buildacubesat/CubeSat-Resources
 edit_uri: edit/main/docs/
 site_description: Curated resources for CubeSat development
 site_author: Manuel Imboden (buildacubesat.space)
-language: en
 
 theme:
   name: material
-  language: en
+  locale: en
   features:
     - navigation.tabs
     - navigation.top
