@@ -3,8 +3,9 @@ site_url: https://cubesat-resources.space
 repo_url: https://github.com/buildacubesat/CubeSat-Resources
 edit_uri: edit/main/docs/
 site_description: Curated resources for CubeSat development
-site_author: Manuel Imboden from Build a CubeSat (buildacubesat.space)
+site_author: Manuel Imboden (buildacubesat.space)
 language: en
+
 theme:
   name: material
   language: en
@@ -54,6 +55,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
       clickable_checkbox: true
+
 extra:
   social:
     - icon: fontawesome/brands/github
