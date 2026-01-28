@@ -1,14 +1,6 @@
 # Qualification and Launch
 
-This section covers the final steps before flight: environmental testing, documentation, regulatory approvals, and launch procurement. Topics include vibration and thermal testing, interface requirements for deployers, licensing (frequency and export control), and how to secure a launch slot through brokers or rideshare programs.
-
-## Environmental Testing
-
-To be added here:
-
-- Vibration, thermal, and vacuum testing
-- Common standards (e.g. NASA GEVS, ECSS)
-- Access to testing facilities vs. DIY methods
+This section covers the final steps before flight: documentation, regulatory approvals, and launch procurement. Topics include interface requirements for deployers, licensing (frequency and export control), and how to secure a launch slot through brokers or rideshare programs.
 
 ## Documentation & Interfaces
 
@@ -50,3 +42,6 @@ To be added here:
 - Mechanical fit checks and fastener compliance
 - Final inspection and handover process
 
+---
+
+👉 **Please consider [contributing](../contributing.md)!**

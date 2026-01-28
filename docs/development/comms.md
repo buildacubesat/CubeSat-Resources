@@ -18,7 +18,7 @@ CubeSat beacons are most commonly found in the **UHF amateur band (~437 MHz)**
 
 TT&C is typically implemented on a robust, low-data-rate RF link—often in UHF or VHF—to ensure reliability even under degraded conditions. It operates independently from high-bandwidth payload downlinks and remains active throughout the mission lifecycle, often independently of high-bandwidth payload links.
 
-**Amateur Bands**  
+### Amateur Bands  
 Used primarily by university and research missions under IARU coordination:
 
 - **UHF**  
@@ -32,7 +32,7 @@ Used primarily by university and research missions under IARU coordination:
 - **L-band**  
   - Occasionally used (e.g. 1.2–1.3 GHz); less common in CubeSats
 
-**Licensed Scientific and Commercial Bands**  
+### Licensed Scientific and Commercial Bands**  
 Require coordination through ITU and national regulatory agencies:
 
 - **S-band (2–4 GHz)**  
@@ -44,19 +44,65 @@ Require coordination through ITU and national regulatory agencies:
 - **Ka-band (26–40 GHz)**  
   - Rare in CubeSats due to pointing precision and power constraints
 
-## Software (mainly Linux)
-- [List of SDR Software and Hardware](https://github.com/Slayingripper/Linux-SDR)
-- [Gqrx SDR](https://www.gqrx.dk/)
-- [SDR++Brown](https://sdrpp-brown.san.systems/)
-- [SkyRoof](https://ve3nea.github.io/SkyRoof/index.html)
-- [Airpsy](https://airspy.com/download/)
-- [Gpredict](https://oz9aec.dk/gpredict/)
-- [OpenwebRX](https://www.openwebrx.de/)
-- [SDRangel](https://www.sdrangel.org/)
-- [CubicSDR](https://cubicsdr.com/)S
-- [GNU Radio](https://www.gnuradio.org/)
-- [DragonOS](https://cemaxecuter.com/)
+## Expected Data Rates
 
-## Hardware
-- [UniClOGS Ground Station](https://www.uniclogs.org/)
-- [Bits and pieces of RF insights](https://www.notblackmagic.com/)
+Achievable data rates for CubeSat communications vary widely depending on frequency band, modulation scheme, available power, antenna gain, ground station capability, and regulatory constraints. As a rough order of magnitude:
+
+- **VHF / UHF**  
+  Typically used for TT&C and beacons.  
+  Data rates commonly range from **300 bps to ~19.2 kbps**, with higher rates possible under ideal conditions and advanced modulation/coding. Reliability and link margin are usually prioritised over throughput.
+
+- **S-band**  
+  Commonly used for higher-rate telemetry and payload data.  
+  Typical CubeSat downlink rates range from **100 kbps to a few Mbps**, depending on antenna design, pointing accuracy, and ground infrastructure.
+
+- **X-band**  
+  Used for data-intensive payloads (e.g. imaging).  
+  Data rates of **tens to hundreds of Mbps** are possible, but require precise attitude control, high-gain antennas, significant power, and professional ground stations.
+
+Actual usable throughput is often much lower than the raw physical layer rate once packetisation, forward error correction, duty cycles, and pass duration are taken into account.
+
+## Link Budget
+
+A **link budget** is an accounting of all gains and losses between a transmitter and receiver, used to estimate whether a communication link will close with sufficient margin. It is one of the most important design tools for CubeSat communications.
+
+A basic link budget typically includes:
+
+- Transmit power
+- Transmit antenna gain
+- Free-space path loss (distance and frequency dependent)
+- Atmospheric and polarization losses
+- Receive antenna gain
+- Receiver noise figure and bandwidth
+- Required signal-to-noise ratio for the chosen modulation and coding
+
+The result is a **link margin**, usually expressed in dB, indicating how much headroom exists above the minimum required signal level. Positive margin means the link should work under nominal conditions; additional margin is often added to account for pointing errors, degradation, and real-world inefficiencies.
+
+Link budgets are usually calculated for worst-case scenarios (e.g. maximum slant range at low elevation angles) and iterated alongside antenna, power, and ADCS design.
+
+## Ground Segment (Hardware and Software)
+
+See also: [Ground Segment](ground-segment.md).
+
+## Optical Communications
+
+Optical (laser-based) communications are an emerging technology for CubeSats and small spacecraft. Instead of RF, data is transmitted using tightly focused laser beams, enabling extremely high data rates with minimal spectrum congestion.
+
+Potential advantages include:
+
+- Very high data rates relative to size and power
+- Narrow beamwidths, reducing interference and interception
+- No RF spectrum licensing requirements
+
+However, optical comms also introduce significant challenges:
+
+- Extremely tight pointing and stability requirements
+- Sensitivity to cloud cover and atmospheric conditions
+- Complex acquisition, tracking, and pointing systems
+- Limited availability of compatible ground stations
+
+While still uncommon in CubeSat missions, optical communications are an active area of research and demonstration, and are expected to become more relevant as ADCS performance, onboard processing, and ground infrastructure improve.
+
+---
+
+👉 **Please consider [contributing](../contributing.md)!**
