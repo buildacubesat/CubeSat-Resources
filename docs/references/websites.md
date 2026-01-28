@@ -26,3 +26,6 @@ This section lists useful and authoritative websites related to CubeSats, small 
 - [Heavens Above](https://www.heavens-above.com/)
 - [Supercluster](https://www.supercluster.com/app)
 - [Stellarium](https://stellarium.org/)
+
+## Other
+- [Awesome Space](https://github.com/orbitalindex/awesome-space): A list of awesome space-related packages and resources maintained by The Orbital Index
