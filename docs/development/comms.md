@@ -32,7 +32,7 @@ Used primarily by university and research missions under IARU coordination:
 - **L-band**  
   - Occasionally used (e.g. 1.2–1.3 GHz); less common in CubeSats
 
-### Licensed Scientific and Commercial Bands**  
+### Licensed Scientific and Commercial Bands  
 Require coordination through ITU and national regulatory agencies:
 
 - **S-band (2–4 GHz)**  
@@ -83,6 +83,37 @@ Link budgets are usually calculated for worst-case scenarios (e.g. maximum slant
 ## Ground Segment (Hardware and Software)
 
 See also: [Ground Segment](ground-segment.md).
+
+## Communication via Satellite Constellations
+
+In addition to direct-to-ground RF links, some CubeSat missions use existing satellite constellations as a relay for telemetry and command. In this model, the CubeSat communicates with a commercial constellation satellite, which then forwards data to ground infrastructure operated by the provider.
+
+### Low-Data-Rate Relay Constellations
+
+Low-Earth-Orbit relay constellations such as **Iridium** are already used by some CubeSats for housekeeping telemetry, basic commanding, and mission monitoring. These systems are typically accessed via compact modem modules (e.g. Iridium-based RockBLOCK-style devices) originally developed for terrestrial or maritime applications.
+
+Characteristics include:
+
+- Near-global coverage and frequent contact opportunities
+- Very low data rates (typically bytes to a few kilobytes per message)
+- Simple antennas and relaxed pointing requirements
+- Commercial service contracts and per-message or per-byte costs
+
+Such links are generally not suitable for high-rate payload data, but can be attractive as a secondary or backup communications channel, or for missions prioritising availability over throughput.
+
+### Direct-to-Device and Broadband Constellations (Emerging)
+
+Large commercial constellations designed for broadband or direct-to-cell (DTC) services—such as those operated by Starlink or AST—are beginning to explore space-to-space and space-to-ground connectivity beyond traditional RF ground station models.
+
+Potential future implications for CubeSats include:
+
+- Continuous or near-continuous connectivity
+- Reduced dependence on custom ground stations
+- Higher data rates than traditional relay systems
+
+However, these options are currently limited by regulatory constraints, service availability, hardware compatibility, power requirements, and commercial access models. At present, they should be considered experimental or forward-looking rather than operational baselines for CubeSat missions.
+
+As these systems mature, constellation-based communications may become an increasingly relevant design option, particularly for missions that value connectivity and operational simplicity over full control of the RF link.
 
 ## Optical Communications
 
