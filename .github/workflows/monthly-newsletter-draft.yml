@@ -1,0 +1,29 @@
+name: Draft Buttondown newsletter
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "docs/updates/[0-9][0-9][0-9][0-9]-[0-9][0-9].md"
+
+permissions:
+  contents: read
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Create Buttondown draft
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: python .github/scripts/draft_buttondown_from_changelog.py
