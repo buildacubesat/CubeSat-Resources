@@ -1,0 +1,38 @@
+name: Monthly changelog
+
+on:
+  schedule:
+    # Run on the 1st of each month (UTC)
+    - cron: "7 3 1 * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  build-changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # required for git history
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Generate changelog page
+        run: python .github/scripts/generate_monthly_changelog.py
+
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: automation/monthly-changelog
+          delete-branch: true
+          title: "Add monthly changelog"
+          commit-message: "Add monthly changelog page"
+          body: "Automated monthly changelog page."
+          labels: automated
