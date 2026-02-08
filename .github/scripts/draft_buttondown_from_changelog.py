@@ -23,17 +23,11 @@ def sh(args: list[str]) -> str:
     return subprocess.check_output(args, text=True).strip()
 
 
-def latest_changed_update_file() -> Path:
-    files = sh(["git", "show", "--name-only", "--pretty=format:"]).splitlines()
-    candidates = []
-    for f in files:
-        f = f.strip()
-        if re.fullmatch(r"docs/updates/\d{4}-\d{2}\.md", f):
-            candidates.append(Path(f))
+def latest_update_file_in_repo() -> Path:
+    candidates = sorted(UPDATES_DIR.glob("[0-9][0-9][0-9][0-9]-[0-9][0-9].md"))
     if not candidates:
-        raise RuntimeError("No docs/updates/YYYY-MM.md file found in this push.")
-    return candidates[0]
-
+        raise RuntimeError("No docs/updates/YYYY-MM.md files found in docs/updates.")
+    return candidates[-1]
 
 def strip_subscribe_footer(md: str) -> str:
     return re.sub(SUBSCRIBE_BLOCK_RE, "\n", md).rstrip() + "\n"
@@ -96,7 +90,7 @@ def post_buttondown_draft(subject: str, body_markdown: str) -> None:
 
 
 def main() -> None:
-    update_file = latest_changed_update_file()
+    update_file = latest_update_file_in_repo()
     raw = update_file.read_text(encoding="utf-8")
 
     if is_no_changes_month(raw):
