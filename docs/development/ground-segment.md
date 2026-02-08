@@ -89,21 +89,111 @@ To be added here:
 ## Resources
 
 ### Hardware
-- [UniClOGS Ground Station](https://www.uniclogs.org/)
-- [Bits and pieces of RF insights](https://www.notblackmagic.com/)
 
-### Software (mainly Linux)
-- [List of SDR Software and Hardware](https://github.com/Slayingripper/Linux-SDR)
-- [Gqrx SDR](https://www.gqrx.dk/)
-- [SDR++Brown](https://sdrpp-brown.san.systems/)
-- [SkyRoof](https://ve3nea.github.io/SkyRoof/index.html)
-- [Airpsy](https://airspy.com/download/)
-- [Gpredict](https://oz9aec.dk/gpredict/)
-- [OpenwebRX](https://www.openwebrx.de/)
-- [SDRangel](https://www.sdrangel.org/)
-- [CubicSDR](https://cubicsdr.com/)
-- [GNU Radio](https://www.gnuradio.org/)
-- [DragonOS](https://cemaxecuter.com/)
+- **[UniClOGS Ground Station](https://www.uniclogs.org/)**  
+  Modular, open-source CubeSat ground-station hardware covering RF, tracking, and control.
+
+- **[Bits and pieces of RF insights](https://www.notblackmagic.com/)**  
+  Practical RF engineering notes and hardware experiments focused on real-world SDR use.
+
+- **[SatNOGS Ground Station Hardware](https://wiki.satnogs.org/Ground_Station_Hardware)**  
+  Open-source reference designs for rotators, RF front-ends, and full ground-station builds.
+
+- **SDR receivers (Airspy, LimeSDR, HackRF, RTL-SDR, Adalm-Pluto, NI)**  
+  Commonly used SDR hardware on Linux, ranging from low-cost monitoring to full-duplex RF work.
+
+- **Az/El antenna rotators (Yaesu, AlfaSpid, Prosistel)**  
+  Widely supported commercial rotators with good Hamlib compatibility.
+
+- **DIY rotators (stepper/servo + encoders)**  
+  Popular for CubeSat stations, especially when integrated with Hamlib or SatNOGS controllers.
+
+- **Low-noise amplifiers (LNA)**  
+  Mast-mounted LNAs are critical for UHF/VHF CubeSat downlinks with modest antennas.
+
+- **Band-pass & SAW filters**  
+  Reduce out-of-band interference, especially important in urban RF environments.
+
+- **Timing sources (GPSDO, GNSS receivers)**  
+  Provide accurate frequency and time references for Doppler correction and coherent reception.
+
+- **Single-board computers (Raspberry Pi, x86 mini PCs)**  
+  Common platforms for running headless Linux ground stations and remote SDR stacks.
+
+
+### SDR & RF Software
+
+- **[List of SDR Software and Hardware](https://github.com/Slayingripper/Linux-SDR)**  
+  A broad, community-maintained index of SDR tools and supported hardware on Linux.
+
+- **[Gqrx SDR](https://www.gqrx.dk/)**  
+  Lightweight Qt SDR receiver, great for quick signal inspection and debugging.
+
+- **[SDR++Brown](https://sdrpp-brown.san.systems/)**  
+  Modern, modular SDR++ fork with good performance and active development.
+
+- **[SDRangel](https://www.sdrangel.org/)**  
+  Advanced multi-channel SDR suite with plugins for satellites, decoding, and control.
+
+- **[CubicSDR](https://cubicsdr.com/)**  
+  User-friendly SDR application well suited for learning and casual monitoring.
+
+- **[GNU Radio](https://www.gnuradio.org/)**  
+  The de-facto signal-processing framework for building custom CubeSat ground-station pipelines.
+
+
+### Satellite Tracking & Visualization
+
+- **[Gpredict](https://oz9aec.dk/gpredict/)**  
+  Mature satellite tracking software with Doppler correction and Hamlib rotator support.
+
+- **[Look4Sat](https://github.com/rt-bishop/Look4Sat)**  
+  Modern Linux satellite tracker with a clean UI and native Hamlib integration.
+
+- **[SkyRoof](https://ve3nea.github.io/SkyRoof/index.html)**  
+  High-end Windows-centric tracker, sometimes used via Wine for advanced features.
+
+
+### Rotator Control (Linux)
+
+- **Hamlib (rotctl / rotctld)**  
+  Standard Linux backend for antenna rotator control, offering CLI tools and a network daemon.
+
+- **grotor**  
+  Simple GTK GUI frontend for Hamlib, useful for manual az/el control.
+
+- **gr-rotator (GNU Radio block)**  
+  GNU Radio block enabling programmatic rotator control directly from signal-processing flows.
+
+- **rotctld web frontends**  
+  Small browser-based UIs that expose Hamlib rotator control for headless or remote stations.
+
+
+### Web-Based & Remote SDR
+
+- **[OpenWebRX](https://www.openwebrx.de/)**  
+  Web-based SDR receiver ideal for remote access and shared ground-station setups.
+
+- **[Airspy](https://airspy.com/download/)**  
+  Vendor-provided SDR software and tools with solid Linux support for Airspy hardware.
+
+
+### Integrated / Turnkey Systems
+
+- **[SatNOGS Client](https://satnogs.org/)**  
+  Fully open-source Linux ground-station stack combining tracking, SDR, and rotator control.
+
+- **[DragonOS](https://cemaxecuter.com/)**  
+  Ubuntu-based SDR Linux distribution bundling GNU Radio, drivers, and satellite tools.
+
+
+### Typical CubeSat Ground-Station Stack (Linux)
+
+- **Tracking:** Gpredict or Look4Sat  
+- **Rotator:** Hamlib (rotctld)  
+- **RF:** GNU Radio + SDRangel / SDR++  
+- **Remote ops:** OpenWebRX or SatNOGS
+
 
 ---
 
