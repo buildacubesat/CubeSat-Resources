@@ -35,6 +35,9 @@ Mission instruments and experimental hardware for sensing, data collection, and 
 [**Structure**](structure.md)  
 Frames, fasteners, deployables, and mechanical design for structural integrity and deployer compatibility.
 
+[**Systems Engineering**](systems-engineering.md)
+Mission-level design, requirements, interfaces, budgets, and tradeoffs across the entire CubeSat lifecycle.
+
 [**Thermal Management**](thermal.md)  
 Passive and active strategies for keeping components within safe operating temperatures.
 
