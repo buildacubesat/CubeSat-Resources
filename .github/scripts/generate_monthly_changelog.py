@@ -133,6 +133,9 @@ def main() -> None:
     now_utc = datetime.now(timezone.utc)
     start, end, yyyymm, title = month_range_utc(now_utc)
 
+    print(f"[changelog] Generating changelog for {yyyymm} ({title})")
+    print(f"[changelog] Date range: {start.isoformat()} → {end.isoformat()}")
+
     site_url = read_site_url()
 
     # repo_url is present in mkdocs.yml; grab it similarly
@@ -149,6 +152,7 @@ def main() -> None:
     target_relpath = str(target_file.as_posix())
 
     commits = list_commits(start, end)
+    print(f"[changelog] Found {len(commits)} commits in range")
 
     entries: list[CommitEntry] = []
     for sha, subject in commits:
@@ -167,6 +171,9 @@ def main() -> None:
     fixes: list[CommitEntry] = [e for e in entries if RE_FIX.match(e.subject)]
     changes: list[CommitEntry] = [e for e in entries if not RE_FIX.match(e.subject)]
 
+    print(f"[changelog] Entries after filtering: {len(entries)}")
+    print(f"[changelog] Changes: {len(changes)}, Fixes: {len(fixes)}")
+
     UPDATES_DIR.mkdir(parents=True, exist_ok=True)
 
     if not entries:
@@ -177,6 +184,8 @@ def main() -> None:
             "---\n\n"
             f"{SUBSCRIBE_LINE}"
         )
+        
+        print("[changelog] No entries → writing 'No changes' page")
         target_file.write_text(content, encoding="utf-8")
         return
 
@@ -197,6 +206,7 @@ def main() -> None:
     parts.append("---\n\n")
     parts.append(SUBSCRIBE_LINE)
 
+    print(f"[changelog] Writing file: {target_file}")
     target_file.write_text("".join(parts), encoding="utf-8")
 
 

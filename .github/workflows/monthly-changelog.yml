@@ -1,5 +1,4 @@
 name: Monthly changelog
-
 on:
   schedule:
     # Run on the 1st of each month (UTC)
