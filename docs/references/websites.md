@@ -3,7 +3,7 @@
 This section lists useful and authoritative websites related to CubeSats, small satellite engineering, and the broader space community. It includes project hubs, documentation sites, institutional portals, databases, and curated directories worth bookmarking.
 
 ## Resource Collections
-- [CubeSource](https://learn.cubesource.space/): A curated knowledge base about CubeSat development
+- [CubeSource](https://learn.cubesource.space/): A curated knowledge base about CubeSat development and online store for CubeSat hardware
 - [Awesome Space](https://github.com/orbitalindex/awesome-space): A list of awesome space-related packages and resources maintained by The Orbital Index
 
 ## CubeSat Development
