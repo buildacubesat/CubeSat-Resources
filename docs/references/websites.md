@@ -2,8 +2,11 @@
 
 This section lists useful and authoritative websites related to CubeSats, small satellite engineering, and the broader space community. It includes project hubs, documentation sites, institutional portals, databases, and curated directories worth bookmarking.
 
-## CubeSat Development
+## Resource Collections
+- [CubeSource](https://learn.cubesource.space/): 
+- [Awesome Space](https://github.com/orbitalindex/awesome-space): A list of awesome space-related packages and resources maintained by The Orbital Index
 
+## CubeSat Development
 - [NASA's Small Spacecraft Systems Virtual Institute (S3VI)](https://s3vi.ndc.nasa.gov/)
 - [CubeSat at Cal Poly SLO](https://www.cubesat.org/)
 - [NASA Goddard Outgassing Database](https://etd.gsfc.nasa.gov/capabilities/outgassing-database/)
@@ -26,6 +29,3 @@ This section lists useful and authoritative websites related to CubeSats, small 
 - [Heavens Above](https://www.heavens-above.com/)
 - [Supercluster](https://www.supercluster.com/app)
 - [Stellarium](https://stellarium.org/)
-
-## Other
-- [Awesome Space](https://github.com/orbitalindex/awesome-space): A list of awesome space-related packages and resources maintained by The Orbital Index
