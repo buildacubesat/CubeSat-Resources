@@ -10,6 +10,9 @@ from pathlib import Path
 
 BUTTONDOWN_ENDPOINT = "https://api.buttondown.email/v1/emails"
 
+DOCS_DIR = Path("docs")
+UPDATES_DIR = DOCS_DIR / "updates"
+
 # Matches the footer block:
 # ---
 #
