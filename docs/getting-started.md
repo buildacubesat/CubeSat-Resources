@@ -13,7 +13,8 @@ This section is for those new to CubeSats or small satellite development. It giv
 - [Nano Avionic's CubeSat 101](https://nanoavionics.com/blog/cubesat-101-the-comprehensive-guide-to-understanding-satellite-technology) provides a brief, high-level overview.
 - To keep up to date with the space economy and space research at large, subscribing to the [Orbital Index](https://orbitalindex.com/) is highly recommended.
 - If you're building a company and looking to hire people, [Space Crew](https://spacecrew.com/) is a good place to start.
-- Shameless plug: I am developing an open source CubeSat and documenting the process on YouTube. You may find this relevant: [Build a CubeSat Channel](https://www.youtube.com/@buildacubesat).
+- Shameless plug: I am developing an open source CubeSat and documenting the process on YouTube. You may find this relevant: [Build a CubeSat channel](https://www.youtube.com/@buildacubesat) and [website](https://buildacubesat.space/).
+- The case for Open Source in CubeSat development: [Summary of interview](https://visionspace.com/how-to-build-a-cubesat-and-use-open-source-101/) with Artur Scholz
 
 ## Development Flow
 

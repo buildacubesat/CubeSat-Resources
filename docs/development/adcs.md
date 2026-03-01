@@ -42,8 +42,7 @@ To be added here:
 - Use in attitude determination and control
 
 #### Parts
-- [RM3100-CB](https://www.pnisensor.com/rm3100-cb/)
-- [Using the RM3100-CB](https://hackaday.io/project/202392-playing-with-ultra-sensitive-magnetometer-rm3100/details)
+- [RM3100-CB](https://www.pnisensor.com/rm3100-cb/) ([Using the RM3100-CB](https://hackaday.io/project/202392-playing-with-ultra-sensitive-magnetometer-rm3100/details))
 
 ## Actuators
 
