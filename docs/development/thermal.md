@@ -42,6 +42,8 @@ To be added here:
 
 ## Thermal Modelling and Simulation
 
+- [Single node thermal analysis python script](https://github.com/MelbourneSpaceProgram/single-node-thermal-analysis/tree/master)
+
 To be added here:
 
 - Lumped-parameter vs. detailed models
