@@ -36,3 +36,7 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [EIRSAT](https://arxiv.org/abs/2008.09074) ([ladning page](https://www.eirsat1.ie/))
 - [Orbit NTNU](https://orbitntnu.com/) (multiple missions)
 - Do you know any missions that should be included here? [Contribute](../contributing.md)!
+
+## SatNOGS Dashboard
+Collection of current and past Graphana mission dashboards: [SatNOGS Dashboards](https://dashboard.satnogs.org/)
+Some are very helpful for getting a sense of real-world mission data, like the temperature graphs in [AAUSAT4](https://dashboard.satnogs.org/d/QGujdBBZk/aausat4?orgId=1&from=now-10y&to=now&timezone=browser) 
