@@ -2,8 +2,10 @@
 
 Attitude Determination and Control Systems (ADCS) manage a CubeSat's orientation in space — whether it needs to point an antenna, aim a camera, or passively stabilize. This section covers passive methods (like gravity gradient booms and magnetic hysteresis), active control components (magnetorquers, reaction wheels), and sensors for determining orientation (sun sensors, magnetometers, star trackers, and gyros).
 
-## Magnetometers
+## Overview
 
+- [NASA Small Spacecraft GNC](https://www.nasa.gov/smallsat-institute/sst-soa/guidance-navigation-and-control/)
+- [NASA State of the Art Small Spacecraft Technology](https://www.nasa.gov/wp-content/uploads/2021/10/5.soa_gnc_2021.pdf)
 
 ## Attitude Regimes and Requirements
 
@@ -25,6 +27,8 @@ To be added here:
 
 ## Attitude Sensors
 
+- [UW Husky Satellite Lab Open-source Star Tracker (LOST)](https://github.com/UWCubeSat/lost)
+
 To be added here:
 
 - Magnetometers
@@ -42,7 +46,10 @@ To be added here:
 - Use in attitude determination and control
 
 #### Parts
-- [RM3100-CB](https://www.pnisensor.com/rm3100-cb/) ([Using the RM3100-CB](https://hackaday.io/project/202392-playing-with-ultra-sensitive-magnetometer-rm3100/details))
+- [RM3100-CB](https://www.pnisensor.com/rm3100-cb/)
+    - [Using the RM3100-CB](https://hackaday.io/project/202392-playing-with-ultra-sensitive-magnetometer-rm3100/details)
+    - [Investigation of a low-cost magneto-inductive magnetometer for space science application](https://gi.copernicus.org/articles/7/129/2018/gi-7-129-2018.html)
+    - [Single-event effect testing of the PNI RM3100 magnetometer for space applications](https://gi.copernicus.org/articles/11/219/2022/)
 
 ## Actuators
 
@@ -81,6 +88,8 @@ To be added here:
 - Interaction with payload and comms
 
 ## Testing and Validation
+
+- [UC CubeCats Helmholtz Cage](https://uccubecats.github.io/HelmholtzCage.html)
 
 To be added here:
 
