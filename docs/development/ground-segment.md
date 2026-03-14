@@ -96,17 +96,22 @@ To be added here:
 - **[Bits and pieces of RF insights](https://www.notblackmagic.com/)**  
   Practical RF engineering notes and hardware experiments focused on real-world SDR use.
 
-- **[SatNOGS Ground Station Hardware](https://wiki.satnogs.org/Ground_Station_Hardware)**  
+- **[SatNOGS Ground Station Hardware](https://wiki.satnogs.org/Build)**  
   Open-source reference designs for rotators, RF front-ends, and full ground-station builds.
 
 - **SDR receivers (Airspy, LimeSDR, HackRF, RTL-SDR, Adalm-Pluto, NI)**  
   Commonly used SDR hardware on Linux, ranging from low-cost monitoring to full-duplex RF work.
 
-- **Az/El antenna rotators (Yaesu, AlfaSpid, Prosistel)**  
+- **Commercial Az/El antenna rotators**  
   Widely supported commercial rotators with good Hamlib compatibility.
+  - [Discovery Drive](https://www.crowdsupply.com/krakenrf/discovery-drive)
+  - [Yaesu G-5500DC](https://www.yaesu.com/product-detail.aspx?Model=G-5500DC)
 
-- **DIY rotators (stepper/servo + encoders)**  
+- **DIY Az/El antenna rotators**  
   Popular for CubeSat stations, especially when integrated with Hamlib or SatNOGS controllers.
+  - [SatNOGS rotator](https://wiki.satnogs.org/SatNOGS_Rotator_v3)
+  - [AntRunner](https://github.com/wuxx/AntRunner)
+  - [SARCNET Satellite-Antenna Rotator Mk2a](https://www.sarcnet.org/mini-satellite-antenna-rotator-mk2.html)
 
 - **Low-noise amplifiers (LNA)**  
   Mast-mounted LNAs are critical for UHF/VHF CubeSat downlinks with modest antennas.
@@ -140,6 +145,9 @@ To be added here:
 
 - **[GNU Radio](https://www.gnuradio.org/)**  
   The de-facto signal-processing framework for building custom CubeSat ground-station pipelines.
+
+- **[SatDump](https://www.satdump.org/)**
+  Generic satellite data processing software.
 
 
 ### Satellite Tracking & Visualization
@@ -193,6 +201,7 @@ To be added here:
 - **Rotator:** Hamlib (rotctld)  
 - **RF:** GNU Radio + SDRangel / SDR++  
 - **Remote ops:** OpenWebRX or SatNOGS
+- **Decoding:** SatDump
 
 
 ---
