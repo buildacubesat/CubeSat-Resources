@@ -2,7 +2,7 @@
 
 Welcome to _CubeSat Resources_ – a curated collection of links and resources for anyone interested in building CubeSats, from first-time makers to experienced developers.
 
-This site collects useful material from across the web: documentation, videos, open hardware projects, papers, and tutorials. It’s meant to help you find reliable information and inspiration, not to serve as a step-by-step course.
+This site is a side project that arose form the *Build a CubeSat* project ([website](https://buildacubesat.space/), [YouTube](https://youtube.com/@buildacubesat), [Codeberg](https://codeberg.org/buildacubesat-project)). It's a a community-driven collection od useful material from across the web: documentation, videos, open hardware projects, papers, and tutorials. It’s meant to help you find reliable information and inspiration, not to serve as a step-by-step course.
 
 All content is [open-source](https://github.com/buildacubesat/CubeSat-Resources) and community-curated, released into the public domain under [CC0 1.0](https://creativecommons.org/public-domain/cc0/).
 
