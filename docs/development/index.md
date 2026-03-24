@@ -2,8 +2,8 @@
 
 This section covers the technical aspects of CubeSat development, including subsystem design, integration, testing, and operations. Use the menu to explore specific topics like power, avionics, communications, and ground support.
 
-[**Attitude Determination and Control Systems (ADCS)**](adcs.md)  
-Orientation sensing and control using magnetorquers, reaction wheels, star trackers, and inertial sensors.
+[**Guidance, Navigation, and Control (GNC)**](gnc.md)  
+State estimation and control of spacecraft, covering ADCS and navigation (GNSS, orbits).
 
 [**Assembly, Integration and Testing (AIT)**](ait.md)  
 Mechanical assembly, electrical integration, simulation, functional testing, and environmental qualification.
