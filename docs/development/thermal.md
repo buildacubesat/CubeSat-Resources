@@ -4,6 +4,8 @@ Thermal management is a critical aspect of CubeSat design. This section looks at
 
 ## Thermal Environment in Orbit
 
+- [Intro to thermal balance for spacecraft by Scott Manley](https://www.youtube.com/watch?v=FlQYU3m1e80)
+
 To be added here:
 
 - Solar radiation, albedo, and Earth IR
