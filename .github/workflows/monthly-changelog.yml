@@ -32,7 +32,7 @@ jobs:
         with:
           branch: automation/monthly-changelog
           delete-branch: true
-          title: "Add monthly changelog"
-          commit-message: "Add monthly changelog page"
+          title: "Automation: Add monthly changelog"
+          commit-message: "Automation: Add monthly changelog page"  
           body: "Automated monthly changelog page."
           labels: automated

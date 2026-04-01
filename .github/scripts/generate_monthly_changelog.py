@@ -151,11 +151,14 @@ def main() -> None:
     target_file = UPDATES_DIR / f"{yyyymm}.md"
     target_relpath = str(target_file.as_posix())
 
-    commits = list_commits(start, end)
-    print(f"[changelog] Found {len(commits)} commits in range")
-
     entries: list[CommitEntry] = []
     for sha, subject in commits:
+        subject_lc = subject.lower()
+
+        # Skip automation / maintenance commits
+        if subject_lc.startswith("automation:") or subject_lc.startswith("re-run"):
+            continue
+
         files = changed_files(sha)
 
         # skip any commit that edits the target changelog file (avoid recursion)
