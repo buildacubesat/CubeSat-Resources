@@ -48,6 +48,9 @@ def is_no_changes_month(md: str) -> bool:
     # (That matches your template.)
     return bool(NO_CHANGES_RE.search(md))
 
+def strip_mkdocs_extras(md: str) -> str:
+    # Remove MkDocs-style target attributes like { target=_blank }
+    return re.sub(r"\s*\{[^}]*\}", "", md)
 
 def build_email_body(month_title: str, changelog_md: str) -> str:
     opener = (
@@ -104,6 +107,7 @@ def main() -> None:
     subject = f"CubeSat Resources Changelog – {month_title}"
 
     cleaned = strip_subscribe_footer(raw)
+    cleaned = strip_mkdocs_extras(cleaned)
 
     # Keep the changelog content as-is *except*:
     # - remove footer
