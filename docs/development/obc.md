@@ -20,6 +20,9 @@ To be added here:
 - Radiation tolerance, derating, and screening
 - Performance, power, and ecosystem tradeoffs
 
+### Resources
+- [Hubble: CubeSat vs SmallSat vs Microsatellite: Satellite Sizes and the Chips Inside Them](https://hubble.com/community/comparisons/cubesat-vs-smallsat-vs-microsatellite-satellite-sizes-and-the-chips-inside-them/)
+
 ## Single-Board Computers (SBCs)
 
 To be added here:
