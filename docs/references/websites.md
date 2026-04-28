@@ -4,6 +4,8 @@ This section lists useful and authoritative websites related to CubeSats, small 
 
 ## Resource Collections
 - [CubeSource](https://learn.cubesource.space/): A curated knowledge base about CubeSat development and online store for CubeSat hardware
+- [BIRDS Bus Open Source](https://birds-project.com/open-source/): CubeSat Resource collection, with a focus on the BIRDS Bus
+- [Phoenix Docs](https://phxcubesat.asu.edu/resources/documents): Arizona State Phoenix CubeSat presentations, papers, NOAA and FCC licensing docs, etc.
 - [Awesome Space](https://github.com/orbitalindex/awesome-space): A list of awesome space-related packages and resources maintained by The Orbital Index
 
 ## CubeSat Development
@@ -29,3 +31,6 @@ This section lists useful and authoritative websites related to CubeSats, small 
 - [Heavens Above](https://www.heavens-above.com/)
 - [Supercluster](https://www.supercluster.com/app)
 - [Stellarium](https://stellarium.org/)
+
+## Programming Packages and Libraries
+- [SatelliteAnalysis.jl](https://juliaspace.github.io/SatelliteAnalysis.jl/stable/#SatelliteAnalysis.jl): Julia package containing functions to perform analysis related to satellites
