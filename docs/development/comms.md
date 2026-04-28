@@ -134,6 +134,9 @@ However, optical comms also introduce significant challenges:
 
 While still uncommon in CubeSat missions, optical communications are an active area of research and demonstration, and are expected to become more relevant as ADCS performance, onboard processing, and ground infrastructure improve.
 
+### Links
+- [LCT development starting points](https://www.reddit.com/r/lasercom/comments/1godxou/lasercom_terminal_open_source_modelsimulation_sw/)
+
 ---
 
 👉 **Please consider [contributing](../contributing.md)!**
