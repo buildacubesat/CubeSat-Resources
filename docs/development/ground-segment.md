@@ -93,6 +93,9 @@ To be added here:
 - **[UniClOGS Ground Station](https://www.uniclogs.org/)**  
   Modular, open-source CubeSat ground-station hardware covering RF, tracking, and control.
 
+- **[AB1OC Ground Station](https://stationproject.blog/2013/03/19/amateur-radio-station-design-and-construction/)**  
+  Detailed amateur radio station design and construction blog.
+
 - **[Bits and pieces of RF insights](https://www.notblackmagic.com/)**  
   Practical RF engineering notes and hardware experiments focused on real-world SDR use.
 
