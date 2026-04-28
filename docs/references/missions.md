@@ -35,6 +35,8 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [BINAR](https://www.youtube.com/@binarspacewa)
 - [EIRSAT](https://arxiv.org/abs/2008.09074) ([ladning page](https://www.eirsat1.ie/))
 - [Orbit NTNU](https://orbitntnu.com/) (multiple missions)
+- [Phoenix](https://phxcubesat.asu.edu/)
+- [MARMOTSat](https://www.propagationlab.ca/satellite/)
 - Do you know any missions that should be included here? [Contribute](../contributing.md)!
 
 ## SatNOGS Dashboard
