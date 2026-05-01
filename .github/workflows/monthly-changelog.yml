@@ -28,7 +28,7 @@ jobs:
         run: python .github/scripts/generate_monthly_changelog.py
 
       - name: Create PR
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v8
         with:
           branch: automation/monthly-changelog
           delete-branch: true
