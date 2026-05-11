@@ -80,6 +80,9 @@ The result is a **link margin**, usually expressed in dB, indicating how much he
 
 Link budgets are usually calculated for worst-case scenarios (e.g. maximum slant range at low elevation angles) and iterated alongside antenna, power, and ADCS design.
 
+### Resources
+- [Jan King spreadsheets](https://iaru.amsat-uk.org/spreadsheet.htm) – great starting point for link budget calculation
+
 ## Ground Segment (Hardware and Software)
 
 See also: [Ground Segment](ground-segment.md).
