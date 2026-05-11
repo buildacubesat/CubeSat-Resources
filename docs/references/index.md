@@ -14,6 +14,9 @@ Online and in-person learning opportunities covering engineering, space policy, 
 [**CubeSat Missions**](missions.md)  
 Selected CubeSat projects and open-source missions with public documentation or hardware.
 
+[**Glossary**](glossary.md)
+Key terms, acronyms, and concepts used throughout this site.
+
 [**Newsletters**](newsletters.md)  
 Mailing lists and newsletters that offer regular updates on small satellite developments, launches, and research.
 

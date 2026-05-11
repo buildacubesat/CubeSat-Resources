@@ -16,7 +16,7 @@ All content is [open-source](https://github.com/buildacubesat/CubeSat-Resources)
 
 - **[Getting Started](getting-started.md)** – Basic concepts, project phases and milestones, further reading, relevant communities.
 - **[Development](development/index.md)** – Systems and subsystems (Power, avionics, communication, software, etc.), integration, qualification, launch, tools and helpers.
-- **[References and Resources](references/index.md)** – Design guides, payload user guides, best practices, books, papers.
+- **[References and Resources](references/index.md)** – Glossary, design guides, payload user guides, best practices, books, papers.
 - **[Updates](updates/index.md)** – Monthly logs of changes and additions to the site. 
 
 ## Newsletter
