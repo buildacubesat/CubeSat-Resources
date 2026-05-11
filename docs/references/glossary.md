@@ -42,7 +42,7 @@ The angle between the orbital plane and the vector from the Earth to the Sun. It
 **Concept of Operations.** A document or narrative describing how a mission is intended to work end-to-end, across all phases from launch to end-of-life. Covers nominal and off-nominal scenarios, how the ground segment interacts with the spacecraft, and what the operators will do and when.
 
 ### COTS
-**Commercial Off-The-Shelf.** Hardware or software purchased as a standard product rather than custom-designed for the mission. COTS components are the norm in CubeSat development — using tested, available parts reduces cost, schedule, and risk compared to building from scratch. Tradeoffs include radiation tolerance, size/power fit, and availability over the mission lifetime.
+**Commercial Off-The-Shelf.** Hardware or software purchased as a standard product rather than custom-designed for the mission. COTS components are the norm in CubeSat development –  using tested, available parts reduces cost, schedule, and risk compared to building from scratch. Tradeoffs include radiation tolerance, size/power fit, and availability over the mission lifetime.
 
 ---
 
@@ -59,10 +59,10 @@ The angle between the orbital plane and the vector from the Earth to the Sun. It
 **Earth-Centered Inertial frame.** A coordinate frame centered at Earth's center of mass with axes that do not rotate with the Earth. The X-axis points toward the vernal equinox, Z toward the North Pole. Used to describe spacecraft position and velocity in a non-rotating frame. See [GNC](../development/gnc.md).
 
 ### ECEF
-**Earth-Centered, Earth-Fixed frame.** A coordinate frame centered at Earth's center of mass that rotates with the Earth. Convenient for describing ground station locations but not inertial — spacecraft state vectors are usually expressed in ECI, not ECEF.
+**Earth-Centered, Earth-Fixed frame.** A coordinate frame centered at Earth's center of mass that rotates with the Earth. Convenient for describing ground station locations but not inertial –  spacecraft state vectors are usually expressed in ECI, not ECEF.
 
 ### Eclipse fraction
-The proportion of an orbit spent in Earth's shadow and therefore receiving no solar power. Typically 30–35% for low-beta-angle LEO orbits. A key input to power budget sizing. See [EPS — Power Requirements and Budgets](../development/eps.md#power-requirements-and-budgets) and [beta angle](#beta-angle).
+The proportion of an orbit spent in Earth's shadow and therefore receiving no solar power. Typically 30–35% for low-beta-angle LEO orbits. A key input to power budget sizing. See [EPS –  Power Requirements and Budgets](../development/eps.md#power-requirements-and-budgets) and [beta angle](#beta-angle).
 
 ### EPS
 **Electrical Power System.** The subsystem responsible for generating (solar panels), storing (batteries), conditioning, and distributing electrical power to all other subsystems. See [EPS](../development/eps.md).
@@ -111,7 +111,7 @@ A loss of one rotational degree of freedom that occurs when two of three rotatio
 **Low Earth Orbit.** Roughly defined as orbits with altitudes between ~200 km and ~2000 km. The vast majority of CubeSats fly in LEO. Orbital periods are typically 90–120 minutes, eclipse fractions 30–35% at low beta angles, and radiation environments are relatively benign compared to higher orbits (though the South Atlantic Anomaly can be significant for some missions).
 
 ### Link budget
-An accounting of all gains and losses along a communications path, from transmitter to receiver. The result is a **link margin** — how many dB of headroom exist above the minimum required SNR. Positive link margin means the link should close; the required margin depends on how much uncertainty is in the system. See [Comms — Link Budget](../development/comms.md#link-budget).
+An accounting of all gains and losses along a communications path, from transmitter to receiver. The result is a **link margin** –  how many dB of headroom exist above the minimum required SNR. Positive link margin means the link should close; the required margin depends on how much uncertainty is in the system. See [Comms –  Link Budget](../development/comms.md#link-budget).
 
 ### Link margin
 The difference (in dB) between the received signal level and the minimum signal level required to achieve the target bit error rate. A link margin of 0 dB means the link is exactly at threshold; margins of 3–6 dB are typical for well-designed CubeSat links.
@@ -134,14 +134,14 @@ The difference (in dB) between the received signal level and the minimum signal 
 ## O
 
 ### OAP
-**Orbit Average Power.** The time-weighted average power consumed (or generated) over a complete orbit, accounting for different operational modes, duty cycles, and eclipse/sunlight fractions. The headline figure a power budget must balance: average generation ≥ average consumption. See [EPS — Power Requirements and Budgets](../development/eps.md#power-requirements-and-budgets).
+**Orbit Average Power.** The time-weighted average power consumed (or generated) over a complete orbit, accounting for different operational modes, duty cycles, and eclipse/sunlight fractions. The headline figure a power budget must balance: average generation ≥ average consumption. See [EPS –  Power Requirements and Budgets](../development/eps.md#power-requirements-and-budgets).
 
 ### OBC
 **On-Board Computer.** The central processing unit of the spacecraft, responsible for executing flight software, managing mode transitions, handling telecommands, collecting telemetry, and coordinating subsystem activity. See [OBC](../development/obc.md).
 
 ### Orbit
 
-A closed (or near-closed) path followed by a spacecraft around a celestial body under the influence of gravity. For CubeSats, this almost always means an orbit around Earth. Key parameters that define an orbit include its **altitude** (how far above Earth's surface), **inclination** (the angle between the orbital plane and the equator), **eccentricity** (how circular vs. elliptical the path is), and **period** (the time to complete one revolution — typically 90–120 minutes in LEO).
+A closed (or near-closed) path followed by a spacecraft around a celestial body under the influence of gravity. For CubeSats, this almost always means an orbit around Earth. Key parameters that define an orbit include its **altitude** (how far above Earth's surface), **inclination** (the angle between the orbital plane and the equator), **eccentricity** (how circular vs. elliptical the path is), and **period** (the time to complete one revolution –  typically 90–120 minutes in LEO).
 
 The orbital parameters determine almost everything else about the mission environment: how long each pass lasts over a ground station, what fraction of each orbit is spent in eclipse, how intense the radiation environment is, how quickly the orbit decays from atmospheric drag, and what beta angle the spacecraft sees at different times of year. See [LEO](#leo), [beta angle](#beta-angle), [eclipse fraction](#eclipse-fraction), and [TLE](#tle).
 
@@ -174,14 +174,14 @@ A spinning flywheel used as an attitude actuator. By accelerating or deceleratin
 **Satellite Networked Open Ground Station.** An open-source, community-driven global network of ground stations that receive and share satellite signals, including CubeSat beacons. Operated by the Libre Space Foundation. A de facto standard for beacon reception in academic and open-source missions. [satnogs.org](https://satnogs.org/).
 
 ### SNR
-**Signal-to-Noise Ratio.** The ratio of signal power to noise power at a receiver input, usually expressed in dB. A key figure in link budget analysis — the received SNR must exceed the minimum required for the chosen modulation and coding scheme.
+**Signal-to-Noise Ratio.** The ratio of signal power to noise power at a receiver input, usually expressed in dB. A key figure in link budget analysis –  the received SNR must exceed the minimum required for the chosen modulation and coding scheme.
 
 ---
 
 ## T
 
 ### TLE
-**Two-Line Element set.** A standardized format for encoding a satellite's orbital parameters at a given epoch, used as input to propagators such as SGP4. TLEs are published by the US Space Surveillance Network (via Space-Track) and used widely for tracking and pass prediction. See [GNC — Orbit Representation / TLEs](../development/gnc.md#orbit-representation--tles).
+**Two-Line Element set.** A standardized format for encoding a satellite's orbital parameters at a given epoch, used as input to propagators such as SGP4. TLEs are published by the US Space Surveillance Network (via Space-Track) and used widely for tracking and pass prediction. See [GNC –  Orbit Representation / TLEs](../development/gnc.md#orbit-representation--tles).
 
 ### TRL
 **Technology Readiness Level.** A scale from 1 to 9 used to assess the maturity of a technology, from basic principles (TRL 1) through lab demonstration (TRL 4–5), relevant environment testing (TRL 6–7), to flight-proven (TRL 9). Originally developed by NASA. Commonly used in CubeSat procurement and mission risk assessment.
