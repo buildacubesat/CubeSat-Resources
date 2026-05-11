@@ -33,7 +33,7 @@ The angle between the orbital plane and the vector from the Earth to the Sun. It
 ## C
 
 ### CDS
-**CubeSat Design Specification.** The original standard document defining the physical, electrical, and operational requirements for CubeSats and their deployers. Published by California Polytechnic State University (Cal Poly) and originally co-authored with Stanford. Sets the baseline 1U dimensions (100 × 100 × 113.5 mm) and mass limit (1.33 kg/U) that most CubeSat hardware and deployers conform to.
+**CubeSat Design Specification.** The original standard document defining the physical, electrical, and operational requirements for CubeSats and their deployers. Published by California Polytechnic State University (Cal Poly) and originally co-authored with Stanford. Sets the baseline 1U dimensions (100 × 100 × 113.5 mm) and mass limit (2 kg/U) that most CubeSat hardware and deployers conform to. Latest revision: [CDS 14.1, February 2022](https://www.cubesat.org/s/CDS-REV14_1-2022-02-09.pdf).
 
 ### CDR
 **Critical Design Review.** A formal milestone in the spacecraft development lifecycle, typically held after PDR, at which the design is considered mature enough to begin fabrication. At CDR the design should be fully defined, analysis complete, and risk understood. Margins are expected to have tightened from PDR levels (e.g. 20% mass margin at CDR vs. 30% at PDR).
@@ -194,7 +194,7 @@ A spinning flywheel used as an attitude actuator. By accelerating or deceleratin
 ## U
 
 ### U (CubeSat unit)
-The standard size increment in the CubeSat form factor system. 1U is defined as 100 × 100 × 113.5 mm with a mass limit of 1.33 kg. Larger form factors (1.5U, 2U, 3U, 6U, 12U, 16U…) scale linearly in one or more dimensions. Defined in the [CDS](#cds).
+The standard size increment in the CubeSat form factor system. 1U is defined as 100 × 100 × 113.5 mm with a mass limit of 2 kg. Larger form factors (1.5U, 2U, 3U, 6U, 12U, 16U…) scale linearly in one or more dimensions. Defined in the [CDS](#cds).
 
 ### UHF / VHF
 **Ultra-High Frequency / Very High Frequency.** Radio frequency bands commonly used in CubeSat communications. VHF covers 30–300 MHz (uplinks often around 145–146 MHz); UHF covers 300 MHz–3 GHz (downlinks often around 437 MHz). Both bands are popular with amateur missions due to favorable propagation, lower required transmit power, and the availability of the [SatNOGS](#satnogs) network.
