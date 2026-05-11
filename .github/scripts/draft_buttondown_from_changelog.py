@@ -55,7 +55,7 @@ def strip_mkdocs_extras(md: str) -> str:
 def build_email_body(month_title: str, changelog_md: str) -> str:
     opener = (
         "Hi,\n\n"
-        f"Here’s the CubeSat Resources changelog for **{month_title}**:\n\n"
+        f"Here’s the CubeSat Resources changelog for **{month_title}**:\n\n---\n\n"
     )
 
     closing = (
