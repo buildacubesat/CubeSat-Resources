@@ -51,6 +51,10 @@ To be added here:
 
 A small but growing collection of templates and worked examples that save you from rebuilding the wheel. Most are free; a few are reference documents rather than fillable templates, but all are useful starting points.
 
+### Stack builders
+
+- **[cubestack.dev (currently in beta)](https://cubestack.dev)** (Patrik Senkyr) – Interactive, browser-based PC/104 stack configuration and validation tool. Includes a board library, a physical stack editor and power budget simulator.
+
 ### Power Budget Templates
 
 A power budget tracks energy consumption and generation across mission modes. See [EPS – Power Requirements and Budgets](eps.md#power-requirements-and-budgets) for the underlying methodology.
@@ -73,7 +77,7 @@ To be added here:
 - Other RF calculators
 - Thermal estimation worksheets
 - PV budget
-- Batter calculators
+- Battery calculators
 
 ## Automation and Workflow Helpers
 
