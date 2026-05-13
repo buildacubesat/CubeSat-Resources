@@ -124,10 +124,10 @@ To be added here:
 
 ---
 
+👉 **Please consider [contributing](../contributing.md)!**
+
 [^cds-rev13]: Cal Poly CubeSat Program, [*CubeSat Design Specification Rev. 13*](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/56e9b62337013b6c063a655a/1458157095454/cds_rev13_final2.pdf) – section 3.2.10 sets 1.33 kg as the maximum 1U mass. This was the widely adopted figure for most of the CubeSat community and remains the number many deployers still quote.
 
 [^cds-rev14]: Cal Poly CubeSat Program, [*CubeSat Design Specification Rev. 14.1*](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf) (February 2022) – Rev 14 raised the 1U figure to 2 kg and reframed many requirements as guidelines rather than hard constraints. Always confirm the applicable limit with your launch provider; ISS deployers and rideshare providers maintain their own mass budgets and may be more restrictive.
 
 [^nasa-margins]: The 30/20/10 curve is consistent with NASA's formal margin guidance. The NASA NTRS paper ["Techniques for Conducting Effective Concept Design"](https://ntrs.nasa.gov/api/citations/20150018331/downloads/20150018331.pdf) (2015) describes project managers holding 25% margins at Phase B entry, with end-Phase-B targets of ≥20% and end-Phase-C targets of ≥15% for mass and power resources. The GSFC engineering standard [GSFC-STD-1000](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf) provides detailed margin calculation methodology. CubeSat teams typically adopt slightly more aggressive early margins (30% at PDR) to compensate for shorter schedules and less heritage data.
-
-👉 **Please consider [contributing](../contributing.md)!**

@@ -1,0 +1,19 @@
+resources:
+- id: 117300b48e
+  title: LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet
+  description: Space-grade 30 percent GaAs solar cell datasheet
+  file_type: PDF
+  url: https://storage.googleapis.com/cubesat-resources/resources/lightfoundry-space-grade-30-percent-gaas-14466-datasheet/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf
+  source: /home/mnu/Downloads/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf
+  publisher: LIGHTFOUNDRY OÜ
+  year: 2026
+  resource_type: datasheet
+  tags:
+  - solar
+  - solar-cell
+  - datasheet
+  - eps
+  - lightfoundry
+  block_id: lightfoundry-space-grade-30-percent-gaas-14466-datasheet
+  sha256: 397692c76fc0960ee56d88c4d366812a7826e318e8d2cab40e4363580cf1e7a0
+  added: '2026-05-13'

@@ -120,6 +120,9 @@ To be added here:
 - Common integration pitfalls
 
 ---
+
+👉 **Please consider [contributing](../contributing.md)!**
+
 [^hawaii-budget]: University of Hawaiʻi, *A Guide to CubeSat Mission and Bus Design*, §5.9 ["Power Budget and Profiling"](https://pressbooks-dev.oer.hawaii.edu/epet302/chapter/5-9-power-budget-and-profiling/) – walks through the OAP methodology step by step using the Artemis CubeSat Kit as a worked example. Open access.
 
 [^clyde-space]: Craig Clark and Ritchie Logan (Clyde Space), ["Power Budgets for Mission Success"](http://mstl.atl.calpoly.edu/~workshop/archive/2011/Spring/Day%203/1610%20-%20Clark%20-%20Power%20Budgets%20for%20CubeSat%20Mission%20Success.pdf), Cal Poly CubeSat Workshop, April 2011. Practical slide deck on estimating OAP, managing loads, and avoiding negative budgets. One of the most-cited introductory treatments.
@@ -128,4 +131,8 @@ To be added here:
 
 [^hawaii-gen]: University of Hawaiʻi, *A Guide to CubeSat Mission and Bus Design*, §5.5 ["Power Generation"](https://pressbooks-dev.oer.hawaii.edu/epet302/chapter/5-5-power-generation/). Notes that ionizing radiation effects on solar cells can be mitigated by coverglass, with typical loss figures of 1-10% per year depending on cell technology and shielding. Open access.
 
-👉 **Please consider [contributing](../contributing.md)!**
+## Solar cell datasheets
+
+<!-- CSR-RESOURCES:START lightfoundry-space-grade-30-percent-gaas-14466-datasheet -->
+- **[LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet](https://storage.googleapis.com/cubesat-resources/resources/lightfoundry-space-grade-30-percent-gaas-14466-datasheet/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf)** `PDF` – Space-grade 30 percent GaAs solar cell datasheet
+<!-- CSR-RESOURCES:END lightfoundry-space-grade-30-percent-gaas-14466-datasheet -->
