@@ -1,9 +1,28 @@
 resources:
+- id: f48389ab2c
+  title: Antennas for CubeSat Communication (PhD thesis)
+  description: PhD thesis on CubeSat antenna designs
+  file_type: PDF
+  url: https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf
+  source: /home/mnu/Downloads/EPFL_TH7489.pdf
+  publisher: EPFL
+  year: 2020
+  resource_type: paper
+  tags:
+  - antenna
+  - reflectarray
+  - transmitarray
+  - cubesat
+  - phd-thesis
+  - epfl
+  block_id: antenna-design-papers
+  sha256: 7991a632c9427869645500783d17423e3667c3951e304beeeae575395db1b10b
+  added: '2026-05-13'
 - id: 0e810ec4e8
   title: 'gr-leo: GNU Radio LEO satellite communication simulator'
   description: GNU Radio LEO channel simulator repository
   file_type: HTML
-  url: https://storage.googleapis.com/cubesat-resources/resources/sdr-rf-software/gr-leo.html
+  url: https://github.com/radioconda/gr-leo
   source: https://github.com/radioconda/gr-leo
   publisher: radioconda (GitHub)
   year: 2019
@@ -21,7 +40,7 @@ resources:
   title: LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet
   description: Space-grade 30 percent GaAs solar cell datasheet
   file_type: PDF
-  url: https://storage.googleapis.com/cubesat-resources/resources/lightfoundry-space-grade-30-percent-gaas-14466-datasheet/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf
+  url: https://storage.googleapis.com/cubesat-resources/resources/development-eps-solar-cell-datasheets/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf
   source: /home/mnu/Downloads/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf
   publisher: LIGHTFOUNDRY OÜ
   year: 2026

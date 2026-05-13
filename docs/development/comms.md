@@ -143,3 +143,9 @@ While still uncommon in CubeSat missions, optical communications are an active a
 ---
 
 👉 **Please consider [contributing](../contributing.md)!**
+
+## Antenna design resources
+
+<!-- CSR-RESOURCES:START antenna-design-papers -->
+- **[Antennas for CubeSat Communication (PhD thesis)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – PhD thesis on CubeSat antenna designs
+<!-- CSR-RESOURCES:END antenna-design-papers -->
