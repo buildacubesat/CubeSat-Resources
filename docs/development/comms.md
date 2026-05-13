@@ -83,6 +83,14 @@ Link budgets are usually calculated for worst-case scenarios (e.g. maximum slant
 ### Resources
 - [Jan King spreadsheets](https://iaru.amsat-uk.org/spreadsheet.htm) – great starting point for link budget calculation
 
+## Flight Segment (Hardware and Software)
+
+### Antenna design resources
+
+<!-- CSR-RESOURCES:START antenna-design-papers -->
+- **[Antennas for CubeSat Communication (PhD thesis by Miroslav Veljovic)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – PhD thesis on CubeSat antenna designs
+<!-- CSR-RESOURCES:END antenna-design-papers -->
+
 ## Ground Segment (Hardware and Software)
 
 See also: [Ground Segment](ground-segment.md).
@@ -143,9 +151,3 @@ While still uncommon in CubeSat missions, optical communications are an active a
 ---
 
 👉 **Please consider [contributing](../contributing.md)!**
-
-## Antenna design resources
-
-<!-- CSR-RESOURCES:START antenna-design-papers -->
-- **[Antennas for CubeSat Communication (PhD thesis)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – PhD thesis on CubeSat antenna designs
-<!-- CSR-RESOURCES:END antenna-design-papers -->
