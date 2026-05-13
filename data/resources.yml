@@ -1,11 +1,12 @@
 resources:
 - id: f48389ab2c
-  title: Antennas for CubeSat Communication (PhD thesis)
+  title: Antennas for CubeSat Communication (PhD thesis by Miroslav Veljovic)
   description: PhD thesis on CubeSat antenna designs
   file_type: PDF
   url: https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf
   source: /home/mnu/Downloads/EPFL_TH7489.pdf
   publisher: EPFL
+  author: Miroslav Veljovic
   year: 2020
   resource_type: paper
   tags:
@@ -35,6 +36,26 @@ resources:
   - satellite
   block_id: sdr-rf-software
   sha256: 37bcc250fb2cb935135944b84dd42feb022b5b87b68721654a61f82c6b3d295d
+  added: '2026-05-13'
+- id: 588b5c3fca
+  title: Guidance on Space Object Registration and Frequency Management for Small
+    Satellites
+  description: Guidance on registration and frequency management
+  file_type: PDF
+  url: https://storage.googleapis.com/cubesat-resources/resources/registration-and-frequency-management/handout-on-small-satellitese.pdf
+  source: /home/mnu/Downloads/Handout-on-Small-SatellitesE.pdf
+  publisher: United Nations Office for Outer Space Affairs (UNOOSA)
+  author: Office for Outer Space Affairs (UNOOSA)
+  year: 2014
+  resource_type: report
+  tags:
+  - registration
+  - frequency-management
+  - regulatory
+  - space-debris
+  - unoosa
+  block_id: registration-and-frequency-management
+  sha256: c7c86afa03c5cf2b1a7b290af19c4ddf253927ad6485a73cbf596d66a4b816ac
   added: '2026-05-13'
 - id: 117300b48e
   title: LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet

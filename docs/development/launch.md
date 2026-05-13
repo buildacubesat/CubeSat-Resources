@@ -34,6 +34,11 @@ To be added here:
 - Export control (e.g. EAR, ITAR)
 - Space debris mitigation and other filings
 
+### Space object registration and frequency management
+
+<!-- CSR-RESOURCES:START registration-and-frequency-management -->
+- **[Guidance on Space Object Registration and Frequency Management for Small Satellites](https://storage.googleapis.com/cubesat-resources/resources/registration-and-frequency-management/handout-on-small-satellitese.pdf)** `PDF` – Guidance on registration and frequency management
+<!-- CSR-RESOURCES:END registration-and-frequency-management -->
 ## Launch Integration
 
 To be added here:
