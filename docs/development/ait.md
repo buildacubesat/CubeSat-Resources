@@ -97,3 +97,9 @@ To be added here:
 ---
 
 👉 **Please consider [contributing](../contributing.md)!**
+
+### Facilities and test laboratories
+
+<!-- CSR-RESOURCES:START ait-test-facilities -->
+- **[ESA - CubeSat Support Facility](https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
+<!-- CSR-RESOURCES:END ait-test-facilities -->

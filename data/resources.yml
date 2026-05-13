@@ -19,6 +19,24 @@ resources:
   block_id: antenna-design-papers
   sha256: 7991a632c9427869645500783d17423e3667c3951e304beeeae575395db1b10b
   added: '2026-05-13'
+- id: 4020980de4
+  title: ESA - CubeSat Support Facility
+  description: ESA AIT training and test facility
+  file_type: Link
+  url: https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility
+  source: https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility
+  publisher: European Space Agency (ESA)
+  author: ESA Education Training Centre
+  year: 2026
+  resource_type: website
+  tags:
+  - AIT
+  - test-facilities
+  - education
+  - integration
+  block_id: ait-test-facilities
+  sha256: 783c68a7ab6539bc082a0423a7e89dde76a5e6acb1694d1f3d606595130afee8
+  added: '2026-05-13'
 - id: 0e810ec4e8
   title: 'gr-leo: GNU Radio LEO satellite communication simulator'
   description: GNU Radio LEO channel simulator repository
