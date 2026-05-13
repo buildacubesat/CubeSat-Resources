@@ -19,6 +19,25 @@ resources:
   block_id: antenna-design-papers
   sha256: 7991a632c9427869645500783d17423e3667c3951e304beeeae575395db1b10b
   added: '2026-05-13'
+- id: e97acec931
+  title: Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation
+  description: Paper on deep-learning MPPT for CubeSats
+  file_type: Link
+  url: https://ieeexplore.ieee.org/document/10904144
+  source: https://ieeexplore.ieee.org/document/10904144
+  publisher: IEEE
+  author: ''
+  year: 2023
+  resource_type: paper
+  tags:
+  - mppt
+  - power
+  - eps
+  - deep-learning
+  - research
+  block_id: mppt-algorithms
+  sha256: 5c0e939101694b1bbad5368c308e053ab260ec11f0d292fcbac8145b91ed5e22
+  added: '2026-05-13'
 - id: 4020980de4
   title: ESA - CubeSat Support Facility
   description: ESA AIT training and test facility

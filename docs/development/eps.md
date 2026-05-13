@@ -52,6 +52,16 @@ To be added here:
 - Illumination, eclipses, and incidence angles
 - Wiring, blocking diodes, and degradation over time
 
+### Solar cell datasheets
+
+<!-- CSR-RESOURCES:START development-eps-solar-cell-datasheets -->
+<!-- CSR-RESOURCES:END development-eps-solar-cell-datasheets -->
+
+### MPPT and power management
+
+<!-- CSR-RESOURCES:START mppt-algorithms -->
+- **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://ieeexplore.ieee.org/document/10904144)** `Link` – Paper on deep-learning MPPT for CubeSats
+<!-- CSR-RESOURCES:END mppt-algorithms -->
 ## Energy Storage
 
 To be added here:
@@ -130,9 +140,3 @@ To be added here:
 [^degradation]: Yermek Amangeldi et al., ["Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites"](https://www.mdpi.com/2076-3417/15/16/9208), *Applied Sciences*, 15(16), 2025. Open access. Reports that GaAs cells degrade 4.5-7.0% over typical mission lifetimes at 300-700 km altitude, with TJ cells showing the highest radiation resistance and Si cells the most pronounced loss below 500 km. Smaller satellites (<10 kg) show higher rates than larger ones.
 
 [^hawaii-gen]: University of Hawaiʻi, *A Guide to CubeSat Mission and Bus Design*, §5.5 ["Power Generation"](https://pressbooks-dev.oer.hawaii.edu/epet302/chapter/5-5-power-generation/). Notes that ionizing radiation effects on solar cells can be mitigated by coverglass, with typical loss figures of 1-10% per year depending on cell technology and shielding. Open access.
-
-## Solar cell datasheets
-
-<!-- CSR-RESOURCES:START lightfoundry-space-grade-30-percent-gaas-14466-datasheet -->
-- **[LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet](https://storage.googleapis.com/cubesat-resources/resources/lightfoundry-space-grade-30-percent-gaas-14466-datasheet/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf)** `PDF` – Space-grade 30 percent GaAs solar cell datasheet
-<!-- CSR-RESOURCES:END lightfoundry-space-grade-30-percent-gaas-14466-datasheet -->
