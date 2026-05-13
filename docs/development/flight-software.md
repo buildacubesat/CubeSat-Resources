@@ -85,8 +85,13 @@ To be added here:
 - Simulators and test harnesses  
 - Regression testing before launch
 
-See also: [Assembly, Integration and Testing (AIT)](ait.md).  
+See also: [Assembly, Integration and Testing (AIT)](ait.md).
 
+### Software testing methodologies
+
+<!-- CSR-RESOURCES:START software-testing-methodologies -->
+- **[The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)** `Link` – Overview of the software test pyramid
+<!-- CSR-RESOURCES:END software-testing-methodologies -->
 ## Flight Software and Hardware Interaction
 
 To be added here:

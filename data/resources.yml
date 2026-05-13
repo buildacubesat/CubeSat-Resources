@@ -93,3 +93,21 @@ resources:
   block_id: lightfoundry-space-grade-30-percent-gaas-14466-datasheet
   sha256: 397692c76fc0960ee56d88c4d366812a7826e318e8d2cab40e4363580cf1e7a0
   added: '2026-05-13'
+- id: 1efdc166b7
+  title: The Practical Test Pyramid
+  description: Overview of the software test pyramid
+  file_type: Link
+  url: https://martinfowler.com/articles/practical-test-pyramid.html
+  source: https://martinfowler.com/articles/practical-test-pyramid.html
+  publisher: martinfowler.com
+  author: Martin Fowler
+  year: 2012
+  resource_type: website
+  tags:
+  - software-testing
+  - test-pyramid
+  - testing-methodology
+  - flight-software
+  block_id: software-testing-methodologies
+  sha256: 93dce576370c8995e5ceecbe756e2ff107e252c709c0c29e7e7a539ab3832e0e
+  added: '2026-05-13'
