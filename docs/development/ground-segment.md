@@ -131,6 +131,10 @@ To be added here:
 
 ### SDR & RF Software
 
+
+<!-- CSR-RESOURCES:START sdr-rf-software -->
+- **[gr-leo: GNU Radio LEO satellite communication simulator](https://storage.googleapis.com/cubesat-resources/resources/sdr-rf-software/gr-leo.html)** `HTML` – GNU Radio LEO channel simulator repository
+<!-- CSR-RESOURCES:END sdr-rf-software -->
 - **[List of SDR Software and Hardware](https://github.com/Slayingripper/Linux-SDR)**  
   A broad, community-maintained index of SDR tools and supported hardware on Linux.
 

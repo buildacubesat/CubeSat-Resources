@@ -1,4 +1,22 @@
 resources:
+- id: 0e810ec4e8
+  title: 'gr-leo: GNU Radio LEO satellite communication simulator'
+  description: GNU Radio LEO channel simulator repository
+  file_type: HTML
+  url: https://storage.googleapis.com/cubesat-resources/resources/sdr-rf-software/gr-leo.html
+  source: https://github.com/radioconda/gr-leo
+  publisher: radioconda (GitHub)
+  year: 2019
+  resource_type: repository
+  tags:
+  - gnuradio
+  - simulator
+  - communications
+  - ground-segment
+  - satellite
+  block_id: sdr-rf-software
+  sha256: 37bcc250fb2cb935135944b84dd42feb022b5b87b68721654a61f82c6b3d295d
+  added: '2026-05-13'
 - id: 117300b48e
   title: LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet
   description: Space-grade 30 percent GaAs solar cell datasheet
