@@ -112,6 +112,26 @@ resources:
   block_id: lightfoundry-space-grade-30-percent-gaas-14466-datasheet
   sha256: 397692c76fc0960ee56d88c4d366812a7826e318e8d2cab40e4363580cf1e7a0
   added: '2026-05-13'
+- id: 95033e3047
+  title: NyanSat
+  description: Oakwood high school CubeSat project website
+  file_type: Link
+  url: https://nyansat.org/
+  source: https://nyansat.org/
+  publisher: Oakwood High School
+  author: Oakwood Engineering student team
+  year: 2026
+  resource_type: website
+  tags:
+  - missions
+  - educational
+  - cubesat
+  - student-project
+  - website
+  - open-source
+  block_id: open-source-cubesat-missions
+  sha256: 6de2b6f88c66b2285cf8f813af5f685d1bfc686cab70a9e2b579735f010237a5
+  added: '2026-05-18'
 - id: 1efdc166b7
   title: The Practical Test Pyramid
   description: Overview of the software test pyramid
