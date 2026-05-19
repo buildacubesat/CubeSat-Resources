@@ -103,4 +103,3 @@ To be added here:
 ---
 
 👉 **Please consider [contributing](../contributing.md)!**
-

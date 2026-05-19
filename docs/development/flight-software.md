@@ -89,9 +89,9 @@ See also: [Assembly, Integration and Testing (AIT)](ait.md).
 
 ### Software testing methodologies
 
-<!-- CSR-RESOURCES:START software-testing-methodologies -->
+<!-- CSR-RESOURCES:START dev-software-testing-methodologies -->
 - **[The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)** `Link` – Overview of the software test pyramid
-<!-- CSR-RESOURCES:END software-testing-methodologies -->
+<!-- CSR-RESOURCES:END dev-software-testing-methodologies -->
 ## Flight Software and Hardware Interaction
 
 To be added here:

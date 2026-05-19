@@ -107,14 +107,14 @@ To be added here:
 
 - **Commercial Az/El antenna rotators**  
   Widely supported commercial rotators with good Hamlib compatibility.
-  - [Discovery Drive](https://www.crowdsupply.com/krakenrf/discovery-drive)
-  - [Yaesu G-5500DC](https://www.yaesu.com/product-detail.aspx?Model=G-5500DC)
+    - [Discovery Drive](https://www.crowdsupply.com/krakenrf/discovery-drive)
+    - [Yaesu G-5500DC](https://www.yaesu.com/product-detail.aspx?Model=G-5500DC)
 
 - **DIY Az/El antenna rotators**  
   Popular for CubeSat stations, especially when integrated with Hamlib or SatNOGS controllers.
-  - [SatNOGS rotator](https://wiki.satnogs.org/SatNOGS_Rotator_v3)
-  - [AntRunner](https://github.com/wuxx/AntRunner)
-  - [SARCNET Satellite-Antenna Rotator Mk2a](https://www.sarcnet.org/mini-satellite-antenna-rotator-mk2.html)
+    - [SatNOGS rotator](https://wiki.satnogs.org/SatNOGS_Rotator_v3)
+    - [AntRunner](https://github.com/wuxx/AntRunner)
+    - [SARCNET Satellite-Antenna Rotator Mk2a](https://www.sarcnet.org/mini-satellite-antenna-rotator-mk2.html)
 
 - **Low-noise amplifiers (LNA)**  
   Mast-mounted LNAs are critical for UHF/VHF CubeSat downlinks with modest antennas.

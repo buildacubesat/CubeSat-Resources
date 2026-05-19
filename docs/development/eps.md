@@ -55,7 +55,7 @@ To be added here:
 ### Solar cell datasheets
 
 <!-- CSR-RESOURCES:START dev-eps-solar-cell-datasheets -->
--- **[LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet](https://storage.googleapis.com/cubesat-resources/resources/development-eps-solar-cell-datasheets/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf)** `PDF` – Space-grade 30 percent GaAs solar cell datasheet
+- **[LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet](https://storage.googleapis.com/cubesat-resources/resources/development-eps-solar-cell-datasheets/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf)** `PDF` – Space-grade 30 percent GaAs solar cell datasheet
 <!-- CSR-RESOURCES:END dev-eps-solar-cell-datasheets -->
 
 ### MPPT and power management

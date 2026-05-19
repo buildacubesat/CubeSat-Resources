@@ -87,9 +87,9 @@ Link budgets are usually calculated for worst-case scenarios (e.g. maximum slant
 
 ### Antenna design resources
 
-<!-- CSR-RESOURCES:START antenna-design-papers -->
+<!-- CSR-RESOURCES:START dev-comms-antenna-design-papers -->
 - **[Antennas for CubeSat Communication (PhD thesis by Miroslav Veljovic)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – PhD thesis on CubeSat antenna designs
-<!-- CSR-RESOURCES:END antenna-design-papers -->
+<!-- CSR-RESOURCES:END dev-comms-antenna-design-papers -->
 
 ## Ground Segment (Hardware and Software)
 

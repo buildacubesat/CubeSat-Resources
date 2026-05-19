@@ -15,7 +15,7 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [FOSSASAT](https://github.com/FOSSASystems/FOSSASAT-1) (PocketQube, multiple missions)
 - [FrontierSat (CTS-SAT-1)](https://github.com/calgarytospace)
 - [HuskySat](https://github.com/UWCubeSat) ([landing page](https://huskysat.org/))
-- [NyanSat](https://nyansat.org/) (Oakwood high school CubeSat project website)
+- [NyanSat](https://github.com/OakwoodEngineering) (in development, not launched yet. [Landing page](https://nyansat.org/))
 - [ORCASat](https://gitlab.com/ORCASat) ([landing page](https://www.orcasat.ca/) and [YouTube](https://www.youtube.com/@orcasat))
 - [OreSat](https://github.com/oresat/)
 - [Project Shadow Flight](https://github.com/bytecod3/Project-Shadow-Flight) (in development, not launched yet. [Landing page](https://bytecod3.github.io/Project-Shadow-Flight/))
@@ -47,8 +47,8 @@ This section highlights interesting CubeSat missions and open-source satellite p
 <!-- CSR-RESOURCES:START ref-cool-satnogs-dahsboards -->
 ## SatNOGS Dashboard
 Collection of current and past Graphana mission dashboards: [SatNOGS Dashboards](https://dashboard.satnogs.org/). Some are very helpful for getting a sense of real-world mission data:
-* [AAUSAT4](https://dashboard.satnogs.org/d/QGujdBBZk/aausat4?orgId=1&from=now-10y&to=now&timezone=browser)
-* [QMR-KWT 2](https://dashboard.satnogs.org/d/efgl2md8iap6oa/qmr-qwt-2?orgId=1&from=now-2d&to=now&timezone=utc&var-suid=67291&var-filter=)
-* [UMKA-1](https://dashboard.satnogs.org/d/ffc0ehd32qfpcc/umka-1?orgId=1&from=2021-01-30T04:28:17.186Z&to=2029-02-01T04:28:17.186Z&timezone=utc&var-suid=57172&var-filter=)
-* [COSMO](https://dashboard.satnogs.org/d/bfhvxrnomp91ca/cosmo?orgId=1&from=now-)
+- [AAUSAT4](https://dashboard.satnogs.org/d/QGujdBBZk/aausat4?orgId=1&from=now-10y&to=now&timezone=browser)
+- [QMR-KWT 2](https://dashboard.satnogs.org/d/efgl2md8iap6oa/qmr-qwt-2?orgId=1&from=now-2d&to=now&timezone=utc&var-suid=67291&var-filter=)
+- [UMKA-1](https://dashboard.satnogs.org/d/ffc0ehd32qfpcc/umka-1?orgId=1&from=2021-01-30T04:28:17.186Z&to=2029-02-01T04:28:17.186Z&timezone=utc&var-suid=57172&var-filter=)
+- [COSMO](https://dashboard.satnogs.org/d/bfhvxrnomp91ca/cosmo?orgId=1&from=now-)
 <!-- CSR-RESOURCES:END ref-cool-satnogs-dahsboards -->
