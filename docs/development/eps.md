@@ -54,15 +54,15 @@ To be added here:
 
 ### Solar cell datasheets
 
-<!-- CSR-RESOURCES:START development-eps-solar-cell-datasheets -->
+<!-- CSR-RESOURCES:START dev-eps-solar-cell-datasheets -->
 -- **[LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet](https://storage.googleapis.com/cubesat-resources/resources/development-eps-solar-cell-datasheets/datasheet-lightfoundry-space-grade-30-efficiency-gaas-6-inch-solar-cell-assembly-g2qiev.pdf)** `PDF` – Space-grade 30 percent GaAs solar cell datasheet
-<!-- CSR-RESOURCES:END development-eps-solar-cell-datasheets -->
+<!-- CSR-RESOURCES:END dev-eps-solar-cell-datasheets -->
 
 ### MPPT and power management
 
-<!-- CSR-RESOURCES:START mppt-algorithms -->
+<!-- CSR-RESOURCES:START dev-eps-mppt-algorithms -->
 - **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://ieeexplore.ieee.org/document/10904144)** `Link` – Paper on deep-learning MPPT for CubeSats
-<!-- CSR-RESOURCES:END mppt-algorithms -->
+<!-- CSR-RESOURCES:END dev-eps-mppt-algorithms -->
 ## Energy Storage
 
 To be added here:

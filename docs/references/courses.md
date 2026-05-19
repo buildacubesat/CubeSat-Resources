@@ -1,6 +1,6 @@
 # Courses, Events and Educational Kits
 
-This section collects courses and learning opportunities — both online and in-person — related to CubeSats, aerospace engineering, and the broader space sector. Topics range from systems engineering and mission design to space economy, exploration, and policy. It also includes kits, workshops, bootcamps, and recurring events where you can learn from active practitioners.
+This section collects courses and learning opportunities – both online and in-person – related to CubeSats, aerospace engineering, and the broader space sector. Topics range from systems engineering and mission design to space economy, exploration, and policy. It also includes kits, workshops, bootcamps, and recurring events where you can learn from active practitioners.
 
 ## Educational Kits
 

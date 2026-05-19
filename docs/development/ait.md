@@ -58,6 +58,12 @@ To be added here:
 - Common standards (e.g. NASA GEVS, ECSS)
 - Access to testing facilities vs. DIY methods
 
+#### Facilities and Test Laboratories
+
+<!-- CSR-RESOURCES:START dev-ait-test-facilities -->
+- **[ESA - CubeSat Support Facility](https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
+<!-- CSR-RESOURCES:END dev-ait-test-facilities -->
+
 ### Functional and Integration Testing
 
 To be added here:
@@ -98,8 +104,3 @@ To be added here:
 
 👉 **Please consider [contributing](../contributing.md)!**
 
-### Facilities and test laboratories
-
-<!-- CSR-RESOURCES:START ait-test-facilities -->
-- **[ESA - CubeSat Support Facility](https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
-<!-- CSR-RESOURCES:END ait-test-facilities -->

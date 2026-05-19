@@ -16,7 +16,7 @@ CubeSat beacons are most commonly found in the **UHF amateur band (~437 MHz)**
 - **Tracking**: Ground-based tracking of the satellite’s orbit and signal, often using Doppler shift and time-of-flight data.
 - **Command**: Uplinked instructions that control the satellite’s behavior, such as mode changes, resets, or payload activation.
 
-TT&C is typically implemented on a robust, low-data-rate RF link—often in UHF or VHF—to ensure reliability even under degraded conditions. It operates independently from high-bandwidth payload downlinks and remains active throughout the mission lifecycle, often independently of high-bandwidth payload links.
+TT&C is typically implemented on a robust, low-data-rate RF link–often in UHF or VHF–to ensure reliability even under degraded conditions. It operates independently from high-bandwidth payload downlinks and remains active throughout the mission lifecycle, often independently of high-bandwidth payload links.
 
 ### Amateur Bands  
 Used primarily by university and research missions under IARU coordination:
@@ -114,7 +114,7 @@ Such links are generally not suitable for high-rate payload data, but can be att
 
 ### Direct-to-Device and Broadband Constellations (Emerging)
 
-Large commercial constellations designed for broadband or direct-to-cell (DTC) services—such as those operated by Starlink or AST—are beginning to explore space-to-space and space-to-ground connectivity beyond traditional RF ground station models.
+Large commercial constellations designed for broadband or direct-to-cell (DTC) services–such as those operated by Starlink or AST–are beginning to explore space-to-space and space-to-ground connectivity beyond traditional RF ground station models.
 
 Potential future implications for CubeSats include:
 

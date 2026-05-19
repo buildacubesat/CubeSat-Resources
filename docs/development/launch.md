@@ -36,9 +36,10 @@ To be added here:
 
 ### Space object registration and frequency management
 
-<!-- CSR-RESOURCES:START registration-and-frequency-management -->
+<!-- CSR-RESOURCES:START dev-launch-registration-and-frequency-management -->
 - **[Guidance on Space Object Registration and Frequency Management for Small Satellites](https://storage.googleapis.com/cubesat-resources/resources/registration-and-frequency-management/handout-on-small-satellitese.pdf)** `PDF` – Guidance on registration and frequency management
-<!-- CSR-RESOURCES:END registration-and-frequency-management -->
+<!-- CSR-RESOURCES:END dev-launch-registration-and-frequency-management -->
+
 ## Launch Integration
 
 To be added here:

@@ -2,7 +2,7 @@
 
 This section highlights interesting CubeSat missions and open-source satellite projects. These examples provide insight into real-world designs, mission profiles, challenges, and lessons learned. Some are fully open-source, offering schematics, software, and documentation that can serve as valuable references or starting points for your own work.
 
-<!-- CSR-RESOURCES:START open-source-cubesat-missions -->
+<!-- CSR-RESOURCES:START ref-open-source-cubesat-missions -->
 ## Open-Source (partially or fully)
 - [AcubeSAT](https://gitlab.com/acubesat) ([landing page](https://acubesat.spacedot.gr))
 - [AlbertaSat](https://albertasat.ca/) (multiple missions, [landing page](https://albertasat.ca/))
@@ -31,9 +31,9 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [SUCHAI](https://github.com/spel-uchile/)
 - [UPSat](https://github.com/librespacefoundation), built with [LibreCube](https://gitlab.com/librecube)
 - [List of Open-Source missions](https://www.nanosats.eu/keyword/open-source)
-<!-- CSR-RESOURCES:END open-source-cubesat-missions -->
+<!-- CSR-RESOURCES:END ref-open-source-cubesat-missions -->
 
-<!-- CSR-RESOURCES:START publicly-documented-cubesat-missions -->
+<!-- CSR-RESOURCES:START ref-publicly-documented-cubesat-missions -->
 ## Publicly Documented
 - [ANTEL-SAT](https://iie.fing.edu.uy/investigacion/grupos/lai/)
 - [BINAR](https://www.youtube.com/@binarspacewa)
@@ -42,13 +42,13 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [Phoenix](https://phxcubesat.asu.edu/)
 - [MARMOTSat](https://www.propagationlab.ca/satellite/)
 - Do you know any missions that should be included here? [Contribute](../contributing.md)!
-<!-- CSR-RESOURCES:END publicly-documented-cubesat-missions -->
+<!-- CSR-RESOURCES:END ref-publicly-documented-cubesat-missions -->
 
-<!-- CSR-RESOURCES:START cool-satnogs-dahsboards -->
+<!-- CSR-RESOURCES:START ref-cool-satnogs-dahsboards -->
 ## SatNOGS Dashboard
 Collection of current and past Graphana mission dashboards: [SatNOGS Dashboards](https://dashboard.satnogs.org/). Some are very helpful for getting a sense of real-world mission data:
 * [AAUSAT4](https://dashboard.satnogs.org/d/QGujdBBZk/aausat4?orgId=1&from=now-10y&to=now&timezone=browser)
 * [QMR-KWT 2](https://dashboard.satnogs.org/d/efgl2md8iap6oa/qmr-qwt-2?orgId=1&from=now-2d&to=now&timezone=utc&var-suid=67291&var-filter=)
 * [UMKA-1](https://dashboard.satnogs.org/d/ffc0ehd32qfpcc/umka-1?orgId=1&from=2021-01-30T04:28:17.186Z&to=2029-02-01T04:28:17.186Z&timezone=utc&var-suid=57172&var-filter=)
 * [COSMO](https://dashboard.satnogs.org/d/bfhvxrnomp91ca/cosmo?orgId=1&from=now-)
-<!-- CSR-RESOURCES:END cool-satnogs-dahsboards -->
+<!-- CSR-RESOURCES:END ref-cool-satnogs-dahsboards -->
