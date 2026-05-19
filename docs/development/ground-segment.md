@@ -133,15 +133,15 @@ To be added here:
 
 
 <!-- CSR-RESOURCES:START sdr-rf-software -->
-- **[gr-leo: GNU Radio LEO satellite communication simulator](https://github.com/radioconda/gr-leo)** `Link`
-  GNU Radio LEO channel simulator repository
-
 - **[List of SDR Software and Hardware](https://github.com/Slayingripper/Linux-SDR)**  
   A broad, community-maintained index of SDR tools and supported hardware on Linux.
 
 - **[Gqrx SDR](https://www.gqrx.dk/)**  
   Lightweight Qt SDR receiver, great for quick signal inspection and debugging.
 
+- **[gr-leo: GNU Radio LEO satellite communication simulator](https://github.com/radioconda/gr-leo)** `Link`
+  GNU Radio LEO channel simulator repository
+  
 - **[SDR++Brown](https://sdrpp-brown.san.systems/)**  
   Modern, modular SDR++ fork with good performance and active development.
 
