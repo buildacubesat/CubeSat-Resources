@@ -13,7 +13,7 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [ECE³SAT](https://github.com/ECE3SAT)
 - [EQUiSat](https://github.com/BrownSpaceEngineering)
 - [FOSSASAT](https://github.com/FOSSASystems/FOSSASAT-1) (PocketQube, multiple missions)
-- [FrontierSat (CTS-SAT-1)](https://github.com/calgarytospace)
+- [FrontierSat (CTS-SAT-1)](https://github.com/calgarytospace) ([landing page](https://www.calgarytospace.ca/cts-sat-1), [mission log](https://github.com/CalgaryToSpace/CTS-SAT-1-Wiki/wiki/Mission-Operations))
 - [HuskySat](https://github.com/UWCubeSat) ([landing page](https://huskysat.org/))
 - [NyanSat](https://github.com/OakwoodEngineering) (in development, not launched yet. [Landing page](https://nyansat.org/))
 - [ORCASat](https://gitlab.com/ORCASat) ([landing page](https://www.orcasat.ca/) and [YouTube](https://www.youtube.com/@orcasat))
