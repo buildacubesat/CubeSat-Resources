@@ -37,6 +37,7 @@ To be added here:
 ### Space object registration and frequency management
 
 <!-- CSR-RESOURCES:START dev-launch-registration-and-frequency-management -->
+-- **[Guidance on Space Object Registration and Frequency Management for Small Satellites](https://storage.googleapis.com/cubesat-resources/resources/registration-and-frequency-management/handout-on-small-satellitese.pdf)** `PDF` – Guidance on registration and frequency management
 - **[Handbook on Amateur and Amateur-Satellite Services (2026)](https://storage.googleapis.com/cubesat-resources/resources/dev-launch-registration-and-frequency-management/itu-handbook-amateur-amateur-satellite-2026.pdf)** `PDF` – ITU handbook on amateur radio services
 - **[Small Satellites Support (ITU-R)](https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx)** `Link` – ITU guidance on small satellite spectrum matters
 <!-- CSR-RESOURCES:END dev-launch-registration-and-frequency-management -->
