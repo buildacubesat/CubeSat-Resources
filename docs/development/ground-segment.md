@@ -112,9 +112,9 @@ To be added here:
 
 - **DIY Az/El antenna rotators**  
   Popular for CubeSat stations, especially when integrated with Hamlib or SatNOGS controllers.
-    - [SatNOGS rotator](https://wiki.satnogs.org/SatNOGS_Rotator_v3)
-    - [AntRunner](https://github.com/wuxx/AntRunner)
-    - [SARCNET Satellite-Antenna Rotator Mk2a](https://www.sarcnet.org/mini-satellite-antenna-rotator-mk2.html)
+  - [SatNOGS rotator](https://wiki.satnogs.org/SatNOGS_Rotator_v3)
+  - [AntRunner](https://github.com/wuxx/AntRunner)
+  - [SARCNET Satellite-Antenna Rotator Mk2a](https://www.sarcnet.org/mini-satellite-antenna-rotator-mk2.html)
 
 - **Low-noise amplifiers (LNA)**  
   Mast-mounted LNAs are critical for UHF/VHF CubeSat downlinks with modest antennas.
