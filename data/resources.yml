@@ -151,6 +151,25 @@ resources:
   block_id: open-source-cubesat-missions
   sha256: 6de2b6f88c66b2285cf8f813af5f685d1bfc686cab70a9e2b579735f010237a5
   added: '2026-05-18'
+- id: 365990a917
+  title: S-Band RHCP Patch Antenna — GitHub repository
+  description: Open-source S-band patch antenna repository
+  file_type: Link
+  url: https://github.com/ICDT-Inatel-Cubesat-Design-Team/S-Band-Antenna
+  source: https://github.com/ICDT-Inatel-Cubesat-Design-Team/S-Band-Antenna
+  publisher: GitHub
+  author: ICDT-Inatel-Cubesat-Design-Team
+  year: 2026
+  resource_type: repository
+  tags:
+  - antenna
+  - s-band
+  - repository
+  - hardware
+  - github
+  block_id: dev-comms-antenna-design-papers
+  sha256: c60ebf344b0256b237a654b08666b5d3aa6a23ba492583ff6d80c7274640c356
+  added: '2026-06-08'
 - id: 0a1afa7621
   title: Small Satellites Support (ITU-R)
   description: ITU guidance on small satellite spectrum matters
