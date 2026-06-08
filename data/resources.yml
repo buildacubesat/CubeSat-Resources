@@ -94,6 +94,25 @@ resources:
   block_id: registration-and-frequency-management
   sha256: c7c86afa03c5cf2b1a7b290af19c4ddf253927ad6485a73cbf596d66a4b816ac
   added: '2026-05-13'
+- id: c485feb220
+  title: Handbook on Amateur and Amateur-Satellite Services (2026)
+  description: ITU handbook on amateur radio services
+  file_type: PDF
+  url: https://storage.googleapis.com/cubesat-resources/resources/dev-launch-registration-and-frequency-management/itu-handbook-amateur-amateur-satellite-2026.pdf
+  source: https://www.itu.int/dms_pub/itu-r/opb/hdb/R-HDB-52-2026-PDF-E.pdf
+  publisher: International Telecommunication Union (ITU)
+  author: Radiocommunication Bureau
+  year: 2026
+  resource_type: handbook
+  tags:
+  - amateur-radio
+  - frequency-allocation
+  - regulation
+  - band-plans
+  - satellite
+  block_id: dev-launch-registration-and-frequency-management
+  sha256: 24a4b1443a39c157d8ebc0c2dcd59ff01e3d44dbcfc2e08406f25085216cc9bc
+  added: '2026-06-08'
 - id: 117300b48e
   title: LightFoundry Space Grade 30% Efficiency GaAs 14466 Solar Cell Datasheet
   description: Space-grade 30 percent GaAs solar cell datasheet
@@ -132,6 +151,25 @@ resources:
   block_id: open-source-cubesat-missions
   sha256: 6de2b6f88c66b2285cf8f813af5f685d1bfc686cab70a9e2b579735f010237a5
   added: '2026-05-18'
+- id: 0a1afa7621
+  title: Small Satellites Support (ITU-R)
+  description: ITU guidance on small satellite spectrum matters
+  file_type: Link
+  url: https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx
+  source: https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx
+  publisher: International Telecommunication Union (ITU)
+  author: ITU Radiocommunication Sector (ITU-R)
+  year: 2026
+  resource_type: website
+  tags:
+  - regulatory
+  - spectrum
+  - frequency-management
+  - small-sat
+  - itu
+  block_id: dev-launch-registration-and-frequency-management
+  sha256: 8d89221f486d35e68ed2d5c843be98cd381a1f650f534b8c296290ae971510bb
+  added: '2026-06-08'
 - id: 1efdc166b7
   title: The Practical Test Pyramid
   description: Overview of the software test pyramid
