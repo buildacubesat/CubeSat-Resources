@@ -1,55 +1,63 @@
 # Getting Started
 
-CubeSats are satellites in the nanosat class built around a published standard, the CubeSat Design Specification (CDS). Standardised form factors share common deployer hardware, which lowers the cost of development and launch and makes access to space attainable for small teams, universities and even individuals.
+CubeSats are satellites in the nanosat class built around a published standard, the [CubeSat Design Specification](references/glossary.md#cds) (CDS). Standardised form factors share common deployer hardware, which lowers the cost of development and launch and makes access to space attainable for small teams, universities and individuals.
 
-This page is for those new to CubeSats or small satellite development. It gives you a broad overview of what a CubeSat is, how a project runs, which constraints decide your design before you start drawing, and where to go next.
+This page is for those new to CubeSats or small satellite development. It gives you a broad overview of what a CubeSat is, how a project runs, which constraints decide your design before you start drawing, and where to go next on this site.
+
+!!! tip "Unfamiliar term?"
+    The [Glossary](references/glossary.md) defines the acronyms and concepts used across this site. Most pages link into it directly.
 
 ## The Standard in Numbers
 
-The current revision is [CDS Rev. 14.1](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf) (February 2022), maintained by the Cal Poly CubeSat Laboratory. It covers 1U, 1.5U, 2U, 3U, 6U and 12U in a single document.
+The current revision is **CDS Rev. 14.1** (February 2022), maintained by the Cal Poly CubeSat Laboratory. It covers 1U through 12U in a single document.[^cds]
 
-- A 1U is nominally a 10 cm cube. The actual envelope is **100 × 100 × 113.5 mm** – the extra height is the rails, and designing to a flat 100 mm is a common first mistake.
-- Mass is **2 kg per U** in Rev. 14.1: 2 / 3 / 4 / 6 / 12 / 24 kg for 1U / 1.5U / 2U / 3U / 6U / 12U. Older material still quotes the Rev. 13 figure of 1.33 kg per U.
-- Deployables stay stowed for the first 30 minutes after deployment, and the radio stays silent for the first 45 minutes.
+- A [1U](references/glossary.md#u-cubesat-unit) is nominally a 10 cm cube. The actual envelope is **100.0 × 100.0 × 113.5 mm** – the extra height is the rails, and designing to a flat 100 mm is the classic first mistake.
+- Mass is **2 kg per U** in Rev. 14.1. Older material still quotes the Rev. 13 figure of 1.33 kg/U.
+- Deployables stay stowed for the first **30 minutes** after deployment, and the radio stays silent for the first **45 minutes**.
 
 !!! warning "Your launch provider outranks the CDS"
-    The CDS is the baseline, not the contract. Deployer capabilities, mass limits, inhibit counts, materials and outgassing rules all vary between providers, and the payload user guide you sign against always takes precedence. Get that document early and design to it.
+    The CDS is the common language, not the contract. Deployer envelopes, mass limits, inhibit counts and materials rules vary between providers, and the [payload user guide](references/glossary.md#payload-user-guide-pug) you sign against always takes precedence. Get that document early and design to it.
 
-See [Standards & Protocols](references/standards.md) for the specification itself and the testing standards that go with it.
+Details on [Structure – Form Factors and the CubeSat Envelope](development/structure.md#form-factors-and-the-cubesat-envelope), and the specification itself on [Standards & Protocols](references/standards.md).
 
 ## Where to Start
 
 ### Read first
 
-- [NASA's CubeSat 101](https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf) – beginner-friendly overview of CubeSat design and mission planning, and the single best starting point. Written by Cal Poly for NASA.
+- [NASA's CubeSat 101](https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf) – beginner-friendly overview of CubeSat design and mission planning, written by Cal Poly for NASA. The single best starting point.
 - [NASA CubeSat Launch Initiative Resources](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative/cubesat-launch-initiative-resources/) – a curated list of documents covering nearly everything a new project needs.
 - [The CubeSat Design Specification](https://www.cubesat.org/cubesatinfo) – the official framework for CubeSat form factors, and the source of the physical and operational constraints on your mission.
 - [Nano Avionics' CubeSat 101](https://nanoavionics.com/blog/cubesat-101-the-comprehensive-guide-to-understanding-satellite-technology) – a shorter, higher-level overview if the NASA document is too much at once.
-- [Wikipedia](https://en.wikipedia.org/wiki/CubeSat) – history and context.
 - [The case for open source in CubeSat development](https://visionspace.com/how-to-build-a-cubesat-and-use-open-source-101/) – summary of an interview with Artur Scholz of LibreCube.
+- [Wikipedia](https://en.wikipedia.org/wiki/CubeSat) – history and context.
 
-### Courses and training
+### Learn systematically
 
-- [New Space Economy](https://www.edx.org/learn/economics/ecole-polytechnique-federale-de-lausanne-new-space-economy) – EPFL on edX, a good general introduction to the commercial space sector.
-- [ESA Academy](https://www.esa.int/Education/ESA_Academy) – CubeSat Hands-On Training Weeks and Concurrent Engineering Workshops for students in ESA member states.
-- More options on the [Courses](references/courses.md) page.
+- [KiboCUBE Academy](https://www.unoosa.org/oosa/en/ourwork/access2space4all/KiboCUBE_Academy_Webinars.html) – UNOOSA/JAXA lecture series covering mission design through subsystems to operations. Free, structured, and the closest thing to a full CubeSat course.
+- [A Guide to CubeSat Mission and Bus Design](https://pressbooks-dev.oer.hawaii.edu/epet302/) – University of Hawai'i open textbook with worked examples.
+- More on the [Courses, Events and Educational Kits](references/courses.md) page, including educational kits you can build against.
 
 ### Stay current
 
 - A few well-chosen [newsletters](references/newsletters.md) will keep you up to date with the industry at large.
+- The [Small Satellite Conference proceedings](https://digitalcommons.usu.edu/smallsat/) are freely accessible and are the richest source of CubeSat engineering literature anywhere. See [Papers](references/papers.md).
 - Shameless plug: I am developing an open source CubeSat and documenting the process. If that is useful to you, see the [Build a CubeSat channel](https://youtube.com/@buildacubesat), the [website](https://buildacubesat.space/) and the [source on Codeberg](https://codeberg.org/buildacubesat-project).
 
 ## Development Flow
 
 CubeSat projects usually fall into one of two categories, and knowing which one you are in shapes almost every decision that follows.
 
-**Result-oriented missions** have a payload that needs to reach orbit and return data. Here it is usually advisable to source a bus with flight heritage – structure and subsystems that have flown before – from an established vendor, and spend your effort on the payload and the ground segment.
+**Result-oriented missions** have a payload that needs to reach orbit and return data. Here it is usually advisable to source a bus with [flight heritage](references/glossary.md#flight-heritage) – structure and subsystems that have flown before – from an established vendor, and spend your effort on the payload and the ground segment.
 
-**Process-oriented missions** treat the learning as the point. You will build a larger share of the flight segment yourself. This is absolutely feasible, but it is more iterative and shifts effort into integration, qualification and testing. Expect to build a FlatSat or engineering model first – all subsystems laid out on a bench – for easier debugging and early verification.
+**Process-oriented missions** treat the learning as the point. You will build a larger share of the flight segment yourself. This is absolutely feasible, but it is more iterative and shifts effort into integration, qualification and testing. Expect to build a [flatsat](references/glossary.md#flatsat) or engineering model first – all subsystems laid out on a bench – for easier debugging and early verification.
 
 Most academic missions land in between: source the parts where failure is expensive and schedule-critical (typically structure and EPS), build the rest in-house.
 
+Whichever you are, the discipline that holds a CubeSat project together is systems engineering – requirements, a [CONOPS](references/glossary.md#conops), interfaces, and the mass, power and link budgets that constrain everything else. If you read one page on this site before starting, make it [Systems Engineering](development/systems-engineering.md).
+
 ### Project Phases
+
+Formal programmes use NASA's Pre-Phase A through Phase F or the ECSS equivalent. A CubeSat team does not need the full apparatus, but the sequence tells you what should be settled by when – see [Systems Engineering – Mission Phases and Operations](development/systems-engineering.md#mission-phases-and-operations). In practical terms:
 
 - Feasibility Study
 - Fundraising
@@ -70,19 +78,19 @@ Most academic missions land in between: source the parts where failure is expens
 - [ ] Feasibility studies completed
 - [ ] Funding is secured
 - [ ] Mission requirements baselined
-- [ ] Preliminary Design Review (PDR) completed
-- [ ] Critical Design Review (CDR) completed
+- [ ] Preliminary Design Review ([PDR](references/glossary.md#pdr)) completed
+- [ ] Critical Design Review ([CDR](references/glossary.md#cdr)) completed
 - [ ] Frequency coordination and licence applications submitted
-- [ ] Export control classification established
+- [ ] Export control implications identified
 - [ ] End-of-life and debris mitigation plan documented
 - [ ] Flight/qualification hardware procured
 - [ ] Flight/qualification hardware tested
-- [ ] FlatSat testing completed
+- [ ] Flatsat testing completed
 - [ ] Functional tests performed at system level
 - [ ] Environmental tests performed at system level
 - [ ] Launch service provider selected and contract signed
-- [ ] Interface Control Document agreed with the launch provider
-- [ ] Ground station operational and tracking test satellites
+- [ ] Interface Control Document ([ICD](references/glossary.md#icd)) baselined with the launch provider
+- [ ] Ground station operational and tracking other satellites
 - [ ] Mission insurance policy secured (optional)
 - [ ] All regulatory approvals granted
 - [ ] Flight ready
@@ -99,91 +107,64 @@ Most academic missions land in between: source the parts where failure is expens
 
 ## Constraints to Settle Early
 
-These four decisions are cheap to make at the start and expensive to revisit. Teams that get into trouble usually got into it here.
+Four decisions are cheap to make at the start and expensive to revisit. Teams that get into trouble usually got into it here.
 
-**Orbit and disposal.** Your altitude decides your lifetime, and your lifetime is now a regulatory matter. Anything licensed through or accessing the market via the United States falls under the FCC's five-year post-mission disposal rule, and the FCC's streamlined small satellite licence caps in-orbit lifetime at six years. Below roughly 450 km a passive 1U typically re-enters within a couple of years; at 550 km and above natural decay can take a decade or more. Model it properly with a decay tool such as ESA's DRAMA before you commit to an orbit.
+**Orbit and disposal.** Your altitude decides your orbital lifetime, and your lifetime is now a regulatory matter rather than a design preference. At 400–500 km natural decay handles it; above roughly 600 km a passive CubeSat may exceed the current limits and needs a drag device, propulsion or a lower orbit. Settle this during design – see [Space debris mitigation](development/launch.md#space-debris-mitigation).
 
-**Spectrum.** Amateur or commercial – see below. This is not just a radio decision: the amateur satellite service prohibits commercial use of the link, so choosing amateur bands constrains your business model as well as your hardware.
+**Spectrum.** Amateur or licensed – the choice constrains your business model, not just your radio, because the amateur satellite service prohibits commercial use of the link. It also has the longest lead time of anything on your schedule. See [Communications – RF Overview](development/comms.md#radio-frequency-communications-rf-overview) and [Frequency licensing](development/launch.md#frequency-licensing).
 
-**Export control.** If your team includes non-nationals, or you ship hardware across a border, or you buy US-origin components, export control applies to you. See below.
+**Export control.** If your team includes non-nationals, you ship hardware across a border, or you buy controlled components – [GNSS receivers that work at orbital velocity](references/glossary.md#cocom-limits) being the classic CubeSat example – export control applies to you. For an open-source project, what you may publish deserves early thought. See [Export control](development/launch.md#export-control).
 
-**Launch safety.** Inhibits, deployment switches, remove-before-flight pin and battery qualification (lithium cells generally need UN 38.3 transport testing) are structural design drivers, not paperwork you add at the end. The [Inhibits and HDRM](development/inhibits-hdrm.md) page covers the details.
+**Launch safety.** [Inhibits](references/glossary.md#inhibit), deployment switches, the [RBF pin](references/glossary.md#rbf-pin) and battery qualification are structural design drivers, not paperwork added at the end. Inhibit evidence is the most scrutinised item in a delivery package. See [Inhibits and HDRM](development/inhibits-hdrm.md).
 
 ## Sourcing and Building
 
-For sourcing subsystems and components, start with [SatSearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) (rebranding to SatBase) and the [CubeSat Shop](https://www.cubesatshop.com/).
+For subsystems and components, start with [SatSearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) (rebranding to SatBase) and the [CubeSat Shop](https://www.cubesatshop.com/); more on the [Websites](references/websites.md#component-sourcing) page.
 
-On the open-source side, a considerable amount of flight-relevant work is freely available:
-
-- [LibreCube](https://librecube.gitlab.io/) – open standards and building blocks for space systems, including SpaceCAN.
-- [F Prime](https://github.com/nasa/fprime) – NASA JPL's flight software framework, flown on Ingenuity and a growing number of CubeSats.
-- [NASA cFS](https://github.com/nasa/cFS) – the core Flight System, a mature flight software platform.
-- [PyCubed](https://github.com/pycubed) – open-source, radiation-tested CubeSat avionics programmable entirely in Python.
-- [libcsp](https://libcsp.github.io/libcsp/) – the de facto CubeSat onboard networking protocol.
-- [SatNOGS](https://satnogs.org/) – open-source global ground station network, run by the Libre Space Foundation.
-
-See [Flight Software](development/flight-software.md), [Ground Segment](development/ground-segment.md) and [Tools and Helpers](development/tools.md) for more.
+On the open-source side there is far more flight-proven material available than most newcomers expect – complete missions with published schematics, software and lessons learned. The [CubeSat Missions](references/missions.md) page collects them, the [educational kits](references/courses.md#educational-kits) are the fastest way to get hardware on a bench, and [Flight Software](development/flight-software.md#open-source-flight-software-projects) lists the frameworks worth building on rather than reinventing. Reading someone else's flown design is the cheapest engineering you will ever do.
 
 ## Getting to Orbit
 
-Start looking for a ride early. It aligns you with your provider's requirements, avoids costly redesigns, and gives you access to their support and documentation while there is still time to use it.
+Start looking for a ride early. It aligns you with your provider's requirements, avoids costly redesigns, and gives you access to their documentation while there is still time to act on it. The routes, in rough order of how most CubeSats fly:
 
-Common paths:
+- **Rideshare through an aggregator or broker** – Exolaunch, D-Orbit, ISILaunch, SEOPS and others buy capacity in bulk, supply the [deployer](references/glossary.md#deployer) and handle much of the interface work. For a first mission the broker's experience is worth as much as the slot.
+- **Dedicated small launchers** – Rocket Lab's Electron, Firefly's Alpha, ISRO's SSLV. More expensive per kilogram, but you choose the orbit and the schedule.
+- **[Orbital transfer vehicles](references/glossary.md#otv)** – when the available rideshare orbit is wrong for your mission.
+- **ISS deployment** – via NASA's CSLI, JAXA's J-SSOD or commercial providers. Deployment is at 51.6° into a 400–420 km orbit, so lifetime is short and disposal compliance easy, but the safety requirements are the strictest of any route.
+- **Free and subsidised programmes** – [NASA CSLI](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative) for US educational and non-profit developers, [ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites) for teams in ESA member states, and [UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html) more widely. Competitive and slow, but genuinely free. Apply early.
 
-- **Rideshare on a dedicated smallsat mission.** [SpaceX Transporter and Bandwagon](https://www.spacex.com/rideshare) missions are the highest-volume option, usually booked through a launch services provider such as [Exolaunch](https://exolaunch.com/), [D-Orbit](https://www.dorbit.space/) or [ISILAUNCH](https://www.isilaunch.com/).
-- **Dedicated small launchers.** [Rocket Lab](https://www.rocketlabusa.com/) and others sell dedicated or shared missions with more control over your orbit, at a higher price.
-- **Deployment from the ISS.** Via JAXA's J-SSOD or commercial providers. The orbit is low, so lifetime is short and disposal compliance is easy, but you inherit crewed-vehicle safety requirements.
-- **Education and access programmes.** [NASA CSLI](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative) for US educational and non-profit developers, [ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites) for teams in ESA member states, and [UNOOSA Access to Space for All](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html) for developing countries.
+!!! warning "The cheap-launch era may be pausing"
+    Since 2020, SpaceX's Transporter and Bandwagon missions have set the price of access to orbit – around USD 350,000 for up to 50 kg, roughly USD 7,000/kg above that.[^rideshare-price] In July 2026 SpaceX was reported to have **stopped taking new commercial rideshare bookings beyond late 2028**, with Falcon 9 capacity redirected to next-generation Starlink and other internal payloads.[^rideshare-freeze] No replacement programme has been announced. Dedicated small launchers currently sell at roughly USD 15,000–25,000/kg, and the announced European and US alternatives are not yet flying at the cadence needed to absorb the demand.
 
-As a budget anchor: SpaceX's published rideshare rate to SSO is around USD 350,000 for up to 50 kg with roughly USD 7,000 per kilogram above that, as of early 2026. There is a 50 kg minimum, which is why a lone 1U is expensive per kilogram and why aggregators exist. Check current pricing directly – it has risen repeatedly.
+    For a team starting now, a 1–2 year development means launching straight into that window. Practical response: talk to brokers earlier than you otherwise would, treat launch cost as a range rather than a number in your funding case, and take the free programmes and ISS routes more seriously than you might have in 2024.
 
-!!! note "Once you are manifested"
-    Launch integration begins. You will need to meet every interface and safety requirement in the payload user guide and deliver flight hardware well in advance – anywhere from 1 to 6 months before liftoff. If your CubeSat is not ready, it does not fly.
-
-More detail on the [Qualification and Launch](development/launch.md) page.
+Full detail – what you are actually buying, the working-backwards timeline, deployers, insurance and delivery – on [Qualification and Launch](development/launch.md).
 
 ## Regulatory Approval
 
-What applies to you depends on where your team is based, where your launch provider is based, and what you intend to do in orbit.
+What applies to you depends on where your team is based, where your launch provider is based, and what you intend to do in orbit. Four things need starting early, and none of them are under your control once started:
+
+- **Frequency authorisation.** [IARU](references/glossary.md#iaru) coordination plus a national licence for amateur bands, or a national filing coordinated with the [ITU](references/glossary.md#itu) for other bands. The international filing is submitted by your national administration, not by you and not by the IARU. Months, not weeks – and **without it your spacecraft will not be permitted to deploy**. This is the most common regulatory reason a finished CubeSat misses its launch.
+- **Space object registration** with your national authority, which forwards it to the UN. Administrative, but it has a deadline. Note that some countries, Switzerland among them, have no national space law yet, and teams there typically route authorisation through another state – find out which situation you are in early, because it can determine which providers you can fly with.
+- **Export control**, as above.
+- **Remote sensing**, if you image the Earth – a separate licence from a national body such as NOAA in the US.
 
 !!! warning
     Nothing on this site is legal advice. You will need to familiarise yourself with your own country's legislation, rules and best practices around launching and operating a satellite.
 
-### Radio Frequency Usage
-
-The most common CubeSat link is UHF in the 435–438 MHz amateur satellite allocation. There are two distinct routes, and the first decision is which one you are on:
-
-**Amateur satellite service.** A licensed radio amateur on your team takes responsibility for the station and its compliance. The link may not be used for commercial purposes. You request frequency coordination from the [IARU](https://www.iaru.org/reference/satellites/) through your national member society, using their coordination request form. IARU coordination is a peer process, not a licence.
-
-**Commercial or experimental service.** You apply to your national regulator for a spectrum authorisation – in the United States, the [FCC's streamlined small satellite process](https://www.fcc.gov/space/small-satellite-and-small-spacecraft-licensing-process) under 47 CFR § 25.122, which covers up to ten satellites of no more than 180 kg each, with a maximum six-year in-orbit lifetime and deployment below 600 km or a collision avoidance capability.
-
-In both cases, the international filing with the [ITU](https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx) – advance publication information, then coordination and notification – is submitted **by your national administration**, not by you and not by the IARU. Budget months, not weeks, and start before your radio design is frozen. If required approvals are not in place by launch day, your CubeSat will not be allowed to deploy.
-
-### Deorbit and Debris Mitigation
-
-You will be asked to show that your satellite comes down and that it does not fragment. That means a documented end-of-life plan, passivation of batteries and any stored energy at end of mission, and a re-entry casualty risk assessment. The FCC's five-year rule is currently the strictest widely applicable requirement; ESA's Zero Debris approach and ISO 24113 point in the same direction.
-
-### Export Control
-
-Space hardware is controlled hardware. In the United States that means ITAR and the EAR – Munitions List Categories IV and XV and the corresponding Commerce Control List entries were substantially revised in October 2024, adding the CSA licence exception. The EU and Switzerland have their own dual-use regimes. Practical triggers for a small team: non-national team members with access to technical data, shipping hardware abroad for testing or integration, and buying US-origin parts. Establish your classification before you publish designs or hand hardware to a foreign integrator.
-
-### National Authorisation and Registration
-
-Under the Outer Space Treaty a state is responsible for, and liable for, the space activities of its nationals, and under the Registration Convention the launching state registers the object. In practice you need a national authorisation and your satellite must be entered in a national registry, which is forwarded to the UN. Some countries have a well-defined licensing regime; others, Switzerland among them, have no national space law yet, and teams there typically route authorisation via another state, often through the launch provider. Find out which situation you are in early – it can determine which provider you can fly with.
-
-### Remote Sensing
-
-If you plan Earth observation with cameras or sensors, you may need a separate remote sensing licence from a national body – for example [NOAA CRSRA](https://space.commerce.gov/regulations/commercial-remote-sensing-regulatory-affairs/licensing/), administered under the US Office of Space Commerce.
+The full treatment is on [Qualification and Launch – Regulatory Requirements](development/launch.md#regulatory-requirements).
 
 ## Mission Operations
 
-Once deployed, you begin commissioning: acquiring the signal, establishing two-way contact, and checking that each subsystem is alive and behaving. Only then does the mission enter its operational phase – collecting data, sending commands, and managing the satellite's health.
+Once deployed you begin commissioning: acquiring the signal, establishing two-way contact, and checking that each subsystem is alive and behaving. Only then does the mission enter its operational phase.
 
-Plan time, money and people for this. Missions run from a few months to several years, and operations require someone available to take passes, including at inconvenient hours during commissioning. Getting your satellite into the [SatNOGS](https://satnogs.org/) database before launch is one of the cheapest things you can do for your mission: it gives you a global network of receivers listening for your first beacon.
+Plan time, money and people for this. Missions run from a few months to several years, and operations need someone available to take passes, including at inconvenient hours during [LEOP](references/glossary.md#leop). Two things pay for themselves before launch: rehearsing the first days with your flatsat and real ground station, and publishing your beacon format so the [SatNOGS](references/glossary.md#satnogs) community can help you find your satellite. Many missions have been first detected by a stranger.
+
+See [Ground Segment](development/ground-segment.md) and [Preparing for LEOP](development/launch.md#preparing-for-leop).
 
 ## Budget Expectations
 
-Rough orders of magnitude, excluding labour:
+Rough orders of magnitude, excluding labour and assuming current launch pricing:
 
 | Type | Typical range |
 | :---- | :---- |
@@ -191,16 +172,22 @@ Rough orders of magnitude, excluding labour:
 | Academic or small-commercial 3U–6U, sourced bus, purchased rideshare | low hundreds of thousands to ~1 million |
 | Commercial 6U–12U with a capable payload and full qualification | several million |
 
-Launch, environmental testing and licensing are the line items teams most often underestimate.
+Launch, environmental testing and licensing are the line items teams most often underestimate – and see the note above on where launch pricing may be heading.
 
 ## Communities and Next Steps
 
-- [Development](development/index.md) – the technical content of this site, by subsystem.
-- [References](references/index.md) – glossary, standards, books, papers, missions and courses.
-- [Build a CubeSat Discord](https://bac.page/discord) – community focused on open-source hardware and software in CubeSat development.
-- [Libre Space Community](https://community.libre.space/) – the most technically substantive open forum in this space.
-- [r/CubeSats](https://www.reddit.com/r/CubeSats/) – active Reddit community.
-- [AMSAT](https://www.amsat.org/) and its national counterparts – decades of amateur satellite engineering experience.
-- More on the [Communities](references/communities.md) page.
+- [Development](development/index.md) – the technical content of this site, subsystem by subsystem.
+- [References](references/index.md) – glossary, standards, books, papers, missions, courses.
+- [Communities](references/communities.md) – forums, organisations and programmes worth joining, including the [Build a CubeSat Discord](https://bac.page/discord) and the [Libre Space Community](https://community.libre.space/).
 
 The CubeSat and amateur satellite communities are unusually willing to help. A well-posed question with real data attached almost always gets a useful answer.
+
+---
+
+👉 **Please consider [contributing](contributing.md)!**
+
+[^cds]: The CubeSat Program, Cal Poly SLO, [*CubeSat Design Specification Rev. 14.1*](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf) (9 February 2022). Source for the 100.0 × 100.0 × 113.5 mm 1U envelope, the 2 kg/U mass table covering 1U–12U, and the 30-minute deployable and 45-minute RF quiet periods.
+
+[^rideshare-price]: SpaceX, [Rideshare Program](https://www.spacex.com/rideshare/); pricing as published for sun-synchronous Transporter missions, with a 50 kg minimum. Corroborated by NASA SSSVI, [*State of the Art in Small Spacecraft Technology*, Chapter 10](https://www.nasa.gov/smallsat-institute/sst-soa/integration-launch-and-deployment/).
+
+[^rideshare-freeze]: Reported July 2026 by [SatNews](https://satnews.com/2026/07/20/spacex-limits-future-commercial-rideshare-bookings-past-2028-amid-severe-manifest-saturation/) and [SpaceQ](https://spaceq.ca/spacexs-rideshare-freeze-what-it-means-for-the-smallsat-market-and-canada/), among others. SpaceX has not issued an official statement; existing contracts through 2028 are unaffected.
