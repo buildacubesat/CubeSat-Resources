@@ -20,7 +20,7 @@ This section lists useful and authoritative websites related to CubeSats, small 
 - **[NASA's Small Spacecraft Systems Virtual Institute (S3VI)](https://s3vi.ndc.nasa.gov/)** `Link` – NASA hub for small spacecraft technology, with a searchable knowledge base
 - **[CubeSat at Cal Poly SLO](https://www.cubesat.org/)** `Link` – Home of the CubeSat Design Specification and the CubeSat Developers Workshop
 - **[NASA Goddard Outgassing Database](https://etd.gsfc.nasa.gov/capabilities/outgassing-database/)** `Link` – ASTM E595 outgassing data for thousands of materials
-- **[ESA CubeSat Support Facility](https://www.esa.int/Education/CubeSats_-_Fly_Your_Satellite/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
+- **[ESA CubeSat Support Facility](https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
 - **[Libre Space Community](https://community.libre.space/)** `Link` – The most technically active open CubeSat and ground station forum
 <!-- CSR-RESOURCES:END ref-websites-cubesat-development -->
 

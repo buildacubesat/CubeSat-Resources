@@ -84,7 +84,7 @@ Working backwards from launch, a realistic ordering:
 - **[SpaceX Rideshare Program](https://www.spacex.com/rideshare/)** `Link` – Transporter and Bandwagon rideshare programme, with published pricing and a booking interface
 - **[Exolaunch](https://exolaunch.com/)** `Link` – Launch brokerage, deployer hardware (EXOpod, EXOtube) and integration services for CubeSats
 - **[NASA CubeSat Launch Initiative](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative)** `Link` – NASA programme providing launch opportunities to US educational and non-profit CubeSat developers
-- **[ESA Fly Your Satellite!](https://www.esa.int/Education/CubeSats_-_Fly_Your_Satellite)** `Link` – ESA education programme offering support, test facilities and launch opportunities to European university teams
+- **[ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites)** `Link` – ESA education programme offering support, test facilities and launch opportunities to European university teams
 <!-- CSR-RESOURCES:END dev-launch-procurement -->
 
 ## Insurance

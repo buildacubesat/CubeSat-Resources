@@ -125,7 +125,7 @@ Environmental test facilities are expensive, and few CubeSat teams own them. The
 
 <!-- CSR-RESOURCES:START dev-ait-test-facilities -->
 - **[ESA - CubeSat Support Facility](https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
-- **[ESA Fly Your Satellite! Test Opportunities](https://www.esa.int/Education/CubeSats_-_Fly_Your_Satellite/Fly_Your_Satellite!_Test_Opportunities)** `Link` – Programme offering European university teams access to ESA test facilities
+- **[ESA Fly Your Satellite! Test Opportunities](https://www.esa.int/Education/Educational_Satellites/Fly_Your_Satellite!_Test_Opportunities)** `Link` – Programme offering European university teams access to ESA test facilities
 <!-- CSR-RESOURCES:END dev-ait-test-facilities -->
 
 **DIY alternatives** have a real role, though not as a substitute for qualification. A shaker table built from a loudspeaker will not reproduce a launch spectrum, but it will find loose fasteners. A vacuum chamber without thermal control still catches [outgassing](../references/glossary.md#outgassing) and corona problems. A [Helmholtz cage](gnc.md#testing-and-validation) is genuinely buildable by a student team. Use DIY testing to find problems early and cheaply, and formal facilities to prove compliance.
