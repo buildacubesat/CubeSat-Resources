@@ -297,8 +297,8 @@ AAC Clyde Space describes the STARBUCK-Nano lineage as the most-flown CubeSat EP
 Open-source options are genuinely usable and worth studying even if you buy:
 
 <!-- CSR-RESOURCES:START dev-eps-open-source-eps -->
-- **[PyCubed](https://pycubed.org/)** `Link` – Open-source PC/104-compatible board integrating power, computing, radio and ADCS, programmable in CircuitPython
-- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – The SmallSat paper documenting the design and its radiation test campaign
+- **[PyCubed](https://github.com/pycubed)** `Link` – Open-source PC/104-compatible board integrating power, computing, radio and ADCS, programmable in CircuitPython
+- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform](https://github.com/pycubed/documentation/blob/master/PyCubed_smallsat-paper.pdf)** `PDF` – The SmallSat paper documenting the design and its radiation test campaign
 - **[OreSat hardware](https://github.com/oresat)** `Link` – Fully open-source CubeSat bus including power hardware, from Portland State University
 - **[Build a CubeSat EPS](https://codeberg.org/buildacubesat-project/bac-hardware/src/branch/main/eps)** `Link` – Another fully open-source CubeSat bus including power hardware, in development and not flown yet. Prototype hardware available for purchase.
 <!-- CSR-RESOURCES:END dev-eps-open-source-eps -->
