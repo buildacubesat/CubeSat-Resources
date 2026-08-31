@@ -139,7 +139,7 @@ The realistic options, in ascending order of effort:
 Whatever you choose, check three things early: the actual RF output power at the connector rather than at the PA, the current draw during transmit (see below), and whether the unit's default configuration is legal in the band you have coordinated.
 
 <!-- CSR-RESOURCES:START dev-comms-transceivers -->
-- **[SatNOGS-COMMS (Libre Space Foundation)](https://libre.space/projects/satnogs-comms/)** `Link` – Open-source communications subsystem for CubeSats, developed alongside the SatNOGS ground station network
+- **[SatNOGS-COMMS (Libre Space Foundation)](https://www.libre.space/projects/satnogs-comms/)** `Link` – Open-source communications subsystem for CubeSats, developed alongside the SatNOGS ground station network
 - **[EnduroSat UHF Transceiver II](https://www.endurosat.com/products/uhf-transceiver-ii/)** `Link` – Widely used COTS UHF transceiver for CubeSats
 - **[EnduroSat S-Band Transceiver](https://www.endurosat.com/products/s-band-transceiver/)** `Link` – Full-duplex S-band unit, 2025–2110 MHz up and 2200–2290 MHz down, 5–125 kbps
 - **[GomSpace NanoCom AX100](https://gomspace.com/product/nanocom-ax100/)** `Link` – Long-established UHF transceiver with extensive flight heritage
