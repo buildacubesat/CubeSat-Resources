@@ -4,30 +4,30 @@ This section covers power generation (solar panels), storage (batteries and BMS)
 
 ## Power Requirements and Budgets
 
-A **power budget** is the bookkeeping exercise that tells you whether your spacecraft will stay alive in orbit. On one side: how much energy each subsystem draws and for how long, across every mission mode. On the other: how much your solar panels and batteries can supply across every [orbit](#) phase. If the second number isn't comfortably bigger than the first, you don't have a flyable design.
+A **power budget** is the bookkeeping exercise that tells you whether your spacecraft will stay alive in orbit. On one side: how much energy each subsystem draws and for how long, across every mission mode. On the other: how much your solar panels and batteries can supply across every [orbit](../references/glossary.md#orbit) phase. If the second number isn't comfortably bigger than the first, you don't have a flyable design.
 
 Power budgets are rarely a one-pass calculation. They evolve from coarse estimates at concept stage to detailed worst-case-orbit analyses by [CDR](../references/glossary.md#cdr), and they're updated continuously as components are selected, tested, and replaced.
 
 ### Estimating consumption
 
 - **Component-level draws**: collect current and voltage figures for every active component from datasheets – receivers, transmitters, [OBC](../references/glossary.md#obc), [ADCS](../references/glossary.md#adcs) sensors and actuators, payload, heaters. Use worst-case (max) values, not typical.
-- **Operational modes**: most CubeSats have 4-6 modes (e.g. safe, nominal, comms, payload, detumble). Each mode activates a different set of components and so has a different power profile.
+- **Operational modes**: most CubeSats have 4–6 modes (e.g. safe, nominal, comms, payload, detumble). Each mode activates a different set of components and so has a different power profile.
 - **Duty cycles**: many components don't run continuously. A transmitter might be active 5 minutes per orbit; a payload might pulse for 10 seconds per minute. Average power = peak power × duty cycle.
 - **Orbit-average power ([OAP](../references/glossary.md#oap))**: the time-weighted sum of consumption across all modes over a representative orbit. This is the headline number generation must beat.[^hawaii-budget]
 
 ### Estimating generation
 
 - **Solar input**: depends on cell efficiency, panel area, sun-incidence angle, and [beta angle](../references/glossary.md#beta-angle) (which drives eclipse fraction).
-- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)**: a typical [LEO](../references/glossary.md#leo) orbit spends 30-35% of its period in eclipse, but this varies seasonally and with orbit geometry. Equatorial orbits eclipse longer than high-beta-angle orbits.
+- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)**: a typical [LEO](../references/glossary.md#leo) orbit spends 30–35% of its period in eclipse, but this varies seasonally and with orbit geometry. Eclipse duration falls as the magnitude of the beta angle rises, and above a critical value the orbit is sunlit continuously – see [Illumination, eclipse and incidence angle](#illumination-eclipse-and-incidence-angle).
 - **Pointing**: a tumbling spacecraft generates far less than a stable, sun-pointing one. Account for this honestly during early phases – assuming nominal pointing before you've proven your [ADCS](../references/glossary.md#adcs) works is a classic source of negative-budget surprises.[^clyde-space]
-- **Degradation**: solar cell efficiency drops over time in the LEO radiation environment. The rate varies significantly by cell technology and orbital altitude – triple-junction (TJ) cells degrade the least, silicon cells the most, with small satellites (under 10 kg) experiencing higher rates than larger ones due to lower thermal inertia and shielding.[^degradation] A common planning figure is 1-3% per year for quality cells with coverglass; size your panels for end-of-life, not beginning-of-life.[^hawaii-gen]
+- **Degradation**: solar cell efficiency drops over time in the LEO radiation environment. The rate varies significantly by cell technology and orbital altitude – triple-junction (TJ) cells degrade the least, silicon cells the most, with small satellites (under 10 kg) experiencing higher rates than larger ones due to lower thermal inertia and shielding.[^degradation] A common planning figure is 1–3% per year for quality cells with coverglass; size your panels for end-of-life, not beginning-of-life.[^hawaii-gen]
 
 A more detailed photovoltaic generation analysis (often called a **PV budget**) breaks out these factors panel-by-panel and over time, and is worth doing separately once orbit and attitude assumptions firm up.
 
 ### Margins and derating
 
-- 30% margin at [PDR](../references/glossary.md#pdr) is conservative; 20% at [CDR](../references/glossary.md#cdr) is typical; 10% at flight is acceptable if the budget has been validated against test data.[^clyde-space]
-- Battery [depth-of-discharge](../references/glossary.md#dod-battery) is usually kept below 20-30% to preserve cycle life over the mission.
+- 30% margin at [PDR](../references/glossary.md#pdr) is conservative; 20% at [CDR](../references/glossary.md#cdr) is typical; 10% at flight is acceptable if the budget has been validated against test data.[^nasa-margins] See [Systems Engineering – Margin philosophy](systems-engineering.md#margin-philosophy) for how margins are held and accounted across the project.
+- Battery [depth-of-discharge](../references/glossary.md#dod-battery) is usually kept below 20–30% to preserve cycle life over the mission.
 - Worst-case scenarios worth checking explicitly: maximum eclipse, off-nominal attitude, transmitter active during eclipse, end-of-life cell efficiency, all heaters on at coldest case.
 
 ### Coupling to other budgets
@@ -62,18 +62,18 @@ Emerging options – perovskites (26.7% single-junction in the lab, tandem silic
 
 ### Body-mounted vs deployable arrays
 
-- **Body-mounted** cells are bonded directly to the structure's side panels. Simple, robust, no mechanism, no deployment failure mode. The catch is area: a 1U has at most four usable side faces of 100 × 100 mm, and after rails, connectors and access ports you realistically get 6–7 cells per face. NASA quotes specific power of **36–76 W/kg** for body-mounted designs.[^nasa-soa-power]
+- **Body-mounted** cells are bonded directly to the structure's side panels. Simple, robust, no mechanism, no deployment failure mode. The catch is area: a 1U has at most four usable side faces of 100 × 100 mm, and once rails, connectors and access ports are accounted for, a commercial 1U panel carries just **two** cells – EnduroSat's 1U X/Y panel is two CESI CTJ30 cells rated at up to 2.4 W per panel in LEO.[^endurosat-1u] A 3U face takes six or seven of the same cells. NASA quotes specific power of **36–76 W/kg** for body-mounted designs.[^nasa-soa-power]
 - **Deployable** arrays fold panels against the body for launch and swing them out on orbit, multiplying collecting area severalfold. Specific power runs **31–140 W/kg**, with flexible roll-out systems such as Redwire's ROSA reaching ~100 W/kg at much larger scale.[^nasa-soa-power] The cost is a hinge, a release mechanism, a stowed-volume allocation and a new single-point failure. See [Structure – Deployable Structures and Mechanisms](structure.md#deployable-structures-and-mechanisms).
 - **Sun-tracking** arrays add a drive mechanism to keep panels normal to the Sun. Rare below 6U – the mass, power and complexity rarely pay back at CubeSat scale.
 
-A useful sanity check before committing: a 1U with body-mounted 30% cells generates roughly **2–3 W orbit-average** in a favourable attitude, and considerably less while tumbling. If your [power budget](#power-requirements-and-budgets) needs 8 W, no amount of MPPT tuning will save it – you need deployables or a bigger bus.
+A useful sanity check before committing: at normal incidence a single 1U panel produces around 2.4 W, so a 1U with body-mounted 30% cells realistically averages **1–2 W across an orbit** once eclipse and incidence angle are accounted for. Two to three watts is achievable only with a genuinely favourable and stable attitude, and a tumbling spacecraft will do considerably worse than 1 W. If your [power budget](#power-requirements-and-budgets) needs 8 W, no amount of MPPT tuning will save it – you need deployables or a bigger bus.
 
 ### Illumination, eclipse and incidence angle
 
 Generated power scales with the cosine of the angle between the panel normal and the Sun vector. A panel 60° off-Sun produces half its rated output; at 80° it produces almost nothing. This makes generation an **[ADCS](../references/glossary.md#adcs) problem as much as an EPS problem** – see [GNC](gnc.md).
 
 - A tumbling spacecraft averages far below its nominal figure, because faces spend much of their time edge-on or shadowed. Assume tumbling for the commissioning phase, because that is what you will actually have.
-- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)** is typically 30–35% for low-[beta-angle](../references/glossary.md#beta-angle) LEO orbits, and varies seasonally. High-beta orbits – notably dawn–dusk sun-synchronous – can approach continuous sunlight, which is why they are so popular for power-hungry missions.
+- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)** is typically 30–35% for low-[beta-angle](../references/glossary.md#beta-angle) LEO orbits, and falls as the magnitude of the beta angle rises. Above a critical beta angle of β\* = arcsin(R_E / (R_E + h)) the orbit is sunlit continuously – roughly 70° at 400 km and 68° at 500 km. This is why dawn–dusk sun-synchronous orbits, which hold a high beta angle for much of the year, are so popular for power-hungry missions.
 - **Self-shadowing** by deployed panels, antennas and the body itself is easy to miss in a spreadsheet and obvious in a CAD-based illumination analysis. Do the analysis if your margin is thin.
 - **Albedo and [Earth IR](../references/glossary.md#earth-ir)** add a modest amount of extra input on nadir-facing panels. Nice to have; not something to rely on.
 
@@ -117,13 +117,13 @@ With DoD held to 20–30% to preserve cycle life, a mission drawing 2 W through 
 
 Add margin for:
 
-- **Capacity fade over the mission.** Lithium cells lose capacity with cycling and calendar age. In LEO you accumulate roughly 5,500 cycles per year.
+- **Capacity fade over the mission.** Lithium cells lose capacity with cycling and calendar age. At 15–16 orbits per day, a LEO mission accumulates roughly **5,700 charge-discharge cycles per year**.
 - **Cold operation.** Usable capacity falls sharply below 0 °C.
 - **Peak loads.** A transmitter drawing 5 W for 3 minutes during eclipse is a bigger instantaneous demand than the orbit-average figure suggests.
 
 ### Temperature is the whole game
 
-Lithium cells have asymmetric temperature limits, and the charge limit is the tight one. A representative commercial space battery specifies roughly **0 to 45 °C for charging** and a much wider **−40 to 10 °C and beyond for discharge**.[^satsearch-batteries] Exact numbers vary by cell, so use your own datasheet – but the shape is universal.
+Lithium cells have asymmetric temperature limits, and the charge limit is the tight one. A representative commercial space battery specifies roughly **0 to 45 °C for charging** against a materially wider window for discharge.[^satsearch-batteries] Exact numbers vary by cell, so use your own datasheet – but the shape is universal: the charge window is narrower than the discharge window, and its lower bound is the one that bites.
 
 The consequences are structural:
 
@@ -140,6 +140,17 @@ Batteries are the one CubeSat component that can hurt people, and launch provide
 - Missions deploying from the ISS face the most stringent requirements, since the pack sits inside a crewed vehicle before deployment.
 - Design for **containment of a single-cell failure**: fusing between parallel cells, adequate spacing, and no path for a thermal runaway to propagate.
 - Deep discharge is also a hazard: a lithium cell taken below its minimum voltage can be damaged such that recharging it is unsafe. Under-voltage lockout is a protection requirement, not a nicety.
+- **Plan for months of storage.** Flight hardware is typically delivered one to six months before launch and then sits inside the deployer, untouched. Confirm the pack will still be above its minimum deployment voltage after that interval at the expected storage temperature, and establish early whether the deployer allows late access for charging. See [Qualification and Launch – Fit checks and delivery](launch.md#fit-checks-and-delivery).
+
+### End-of-life passivation
+
+Disposal rules increasingly require that a spacecraft be left unable to fragment at end of mission: batteries discharged, stored energy released, transmitters silenced. [Passivation](../references/glossary.md#passivation) is an EPS function, and it has to be designed in rather than improvised once the mission is over.
+
+- It must be a **commandable function that actually works**, and it conflicts directly with the protections you built: under-voltage lockout exists precisely to prevent the pack being deeply discharged. Decide early how passivation overrides it, and make that path hard to trigger by accident.
+- It has to work in the state the spacecraft will actually be in at end of life – degraded, possibly tumbling, possibly with a partly failed pack.
+- Test it on the flatsat. A passivation command that has never been exercised is a claim, not a capability.
+
+See [Qualification and Launch – End of Life](launch.md#end-of-life).
 
 ## Battery Management Systems (BMS)
 
@@ -238,7 +249,9 @@ Design rule worth internalising: **no single load failure should be able to take
 
 ## Inhibits and Deployment Safety
 
-See also: [Inhibits and HDRM](inhibits-hdrm.md).  
+The EPS is where launch safety is physically implemented: the inhibits that keep the spacecraft electrically dead inside the deployer, the deployment switches that tell it it has been released, and the timers that hold the transmitter and any deployables off afterwards. Inhibit verification evidence is the most scrutinised item in a launch delivery package, and it is EPS hardware that has to produce it.
+
+Treat the inhibit chain as part of the power architecture from the first schematic rather than as a late addition: it determines which domain is always-on, where the switches sit in the battery path, and what the spacecraft does in the first seconds after separation. See [Inhibits and HDRM – Inhibit interaction with the EPS](inhibits-hdrm.md#inhibit-interaction-with-the-electrical-power-system-eps).
 
 ## EPS Monitoring and Telemetry
 
@@ -250,7 +263,7 @@ Power telemetry is the highest-value housekeeping data on a CubeSat. It is often
 - **Individual cell voltages**, not just pack voltage.
 - **Battery current with sign**, so charge and discharge can be distinguished and integrated.
 - **Temperatures**: battery pack, EPS board, each solar panel.
-- **Per-string solar input current and voltage**, which is how you detect a failed string or a stuck deployment.
+- **Per-string solar input current and voltage**, which is how you detect a failed string or a stuck deployment – and which doubles as a coarse sun sensor, since the relative currents across faces indicate where the Sun is. See [GNC – Sun sensors](gnc.md#sun-sensors).
 - **Latch-off events and protection trips**, with a counter that survives reset.
 
 ### Resolution and sampling
@@ -264,7 +277,7 @@ Power telemetry is the highest-value housekeeping data on a CubeSat. It is often
 - **Trending is the point.** A single battery voltage reading tells you very little; the same reading over 200 orbits tells you about capacity fade, illumination changes and load growth.
 - **Charge accounting (coulomb counting)** – integrating battery current over an orbit – gives a far better state-of-charge estimate than voltage alone, particularly for LFP chemistries with flat discharge curves.
 - **Power signatures identify behaviour.** Each subsystem draws a characteristic current profile; a deviation is often the first symptom of a fault, and sometimes the only one.
-- Build a ground-side dashboard early. The [SatNOGS dashboards](../references/missions.md) collection shows what real missions publish and is a good source of ideas for what to plot.
+- Build a ground-side dashboard early. The [SatNOGS dashboards](../references/missions.md#satnogs-dashboard) collection shows what real missions publish and is a good source of ideas for what to plot.
 
 ## EPS Integration Considerations
 
@@ -278,10 +291,8 @@ Buying an EPS is the default for good reason: it is a dense, safety-critical, ha
 - **[AAC Clyde Space STARBUCK-Nano](https://www.aac-clyde.space/what-we-do/space-products-components/pcdu/cubesat-eps-starbuck-nano)** `Link` – MPPT EPS with 3.3/5/12 V regulated buses and 10 configurable latching current limiters, 86 g
 - **[EnduroSat power modules](https://www.endurosat.com/products-category/power-modules/)** `Link` – CubeSat and SmallSat EPS boards and battery packs
 <!-- CSR-RESOURCES:END dev-eps-commercial-eps -->
-<!-- NEEDS HUMAN REVIEW: GomSpace's widely flown NanoPower P31u no longer appears in their current product listing, so I have linked the P60/P80 instead. Plenty of older CubeSat literature still references the P31u — if you want it mentioned, it should probably be framed explicitly as legacy hardware. -->
 
 AAC Clyde Space describes the STARBUCK-Nano lineage as the most-flown CubeSat EPS, with heritage back to 2014; it is a reasonable reference point for what a commercial board provides – MPPT charging, 3.3 V, 5 V and 12 V regulated buses, ten configurable [latching current limiters](../references/glossary.md#lcl), and a mass of 86 g for the base variant.
-<!-- NEEDS HUMAN REVIEW: "most flown CubeSat system in history" is the vendor's own marketing claim, which I have attributed rather than asserted. Drop it if you would rather the page not repeat vendor superlatives. -->
 
 Open-source options are genuinely usable and worth studying even if you buy:
 
@@ -289,6 +300,7 @@ Open-source options are genuinely usable and worth studying even if you buy:
 - **[PyCubed](https://pycubed.org/)** `Link` – Open-source PC/104-compatible board integrating power, computing, radio and ADCS, programmable in CircuitPython
 - **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – The SmallSat paper documenting the design and its radiation test campaign
 - **[OreSat hardware](https://github.com/oresat)** `Link` – Fully open-source CubeSat bus including power hardware, from Portland State University
+- **[Build a CubeSat EPS](https://codeberg.org/buildacubesat-project/bac-hardware/src/branch/main/eps)** `Link` – Another fully open-source CubeSat bus including power hardware, in development and not flown yet. Prototype hardware available for purchase.
 <!-- CSR-RESOURCES:END dev-eps-open-source-eps -->
 
 The PyCubed paper is a useful read for the radiation question specifically: the team established a 10 krad(Si) TID threshold for a 300 km LEO mission, tested the ATSAMD51 microcontroller and its power MOSFETs past 35 krad, and found flash memory issues emerging around 16 krad while power and logic remained functional.[^pycubed] That is the kind of evidence that lets you use COTS parts defensibly rather than hopefully.
@@ -314,6 +326,7 @@ The PyCubed paper is a useful read for the radiation question specifically: the 
 - Forgetting heater power in the coldest case, which is exactly when the budget is tightest.
 - Software that can disable its own recovery path – a command that turns off the radio with no independent timeout to turn it back on.
 - Testing only with a charged battery and a bench supply, so the two hardest cases never get exercised.
+- Leaving passivation until after launch, and discovering that under-voltage lockout makes it impossible.
 
 ---
 
@@ -321,16 +334,20 @@ The PyCubed paper is a useful read for the radiation question specifically: the 
 
 [^hawaii-budget]: University of Hawaiʻi, *A Guide to CubeSat Mission and Bus Design*, §5.9 ["Power Budget and Profiling"](https://pressbooks-dev.oer.hawaii.edu/epet302/chapter/5-9-power-budget-and-profiling/) – walks through the OAP methodology step by step using the Artemis CubeSat Kit as a worked example. Open access.
 
-[^clyde-space]: Craig Clark and Ritchie Logan (Clyde Space), ["Power Budgets for Mission Success"](http://mstl.atl.calpoly.edu/~workshop/archive/2011/Spring/Day%203/1610%20-%20Clark%20-%20Power%20Budgets%20for%20CubeSat%20Mission%20Success.pdf), Cal Poly CubeSat Workshop, April 2011. Practical slide deck on estimating OAP, managing loads, and avoiding negative budgets. One of the most-cited introductory treatments.
+[^clyde-space]: Craig Clark and Ritchie Logan (Clyde Space), ["Power Budgets for Mission Success"](http://mstl.atl.calpoly.edu/~workshop/archive/2011/Spring/Day%203/1610%20-%20Clark%20-%20Power%20Budgets%20for%20CubeSat%20Mission%20Success.pdf), Cal Poly CubeSat Workshop, 28 April 2011. Practical slide deck on estimating OAP, managing loads, and avoiding negative budgets, including a worked budget carrying 20% design margin and 14% margin at end of life. One of the most-cited introductory treatments.
 
-[^degradation]: Yermek Amangeldi et al., ["Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites"](https://www.mdpi.com/2076-3417/15/16/9208), *Applied Sciences*, 15(16), 2025. Open access. Reports that GaAs cells degrade 4.5-7.0% over typical mission lifetimes at 300-700 km altitude, with TJ cells showing the highest radiation resistance and Si cells the most pronounced loss below 500 km. Smaller satellites (<10 kg) show higher rates than larger ones.
+[^nasa-margins]: The 30/20/10 curve is consistent with NASA's formal margin guidance. The NASA NTRS paper ["Techniques for Conducting Effective Concept Design"](https://ntrs.nasa.gov/api/citations/20150018331/downloads/20150018331.pdf) (2015) describes project managers holding 25% margins at Phase B entry, with end-Phase-B targets of ≥20% and end-Phase-C targets of ≥15% for mass and power resources. The GSFC engineering standard [GSFC-STD-1000](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf) provides detailed margin calculation methodology. CubeSat teams typically adopt slightly more aggressive early margins (30% at PDR) to compensate for less mature estimates. See [Systems Engineering – Margin philosophy](systems-engineering.md#margin-philosophy).
 
-[^hawaii-gen]: University of Hawaiʻi, *A Guide to CubeSat Mission and Bus Design*, §5.5 ["Power Generation"](https://pressbooks-dev.oer.hawaii.edu/epet302/chapter/5-5-power-generation/). Notes that ionizing radiation effects on solar cells can be mitigated by coverglass, with typical loss figures of 1-10% per year depending on cell technology and shielding. Open access.
+[^degradation]: Yermek Amangeldi et al., ["Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites"](https://www.mdpi.com/2076-3417/15/16/9208), *Applied Sciences*, 15(16), 2025. Open access. Reports that GaAs cells degrade 4.5–7.0% over typical mission lifetimes at 300–700 km altitude, with TJ cells showing the highest radiation resistance and Si cells the most pronounced loss below 500 km. Smaller satellites (<10 kg) show higher rates than larger ones.
 
-[^nasa-soa-power]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 3: Power](https://www.nasa.gov/smallsat-institute/sst-soa/power/) (revision dated May 2026). Open access. Source for multi-junction cell efficiencies (30% nominal, 34% high), specific power figures for body-mounted (36-76 W/kg) and deployable (31-140 W/kg) arrays, and Li-ion energy density ranges (150-270 Wh/kg commercial).
+[^hawaii-gen]: University of Hawaiʻi, *A Guide to CubeSat Mission and Bus Design*, §5.5 ["Power Generation"](https://pressbooks-dev.oer.hawaii.edu/epet302/chapter/5-5-power-generation/). Notes that ionizing radiation effects on solar cells can be mitigated by coverglass, with typical loss figures of 1–10% per year depending on cell technology and shielding. Open access.
+
+[^nasa-soa-power]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 3: Power](https://www.nasa.gov/smallsat-institute/sst-soa/power/) (revision dated May 2026). Open access. Source for multi-junction cell efficiencies (30% nominal, 34% high), specific power figures for body-mounted (36–76 W/kg) and deployable (31–140 W/kg) arrays, and Li-ion energy density ranges (150–270 Wh/kg commercial).
 
 [^azur-3g30]: AZUR SPACE Solar Power GmbH, [*30% Triple-Junction GaAs Solar Cell Assembly, Type: TJ Solar Cell Assembly 3G30A*](https://www.azurspace.com/media/uploads/file_links/file/bdb_00010891-01-00_tj3g30-advanced_4x8.pdf) datasheet. Gives 29.5% BOL efficiency, full IV parameters, temperature coefficients and radiation degradation data against 1 MeV electron fluence. A good example of the level of detail a real space cell datasheet provides.
 
-[^satsearch-batteries]: satsearch, ["Satellite batteries - for CubeSats, nanosats, and other form factors"](https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors). Vendor-by-vendor comparison of commercially available CubeSat battery packs with capacities, voltages, masses and operating temperature ranges. Useful for calibrating what is actually purchasable, though specifications should always be confirmed against the current datasheet.
+[^endurosat-1u]: EnduroSat, [*1U CubeSat Solar Panel X/Y*](https://satsearch.co/products/endurosat-1u-cubesat-solar-panel), via satsearch. Specifies two CESI CTJ30 cells per 1U panel at up to 29.5% efficiency, delivering up to 2.4 W per panel in LEO. Cited as a representative commercial 1U panel to calibrate what fits on a 100 × 100 mm face.
 
-[^pycubed]: Maximillian Holliday, Andrea Ramirez, Connor Settle, Tane Tatum, Debbie Senesky and Zachary Manchester, ["PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python"](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf), *33rd Annual AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. Documents the integrated power/compute/radio/ADCS board and its total ionising dose test campaign - a rare published example of a CubeSat team justifying COTS part selection with real radiation data.
+[^satsearch-batteries]: satsearch, ["Satellite batteries - for CubeSats, nanosats, and other form factors"](https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors) (June 2021). Vendor-by-vendor comparison of commercially available CubeSat battery packs with capacities, voltages, masses and operating temperature ranges. Useful for calibrating what is actually purchasable, but now several years old – confirm capacities, masses and temperature limits against the current datasheet before designing against them.
+
+[^pycubed]: Maximillian Holliday, Andrea Ramirez, Connor Settle, Tane Tatum, Debbie Senesky and Zachary Manchester, ["PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python"](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf), *33rd Annual AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. Documents the integrated power/compute/radio/ADCS board and its total ionising dose test campaign – a rare published example of a CubeSat team justifying COTS part selection with real radiation data.
