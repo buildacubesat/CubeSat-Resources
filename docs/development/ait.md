@@ -1,6 +1,6 @@
 # Assembly, Integration, and Testing (AIT)
 
-Assembly, Integration, and Testing (AIT) covers the practical work of turning individual CubeSat subsystems into a functioning spacecraft and verifying that it meets mission and launch requirements. This includes mechanical assembly, electrical integration, incremental bring-up, functional verification, simulation, and environmental testing. A structured AIT approach helps catch interface issues early, reduces risk during launch and operations, and improves overall mission reliability.
+Assembly, Integration, and Testing (AIT) is the work of turning a set of subsystems into a spacecraft and proving that it meets its mission and launch requirements – mechanical assembly, electrical integration, incremental bring-up, functional verification, simulation and environmental testing.
 
 AIT is where a design becomes a spacecraft, and where the assumptions made over the preceding two years get tested against reality. It is also, on nearly every CubeSat programme, the phase that takes longer than planned – partly because problems surface here that were created much earlier, and partly because teams underestimate how much of AIT is documentation, procedure and rework rather than assembly.
 
@@ -24,11 +24,15 @@ The general principle is **build up incrementally and functionally test at every
 3. Software development and testing on the flatsat.
 4. Mechanical assembly of the flight article.
 5. Integrated functional test.
-6. Environmental test campaign, with functional tests before and after each exposure.
-7. Final functional test, mass properties measurement, fit check.
-8. Delivery and launch site operations.
+6. Test Readiness Review.
+7. Environmental test campaign, with functional tests before and after each exposure.
+8. Final functional test, mass properties measurement, fit check.
+9. Pre-ship review against the delivery documentation package.
+10. Delivery and launch site operations.
 
 **Reserve time.** Every CubeSat programme discovers problems during AIT, and the schedule between "hardware complete" and "delivery" is where they must be absorbed. A campaign planned with no float will slip.
+
+**Hold the gates.** Two reviews belong to AIT specifically, and both are worth holding even informally. A **Test Readiness Review** asks whether the article is in the configuration you intend to test, whether the procedure is written and reviewed, whether the facility and fixtures are ready, and whether the pass/fail criteria are agreed *before* the data exists rather than negotiated afterwards. A **pre-ship review** asks whether the evidence package your launch provider expects is actually complete – see [Qualification and Launch – Documentation checklist](launch.md#documentation-checklist). As with [PDR](../references/glossary.md#pdr) and [CDR](../references/glossary.md#cdr), both are far more useful with someone from outside the team in the room. See [Systems Engineering – Mission Phases and Operations](systems-engineering.md#mission-phases-and-operations).
 
 ### Ground support equipment
 
@@ -40,7 +44,7 @@ Easy to underestimate, and it needs designing:
 
 ## Assembly
 
-This section covers the mechanical and electrical assembly of CubeSat subsystems into the final spacecraft. Topics include assembly order, tooling, cleanliness, documentation, and verification steps during build-up. Good assembly practices reduce rework, prevent damage, and simplify later integration and testing.
+Two rules govern everything below: assume you will take it apart again, and record what you did.
 
 ### Mechanical Assembly
 
@@ -55,6 +59,7 @@ This section covers the mechanical and electrical assembly of CubeSat subsystems
 
 Harnessing is where a surprising share of CubeSat integration problems originate, and it is the least glamorous work in the programme.
 
+- **ESD discipline from the moment the first board leaves its bag.** Mat, wrist strap, verified ground, and no exceptions for "just a quick check" – latent ESD damage passes every test you run and then fails in orbit. See [Tools – ESD control](tools.md#esd-control).
 - **Design the harness, don't grow it.** Produce a wiring diagram and a connector schedule before cutting wire. A harness that accreted during integration is impossible to verify and impossible to rebuild identically.
 - **Label both ends of every wire and every connector.** Use a scheme that survives handling and thermal cycling.
 - **Strain relief and routing.** Secure harness at regular intervals, keep service loops at anything that moves, respect minimum bend radii, and keep power and sensitive signal lines apart. Anything crossing a hinge needs particular attention – see [Structure – Deployables](structure.md#deployable-structures-and-mechanisms).
@@ -65,7 +70,7 @@ Harnessing is where a surprising share of CubeSat integration problems originate
 
 ## Integration
 
-This section focuses on combining individual subsystems into a coherent system and verifying that interfaces behave as expected. Integration is typically iterative and closely coupled to functional testing and troubleshooting.
+Integration is iterative by nature: add one thing, test, and keep each step small enough that a failure points at a cause.
 
 ### Subsystem Integration
 
@@ -89,7 +94,7 @@ A **flatsat** is the whole avionics set laid out on a bench, wired as flown but 
 
 ## Simulation and Testing
 
-This section covers simulation and testing methods used during CubeSat design, integration, and verification. Topics include functional simulation, hardware-in-the-loop (HIL) testing, flatsat setups, environmental testing, vibration and thermal considerations, and software test strategies. Simulation and testing are essential for catching integration issues early and reducing mission risk.
+Testing proves two different things – that the design has margin, and that this particular article was built correctly – and the distinction shapes the whole campaign.
 
 ### Test philosophy: qualification, acceptance and protoflight
 
@@ -102,11 +107,13 @@ Three approaches, distinguished by what they are trying to prove:
 ### Environmental Testing
 
 - **Vibration** – random vibration is the driving mechanical case. NASA's [GEVS](../references/glossary.md#gevs) gives a component qualification level of 14.1 [Grms](../references/glossary.md#grms) for 2 minutes per axis, with acceptance 3 dB lower (~10 Grms), and real launcher levels are often gentler still. See [Structure – Structural Analysis](structure.md#structural-analysis-and-fem).
+- **Notching and force limiting** – a shaker is enormously stiffer than the structure your CubeSat actually flies on, so at the article's resonances a conventional base-drive test develops interface forces that could never occur in flight. NASA's handbook on the subject exists precisely to "alleviate overtesting associated with the unrealistically high base reaction forces that occur at the test item resonances", and the remedy is **notching**: reducing the input acceleration at those frequencies against a force or response limit.[^force-limiting] Your test house will normally propose a notch. Understand the one you agree to and record its justification, because the error runs both ways – an unnotched test can damage flight hardware, and an over-notched one may not be accepted as qualification evidence. The predicted responses that justify a notch come from your structural model, which is one of the things that model is for.
 - **Shock** – from stage separation and deployer actuation. Often covered by analysis or similarity at CubeSat scale.
 - **[Thermal vacuum](../references/glossary.md#tvac)** – the essential test, since removing convection changes thermal behaviour fundamentally. See [Thermal – Testing and Validation](thermal.md#thermal-testing-and-validation).
 - **EMC** – self-compatibility matters more than external compliance on a CubeSat: your switching converters and your receiver are centimetres apart.
 - **Deployment testing** – every deployable, many times, after vibration, in vacuum, at temperature extremes. See [Inhibits and HDRM](inhibits-hdrm.md#verification-and-testing).
-- **Mass properties and fit check** – measured mass, centre of mass, and a physical fit check in a test pod. See [Structure – Mass Properties](structure.md#mass-properties-and-centre-of-mass).
+- **Residual magnetic dipole** – magnetic cleanliness is a whole-spacecraft property, not a board-level one, so it can only be verified once integrated. If your mission uses magnetorquers or relies on a magnetometer, measure the assembled spacecraft's residual dipole in a Helmholtz cage before delivery, because an unexpected dipole shows up in orbit as an attitude disturbance you cannot remove. See [GNC – ADCS Integration Considerations](gnc.md#adcs-integration-considerations).
+- **Mass properties and fit check** – measured mass, centre of mass, and a physical fit check in a test pod. Providers want measured values rather than CAD estimates: mass on a calibrated balance, and centre of mass by a knife-edge or multi-point balance method, repeated about each axis. Locating a centre of mass to the millimetre at 1U scale is fiddly, so design the fixture and rehearse the measurement rather than improvising it during delivery week. See [Structure – Mass Properties](structure.md#mass-properties-and-centre-of-mass).
 
 **Standards disagree, and knowing that is useful.** A comparison of five widely used standards found thermal-vacuum qualification requirements ranging from 3 to 13 cycles, temperature margins of 5 °C or 10 °C, and dwell times from 1 hour to 24 hours – GSFC-STD-7000 specifying 4 qualification cycles with 10 °C margins and 24-hour dwells, ECSS-E-ST-10-03C 4 cycles with 5 °C margins, and NASA LSP-REQ-317.01 8 cycles with 10 °C margins and 1-hour dwells.[^ices-tvac] The authors' conclusion is the right one: **derive a tailored specification from your own mission's analysis rather than applying a generic one**. In practice, though, your launch provider's requirement is the one you must meet.
 
@@ -115,6 +122,7 @@ Three approaches, distinguished by what they are trying to prove:
 <!-- CSR-RESOURCES:START dev-ait-testing-standards -->
 - **[ECSS-E-ST-10-03C Rev.1 – Testing](https://ecss.nl/wp-content/uploads/2022/05/ECSS-E-ST-10-03-Rev.1(31May2022).pdf)** `PDF` – Freely available ECSS testing standard defining qualification, acceptance and protoflight approaches, test types and test sequence
 - **[NASA GEVS (GSFC-STD-7000)](https://standards.nasa.gov/standard/gsfc/gsfc-std-7000)** `Link` – General Environmental Verification Standard, the default environmental envelope for many CubeSat campaigns
+- **[NASA-HDBK-7004C – Force Limited Vibration Testing](https://experiorlabs.com/wp-content/uploads/2019/10/NASA-HDBK-7004C-Force-Limited-Vibration-Testing.pdf)** `PDF` – The reference on why unnotched base-drive vibration testing overtests at resonance, and how force limits and notches are derived
 - **[Method for CubeSat Thermal-Vacuum Cycling Test Specification](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf)** `PDF` – ICES 2017 paper comparing thermal-vacuum requirements across five standards and proposing a tailoring method
 - **[ISO 19683:2026 – Design qualification and acceptance tests of small spacecraft and units](https://www.iso.org/standard/86540.html)** `Link` – International standard specifically covering small spacecraft qualification and acceptance testing (paywalled)
 <!-- CSR-RESOURCES:END dev-ait-testing-standards -->
@@ -186,5 +194,7 @@ Two habits worth building early: **the test evidence package should assemble its
 👉 **Please consider [contributing](../contributing.md)!**
 
 [^ecss-testing]: European Cooperation for Space Standardization, [*ECSS-E-ST-10-03C Rev.1 – Space engineering: Testing*](https://ecss.nl/wp-content/uploads/2022/05/ECSS-E-ST-10-03-Rev.1(31May2022).pdf), 31 May 2022. Freely downloadable. Defines qualification, acceptance and protoflight testing approaches, the associated margins (random vibration at maximum expected spectrum +3 dB for 2 minutes for qualification, +0 dB for 1 minute for acceptance), the full catalogue of environmental test types, and the "test like you fly" test sequence with reduced functional tests bracketing each environmental block.
+
+[^force-limiting]: NASA, [*Force Limited Vibration Testing*, NASA-HDBK-7004C](https://experiorlabs.com/wp-content/uploads/2019/10/NASA-HDBK-7004C-Force-Limited-Vibration-Testing.pdf), revision C, approved 30 November 2012 (linked copy is a mirror; the canonical home is the NASA Technical Standards System). States that force limiting exists to "alleviate overtesting associated with the unrealistically high base reaction forces that occur at the test item resonances in conventional base-drive vibration tests", and that "at the test item resonance frequencies, the force limit usually results in a reduction of the input acceleration (notching)". Explains the impedance mismatch between a shaker and real flight mounting structure that causes the problem.
 
 [^ices-tvac]: Roy Stevenson Soler Chisabas, Geilson Loureiro, Carlos de Oliveira Lino and Daniel Fernando Cantor, ["Method for CubeSat Thermal-Vacuum Cycling Test Specification"](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf), *47th International Conference on Environmental Systems*, ICES-2017-102, Charleston SC, July 2017. Compares thermal-vacuum cycling requirements across GSFC-STD-7000, MIL-HDBK-340A, ECSS-E-ST-10-03C, TR-2004(8583)-1 Rev.A and NASA LSP-REQ-317.01, finding qualification cycle counts from 3 to 13, margins of 5–10 °C and dwell times from 1 to 24 hours, and argues for deriving a tailored specification from mission analysis rather than applying a generic standard.
