@@ -29,8 +29,7 @@ A practical note: some of these are free, some are paywalled, and the ones that 
 - **[TM Space Data Link Protocol (CCSDS 132.0-B)](https://ccsds.org/Pubs/132x0b3.pdf)** `PDF` – Telemetry space data link protocol
 - **[TC Space Data Link Protocol (CCSDS 232.0-B)](https://ccsds.org/Pubs/232x0b4e1c1.pdf)** `PDF` – Telecommand space data link protocol
 - **[CCSDS 123.0-B-2 – Low-Complexity Lossless and Near-Lossless Multispectral and Hyperspectral Image Compression](https://ccsds.org/Pubs/123x0b2e2c3.pdf)** `PDF` – Image compression standard designed for the exact problem CubeSat imaging payloads face
-- **[ECSS-E-ST-70-41C – Telemetry and telecommand packet utilization (PUS)](https://ecss.nl/standard/ecss-e-st-70-41c-space-engineering-telemetry-and-telecommand-packet-utilization-15-april-2016/)** `Link` – The European service-based standard for spacecraft telemetry and telecommand
-- **[ECSS-E-ST-70-41C (PDF mirror via LibreCube)](https://librecube.gitlab.io/standards/spacecan/assets/ECSS-E-ST-70-41C.pdf)** `PDF` – Downloadable copy of the PUS standard
+- **[ECSS-E-ST-70-41C – Telemetry and telecommand packet utilization (PUS)](https://ecss.nl/standard/ecss-e-st-70-41c-rev-1-dir1-telecommand-and-telemetry-packet-utilization-review-12-december-2024-28-february-2025/)** `Link` – The European service-based standard for spacecraft telemetry and telecommand
 - **[CubeSat Space Protocol (libcsp)](https://libcsp.github.io/libcsp/)** `Link` – The de facto CubeSat onboard networking protocol, MIT licensed
 - **[SpaceCAN (LibreCube)](https://librecube.gitlab.io/standards/spacecan/)** `Link` – Simplified redundant CAN bus standard for small spacecraft, derived from ECSS-E-ST-50-15C
 <!-- CSR-RESOURCES:END ref-standards-communication -->
@@ -40,7 +39,7 @@ A practical note: some of these are free, some are paywalled, and the ones that 
 <!-- CSR-RESOURCES:START ref-standards-systems-engineering -->
 - **[NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)** `PDF` – Requirements, verification and validation, and the Pre-Phase A to Phase F life cycle. Free.
 - **[ECSS standards](https://ecss.nl/)** `Link` – The European Cooperation for Space Standardization's full standard set, covering engineering, product assurance and management. Many are freely downloadable.
-- **[ECSS-E-ST-70-41C – Space segment operational procedures](https://ecss.nl/standard/ecss-e-st-70-41c-space-segment-operational-procedures/)** `Link` – Standard for spacecraft operational procedures
+- **[ECSS-E-ST-70-11C Rev.1 – Space segment operability](https://ecss.nl/standard/ecss-e-st-70-11c-rev-1-space-segment-operability-15-october-2025/)** `Link` – Requirements for the onboard functions an unmanned spacecraft needs in order to be operable in flight, covering nominal and predefined contingency situations. The standard behind much of what modes, safe mode and FDIR design assumes. Free, registration required.
 - **[NASA Technical Standards](https://standards.nasa.gov/)** `Link` – Searchable index of NASA's technical standards
 <!-- CSR-RESOURCES:END ref-standards-systems-engineering -->
 
