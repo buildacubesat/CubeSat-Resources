@@ -254,9 +254,9 @@ Flight software is the one subsystem you can test essentially for free and essen
 
 ### Software testing methodologies
 
-<!-- CSR-RESOURCES:START dev-software-testing-methodologies -->
+<!-- CSR-RESOURCES:START dev-flight-software-testing-methodologies -->
 - **[The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)** `Link` – Overview of the software test pyramid
-<!-- CSR-RESOURCES:END dev-software-testing-methodologies -->
+<!-- CSR-RESOURCES:END dev-flight-software-testing-methodologies -->
 
 See also: [Assembly, Integration and Testing (AIT)](ait.md).
 
