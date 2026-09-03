@@ -550,7 +550,7 @@ The standard size increment in the CubeSat form factor system. 1U is defined as 
 A timer that resets or power-cycles a device unless it is periodically "kicked" by software that is proving itself healthy. The single most important reliability mechanism on a CubeSat, usually implemented as a hierarchy: an internal MCU watchdog, an external timer IC, and an [EPS](#eps)-level watchdog that cuts power to the whole processor. Kicking the watchdog from a bare timer interrupt defeats its purpose, since it will keep firing while the rest of the system is deadlocked. See [OBC](../development/obc.md#watchdogs).
 
 ### V&V
-**Verification and Validation.** Two complementary processes. *Verification* confirms that the system was built correctly (meets requirements, as demonstrated by test, analysis, inspection, or similarity). *Validation* confirms that the right system was built (meets the mission need). See [Systems Engineering](../development/systems-engineering.md).
+**Verification and Validation.** Two complementary processes. *Verification* confirms that the system was built correctly (meets requirements, as demonstrated by analysis, demonstration, inspection, test, or similarity). *Validation* confirms that the right system was built (meets the mission need). See [Systems Engineering](../development/systems-engineering.md).
 
 ---
 
