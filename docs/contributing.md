@@ -1,5 +1,6 @@
 # Contributing
 
+## Add Resources
 Thanks for helping improve this collection of resources!
 
 _CubeSat Resources_ is hosted on GitHub: https://github.com/buildacubesat/CubeSat-Resources
@@ -15,18 +16,24 @@ Alternatively, if you don't want to use git, you can submit your resource via th
 
 For problems with the site, [open an issue on GitHub](https://github.com/buildacubesat/CubeSat-Resources/issues).
 
-## Citing sources
+### Citing Sources
 
 Name up to three authors; beyond three, use the first author and `et al.`
 
 - **Reference list entries** (the `references/` pages) use surnames only, followed by venue and year: `Bouwmeester, Langer and Gill, *CEAS Space Journal* 9(2), 2017`, or `Villela et al., *International Journal of Aerospace Engineering*, 2019`.
 - **Footnotes** on development pages use full names: `Jasper Bouwmeester, Martin Langer and Eberhard Gill, "Survey on ..."`, or `Maximillian Holliday et al., "PyCubed: ..."`.
 
-Say whether a source is free to read – `Open access`, `Free PDF`, or `paywalled` – so nobody follows a link into a paywall unwarned. Where the same source is cited from more than one page, use the same footnote slug on each, so the pair stays greppable.
+Please state whether a source is free to read – `Open access`, `Free PDF`, or `paywalled` – so nobody follows a link into a paywall unwarned. Where the same source is cited from more than one page, use the same footnote slug on each, so the pair stays greppable.
 
----
+## Support This Project
+If you are looking for a way to support _CubeSat Resources_ financially, leave a tip or become a member over at _Build a CubeSat_.
 
-# Contributors
+- [Patreon](https://bac.page/patreon)
+- [Ko-fi](https://bac.page/kofi)
+- [PayPal](https://bac.page/paypal-donate)
+- [YouTube Channel Membership](https://bac.page/youtube-join)
+
+## Contributors
 
 Thanks to everyone who's helped improve this collection!
 
