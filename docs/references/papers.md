@@ -29,25 +29,36 @@ The papers listed here are ones cited across this site's [development](../develo
 ## Avionics and power
 
 <!-- CSR-RESOURCES:START ref-papers-avionics-and-power -->
-- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Holliday, Ramirez, Settle, Tatum, Senesky and Manchester, *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with real total ionising dose test data.
+- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Holliday, Ramirez, Settle, Tatum, Senesky and Manchester, *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with real total ionising dose test data. Free PDF.
 - **[Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites](https://www.mdpi.com/2076-3417/15/16/9208)** `Link` – Amangeldi et al., *Applied Sciences* 15(16), 2025. Open access. On-orbit solar cell degradation rates by cell technology and altitude.
-- **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://ieeexplore.ieee.org/document/10904144)** `Link` – Paper on deep-learning maximum power point tracking for CubeSats
+- **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://doi.org/10.1109/ACCESS.2025.3546066)** `Link` – Abagero, Abebe, Tullu, Jung and Jung, *IEEE Access* 13, 2025. Open access (CC BY 4.0). A deep-learning approach to maximum power point tracking for CubeSat solar arrays.
 <!-- CSR-RESOURCES:END ref-papers-avionics-and-power -->
+
+## Software and flight software
+
+<!-- CSR-RESOURCES:START ref-papers-software -->
+- **[The Power of 10: Rules for Developing Safety-Critical Code](https://spinroot.com/gerard/pdf/P10.pdf)** `PDF` – Holzmann, *IEEE Computer* 39(6), 2006. Ten rules for safety-critical embedded code, every one checkable by static analysis. Short, and the origin of the no-dynamic-allocation and bounded-loop rules that most CubeSat coding standards inherit. Free PDF.
+<!-- CSR-RESOURCES:END ref-papers-software -->
 
 ## Thermal, structures and testing
 
 <!-- CSR-RESOURCES:START ref-papers-thermal-and-testing -->
-- **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/html/2512.07896v1)** `Link` – Chipps, Forgette and Cahoy, *Journal of Spacecraft and Rockets*, 2025. Describes an open-source six-node MATLAB thermal model validated against Thermal Desktop to within 1.17 °C.
-- **[Method for CubeSat Thermal-Vacuum Cycling Test Specification](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf)** `PDF` – Soler Chisabas, Loureiro, de Oliveira Lino and Cantor, *47th International Conference on Environmental Systems*, ICES-2017-102, 2017. Compares TVAC requirements across five major standards and proposes a tailoring method.
-- **[Introduction to On-Orbit Thermal Environments](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Rickman, NASA Engineering and Safety Center, TFAWS 2014. How real albedo and outgoing longwave radiation distributions become hot and cold design cases.
+- **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/html/2512.07896v1)** `Link` – Chipps, Forgette and Cahoy, *Journal of Spacecraft and Rockets*, 2025. Describes an open-source six-node MATLAB thermal model validated against Thermal Desktop to within 1.17 °C. Open access preprint.
+- **[Method for CubeSat Thermal-Vacuum Cycling Test Specification](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf)** `PDF` – Soler Chisabas, Loureiro, de Oliveira Lino and Cantor, *47th International Conference on Environmental Systems*, ICES-2017-102, 2017. Compares TVAC requirements across five major standards and proposes a tailoring method. Free PDF.
+- **[Introduction to On-Orbit Thermal Environments](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Rickman, NASA Engineering and Safety Center, TFAWS 2014. How real albedo and outgoing longwave radiation distributions become hot and cold design cases. Free PDF.
 <!-- CSR-RESOURCES:END ref-papers-thermal-and-testing -->
+
+## Communications and antennas
+
+<!-- CSR-RESOURCES:START ref-papers-comms -->
+- **[Antennas for CubeSat Communication](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – Veljovic, EPFL doctoral thesis. Book-length treatment of CubeSat antenna design and the integration constraints that shape it. Free PDF.
+<!-- CSR-RESOURCES:END ref-papers-comms -->
 
 ## Payload and instruments
 
 <!-- CSR-RESOURCES:START ref-papers-payload -->
-- **[A compact instrument for gamma-ray burst detection on a CubeSat platform I: Design drivers and expected performance](https://arxiv.org/abs/2108.08203)** `Link` – Design drivers for EIRSAT-1's GMOD instrument
-- **[A compact instrument for gamma-ray burst detection on a CubeSat platform II: Detailed design, assembly and validation](https://arxiv.org/abs/2203.03502)** `Link` – *Experimental Astronomy*, 2022. Detailed design, calibration and validation of a well-documented CubeSat science instrument.
-- **[Antennas for CubeSat Communication (PhD thesis by Miroslav Veljovic)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – PhD thesis on CubeSat antenna designs
+- **[A compact instrument for gamma-ray burst detection on a CubeSat platform I: Design drivers and expected performance](https://arxiv.org/abs/2108.08203)** `Link` – Murphy et al., *Experimental Astronomy* 52(1–2), 59–84, 2021. Companion to paper II below: the science case and sizing behind GMOD, with Monte Carlo estimates giving a sky-average effective area of 10 cm² at 120 keV and 11–14 gamma-ray bursts detected at high significance over a one-year mission. Open access.
+- **[A compact instrument for gamma-ray burst detection on a CubeSat platform II: Detailed design, assembly and validation](https://arxiv.org/abs/2203.03502)** `Link` – Murphy et al., *Experimental Astronomy* 53(3), 961–990, 2022. Detailed design, calibration and validation of a well-documented CubeSat science instrument. Open access.
 <!-- CSR-RESOURCES:END ref-papers-payload -->
 
 Found a paper that belongs here? Please [contribute](../contributing.md).
