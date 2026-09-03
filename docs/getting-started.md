@@ -109,7 +109,7 @@ Formal programmes use NASA's Pre-Phase A through Phase F or the ECSS equivalent.
 
 Four decisions are cheap to make at the start and expensive to revisit. Teams that get into trouble usually got into it here.
 
-**Orbit and disposal.** Your altitude decides your orbital lifetime, and your lifetime is now a regulatory matter rather than a design preference. At 400–500 km natural decay handles it; above roughly 600 km a passive CubeSat may exceed the current limits and needs a drag device, propulsion or a lower orbit. Settle this during design – see [Space debris mitigation](development/launch.md#space-debris-mitigation).
+**Orbit and disposal.** Your altitude decides your orbital lifetime, and your lifetime is now a regulatory matter rather than a design preference. At or around 400 km natural decay handles it; beyond 500 km there is no guarantee, and in the commonly available 500–600 km sun-synchronous band a passive CubeSat should expect to demonstrate compliance – with a drag device, propulsion or a lower orbit – rather than assume it. Settle this during design – see [Space debris mitigation](development/launch.md#space-debris-mitigation).
 
 **Spectrum.** Amateur or licensed – the choice constrains your business model, not just your radio, because the amateur satellite service prohibits commercial use of the link. It also has the longest lead time of anything on your schedule. See [Communications – RF Overview](development/comms.md#radio-frequency-communications-rf-overview) and [Frequency licensing](development/launch.md#frequency-licensing).
 
