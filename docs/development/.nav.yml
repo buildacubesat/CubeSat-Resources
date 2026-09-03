@@ -1,1 +1,18 @@
 title: Development
+nav:
+  - index.md
+  - systems-engineering.md
+  - structure.md
+  - eps.md
+  - obc.md
+  - flight-software.md
+  - comms.md
+  - ground-segment.md
+  - gnc.md
+  - propulsion.md
+  - thermal.md
+  - payload.md
+  - inhibits-hdrm.md
+  - ait.md
+  - launch.md
+  - tools.md

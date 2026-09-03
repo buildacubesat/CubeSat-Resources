@@ -1,45 +1,48 @@
-# Overview
+# Development Overview
 
-This section covers the technical aspects of CubeSat development, including subsystem design, integration, testing, and operations. Use the menu to explore specific topics like power, avionics, communications, and ground support.
+The engineering content of this site, one page per subsystem or activity, listed in the order a new project usually meets them. If you read one page before starting, make it [Systems Engineering](systems-engineering.md).
+
+[**Systems Engineering**](systems-engineering.md)  
+Mission-level design, requirements, interfaces, budgets, and tradeoffs across the entire CubeSat lifecycle. Read this one first.
+
+[**Structure**](structure.md)  
+Frames, materials, fasteners, the board stack, mass properties, deployables and structural analysis for structural integrity and deployer compatibility.
+
+[**Electrical Power Systems (EPS)**](eps.md)  
+Power budgets, generation, storage, regulation, distribution, and protection for all spacecraft subsystems.
+
+[**Onboard Computing (OBC)**](obc.md)  
+MCUs, FPGAs, and SBCs used to control the spacecraft, the radiation environment that shapes the choice, and the buses that link subsystems.
+
+[**Flight Software**](flight-software.md)  
+Onboard software for data handling, command execution, mode management, fault detection, timing, updates and testing.
+
+[**Communications**](comms.md)  
+Radio systems for telemetry, tracking, command, and payload downlink across UHF to X-band, and the licensing that constrains them.
+
+[**Ground Segment**](ground-segment.md)  
+Ground stations, antennas, tracking, decoding, commanding, automation and data archiving – from SatNOGS to a custom station.
 
 [**Guidance, Navigation, and Control (GNC)**](gnc.md)  
-State estimation and control of spacecraft, covering ADCS and navigation (GNSS, orbits).
+State estimation and control of spacecraft, covering ADCS sensors, actuators, algorithms and navigation (GNSS, orbits).
+
+[**Propulsion**](propulsion.md)  
+Whether a CubeSat needs propulsion at all, the delta-v it buys, the options at CubeSat scale, and the safety requirements that come with it.
+
+[**Thermal Management**](thermal.md)  
+The orbital thermal environment, passive and active strategies for keeping components within safe operating temperatures, modelling and TVAC testing.
+
+[**Payload**](payload.md)  
+Mission instruments and experimental hardware for sensing, data collection, and technology demonstration, and what they demand of the bus.
+
+[**Inhibits, Hold Down and Release Mechanisms (HDRM)**](inhibits-hdrm.md)  
+Launch safety mechanisms including inhibits, deployment switches, RBF pins, timers, and hold-down and release systems.
 
 [**Assembly, Integration and Testing (AIT)**](ait.md)  
 Mechanical assembly, electrical integration, simulation, functional testing, and environmental qualification.
 
-[**Communications**](comms.md)  
-Radio systems for telemetry, tracking, command, and payload downlink across UHF to X-band.
-
-[**Electrical Power Systems (EPS)**](eps.md)  
-Power generation, storage, regulation, distribution, and protection for all spacecraft subsystems.
-
-[**Flight Software**](flight-software.md)  
-Onboard software for data handling, control loops, scheduling, fault detection, and autonomy.
-
-[**Ground Segment**](ground-segment.md)  
-Ground stations, radios, tracking systems, and software for commanding and telemetry reception.
-
-[**Inhibits and Hold Down & Release Mechanisms (HDRM)**](inhibits-hdrm.md)  
-Launch safety mechanisms including inhibits, deployment switches, timers, and hold-down and release systems.
-
 [**Qualification and Launch**](launch.md)  
-Environmental testing, documentation, licensing, and securing a launch opportunity.
-
-[**Onboard Computing (OBC)**](obc.md)  
-MCUs, FPGAs, and SBCs used to control the spacecraft and interface with all subsystems.
-
-[**Payload**](payload.md)  
-Mission instruments and experimental hardware for sensing, data collection, and technology demonstration.
-
-[**Structure**](structure.md)  
-Frames, fasteners, deployables, and mechanical design for structural integrity and deployer compatibility.
-
-[**Systems Engineering**](systems-engineering.md)
-Mission-level design, requirements, interfaces, budgets, and tradeoffs across the entire CubeSat lifecycle.
-
-[**Thermal Management**](thermal.md)  
-Passive and active strategies for keeping components within safe operating temperatures.
+Turning test evidence into a delivery package, procuring a launch, insurance, licensing, debris rules, deployers, delivery and end of life.
 
 [**Tools and Helpers**](tools.md)  
-Practical tools, jigs, fixtures, scripts, and utilities used during development and assembly.
+Practical tools, jigs, fixtures, instruments, software and budget templates used during development and assembly.
