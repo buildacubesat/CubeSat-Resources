@@ -6,7 +6,7 @@ Guidance, Navigation, and Control (GNC) is the set of systems that allow a space
 - **Navigation** – determining where the spacecraft is and how it is moving (position, velocity, and time)
 - **Control** – applying forces or torques to achieve and maintain the desired state
 
-Within this broader framework, **Attitude Determination and Control Systems (ADCS)** focus specifically on the spacecraft's **orientation** – how it is rotated in space and how that orientation is measured and controlled. On a CubeSat this is where nearly all the GNC effort goes: few small missions manoeuvre, but many need to point.
+Within this broader framework, **Attitude Determination and Control Systems (ADCS)** focus specifically on the spacecraft's **orientation** – how it is rotated in space and how that orientation is measured and controlled. On a CubeSat this is where nearly all the GNC effort goes: few small missions maneuver, but many need to point.
 
 This page covers all three functions, with the weight on ADCS: reference frames and orbits, sensors, actuators, control and estimation, disturbances, modes, the buy-or-build decision, integration and testing. Propulsion has [its own page](propulsion.md).
 
@@ -28,11 +28,11 @@ Guidance defines the desired spacecraft behavior – what the spacecraft *should
 
 Most CubeSat missions need a small set of pointing modes, each driven by a mission need:
 
-- **[Nadir](../references/glossary.md#nadir)-pointing** – a fixed body axis held toward the centre of the Earth. The standard for Earth observation and for fixed downward-facing antennas.
-- **Sun-pointing** – maximising solar array output. Frequently the default attitude in [safe mode](../references/glossary.md#safe-mode), because it is the one that keeps the spacecraft alive. See [EPS](eps.md#illumination-eclipse-and-incidence-angle).
+- **[Nadir](../references/glossary.md#nadir)-pointing** – a fixed body axis held toward the center of the Earth. The standard for Earth observation and for fixed downward-facing antennas.
+- **Sun-pointing** – maximizing solar array output. Frequently the default attitude in [safe mode](../references/glossary.md#safe-mode), because it is the one that keeps the spacecraft alive. See [EPS](eps.md#illumination-eclipse-and-incidence-angle).
 - **Inertial pointing** – a fixed orientation relative to the stars, for astronomy payloads or for holding a direction across an orbit.
 - **Target tracking** – following a ground station or a ground target through a pass. Needed for directional antennas and for off-nadir imaging.
-- **Velocity/ram or anti-ram pointing** – minimising drag, or deliberately maximising it for deorbit.
+- **Velocity/ram or anti-ram pointing** – minimizing drag, or deliberately maximizing it for deorbit.
 - **Uncontrolled / tumbling** – not a failure necessarily, but a valid mode for a mission with no pointing requirement, and the state you will be in immediately after deployment.
 
 ### Turning objectives into requirements
@@ -58,7 +58,7 @@ Navigation determines the spacecraft's position, velocity, and time within a cho
 
 - **Ground-based orbit determination** is the default for CubeSats with no pointing requirements. The US Space Surveillance Network tracks objects and publishes [TLEs](../references/glossary.md#tle); you propagate them on the ground and uplink what the spacecraft needs. Cheap, requires no hardware, and adequate for many missions.
 - **Onboard GNSS** gives the spacecraft its own position, velocity and time continuously, which is what makes autonomous operation possible. NASA's survey reports around **1.5 m position accuracy** as achievable with flight-proven small spacecraft GPS receivers.[^nasa-soa-gnc]
-- **Onboard propagation** – carrying an SGP4 propagator and a periodically uplinked TLE – is the pragmatic middle ground, and is what many missions actually fly. Accuracy degrades with time since the last uplink, typically from around a kilometre at [epoch](../references/glossary.md#epoch) to tens of kilometres after a couple of weeks.
+- **Onboard propagation** – carrying an SGP4 propagator and a periodically uplinked TLE – is the pragmatic middle ground, and is what many missions actually fly. Accuracy degrades with time since the last uplink, typically from around a kilometer at [epoch](../references/glossary.md#epoch) to tens of kilometers after a couple of weeks.
 
 ### GNSS in space
 
@@ -79,7 +79,7 @@ Navigation is inseparable from timing. Attitude determination needs time to eval
 - **[OreSat GPS Hardware](https://github.com/oresat/oresat-gps-hardware)** `Link` – Open-source GPS receiver hardware for CubeSats
 - **[Skytraq Orion B16 GNSS Module](https://navspark.mybigcommerce.com/12mm-x-16mm-gnss-receiver-module-for-leo-applications/)** `Link` – Compact GNSS receiver module marketed for LEO applications
 - **[The Wassenaar Arrangement](https://www.wassenaar.org/)** `Link` – Multilateral export control regime covering dual-use technologies including space-capable GNSS receivers
-- **[LeoLabs Visualization](https://platform.leolabs.space/visualization)** `Link` – Interactive visualisation of tracked objects in low Earth orbit
+- **[LeoLabs Visualization](https://platform.leolabs.space/visualization)** `Link` – Interactive visualization of tracked objects in low Earth orbit
 - **[lumi.space](https://www.lumi.space/)** `Link` – Satellite laser ranging services for precise orbit determination
 <!-- CSR-RESOURCES:END dev-gnc-pnt-hardware -->
 
@@ -89,7 +89,7 @@ Almost every hard-to-find ADCS bug is a frame error. Being pedantic here saves w
 
 ### The frames you need
 
-- **[ECI](../references/glossary.md#eci)** (Earth-Centered Inertial) – non-rotating, centred on Earth. Where orbital dynamics are computed. Note that "inertial" requires an epoch: J2000 and TEME are both ECI frames and they are *not* the same. SGP4 outputs TEME, which is a classic source of arcminute-level errors when silently treated as J2000.
+- **[ECI](../references/glossary.md#eci)** (Earth-Centered Inertial) – non-rotating, centered on Earth. Where orbital dynamics are computed. Note that "inertial" requires an epoch: J2000 and TEME are both ECI frames and they are *not* the same. SGP4 outputs TEME, which is a classic source of arcminute-level errors when silently treated as J2000.
 - **[ECEF](../references/glossary.md#ecef)** (Earth-Centered, Earth-Fixed) – rotates with the Earth. Used for ground station positions, latitude/longitude, and Earth-referenced targets.
 - **[LVLH](../references/glossary.md#lvlh)** (Local Vertical, Local Horizontal) – orbital frame following the spacecraft, one axis to nadir and one along track. The natural frame for expressing nadir-pointing attitudes.
 - **Body frame** – fixed to the spacecraft structure. Every sensor and actuator has its own mounting orientation relative to it.
@@ -97,7 +97,7 @@ Almost every hard-to-find ADCS bug is a frame error. Being pedantic here saves w
 
 ### Attitude representations
 
-- **Direction cosine matrices (DCM)** – 3×3 rotation matrices. Unambiguous and composable, but nine numbers with six constraints, so they drift from orthonormality with repeated multiplication and need periodic re-orthonormalisation.
+- **Direction cosine matrices (DCM)** – 3×3 rotation matrices. Unambiguous and composable, but nine numbers with six constraints, so they drift from orthonormality with repeated multiplication and need periodic re-orthonormalization.
 - **Euler angles** – three angles, intuitive to humans, and afflicted by [gimbal lock](../references/glossary.md#gimbal-lock) at singularities. Fine for displaying attitude to an operator; a poor choice for computing it.
 - **[Quaternions](../references/glossary.md#quaternion)** – four numbers, no singularities, numerically well-behaved, cheap to propagate. The standard onboard representation. The costs are that they are not intuitive, that q and −q represent the same rotation (so you must handle sign consistency in filters and interpolation), and that conventions differ.
 
@@ -116,7 +116,7 @@ Almost every hard-to-find ADCS bug is a frame error. Being pedantic here saves w
 
 A Keplerian orbit is fully described by six **classical orbital elements**: semi-major axis (size), eccentricity (shape), [inclination](../references/glossary.md#inclination) (tilt relative to the equator), [RAAN](../references/glossary.md#raan) (where the orbit crosses the equator going north), argument of perigee (orientation within the plane) and true anomaly (position along the orbit). Equivalently, the same state is captured by a **state vector** – three components of position and three of velocity at a given epoch – which is what propagators integrate and what most software actually passes around.
 
-For CubeSats, two orbit types dominate: **[sun-synchronous orbits](../references/glossary.md#sso) (SSO)**, whose precession keeps the local solar time of each pass constant (valuable for imaging and, in the dawn–dusk case, for near-continuous illumination), and lower-inclination orbits from ISS deployment, which give shorter lifetimes and different [beta angle](../references/glossary.md#beta-angle) behaviour.
+For CubeSats, two orbit types dominate: **[sun-synchronous orbits](../references/glossary.md#sso) (SSO)**, whose precession keeps the local solar time of each pass constant (valuable for imaging and, in the dawn–dusk case, for near-continuous illumination), and lower-inclination orbits from ISS deployment, which give shorter lifetimes and different [beta angle](../references/glossary.md#beta-angle) behavior.
 
 ### TLEs and SGP4
 
@@ -124,9 +124,9 @@ A **[TLE](../references/glossary.md#tle)** is a compact, fixed-format encoding o
 
 Practical limitations worth knowing:
 
-- Accuracy is roughly a kilometre near epoch, degrading to tens of kilometres over one to two weeks. Refresh TLEs regularly.
+- Accuracy is roughly a kilometer near epoch, degrading to tens of kilometers over one to two weeks. Refresh TLEs regularly.
 - SGP4 outputs coordinates in the **TEME** frame, not J2000 – see above.
-- After deployment, several CubeSats released together are catalogued as a cluster and take days to weeks to be individually identified. Early operations often mean tracking several candidate TLEs at once and using Doppler signature to work out which one is yours.
+- After deployment, several CubeSats released together are cataloged as a cluster and take days to weeks to be individually identified. Early operations often mean tracking several candidate TLEs at once and using Doppler signature to work out which one is yours.
 
 <!-- CSR-RESOURCES:START dev-gnc-orbits-and-tles -->
 - **[Definition of Two-line Element Set Coordinate System](https://platform-cdn.leolabs.space/static/files/tle_definition.pdf?7ba94f05897b4ae630a3c5b65be7396c642d9c72)** `PDF` – Reference definition of the TLE format and its coordinate system
@@ -141,13 +141,13 @@ See also [Ground Segment – Tracking and Pass Prediction](ground-segment.md#tra
 
 ## Passive Stabilization Methods
 
-Passive stabilisation uses environmental forces and simple physics instead of active control. It costs no power, has nothing to fail, and for a surprising number of missions it is sufficient. If your requirement is "keep the antenna roughly downward and don't tumble too fast", passive methods deserve serious consideration before you buy an ADCS.
+Passive stabilization uses environmental forces and simple physics instead of active control. It costs no power, has nothing to fail, and for a surprising number of missions it is sufficient. If your requirement is "keep the antenna roughly downward and don't tumble too fast", passive methods deserve serious consideration before you buy an ADCS.
 
-- **[Gravity gradient stabilisation](../references/glossary.md#gravity-gradient-stabilisation)** exploits the fact that a non-spherical body in a gravity field experiences a torque aligning its long axis with the local vertical. Effective for elongated spacecraft – a 3U is already a reasonable shape, and a deployed boom with a tip mass dramatically increases the effect. Typically delivers a few degrees of nadir pointing, is bistable (it will happily settle upside down), and provides no yaw control at all.
+- **[Gravity gradient stabilization](../references/glossary.md#gravity-gradient-stabilization)** exploits the fact that a non-spherical body in a gravity field experiences a torque aligning its long axis with the local vertical. Effective for elongated spacecraft – a 3U is already a reasonable shape, and a deployed boom with a tip mass dramatically increases the effect. Typically delivers a few degrees of nadir pointing, is bistable (it will happily settle upside down), and provides no yaw control at all.
 - **Magnetic hysteresis damping** uses rods of high-permeability material that dissipate rotational energy as the Earth's magnetic field sweeps through them during each orbit. This is a *damper*, not a controller: it bleeds off tumbling rates. Very common alongside a permanent magnet.
 - **Permanent magnets** align a body axis with the local geomagnetic field. Simple and effective, but the resulting attitude follows the field, which means the spacecraft flips twice per orbit – acceptable for an omnidirectional antenna, not for a camera. Almost always paired with hysteresis rods, which damp the resulting oscillation.
-- **Spin stabilisation** uses gyroscopic stiffness to hold a spin axis inertially fixed. Requires spinning up, and constrains the spacecraft to one useful pointing direction.
-- **Aerodynamic stabilisation** uses drag on deployed surfaces to weathervane the spacecraft into the velocity vector. Only effective at lower altitudes where there is enough atmosphere.
+- **Spin stabilization** uses gyroscopic stiffness to hold a spin axis inertially fixed. Requires spinning up, and constrains the spacecraft to one useful pointing direction.
+- **Aerodynamic stabilization** uses drag on deployed surfaces to weathervane the spacecraft into the velocity vector. Only effective at lower altitudes where there is enough atmosphere.
 
 The design consideration common to all of these: **passive methods must be designed in from the start**, because they depend on mass distribution, geometry and magnetic properties that are hard to change late. And they interact – a permanent magnet makes magnetorquer-based control much harder, and magnetic hysteresis material will damp your reaction wheels' authority too.
 
@@ -170,7 +170,7 @@ Masses run from **3 g to 375 g**.[^nasa-soa-gnc] Practical considerations: you n
 An [IMU](../references/glossary.md#imu) packages gyroscopes together with accelerometers. On an orbiting spacecraft only half of it earns its place: in free fall the accelerometers read essentially zero, sensing only non-gravitational accelerations such as drag and thruster firings. The gyroscopes are the part that matters for attitude, and they are covered in [Gyroscopes](#gyroscopes) below.
 
 <!-- CSR-RESOURCES:START dev-gnc-imu-resources -->
-- **[IMU Visualiser](https://www.youtube.com/watch?v=6vpdAXEQaoQ)** `Link` – Visual explanation of IMU behaviour
+- **[IMU Visualizer](https://www.youtube.com/watch?v=6vpdAXEQaoQ)** `Link` – Visual explanation of IMU behavior
 - **[What is an IMU?](https://www.youtube.com/watch?v=qS9GwaekLW4)** `Link` – Introduction to inertial measurement units
 - **[Measuring Angles and Movement with an IMU](https://www.youtube.com/watch?v=3mgSi0RkANc)** `Link` – Practical guide to angle and motion measurement with an IMU
 <!-- CSR-RESOURCES:END dev-gnc-imu-resources -->
@@ -183,12 +183,12 @@ NASA's survey gives magnetometer-based two-axis attitude estimation at roughly *
 
 **Calibration and interference.** A magnetometer measures the total field, which is the Earth's field plus everything your own spacecraft is doing. The corrections needed:
 
-- **Hard-iron effects** – a constant offset from permanent magnetisation in nearby materials.
+- **Hard-iron effects** – a constant offset from permanent magnetization in nearby materials.
 - **Soft-iron effects** – a direction-dependent distortion from ferromagnetic material.
 - **Current-loop interference** – fields generated by your own harness, solar panel strings and switching converters. This one varies with spacecraft mode, which makes it much harder than a static calibration: the field measured with the transmitter on is not the field measured with it off.
 - **Magnetorquer crosstalk** – your own actuator swamps the sensor completely. Standard practice is to **interleave**: pulse the magnetorquers, then measure with them off.
 
-Calibration is done on the ground in a [Helmholtz cage](#testing-and-validation) and refined in orbit. Magnetic cleanliness – twisted-pair harness, minimised current loops, non-ferrous fasteners, sensor placement as far from batteries and torquers as geometry allows, ideally on a short boom – is a whole-spacecraft discipline, not a magnetometer problem. See [Structure](structure.md#fasteners-and-assembly).
+Calibration is done on the ground in a [Helmholtz cage](#testing-and-validation) and refined in orbit. Magnetic cleanliness – twisted-pair harness, minimized current loops, non-ferrous fasteners, sensor placement as far from batteries and torquers as geometry allows, ideally on a short boom – is a whole-spacecraft discipline, not a magnetometer problem. See [Structure](structure.md#fasteners-and-assembly).
 
 Because the geomagnetic field must be *predicted* to be useful as a reference, you also need an onboard field model (IGRF or a reduced-order fit) and therefore accurate time and position.
 
@@ -206,13 +206,13 @@ Because the geomagnetic field must be *predicted* to be useful as a reference, y
 Measure **angular velocity** (how fast the spacecraft is rotating). They are essential for short-term attitude propagation but tend to **drift over time**, so they are usually combined with absolute sensors (e.g. magnetometers, sun sensors, star trackers).
 
 - **MEMS gyros** are what CubeSats fly: grams, milliwatts, a few euros. The tradeoff is bias stability. NASA's survey cites gyro bias stability around **0.15°/hour** for good small spacecraft units;[^nasa-soa-gnc] cheap consumer MEMS parts are far worse, drifting degrees per minute.
-- **Fibre-optic and ring laser gyros** offer orders of magnitude better stability, at masses and costs that put them out of reach for most CubeSats.
+- **Fiber-optic and ring laser gyros** offer orders of magnitude better stability, at masses and costs that put them out of reach for most CubeSats.
 
 What actually matters in practice:
 
 - **Bias** – a non-zero output at rest. Estimated continuously by the attitude filter and removed; this is one of the main jobs an [EKF](#estimation-and-sensor-fusion) does.
 - **Bias instability and random walk** – how fast the estimate degrades between absolute updates. This sets how long you can coast through eclipse on gyros alone.
-- **Temperature sensitivity** – MEMS bias varies strongly with temperature. Characterise across your operating range and compensate; a lookup table from thermal-vacuum data is a cheap and large improvement.
+- **Temperature sensitivity** – MEMS bias varies strongly with temperature. Characterize across your operating range and compensate; a lookup table from thermal-vacuum data is a cheap and large improvement.
 - **Scale factor and misalignment** – errors proportional to rate, significant during fast slews.
 
 #### Parts
@@ -229,7 +229,7 @@ Performance from NASA's survey: cross-axis accuracy of **2–30 arcseconds** dep
 
 How they work, and where they fail:
 
-- **Lost-in-space identification** matches an observed star pattern against a catalogue with no prior attitude estimate – the hard case, and what distinguishes a star tracker from a camera. **Tracking mode**, updating from a known prior, is far cheaper computationally.
+- **Lost-in-space identification** matches an observed star pattern against a catalog with no prior attitude estimate – the hard case, and what distinguishes a star tracker from a camera. **Tracking mode**, updating from a known prior, is far cheaper computationally.
 - **Stray light is the dominant practical constraint.** Sun, Earth albedo and Moon in the field of view all blind the sensor. Baffle design is as important as the optics, and exclusion angles (often 30–40° from the Earth limb and much more from the Sun) directly constrain which attitudes give you a valid solution. Plan attitudes so the star tracker keeps a usable view.
 - **Slew rate limits.** Long exposures smear stars. Most trackers lose lock above a few degrees per second, which means they cannot help you during detumble.
 - **Compute.** Centroiding and pattern matching need serious processing – one reason star trackers are usually self-contained units with their own processor.
@@ -246,13 +246,13 @@ How they work, and where they fail:
 
 Active actuators that control attitude by **exchanging angular momentum** with the spacecraft. They enable precise pointing but introduce complexity and require **momentum management**.
 
-NASA's survey summarises the small spacecraft range as **0.00023 to 0.3 Nm** peak torque and **0.0005 to 8 Nms** momentum storage – though the chapter's own component tables list units beyond that ceiling, so read the summary as describing the bulk of the market rather than its limits. Examples run from CubeSpace's CW0017 (0.0017 Nms, 60 g) at the small end up to Blue Canyon's RW16 at **16 Nms** and 7.5 kg.[^nasa-soa-gnc] Where the summary and the component tables disagree, trust the component tables and the manufacturers' current datasheets.
+NASA's survey summarizes the small spacecraft range as **0.00023 to 0.3 Nm** peak torque and **0.0005 to 8 Nms** momentum storage – though the chapter's own component tables list units beyond that ceiling, so read the summary as describing the bulk of the market rather than its limits. Examples run from CubeSpace's CW0017 (0.0017 Nms, 60 g) at the small end up to Blue Canyon's RW16 at **16 Nms** and 7.5 kg.[^nasa-soa-gnc] Where the summary and the component tables disagree, trust the component tables and the manufacturers' current datasheets.
 
 **Configurations.** Three orthogonal wheels give full three-axis control with no redundancy. A **four-wheel pyramid** tolerates any single wheel failure and spreads torque across units, at the cost of a fourth wheel and a control allocation problem. Given that wheel bearings are among the most common ADCS failure modes, the fourth wheel is often worth its mass.
 
 **[Momentum desaturation](../references/glossary.md#momentum-desaturation)** is the fundamental constraint. Continuous disturbance torques accumulate momentum in the wheels; once a wheel reaches maximum speed it can produce no further torque in that direction, and the spacecraft loses control authority about that axis. Momentum must be dumped to the environment – on a CubeSat, using magnetorquers against the Earth's field. **A reaction wheel system without a momentum dumping mechanism will saturate and stop working.** Sizing the magnetorquers to dump momentum faster than the disturbances accumulate is a design constraint, not a detail.
 
-**Other practical issues:** wheel imbalance causes jitter that can blur images from the same spacecraft the wheels are pointing; bearing lubricant behaviour is temperature-dependent and bearings wear; and wheels passing through zero speed exhibit friction nonlinearity that makes precise low-rate control difficult (some systems deliberately bias wheels away from zero to avoid it).
+**Other practical issues:** wheel imbalance causes jitter that can blur images from the same spacecraft the wheels are pointing; bearing lubricant behavior is temperature-dependent and bearings wear; and wheels passing through zero speed exhibit friction nonlinearity that makes precise low-rate control difficult (some systems deliberately bias wheels away from zero to avoid it).
 
 <!-- CSR-RESOURCES:START dev-gnc-reaction-wheel-resources -->
 - **[University of Bristol: Satellite Reaction Wheels](https://www.youtube.com/watch?v=ZPWiIBcHOh4)** `Link` – Educational video on reaction wheel operation
@@ -267,14 +267,14 @@ NASA's survey summarises the small spacecraft range as **0.00023 to 0.3 Nm** pea
 
 Generate torque by interacting with Earth's magnetic field. They are simple, robust, and power-efficient, but provide **limited control authority** and depend on the local magnetic field.
 
-The governing relation is **τ = m × B**: torque equals the commanded magnetic dipole crossed with the local field. NASA's survey summarises small spacecraft units at **0.15 to 15 A·m²**, with ZARM's MT0.2-1 (0.2 A·m², 12 g) near the bottom of the range; as with reaction wheels, the chapter's component table runs past its own summary, listing Rocket Lab's TQ-40 at **48 A·m²** and 825 g.[^nasa-soa-gnc] As with the wheels, the component table and the manufacturer's datasheet are the figures to design against.
+The governing relation is **τ = m × B**: torque equals the commanded magnetic dipole crossed with the local field. NASA's survey summarizes small spacecraft units at **0.15 to 15 A·m²**, with ZARM's MT0.2-1 (0.2 A·m², 12 g) near the bottom of the range; as with reaction wheels, the chapter's component table runs past its own summary, listing Rocket Lab's TQ-40 at **48 A·m²** and 825 g.[^nasa-soa-gnc] As with the wheels, the component table and the manufacturer's datasheet are the figures to design against.
 
 The cross product is the whole story:
 
 - **You cannot generate torque about the field direction.** At any instant, magnetorquers give you control over only two axes. Full three-axis control is recovered only because the field direction changes as the spacecraft moves around its orbit – which means magnetic-only control is **underactuated at any instant but controllable over an orbit**. This is why magnetic-only attitude control is slow.
 - **Authority varies with position.** The geomagnetic field runs roughly **20–55 µT across the 400–600 km band** – appreciably weaker than the 25–65 µT at Earth's surface, since the field falls off with the cube of the radius and that band sits at 0.76–0.83 of the surface value. It is strongest near the poles and weakest over the South Atlantic Anomaly, so control authority varies around the orbit.
 
-**Implementations.** Air-core coils are simple and linear. Rod torquers wind the coil around a ferromagnetic core, multiplying the dipole for the same current and mass, at the cost of residual magnetisation (the core stays slightly magnetised after use, which your magnetometer will see). **PCB-embedded coils** – spiral traces in the board copper – cost essentially nothing and take no volume, and are a popular choice for very small satellites where the required dipole is modest.
+**Implementations.** Air-core coils are simple and linear. Rod torquers wind the coil around a ferromagnetic core, multiplying the dipole for the same current and mass, at the cost of residual magnetization (the core stays slightly magnetized after use, which your magnetometer will see). **PCB-embedded coils** – spiral traces in the board copper – cost essentially nothing and take no volume, and are a popular choice for very small satellites where the required dipole is modest.
 
 **Interaction with magnetometers** is the recurring practical problem: your actuator produces a field thousands of times larger than the one you are trying to measure. Interleaving actuation and measurement in time is the standard solution.
 
@@ -289,7 +289,7 @@ The cross product is the whole story:
 
 ### Thrusters
 
-Propulsion gives translational control – orbit raising, phasing, collision avoidance, controlled deorbit – and can provide attitude control, though it is rarely used that way on CubeSats because propellant is finite while magnetorquers are not. Miniaturised electric and cold-gas systems are increasingly available at CubeSat scale – see [Propulsion](propulsion.md) for the options, the delta-v arithmetic and the safety and regulatory requirements that arrive with them.
+Propulsion gives translational control – orbit raising, phasing, collision avoidance, controlled deorbit – and can provide attitude control, though it is rarely used that way on CubeSats because propellant is finite while magnetorquers are not. Miniaturized electric and cold-gas systems are increasingly available at CubeSat scale – see [Propulsion](propulsion.md) for the options, the delta-v arithmetic and the safety and regulatory requirements that arrive with them.
 
 ## Control Algorithms
 
@@ -301,7 +301,7 @@ The **[B-dot](../references/glossary.md#b-dot) controller** is the standard answ
 
 Reported performance is good: one published algorithm using only three-axis magnetometer data reduced rotational kinetic energy by two orders of magnitude **within roughly 4,500 s – less than one orbital period** – for a 3U with a 0.3 A·m² dipole limit, with steady-state angular rate errors within ±0.2°/s.[^carletta]
 
-Practical notes: B-dot is robust and hard to destabilise, which is exactly what you want as the first thing to run in orbit. It is a *rate* controller – it will not give you a pointing attitude. And it needs the magnetometer read with the torquers off.
+Practical notes: B-dot is robust and hard to destabilize, which is exactly what you want as the first thing to run in orbit. It is a *rate* controller – it will not give you a pointing attitude. And it needs the magnetometer read with the torquers off.
 
 ### Pointing control
 
@@ -315,7 +315,7 @@ Practical notes: B-dot is robust and hard to destabilise, which is exactly what 
 
 Attitude dynamics on a CubeSat are slow – body rates of a few degrees per second, time constants of minutes – so control loops typically run at **1–10 Hz**, not the kilohertz rates familiar from terrestrial motion control. The rate is bounded from below by the dynamics you need to track and from above by three practical limits: sensor sampling rates, the magnetometer/magnetorquer interleaving duty cycle (you cannot measure and actuate at the same time – see [Magnetorquers](#magnetorquers)), and the processor time you are willing to spend against everything else onboard.
 
-Choose it deliberately and hold it fixed. A control loop whose period varies with system load is a control loop you have not actually analysed, and the resulting behaviour is very difficult to reproduce on the ground. Where a loop must run at a different rate from its sensors, decide explicitly whether it holds the last sample, interpolates, or skips the update.
+Choose it deliberately and hold it fixed. A control loop whose period varies with system load is a control loop you have not actually analyzed, and the resulting behavior is very difficult to reproduce on the ground. Where a loop must run at a different rate from its sensors, decide explicitly whether it holds the last sample, interpolates, or skips the update.
 
 Tuning notes: simulate before you implement, verify stability with realistic sensor noise and actuator saturation, and remember that **actuator saturation is the norm rather than the exception** on a CubeSat – a controller that is stable only when it can command unlimited torque is not stable.
 
@@ -325,7 +325,7 @@ Individual sensors are noisy, intermittent and partially observable. Estimation 
 
 ### Deterministic methods
 
-**TRIAD** takes two vector observations and constructs an attitude directly. Simple, non-iterative, and useful as an initial estimate or a sanity check – but it discards information (it weights one vector fully and the other partially) and cannot use more than two vectors. **Wahba's problem** generalises the question to optimally fitting N vector observations, with **QUEST** and **SVD-based** methods being the standard solutions.
+**TRIAD** takes two vector observations and constructs an attitude directly. Simple, non-iterative, and useful as an initial estimate or a sanity check – but it discards information (it weights one vector fully and the other partially) and cannot use more than two vectors. **Wahba's problem** generalizes the question to optimally fitting N vector observations, with **QUEST** and **SVD-based** methods being the standard solutions.
 
 ### Recursive filters
 
@@ -335,7 +335,7 @@ Individual sensors are noisy, intermittent and partially observable. Estimation 
 
 ### Common failure modes
 
-- **Filter divergence** when the estimate drifts outside the region where linearisation is valid, and the filter confidently reports a wrong answer. Monitor innovation (measurement minus prediction) and reset when it stays large.
+- **Filter divergence** when the estimate drifts outside the region where linearization is valid, and the filter confidently reports a wrong answer. Monitor innovation (measurement minus prediction) and reset when it stays large.
 - **Over-confident covariance** – a filter that believes its own estimate too much stops accepting corrections. Inflate process noise rather than tuning for best nominal performance.
 - **Eclipse transitions**, where the sun sensor drops out and the observability changes abruptly. Handle explicitly rather than letting the filter discover it.
 - **Bad measurements** – albedo mistaken for the Sun, magnetorquer crosstalk, a star tracker locking onto the Moon. Gate measurements on innovation size before accepting them.
@@ -344,15 +344,15 @@ Individual sensors are noisy, intermittent and partially observable. Estimation 
 
 The torques your control system spends its life fighting:
 
-- **Gravity gradient** – arises from the inertia distribution in a non-uniform gravity field. Proportional to the difference between principal moments of inertia and falls off with the cube of orbital radius. Can be a stabilising asset (see [Passive Stabilization](#passive-stabilization-methods)) or a disturbance, depending on what you want.
-- **Aerodynamic drag** – acts through the centre of pressure; if that is offset from the centre of mass, it produces a torque. Strongly altitude-dependent and varies with solar activity, which changes atmospheric density substantially over the solar cycle. This is a direct argument for keeping the centre of mass central – see [Structure – Mass Properties](structure.md#mass-properties-and-centre-of-mass).
-- **Residual magnetic dipole** – your own spacecraft is a magnet, from current loops, permanent magnets in components, and magnetised materials. It interacts with the geomagnetic field to produce a persistent torque. Often the dominant disturbance on a CubeSat, and one you control by design rather than by control effort.
-- **Solar radiation pressure** – photon momentum acting through the centre of pressure of illuminated area. In LEO it is small: one published analysis neglects it entirely on the grounds that it "is typically at least one order of magnitude smaller than any of the other torques."[^rawashdeh] It matters at higher altitudes and for spacecraft with large deployed areas.
+- **Gravity gradient** – arises from the inertia distribution in a non-uniform gravity field. Proportional to the difference between principal moments of inertia and falls off with the cube of orbital radius. Can be a stabilizing asset (see [Passive Stabilization](#passive-stabilization-methods)) or a disturbance, depending on what you want.
+- **Aerodynamic drag** – acts through the center of pressure; if that is offset from the center of mass, it produces a torque. Strongly altitude-dependent and varies with solar activity, which changes atmospheric density substantially over the solar cycle. This is a direct argument for keeping the center of mass central – see [Structure – Mass Properties](structure.md#mass-properties-and-center-of-mass).
+- **Residual magnetic dipole** – your own spacecraft is a magnet, from current loops, permanent magnets in components, and magnetized materials. It interacts with the geomagnetic field to produce a persistent torque. Often the dominant disturbance on a CubeSat, and one you control by design rather than by control effort.
+- **Solar radiation pressure** – photon momentum acting through the center of pressure of illuminated area. In LEO it is small: one published analysis neglects it entirely on the grounds that it "is typically at least one order of magnitude smaller than any of the other torques."[^rawashdeh] It matters at higher altitudes and for spacecraft with large deployed areas.
 
-In the **300–650 km** band typical of CubeSats, aerodynamic and gravity gradient torques are comparable in magnitude.[^rawashdeh] The practical implications: size actuators against the *sum* of disturbances over an orbit, not a single worst case; keep the centre of mass central and the residual dipole small, because both are far cheaper to fix in design than to fight continuously; and remember that disturbances are what saturate your reaction wheels.
+In the **300–650 km** band typical of CubeSats, aerodynamic and gravity gradient torques are comparable in magnitude.[^rawashdeh] The practical implications: size actuators against the *sum* of disturbances over an orbit, not a single worst case; keep the center of mass central and the residual dipole small, because both are far cheaper to fix in design than to fight continuously; and remember that disturbances are what saturate your reaction wheels.
 
 <!-- CSR-RESOURCES:START dev-gnc-attitude-analysis -->
-- **[Attitude Analysis of Small Satellites Using Model-Based Simulation](https://www.hindawi.com/journals/ijae/2019/3020581/)** `Link` – Open-access paper (Samir A. Rawashdeh, 2019) describing the SNAP simulation tool and modelling of gravity gradient, aerodynamic, magnetic and hysteresis torques
+- **[Attitude Analysis of Small Satellites Using Model-Based Simulation](https://www.hindawi.com/journals/ijae/2019/3020581/)** `Link` – Open-access paper (Samir A. Rawashdeh, 2019) describing the SNAP simulation tool and modeling of gravity gradient, aerodynamic, magnetic and hysteresis torques
 - **[Design and Numerical Validation of an Algorithm for the Detumbling and Angular Rate Determination of a CubeSat Using Only Three-Axis Magnetometer Data](https://onlinelibrary.wiley.com/doi/10.1155/2018/9768475)** `Link` – Open-access paper (Stefano Carletta, Paolo Teofilatto and M. Salim Farissi, 2018) on magnetometer-only detumbling with reported performance figures
 <!-- CSR-RESOURCES:END dev-gnc-attitude-analysis -->
 
@@ -386,8 +386,8 @@ Whichever you choose, the integration considerations below still apply. A bought
 ## ADCS Integration Considerations
 
 - **Mechanical alignment.** Every sensor and actuator has a mounting matrix relating its frame to the body frame. Measure these rather than assuming the CAD is right; a 1° mounting error is an unremovable 1° pointing error. Alignment-critical sensors should reference machined features or dowel pins, not clearance-hole fasteners. See [Structure – Mounting](structure.md#mounting-and-mechanical-interfaces).
-- **Mass properties.** The control system needs the inertia tensor, and the disturbance environment depends on the centre of mass. Both should come from a CAD model that is kept current and, ideally, verified by measurement.
-- **Magnetic cleanliness** is a whole-spacecraft requirement: twisted pairs, minimised loop areas, non-ferrous fasteners near the magnetometer, and awareness that batteries, speakers, relays and motors all contain magnets. Characterise the residual dipole before launch if you can – see [AIT – Environmental Testing](ait.md#environmental-testing).
+- **Mass properties.** The control system needs the inertia tensor, and the disturbance environment depends on the center of mass. Both should come from a CAD model that is kept current and, ideally, verified by measurement.
+- **Magnetic cleanliness** is a whole-spacecraft requirement: twisted pairs, minimized loop areas, non-ferrous fasteners near the magnetometer, and awareness that batteries, speakers, relays and motors all contain magnets. Characterize the residual dipole before launch if you can – see [AIT – Environmental Testing](ait.md#environmental-testing).
 - **Power and thermal coupling.** Detumbling and slewing are power-hungry and happen exactly when generation is worst. Reaction wheel motors and magnetorquer coils dissipate heat locally. See [EPS](eps.md) and [Thermal](thermal.md).
 - **Payload and comms coupling.** Wheel jitter blurs images; the ADCS is what points a directional antenna, so a pointing failure is also a comms failure. Deployables change the inertia tensor – make sure the control system knows which configuration it is in.
 
@@ -396,7 +396,7 @@ Whichever you choose, the integration considerations below still apply. A bought
 ADCS is the hardest CubeSat subsystem to test on the ground, because you cannot remove gravity and cannot reproduce the orbital magnetic field over a full orbit. The practical approach is to test the parts you can and simulate the rest.
 
 - **Helmholtz cage.** Three orthogonal coil pairs generating a controlled, uniform magnetic field around the spacecraft. This is the core ADCS test facility: it cancels the Earth's field and replays a simulated orbital field profile, which lets you calibrate magnetometers, verify magnetorquer polarity and dipole, and run detumble algorithms against realistic input. Building one is a well-documented student project.
-- **Air bearing tables** float the spacecraft on a thin air film to remove friction about one or three axes, allowing closed-loop reaction wheel tests. Requires careful balancing, and gravity still dominates unless the centre of mass is placed precisely at the pivot.
+- **Air bearing tables** float the spacecraft on a thin air film to remove friction about one or three axes, allowing closed-loop reaction wheel tests. Requires careful balancing, and gravity still dominates unless the center of mass is placed precisely at the pivot.
 - **Sun simulators** – a collimated light source for sun sensor calibration.
 - **[HIL](../references/glossary.md#hil) simulation** is where most ADCS verification actually happens: the flight software on the flight processor, driven by simulated sensor data from an orbit and attitude propagator, with actuator commands fed back into the simulation. This is the only practical way to run hundreds of orbits and to test the mode logic, fault responses and edge cases. See [AIT – HIL Testing](ait.md#hardware-in-the-loop-hil-testing).
 - **Polarity checks.** The single most common ADCS bug is a sign error – a magnetorquer wired backwards, a sensor axis inverted, a quaternion convention mismatch. Each one turns a controller into an accelerator. Check every axis of every sensor and actuator physically, on the integrated spacecraft, and write down the result.
@@ -418,4 +418,4 @@ Commission incrementally: confirm sensor data is sane before enabling any actuat
 
 [^carletta]: Stefano Carletta, Paolo Teofilatto and M. Salim Farissi, ["Design and Numerical Validation of an Algorithm for the Detumbling and Angular Rate Determination of a CubeSat Using Only Three-Axis Magnetometer Data"](https://onlinelibrary.wiley.com/doi/10.1155/2018/9768475), *International Journal of Aerospace Engineering*, 2018, Article ID 9768475. Open access. Reports rotational kinetic energy reduced by two orders of magnitude "in less than 1 orbital period, within roughly 4500 seconds" for a 3U CubeSat limited to a 0.3 A·m² dipole, with angular rate errors within ±0.2°/s.
 
-[^rawashdeh]: Samir A. Rawashdeh, ["Attitude Analysis of Small Satellites Using Model-Based Simulation"](https://www.hindawi.com/journals/ijae/2019/3020581/), *International Journal of Aerospace Engineering*, 2019, Article ID 3020581. Open access. Describes the SNAP simulation tool and its modelling of gravity gradient, aerodynamic, magnetic and hysteresis damping torques; notes that solar radiation pressure is typically at least an order of magnitude smaller than the others in LEO, and that aerodynamic and gravitational torques are comparable in the 300–650 km band.
+[^rawashdeh]: Samir A. Rawashdeh, ["Attitude Analysis of Small Satellites Using Model-Based Simulation"](https://www.hindawi.com/journals/ijae/2019/3020581/), *International Journal of Aerospace Engineering*, 2019, Article ID 3020581. Open access. Describes the SNAP simulation tool and its modeling of gravity gradient, aerodynamic, magnetic and hysteresis damping torques; notes that solar radiation pressure is typically at least an order of magnitude smaller than the others in LEO, and that aerodynamic and gravitational torques are comparable in the 300–650 km band.

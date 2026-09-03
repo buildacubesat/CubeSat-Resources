@@ -1,6 +1,6 @@
 # Propulsion
 
-This page covers propulsion on a CubeSat: whether a mission needs it at all, the [delta-v](../references/glossary.md#delta-v) it buys and what that costs in propellant, the options that exist at CubeSat scale and how they trade thrust against efficiency and power, and the safety and regulatory requirements that arrive with the first pressurised tank. Attitude actuators are on [GNC](gnc.md); drag devices for disposal are on [Qualification and Launch](launch.md#space-debris-mitigation).
+This page covers propulsion on a CubeSat: whether a mission needs it at all, the [delta-v](../references/glossary.md#delta-v) it buys and what that costs in propellant, the options that exist at CubeSat scale and how they trade thrust against efficiency and power, and the safety and regulatory requirements that arrive with the first pressurized tank. Attitude actuators are on [GNC](gnc.md); drag devices for disposal are on [Qualification and Launch](launch.md#space-debris-mitigation).
 
 Most CubeSats fly without propulsion, and most of them are right to. A propulsion system is the one subsystem that changes your safety review, your launch options and your regulatory position all at once, so the first question is not which thruster but whether the mission can be flown without one. Increasingly the answer is no – disposal rules, constellation phasing and collision avoidance are pulling propulsion down into form factors that never carried it – which is why the question deserves an answer rather than an assumption.
 
@@ -11,18 +11,18 @@ The reasons a CubeSat carries propulsion, roughly in order of how often they dec
 - **Disposal compliance.** The five-year disposal rules now applied by the FCC and ESA put the commonly available 500–600 km sun-synchronous orbit on the wrong side of the line for a passive CubeSat. Lowering perigee at end of mission is one of the ways to comply; a drag device or a lower drop-off orbit are the others. See [Qualification and Launch – Space debris mitigation](launch.md#space-debris-mitigation).
 - **Orbit maintenance and lifetime.** A CubeSat deployed low – from the ISS at 400–420 km, for instance – decays in months to a couple of years. Propulsion can buy back lifetime, at the cost of carrying the propellant to do it.
 - **Phasing and constellation deployment.** Several spacecraft released from the same deployer share an orbit; spreading them around it needs a small delta-v applied at the right time, or a long wait for differential drag to do it slowly.
-- **Collision avoidance.** Operators of large constellations increasingly expect other objects near them to be able to manoeuvre, and some regulators are beginning to ask.
+- **Collision avoidance.** Operators of large constellations increasingly expect other objects near them to be able to maneuver, and some regulators are beginning to ask.
 - **Formation flying and rendezvous** – CanX-4/CanX-5 and the CPOD pair are the reference demonstrations.
 - **Deep space and high orbits.** MarCO, BioSentinel, ArgoMoon and CAPSTONE all carried propulsion because there was no alternative.
 - **Attitude control** – rarely on a CubeSat, because propellant is finite and magnetorquers are not. See [GNC – Thrusters](gnc.md#thrusters).
 
-What it costs is less obvious than what it buys. A tank consumes internal volume that is scarcer than mass on a CubeSat. Electric propulsion consumes power at a scale most CubeSat buses cannot supply. The centre of mass moves as propellant is used, which the [ADCS](../references/glossary.md#adcs) has to know about. Plume impingement on solar cells, star trackers and optics has to be analysed. And the safety data package grows: a propulsion system is a stored-energy hazard in the same class as a battery, and it is reviewed as one – see [Safety and Launch Requirements](#safety-and-launch-requirements).
+What it costs is less obvious than what it buys. A tank consumes internal volume that is scarcer than mass on a CubeSat. Electric propulsion consumes power at a scale most CubeSat buses cannot supply. The center of mass moves as propellant is used, which the [ADCS](../references/glossary.md#adcs) has to know about. Plume impingement on solar cells, star trackers and optics has to be analyzed. And the safety data package grows: a propulsion system is a stored-energy hazard in the same class as a battery, and it is reviewed as one – see [Safety and Launch Requirements](#safety-and-launch-requirements).
 
 ## Delta-v: The Currency
 
 Every propulsion question reduces to delta-v – the velocity change the system can deliver – and the numbers at CubeSat scale are worth having in your head. From the vis-viva equation, for a circular orbit at 500 km:[^deltav]
 
-- Raising or lowering the orbit by **100 km** costs about **55 m/s** as a two-burn Hohmann transfer – roughly **0.55 m/s per kilometre** anywhere in the CubeSat band.
+- Raising or lowering the orbit by **100 km** costs about **55 m/s** as a two-burn Hohmann transfer – roughly **0.55 m/s per kilometer** anywhere in the CubeSat band.
 - Dropping perigee from **550 km to 300 km** for disposal costs about **70 m/s** in a single burn at apogee. Circularising at 300 km would cost the same again, and is unnecessary: once perigee is in the denser atmosphere, drag finishes the job.
 - Changing the orbital plane by **1°** costs about **130 m/s**, and 5° costs over 650 m/s. This is why a rideshare CubeSat lives with the primary's inclination: plane changes are unaffordable at this scale.
 
@@ -59,22 +59,22 @@ NASA's state-of-the-art survey sorts small spacecraft propulsion into chemical, 
 
 ### Cold gas
 
-A pressurised gas – nitrogen, or a liquefied propellant such as R236fa that stores as a liquid and expands through the nozzle as a gas – released through a valve. The lowest Isp on the table and the simplest hardware on it. NASA's survey calls cold gas "often attractive and suitable for small buses due to their relatively low cost and complexity", and it has the deepest CubeSat flight record of any class:[^nasa-soa-propulsion] the two MarCO CubeSats carried VACCO R236fa systems to Mars in 2018, BioSentinel flew a Lightsey R236fa system on Artemis I in November 2022, and the CPOD pair demonstrated rendezvous with VACCO cold gas in 2022. The trade is the propellant mass above.
+A pressurized gas – nitrogen, or a liquefied propellant such as R236fa that stores as a liquid and expands through the nozzle as a gas – released through a valve. The lowest Isp on the table and the simplest hardware on it. NASA's survey calls cold gas "often attractive and suitable for small buses due to their relatively low cost and complexity", and it has the deepest CubeSat flight record of any class:[^nasa-soa-propulsion] the two MarCO CubeSats carried VACCO R236fa systems to Mars in 2018, BioSentinel flew a Lightsey R236fa system on Artemis I in November 2022, and the CPOD pair demonstrated rendezvous with VACCO cold gas in 2022. The trade is the propellant mass above.
 
 ### Chemical monopropellants
 
-Hydrazine is the incumbent on larger spacecraft and the exception on CubeSats. NASA's survey is direct about why: hydrazine and its derivatives "are corrosive, toxic, and potentially carcinogenic", and handling them requires self-contained protective suits, which few CubeSat programmes or launch sites will accommodate for a secondary payload.[^nasa-soa-propulsion] CAPSTONE, a 12U at 25 kg, flew a hydrazine system, but it was a primary payload on a dedicated launch.
+Hydrazine is the incumbent on larger spacecraft and the exception on CubeSats. NASA's survey is direct about why: hydrazine and its derivatives "are corrosive, toxic, and potentially carcinogenic", and handling them requires self-contained protective suits, which few CubeSat programs or launch sites will accommodate for a secondary payload.[^nasa-soa-propulsion] CAPSTONE, a 12U at 25 kg, flew a hydrazine system, but it was a primary payload on a dedicated launch.
 
 The CubeSat-relevant alternatives are the **[green propellants](../references/glossary.md#green-propellant)** – ionic-liquid monopropellants such as LMP-103S and AF-M315E (ASCENT), and ADN-based blends – which deliver comparable or better Isp with far lower toxicity. The survey notes the practical consequence: under Air Force range safety requirements, external hydrazine leakage is classed as catastrophic, whereas ionic-liquid propellants reduce the hazard severity to critical or marginal, which "may enable projects to take a Design for Minimum Risk (DFMR) approach" and require fewer serial valves.[^nasa-soa-propulsion] LituanicaSAT-2 flew a NanoAvionics ADN monopropellant system on a 3U in 2017. Water electrolysis – PTD-1's HYDROS-C, which splits stored water into hydrogen and oxygen and burns them as a bipropellant – is the other route to a benign propellant, launched in January 2021.[^nasa-soa-propulsion]
 
 ### Electric propulsion
 
-Electric propulsion buys Isp with electrical power, and on a CubeSat the power is the constraint. NASA's survey puts the thrust-to-power of electric systems "below 75 mN/kW", so that "a small spacecraft capable of delivering 500 W to an electric propulsion system may generate no more than 38 mN of thrust" – and 500 W is an order of magnitude beyond what a 6U generates.[^nasa-soa-propulsion] At the tens of watts a CubeSat can spare, thrust is in the tens of micronewtons to a few millinewtons, and manoeuvres take days to weeks of continuous operation.
+Electric propulsion buys Isp with electrical power, and on a CubeSat the power is the constraint. NASA's survey puts the thrust-to-power of electric systems "below 75 mN/kW", so that "a small spacecraft capable of delivering 500 W to an electric propulsion system may generate no more than 38 mN of thrust" – and 500 W is an order of magnitude beyond what a 6U generates.[^nasa-soa-propulsion] At the tens of watts a CubeSat can spare, thrust is in the tens of micronewtons to a few millinewtons, and maneuvers take days to weeks of continuous operation.
 
 Within that constraint the classes differ in what they demand:
 
 - **Electrosprays** and **pulsed plasma / vacuum arc thrusters** are the smallest and lowest-power options, with Isp into the thousands of seconds, and are the natural fit below 6U.
-- **Gridded ion** and **Hall-effect** thrusters are the mature high-Isp technologies from larger spacecraft, scaled down; **iodine** as a solid-stored propellant removes the pressurised tank, and the ThrustMe I2T5 flown in 2019 was the first iodine system spaceflight-tested.[^nasa-soa-propulsion]
+- **Gridded ion** and **Hall-effect** thrusters are the mature high-Isp technologies from larger spacecraft, scaled down; **iodine** as a solid-stored propellant removes the pressurized tank, and the ThrustMe I2T5 flown in 2019 was the first iodine system spaceflight-tested.[^nasa-soa-propulsion]
 - **Resistojets** and other electrothermal devices heat a propellant electrically for a modest Isp gain over cold gas at modest power.
 
 The systems consequence is that electric propulsion is a power and thermal design problem before it is a propulsion problem: the [EPS](eps.md#power-requirements-and-budgets) has to supply it, the [thermal design](thermal.md) has to reject its inefficiency, and the [ADCS](gnc.md) has to hold the thrust vector for the whole burn.
@@ -96,9 +96,9 @@ Solar sails, electrodynamic tethers and drag devices carry no propellant and are
 
 The decision usually falls out of three questions, in order:
 
-1. **How much delta-v, and by when?** Disposal at end of life tolerates a slow, low-thrust system; collision avoidance and phasing do not. If a manoeuvre has to happen inside a day, electric propulsion at CubeSat power levels is out.
+1. **How much delta-v, and by when?** Disposal at end of life tolerates a slow, low-thrust system; collision avoidance and phasing do not. If a maneuver has to happen inside a day, electric propulsion at CubeSat power levels is out.
 2. **How much power and volume can the bus spare?** A cold gas or green monopropellant system needs almost no power and a tank; an electric system needs a power processing unit, tens of watts sustained, and a thermal path for the losses.
-3. **What will the launch provider accept?** Pressurised systems, hazardous propellants and stored energy all appear in the safety review, and ISS deployment routes are the most restrictive of all. A propulsion choice that your provider will not fly is not a choice. Ask before you design, not after.
+3. **What will the launch provider accept?** Pressurized systems, hazardous propellants and stored energy all appear in the safety review, and ISS deployment routes are the most restrictive of all. A propulsion choice that your provider will not fly is not a choice. Ask before you design, not after.
 
 For a first mission with a modest disposal requirement, the ranking is: a lower orbit or a drag device first, cold gas or a green monopropellant second, electric propulsion only when the delta-v cannot be carried any other way.
 
@@ -114,19 +114,19 @@ Two more consequences reach beyond the safety package. A propulsive spacecraft i
 
 ## Integration Considerations
 
-- **Volume before mass.** A tank is a rigid, incompressible block in a spacecraft where every cubic centimetre is contested. Reserve it in the first layout; it will not fit later.
-- **Centre of mass moves.** Propellant is consumed from a fixed location, so the centre of mass shifts through the mission and the thrust vector rarely passes through it. The offset is a disturbance torque the [ADCS](gnc.md#disturbances-and-space-environment) has to absorb during every burn, and the [structure page's](structure.md#mass-properties-and-centre-of-mass) advice to keep dense items central applies with force.
+- **Volume before mass.** A tank is a rigid, incompressible block in a spacecraft where every cubic centimeter is contested. Reserve it in the first layout; it will not fit later.
+- **Center of mass moves.** Propellant is consumed from a fixed location, so the center of mass shifts through the mission and the thrust vector rarely passes through it. The offset is a disturbance torque the [ADCS](gnc.md#disturbances-and-space-environment) has to absorb during every burn, and the [structure page's](structure.md#mass-properties-and-center-of-mass) advice to keep dense items central applies with force.
 - **Plume impingement.** Thruster exhaust that reaches solar cells, optics, radiators or a star tracker baffle degrades them. Model the plume against the deployed configuration, not the stowed one.
 - **Power and thermal.** Valves and heaters for chemical systems are modest; the power processing unit of an electric system is not, and neither is its waste heat. Both belong in the [power](eps.md) and [thermal](thermal.md) budgets from the start.
-- **Propellant thermal limits.** Liquid and liquefied-gas propellants freeze, and their vapour pressure – and therefore the thrust – depends on temperature. The tank usually needs a heater and a survival-limit entry in the [thermal limits table](thermal.md#thermal-requirements-and-limits).
+- **Propellant thermal limits.** Liquid and liquefied-gas propellants freeze, and their vapor pressure – and therefore the thrust – depends on temperature. The tank usually needs a heater and a survival-limit entry in the [thermal limits table](thermal.md#thermal-requirements-and-limits).
 - **Inhibits and timers.** The propulsion inhibit chain is part of the power architecture, alongside the RF and deployable chains, and it has to survive the first boot in orbit without a valve opening. See [EPS – Inhibits and Deployment Safety](eps.md#inhibits-and-deployment-safety).
-- **Attitude coupling.** Every burn is an attitude manoeuvre: the spacecraft must point the thrust vector, hold it for the burn, and dump whatever momentum the offset thrust deposits. Plan the [ADCS modes](gnc.md#modes-of-operation) with the propulsion system, not after it.
+- **Attitude coupling.** Every burn is an attitude maneuver: the spacecraft must point the thrust vector, hold it for the burn, and dump whatever momentum the offset thrust deposits. Plan the [ADCS modes](gnc.md#modes-of-operation) with the propulsion system, not after it.
 - **Software.** Firing a thruster is an irreversible command in the same class as a deployment: arm-then-fire, time-limited, and never able to run without an attitude solution. See [Flight Software – Commands](flight-software.md#commands).
 
 ## Testing
 
 - **Leak and proof-pressure tests** on the assembled system, before and after vibration, are what the safety review will ask for first.
-- **Hot-fire or thrust characterisation in vacuum**, because the thrust and Isp of most CubeSat systems are not what they are in air. For electric systems this means a vacuum chamber with a thrust balance – a facility most teams borrow.
+- **Hot-fire or thrust characterization in vacuum**, because the thrust and Isp of most CubeSat systems are not what they are in air. For electric systems this means a vacuum chamber with a thrust balance – a facility most teams borrow.
 - **Valve cycling and dry-actuation counts**, with the same discipline as any mechanism: many cycles, at temperature extremes, after vibration. See [AIT – Environmental Testing](ait.md#environmental-testing).
 - **Inhibit verification** through the full state matrix, exactly as for RF and deployables. See [Inhibits and HDRM – Verification and Testing](inhibits-hdrm.md#verification-and-testing).
 - **Day-in-the-life** rehearsals that include a burn sequence end to end – command, attitude, firing, momentum dump, telemetry – on the flatsat with a simulated thruster, before the real one is ever powered.

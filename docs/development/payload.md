@@ -22,7 +22,7 @@ Secondary payloads are worth carrying but need explicit rules. Define upfront ho
 - **Commercial** – Earth observation, IoT relay, RF sensing. Driven by data quality, revisit rate and unit economics rather than novelty.
 - **Educational** – where the learning is the objective, and the payload's job is partly to be instructive to build.
 
-Being clear about which of these you are doing is useful, because it sets how much rigour a given requirement deserves. A technology demonstrator that spends a year on radiometric calibration has misallocated its effort.
+Being clear about which of these you are doing is useful, because it sets how much rigor a given requirement deserves. A technology demonstrator that spends a year on radiometric calibration has misallocated its effort.
 
 ### Active and passive payloads
 
@@ -41,7 +41,7 @@ Two different limits set what an imager can resolve, and they are routinely conf
 
 For a representative 3U imager – 5.5 µm pixels, 100 mm focal length, 500 km altitude – the GSD is about **27.5 m**, while a 90 mm aperture is diffraction-limited to about **3.7 m** at visible wavelengths.[^gsd] The instrument is pixel-limited by roughly a factor of seven, so the way to improve it is more focal length or smaller pixels, not a bigger front element. Knowing which limit binds tells you which parameter to spend on.
 
-Aperture becomes the binding constraint only when you want high resolution, and there the physics is unforgiving: sub-metre imaging from 500 km needs an aperture of roughly **340 mm**, larger than a 1U's entire cross-section.[^gsd] A 1U cannot produce sub-metre imagery regardless of how good the sensor is – not because of the sensor, but because the front of the spacecraft is too small.
+Aperture becomes the binding constraint only when you want high resolution, and there the physics is unforgiving: sub-meter imaging from 500 km needs an aperture of roughly **340 mm**, larger than a 1U's entire cross-section.[^gsd] A 1U cannot produce sub-meter imagery regardless of how good the sensor is – not because of the sensor, but because the front of the spacecraft is too small.
 
 The instrument classes:
 
@@ -54,7 +54,7 @@ Imaging payloads drive pointing requirements ([GNC](gnc.md#guidance)), stability
 
 !!! warning "An imager is a regulated payload"
 
-    Pointing a camera at the Earth pulls in obligations that a magnetometer does not. Many jurisdictions require a **remote sensing licence** separately from your frequency authorisation – NOAA in the US, with equivalents elsewhere – and imaging components are among the items most likely to fall under **export control**. Both have lead times measured in months. See [Qualification and Launch – Regulatory Requirements](launch.md#regulatory-requirements) and [Export control](launch.md#export-control).
+    Pointing a camera at the Earth pulls in obligations that a magnetometer does not. Many jurisdictions require a **remote sensing license** separately from your frequency authorization – NOAA in the US, with equivalents elsewhere – and imaging components are among the items most likely to fall under **export control**. Both have lead times measured in months. See [Qualification and Launch – Regulatory Requirements](launch.md#regulatory-requirements) and [Export control](launch.md#export-control).
 
 ### Scientific instruments
 
@@ -84,7 +84,7 @@ Separating payload compute from the [OBC](obc.md) is usually right when:
 
 - The payload generates data faster than the OBC can handle.
 - It needs an operating system, libraries or frameworks unsuitable for the flight computer.
-- Its processing is bursty and would disrupt the OBC's real-time behaviour.
+- Its processing is bursty and would disrupt the OBC's real-time behavior.
 - It comes as a sealed unit from a supplier, which is common.
 - You want the freedom to develop and update payload software without touching flight-critical code.
 
@@ -110,13 +110,13 @@ For compression, [CCSDS](../references/glossary.md#ccsds) publishes two standard
 
 Onboard filtering is the highest-leverage option where it applies. [PhiSat-1](obc.md#advanced-and-emerging-computing-concepts) discarded cloud-covered hyperspectral scenes onboard and saved about 30% of bandwidth – a large gain from a simple, well-chosen criterion.
 
-**Store what you cannot send.** Onboard storage is cheap relative to bandwidth. Log everything, downlink a prioritised subset, and keep the rest available for targeted retrieval once the ground has seen the summary. See [OBC – Memory](obc.md#memory) for what to store it in.
+**Store what you cannot send.** Onboard storage is cheap relative to bandwidth. Log everything, downlink a prioritized subset, and keep the rest available for targeted retrieval once the ground has seen the summary. See [OBC – Memory](obc.md#memory) for what to store it in.
 
 See also: [Onboard Computing](obc.md).
 
 ## Mechanical Integration
 
-- **Mounting and structural support.** Payloads are frequently the densest and heaviest single item aboard, which makes them the dominant term in the [centre of mass](structure.md#mass-properties-and-centre-of-mass) calculation and a driver of the inertia tensor the [ADCS](gnc.md) has to work with. Position them centrally where you can.
+- **Mounting and structural support.** Payloads are frequently the densest and heaviest single item aboard, which makes them the dominant term in the [center of mass](structure.md#mass-properties-and-center-of-mass) calculation and a driver of the inertia tensor the [ADCS](gnc.md) has to work with. Position them centrally where you can.
 - **Alignment.** Optical and pointing-sensitive payloads must be aligned to the spacecraft body frame – and to the [star tracker](../references/glossary.md#star-tracker), if there is one, since that is what converts pointing knowledge into science. Reference machined features or dowel pins, not clearance-hole fasteners, and measure the achieved alignment rather than assuming it. See [Structure – Tolerancing](structure.md#tolerancing-and-stack-up).
 - **Vibration sensitivity.** Optics, detectors and any mechanism need to survive launch, and some need to be protected from the spacecraft's own vibration afterwards – reaction wheel jitter being the usual culprit. Isolators solve one problem and create alignment uncertainty, so use them deliberately.
 - **Thermal coupling is a choice made at the mounting interface.** Decide whether the payload should be tied to the structure as a heat sink or isolated from it for stability, and implement that choice with the standoff and interface material selection. See [Thermal](thermal.md#conduction-paths-and-thermal-coupling).
@@ -126,11 +126,11 @@ See also: [Onboard Computing](obc.md).
 
 ## Electrical and Data Interfaces
 
-- **Power.** Specify the payload's voltage, nominal and peak current, inrush behaviour and any sequencing requirements, and check them against what the [EPS](eps.md#power-distribution-and-buses) provides. Payloads should be on a dedicated switchable channel with current limiting, both so they can be power-cycled to recover and so a payload fault cannot take down the bus.
+- **Power.** Specify the payload's voltage, nominal and peak current, inrush behavior and any sequencing requirements, and check them against what the [EPS](eps.md#power-distribution-and-buses) provides. Payloads should be on a dedicated switchable channel with current limiting, both so they can be power-cycled to recover and so a payload fault cannot take down the bus.
 - **Data interface.** Match the interface to the rate: I²C or UART for a slow sensor, SPI for moderate rates, LVDS or a parallel bus for an imager. Given the reliability record of I²C on CubeSats, avoid putting a payload on the same I²C bus as critical bus subsystems – a payload hanging that bus should not be a mission-ending event. See [OBC – The bus reliability problem](obc.md#the-bus-reliability-problem).
 - **Command and control.** Define the command set, the telemetry set, and the payload's own state machine. A payload that can be commanded into a state the bus does not know about is a diagnostic nightmare.
 - **Isolation and fault containment.** Optical or galvanic isolation on payload interfaces is cheap insurance, particularly for a payload developed by a different team or supplier. Assume it will misbehave at some point.
-- **Grounding.** Sensitive analogue payloads and switching converters coexist badly. Agree the grounding topology and any required separation of analogue and digital returns early, and check it on a [flatsat](../references/glossary.md#flatsat).
+- **Grounding.** Sensitive analog payloads and switching converters coexist badly. Agree the grounding topology and any required separation of analog and digital returns early, and check it on a [flatsat](../references/glossary.md#flatsat).
 
 ## Power, Thermal, and Resource Constraints
 
@@ -142,12 +142,12 @@ This is where payload ambitions meet the bus, and it is worth doing the arithmet
 - **Data.** The data budget – generated per orbit versus downlinked per orbit – is as binding as power, and less often tracked. See [Systems Engineering – Budgets and Margins](systems-engineering.md#budgets-and-margins).
 - **Pointing.** Tighter pointing requirements cascade into ADCS cost, mass and power faster than almost anything else. Check whether you need pointing *accuracy* or merely pointing *knowledge* – see [GNC – Turning objectives into requirements](gnc.md#turning-objectives-into-requirements).
 
-**Performance versus survivability** is the recurring trade. A payload optimised for maximum performance may need power, pointing and thermal conditions the bus can only occasionally provide. One optimised for robustness collects less but collects it reliably, for longer. On a first mission, robustness usually wins on total science return.
+**Performance versus survivability** is the recurring trade. A payload optimized for maximum performance may need power, pointing and thermal conditions the bus can only occasionally provide. One optimized for robustness collects less but collects it reliably, for longer. On a first mission, robustness usually wins on total science return.
 
 ## Payload Operations and Modes
 
 - **Operational modes.** Define them explicitly – off, standby, warm-up, acquiring, processing, downlinking – with the resource profile of each. Payload modes must be integrated into the spacecraft mode structure rather than running in parallel to it. See [Flight Software – Modes](flight-software.md#modes-state-machines-and-autonomy).
-- **Warm-up and settling.** Detectors, oscillators and thermally stabilised optics need time to reach a stable state. That time is part of the power budget for every acquisition, and it is easy to forget.
+- **Warm-up and settling.** Detectors, oscillators and thermally stabilized optics need time to reach a stable state. That time is part of the power budget for every acquisition, and it is easy to forget.
 - **Coordination with ADCS.** An acquisition typically needs a slew, a settling period, the acquisition itself, and a return to a power-positive attitude. The whole sequence has to fit within available power, momentum and time.
 - **Coordination with comms.** Acquisition and downlink often compete for power and for attitude. Sequencing them across an orbit is a planning exercise in its own right.
 - **Autonomy versus ground control.** With a handful of passes a day, most acquisitions are executed from an uplinked timeline. Conditional autonomy – acquire when over a target, in daylight, with battery above a threshold – extends what is possible considerably. Full onboard decision-making is where onboard AI is heading. See [OBC – Advanced and Emerging Computing Concepts](obc.md#advanced-and-emerging-computing-concepts).
@@ -159,10 +159,10 @@ Uncalibrated data is not a measurement; it is a number. For science payloads thi
 
 ### Ground calibration
 
-- **[Radiometric calibration](../references/glossary.md#radiometric-calibration)** relates raw detector counts to physical units, using reference sources – integrating spheres for imagers, radioactive sources for detectors (as with GMOD's characterisation against known lines[^eirsat-gmod]), blackbodies for thermal instruments.
+- **[Radiometric calibration](../references/glossary.md#radiometric-calibration)** relates raw detector counts to physical units, using reference sources – integrating spheres for imagers, radioactive sources for detectors (as with GMOD's characterization against known lines[^eirsat-gmod]), blackbodies for thermal instruments.
 - **Spectral calibration** establishes which wavelength each channel actually responds to.
 - **Geometric calibration** relates pixel position to look direction, and the instrument frame to the spacecraft body frame – without which pointing knowledge cannot be turned into georeferenced data.
-- **Dark, bias and flat-field characterisation**, ideally across the operating temperature range, since every one of these varies with temperature.
+- **Dark, bias and flat-field characterization**, ideally across the operating temperature range, since every one of these varies with temperature.
 
 Calibrate in flight-like conditions where you can. A calibration taken at 20 °C in air may not describe an instrument at −10 °C in vacuum.
 
@@ -171,10 +171,10 @@ Calibrate in flight-like conditions where you can. A calibration taken at 20 °C
 Ground calibration shifts during launch and drifts in orbit, so plan for on-orbit verification:
 
 - **Onboard calibration sources** – LEDs, reference sources, a shutter for dark frames. Cheap to include, impossible to add later.
-- **Celestial references** – the Moon, bright stars and the deep-space background are stable, well-characterised targets.
+- **Celestial references** – the Moon, bright stars and the deep-space background are stable, well-characterized targets.
 - **Vicarious calibration** – imaging well-instrumented ground sites with known reflectance.
 - **Cross-calibration** against an established instrument observing the same target.
-- **Commissioning campaign.** Budget time for this. The first weeks in orbit should be spent characterising the instrument as it actually is, not assuming it matches the lab.
+- **Commissioning campaign.** Budget time for this. The first weeks in orbit should be spent characterizing the instrument as it actually is, not assuming it matches the lab.
 
 ### Drift and degradation
 

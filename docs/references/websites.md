@@ -1,6 +1,6 @@
 # Websites
 
-Websites worth bookmarking: resource collections, development hubs, component marketplaces, standards bodies, tracking and catalogue services, and software.
+Websites worth bookmarking: resource collections, development hubs, component marketplaces, standards bodies, tracking and catalog services, and software.
 
 ## Resource Collections
 
@@ -29,7 +29,7 @@ Websites worth bookmarking: resource collections, development hubs, component ma
 
 <!-- CSR-RESOURCES:START ref-websites-component-sourcing -->
 - **[satsearch](https://satsearch.co/)** `Link` – Marketplace and search engine for space components, subsystems and services
-- **[SatCatalog](https://www.satcatalog.com/)** `Link` – Component catalogue with datasheets and comparable specifications
+- **[SatCatalog](https://www.satcatalog.com/)** `Link` – Component catalog with datasheets and comparable specifications
 - **[CubeSatShop](https://www.cubesatshop.com/)** `Link` – Webshop aggregating readily available CubeSat components and subsystems
 <!-- CSR-RESOURCES:END ref-websites-component-sourcing -->
 
@@ -45,15 +45,15 @@ Websites worth bookmarking: resource collections, development hubs, component ma
 
 <!-- CSR-RESOURCES:START ref-websites-tracking-and-catalogs -->
 - **[SatNOGS DB](https://db.satnogs.org/)** `Link` – Community database of satellite transmitters, telemetry formats and decoded data
-- **[Space-Track](https://www.space-track.org/auth/login)** `Link` – Official source of TLEs and catalogue data (registration required)
+- **[Space-Track](https://www.space-track.org/auth/login)** `Link` – Official source of TLEs and catalog data (registration required)
 - **[CelesTrak](https://celestrak.org/)** `Link` – Orbital element sets, SGP4 references and extensive astrodynamics documentation
-- **[Gunter's Space Page](https://space.skyrocket.de/)** `Link` – Encyclopaedic reference on spacecraft and launches
+- **[Gunter's Space Page](https://space.skyrocket.de/)** `Link` – Encyclopedic reference on spacecraft and launches
 - **[Nanosat Database](https://www.nanosats.eu/)** `Link` – Comprehensive database and statistics on nanosatellite missions
-- **[Satcat](https://kayhan.space/products/satcat)** `Link` – Satellite catalogue and space situational awareness tool
+- **[Satcat](https://kayhan.space/products/satcat)** `Link` – Satellite catalog and space situational awareness tool
 - **[N2YO](https://www.n2yo.com)** `Link` – Real-time satellite tracking and pass prediction
 - **[Jonathan's Space Report](https://planet4589.org/space/jsr/jsr.html)** `Link` – Long-running authoritative newsletter and database on orbital launches
 - **[Spectator](https://spectator.earth/)** `Link` – Earth observation satellite pass and imagery tool
-- **[Space Review Article about Satellite Catalogs](https://www.thespacereview.com/article/4287/1)** `Link` – Background on how satellite catalogues work and differ
+- **[Space Review Article about Satellite Catalogs](https://www.thespacereview.com/article/4287/1)** `Link` – Background on how satellite catalogs work and differ
 - **[Wikipedia: List of Pass Predictors](https://en.wikipedia.org/wiki/List_of_satellite_pass_predictors)** `Link` – Index of satellite pass prediction software
 <!-- CSR-RESOURCES:END ref-websites-tracking-and-catalogs -->
 
@@ -62,9 +62,9 @@ Websites worth bookmarking: resource collections, development hubs, component ma
 <!-- CSR-RESOURCES:START ref-websites-apps-and-software -->
 - **[Heavens Above](https://www.heavens-above.com/)** `Link` – Satellite visibility predictions and orbital data
 - **[Supercluster](https://www.supercluster.com/app)** `Link` – Launch tracking and space mission database
-- **[Stellarium](https://stellarium.org/)** `Link` – Open-source planetarium software, useful for star field visualisation
+- **[Stellarium](https://stellarium.org/)** `Link` – Open-source planetarium software, useful for star field visualization
 - **[SatelliteAnalysis.jl](https://juliaspace.github.io/SatelliteAnalysis.jl/stable/)** `Link` – Julia package for satellite analysis
-- **[NASA GMAT](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Open-source mission design, optimisation and navigation tool (the current R2026 catalogue entry; older release entries are still indexed)
+- **[NASA GMAT](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Open-source mission design, optimization and navigation tool (the current R2026 catalog entry; older release entries are still indexed)
 - **[Basilisk](https://avslab.github.io/basilisk/)** `Link` – Open-source modular astrodynamics simulation framework
 <!-- CSR-RESOURCES:END ref-websites-apps-and-software -->
 

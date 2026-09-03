@@ -28,7 +28,7 @@ The inhibit architecture divides the mission's early life into distinct states:
 
 ### Relationship to reviews and licensing
 
-Inhibit design is reviewed by your launch provider as part of the safety data package, and the evidence you supply – diagrams, test results, photographs – is what gets accepted or rejected. It also intersects with your frequency licence, since regulators care about when you start transmitting. See [Qualification and Launch](launch.md#regulatory-requirements).
+Inhibit design is reviewed by your launch provider as part of the safety data package, and the evidence you supply – diagrams, test results, photographs – is what gets accepted or rejected. It also intersects with your frequency license, since regulators care about when you start transmitting. See [Qualification and Launch](launch.md#regulatory-requirements).
 
 <!-- CSR-RESOURCES:START dev-inhibits-hdrm-requirements -->
 - **[CubeSat Design Specification Rev. 14.1](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf)** `PDF` – The document behind almost every requirement on this page. Sections 2.3 and 2.4 cover inhibits, deployment switches, RBF pins and the quiet periods
@@ -96,12 +96,12 @@ Inhibits are, physically, part of the power architecture, which means the [EPS](
 - **There are exactly two carve-outs, and both are narrow.** Battery protection circuitry may remain powered (§2.3.1.2, per §2.3.6). A real-time clock may keep running (§2.3.3) provided it is isolated from the main power system, runs below 320 kHz, and is current-limited to less than 10 mA (§2.3.3.1–2.3.3.3). The RTC allowance is worth knowing because it changed: Rev. 13 required the deployment switch to disconnect real-time clocks along with everything else.[^cds-rev13] A compliant RTC is also the cleanest way to make a quiet-period timer survive a reset – see [Timers and Delayed Activation](#timers-and-delayed-activation).
 - **Access port geometry is specified, and it constrains your late-flow options.** The RBF pin and all umbilical connectors must sit within the designated access port locations where the dispenser has them (§2.3.4); where it has none, the RBF must be removed before insertion (§2.3.4.1). Decide early, because those connectors are also how you top up the battery late in the flow.
 - **Battery self-discharge** over what may be months of storage and launch delay is a planning problem in its own right, and one the CDS does not address at all. Confirm the pack will still be above its minimum voltage at deployment.
-- **Controlled energisation on release.** When the switches open, everything comes up at once, on a cold battery, in the worst condition of the mission. See [EPS – Startup and brownout behaviour](eps.md#startup-and-brownout-behaviour).
+- **Controlled energization on release.** When the switches open, everything comes up at once, on a cold battery, in the worst condition of the mission. See [EPS – Startup and brownout behavior](eps.md#startup-and-brownout-behavior).
 - **Battery circuit protection** is separately required by the CDS (§2.3.6) to prevent unbalanced cell conditions. See [EPS – BMS](eps.md#battery-management-systems-bms).
 
 ### Remove-Before-Flight (RBF) Pins
 
-The RBF pin is a physical object inserted into the spacecraft that breaks the power path, with a large brightly coloured streamer attached so that nobody can possibly forget it is there.
+The RBF pin is a physical object inserted into the spacecraft that breaks the power path, with a large brightly colored streamer attached so that nobody can possibly forget it is there.
 
 The CDS requirements are specific:[^cds-rev14]
 
@@ -125,7 +125,7 @@ CDS requirements:[^cds-rev14]
 
 - "The CubeSat shall have, at a minimum, one deployment switch, which is actuated while integrated in the dispenser." (§2.3.2)
 - "The deployment switch shall be in the actuated state at all times while integrated in the dispenser." (§2.3.2.2)
-- In the actuated state it should be at or below the level of any external surface that interfaces with the dispenser or a neighbouring CubeSat (§2.3.2.3).
+- In the actuated state it should be at or below the level of any external surface that interfaces with the dispenser or a neighboring CubeSat (§2.3.2.3).
 - Critically: "If the CubeSat deployment switch toggles from the actuated state and back, the satellite shall reset to a pre-launch state, including reset of transmission and deployable timers." (§2.3.2.4)
 
 That last requirement is the interesting one. It exists because a switch can bounce or momentarily open during vibration, and the specification refuses to allow a transient to start your quiet-period timers early. **Your implementation must reset the timers, not just note the event** – and it must do so in a way that survives whatever state the software was in.
@@ -174,7 +174,7 @@ The classic CubeSat mechanism, and still the most common: a synthetic line under
 
 - **Principle.** A nichrome wire or resistor is pressed against a loop of Dyneema, Vectran or similar. Current through the heater raises it above the line's melting point and the line parts.
 - **Power.** Typically a few watts for a few seconds – modest energy, but a significant *peak* draw at a moment when the battery may be cold and partly discharged. Budget it explicitly and consider requiring a state-of-charge threshold before actuation. See [EPS](eps.md#power-requirements-and-budgets).
-- **Vacuum changes the thermal behaviour completely.** With no convection, the heater runs much hotter for the same power, and burn times measured in air are not valid. **Always characterise burn wire release in vacuum.**
+- **Vacuum changes the thermal behavior completely.** With no convection, the heater runs much hotter for the same power, and burn times measured in air are not valid. **Always characterize burn wire release in vacuum.**
 - **Redundancy – be clear which kind you are buying.** Two separate restraint lines improve *retention*, which is what CubeSat 101 is recommending,[^cubesat101] but they do not improve *release*: both must part before the deployable moves, so unless either line alone frees it, doubling the lines makes release less likely rather than more. Release redundancy comes from the drive side – two independent heaters on independent power channels acting on the same line, so that neither a heater failure nor a switch failure prevents actuation. Say in the safety data package which property each pair is there to provide.
 - **Failure modes**: line not fully severed and snagging; heater open-circuit; line creeping under preload and going slack over months of storage; melted line residue contaminating a nearby optical surface; heater damaging adjacent structure.
 - **Verification.** Test many times, after vibration, at temperature extremes, in vacuum. This is a cheap mechanism to test to statistical confidence, so do it.
@@ -224,7 +224,7 @@ Common mistakes worth avoiding:
 
 - Testing the switch and the timer separately but never together.
 - Verifying the inhibit chain with the RBF out and never with it in.
-- Using a bench supply that masks the behaviour of a discharged battery.
+- Using a bench supply that masks the behavior of a discharged battery.
 - Deploying in air, in one orientation, once, and calling it verified.
 - Forgetting that after a successful deployment test the mechanism is now used – flight mechanisms need a defined number of allowable ground cycles.
 

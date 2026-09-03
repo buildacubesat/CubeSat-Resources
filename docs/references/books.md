@@ -33,7 +33,7 @@ These cost nothing and are worth reading.
 <!-- CSR-RESOURCES:START ref-books-open-access -->
 - **[A Guide to CubeSat Mission and Bus Design](https://pressbooks-dev.oer.hawaii.edu/epet302/)** `Link` – Frances Zhu, University of Hawaiʻi. Open textbook (CC BY 4.0) covering mission design, subsystems, power budgeting and ADCS, built around the Artemis CubeSat Kit, with worked examples and companion spreadsheets
 - **[NASA CubeSat 101: Basic Concepts and Processes for First-Time CubeSat Developers](https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf)** `PDF` – The standard beginner's guide, focused on the programmatic and regulatory path as much as the engineering. Free
-- **[NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)** `PDF` – The reference on requirements, verification, validation and project life cycle. Written for much larger programmes, but the concepts scale down cleanly. Free
+- **[NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)** `PDF` – The reference on requirements, verification, validation and project life cycle. Written for much larger programs, but the concepts scale down cleanly. Free
 - **[NASA State of the Art in Small Spacecraft Technology](https://www.nasa.gov/smallsat-institute/sst-soa)** `Link` – Not a book exactly, but a comprehensive, annually updated survey of every smallsat subsystem with current vendor hardware and performance figures. Cited throughout the [development](../development/index.md) pages of this site. Free
 <!-- CSR-RESOURCES:END ref-books-open-access -->
 

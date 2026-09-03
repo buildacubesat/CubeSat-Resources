@@ -30,7 +30,7 @@ State estimation and control of spacecraft, covering ADCS sensors, actuators, al
 Whether a CubeSat needs propulsion at all, the delta-v it buys, the options at CubeSat scale, and the safety requirements that come with it.
 
 [**Thermal Management**](thermal.md)  
-The orbital thermal environment, passive and active strategies for keeping components within safe operating temperatures, modelling and TVAC testing.
+The orbital thermal environment, passive and active strategies for keeping components within safe operating temperatures, modeling and TVAC testing.
 
 [**Payload**](payload.md)  
 Mission instruments and experimental hardware for sensing, data collection, and technology demonstration, and what they demand of the bus.

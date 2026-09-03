@@ -2,7 +2,7 @@
 
 This page covers the radio link between a CubeSat and its operators: bands and their regulatory constraints, link budgets, modulation and coding, and the flight-side hardware that implements them. Ground station design lives on the [Ground Segment](ground-segment.md) page; this page stops at the antenna.
 
-The communications subsystem is unusual in that its hardest constraints are legal rather than technical. Which band you may use, what you may send over it, and whether you may encrypt it are decided by your licence and your [IARU](../references/glossary.md#iaru) coordination, not by your design. Settle that first – see [Qualification and Launch – Frequency licensing](launch.md#frequency-licensing) – because it determines the transceiver you buy.
+The communications subsystem is unusual in that its hardest constraints are legal rather than technical. Which band you may use, what you may send over it, and whether you may encrypt it are decided by your license and your [IARU](../references/glossary.md#iaru) coordination, not by your design. Settle that first – see [Qualification and Launch – Frequency licensing](launch.md#frequency-licensing) – because it determines the transceiver you buy.
 
 ## Radio Frequency Communications (RF) Overview
 
@@ -10,7 +10,7 @@ The communications subsystem is unusual in that its hardest constraints are lega
 
 - **Telemetry** – downlinked data about the spacecraft's health, status and environment (temperature, voltage, mode, position).
 - **Tracking** – ground-based determination of the satellite's orbit and signal, often using [Doppler shift](../references/glossary.md#doppler-shift) and time-of-flight data.
-- **Command** – uplinked instructions that control the spacecraft's behaviour: mode changes, resets, payload activation.
+- **Command** – uplinked instructions that control the spacecraft's behavior: mode changes, resets, payload activation.
 
 TT&C is normally implemented as a robust, low-data-rate link in UHF or VHF, so that it keeps working when the spacecraft is tumbling, power-starved or partially failed. It operates independently of any high-rate payload downlink and remains active for the whole mission. A mission that loses its payload downlink is disappointing; one that loses TT&C is over.
 
@@ -36,7 +36,7 @@ Used by most university and research missions, under IARU coordination. Two thin
 
 ### Non-amateur bands
 
-These require a spectrum authorisation from your national regulator, which files with the [ITU](../references/glossary.md#itu) on your behalf. Slower, more expensive, and with a risk of not getting what you asked for – start at least 18 months out.
+These require a spectrum authorization from your national regulator, which files with the [ITU](../references/glossary.md#itu) on your behalf. Slower, more expensive, and with a risk of not getting what you asked for – start at least 18 months out.
 
 - **S-band, 2025–2110 MHz up / 2200–2290 MHz down** – the space operation and space research allocations, and the conventional home for higher-rate TT&C. A typical COTS CubeSat S-band transceiver works across exactly this pair.[^endurosat-sband]
 - **X-band, 8025–8400 MHz down** – the Earth exploration-satellite allocation, and where data-intensive imaging missions downlink.
@@ -52,17 +52,17 @@ These require a spectrum authorisation from your national regulator, which files
 
 Achievable rates vary widely with band, modulation, available power, antenna gain, ground station capability and regulatory constraints. As orders of magnitude:
 
-- **VHF / UHF** – TT&C and beacons. Commonly **300 bps to 19.2 kbps**, with 9600 bps GMSK the workhorse. Reliability and [link margin](../references/glossary.md#link-margin) are prioritised over throughput.
+- **VHF / UHF** – TT&C and beacons. Commonly **300 bps to 19.2 kbps**, with 9600 bps GMSK the workhorse. Reliability and [link margin](../references/glossary.md#link-margin) are prioritized over throughput.
 - **S-band** – higher-rate telemetry and modest payload data. Typically **100 kbps to a few Mbps**; COTS CubeSat units often sit in the 5–125 kbps range, with megabit-class links requiring better antennas and pointing.[^endurosat-sband]
 - **X-band** – data-intensive payloads. **Tens to hundreds of Mbps** are possible, but require precise attitude control, high-gain antennas, significant power and professional ground stations.
 
-Usable throughput is always well below the physical-layer rate once packetisation, forward error correction, duty cycle and pass duration are accounted for. The number that matters is **bits per day**, not bits per second: four 8-minute passes at 9600 bps is about 2.3 MB per day before overhead, and that figure – not the link rate – is what your payload data volume has to fit inside. See [Flight Software – Telemetry](flight-software.md#telemetry) and [Payload – Data reduction and compression](payload.md#data-reduction-and-compression).
+Usable throughput is always well below the physical-layer rate once packetization, forward error correction, duty cycle and pass duration are accounted for. The number that matters is **bits per day**, not bits per second: four 8-minute passes at 9600 bps is about 2.3 MB per day before overhead, and that figure – not the link rate – is what your payload data volume has to fit inside. See [Flight Software – Telemetry](flight-software.md#telemetry) and [Payload – Data reduction and compression](payload.md#data-reduction-and-compression).
 
 ## Link Budget
 
 A **[link budget](../references/glossary.md#link-budget)** accounts for every gain and loss between transmitter and receiver, and tells you whether the link closes with margin. It is the single most important design tool in CubeSat communications, and it couples directly to the power budget, the antenna design and the pointing requirement.
 
-A basic budget includes transmit power, transmit antenna gain, free-space path loss, atmospheric and polarisation losses, receive antenna gain, receiver noise figure and bandwidth, and the [signal-to-noise ratio](../references/glossary.md#snr) required by your modulation and coding. The result is a **link margin** in dB.
+A basic budget includes transmit power, transmit antenna gain, free-space path loss, atmospheric and polarization losses, receive antenna gain, receiver noise figure and bandwidth, and the [signal-to-noise ratio](../references/glossary.md#snr) required by your modulation and coding. The result is a **link margin** in dB.
 
 Budgets are calculated for the worst case – maximum slant range at low elevation – and iterated alongside antenna, power and ADCS design.
 
@@ -77,7 +77,7 @@ A conventional UHF downlink, to show the shape of the arithmetic:
 | Satellite antenna gain | 0.0 dBi | Deployed monopole, no pointing assumed |
 | **EIRP** | **+29.0 dBm** | |
 | Free-space path loss | −145.3 dB | 437 MHz at 1000 km slant range |
-| Polarisation mismatch | −3.0 dB | Linear satellite antenna, circular ground antenna |
+| Polarization mismatch | −3.0 dB | Linear satellite antenna, circular ground antenna |
 | Atmospheric and implementation loss | −1.0 dB | |
 | Ground antenna gain | +14.0 dBi | Crossed Yagi |
 | **Received power** | **−106.3 dBm** | |
@@ -134,7 +134,7 @@ The realistic options, in ascending order of effort:
 
 - **COTS CubeSat transceivers** – a module in a standard stack format, with a driver, a datasheet and flight heritage. The default for a first mission, and the choice that lets you spend your effort elsewhere. EnduroSat, GomSpace, ISISPACE, AAC Clyde and NanoAvionics all sell UHF and S-band units; [satsearch](https://satsearch.co/) and the [CubeSatShop](https://www.cubesatshop.com/) are the places to compare them.
 - **Open-source hardware** – the Libre Space Foundation's SatNOGS-COMMS is an open communications subsystem developed alongside the SatNOGS ground network, and is the most credible open option currently available.
-- **[SDR](../references/glossary.md#sdr)-based, built in-house** – maximum flexibility and a research contribution, but you are now responsible for the PA, the filtering, the EMC behaviour and the radiation tolerance of the whole chain. Reasonable for a process-oriented mission, expensive for a result-oriented one.
+- **[SDR](../references/glossary.md#sdr)-based, built in-house** – maximum flexibility and a research contribution, but you are now responsible for the PA, the filtering, the EMC behavior and the radiation tolerance of the whole chain. Reasonable for a process-oriented mission, expensive for a result-oriented one.
 
 Whatever you choose, check three things early: the actual RF output power at the connector rather than at the PA, the current draw during transmit (see below), and whether the unit's default configuration is legal in the band you have coordinated.
 
@@ -149,7 +149,7 @@ Whatever you choose, check three things early: the actual RF output power at the
 
 Nearly every CubeSat UHF or VHF antenna is a deployable: tape-spring monopoles, dipoles and turnstiles, stowed under a burn-wire or similar restraint and released after the mandatory delay. That makes the antenna a mechanism as much as an RF component, with all the qualification that implies – see [Structure – Deployable Structures and Mechanisms](structure.md#deployable-structures-and-mechanisms) and [Inhibits and HDRM](inhibits-hdrm.md).
 
-Two design points that recur. A tumbling spacecraft has no fixed antenna orientation, so a near-omnidirectional pattern and an honest 0 dBi assumption in the link budget are worth more than a higher-gain pattern you cannot point. And a linearly polarised satellite antenna against a circularly polarised ground antenna costs a fixed 3 dB, which is cheaper to accept in the budget than to engineer away – see [Ground Segment – Polarisation](ground-segment.md#polarisation).
+Two design points that recur. A tumbling spacecraft has no fixed antenna orientation, so a near-omnidirectional pattern and an honest 0 dBi assumption in the link budget are worth more than a higher-gain pattern you cannot point. And a linearly polarized satellite antenna against a circularly polarized ground antenna costs a fixed 3 dB, which is cheaper to accept in the budget than to engineer away – see [Ground Segment – Polarization](ground-segment.md#polarization).
 
 Higher bands change the picture: patch antennas at S-band and reflectarrays at X- and Ka-band offer gain worth having, and immediately impose a pointing requirement on [GNC](gnc.md).
 
@@ -162,7 +162,7 @@ Higher bands change the picture: patch antennas at S-band and reflectarrays at X
 
 The transmitter is usually what breaks the power budget. A 1 W RF output at 30–40% PA efficiency draws 3 W or more from the bus, which for a 1U is often more than the orbit-average generation. The resolution is duty cycle: transmit during passes, beacon sparsely between them, and size the battery for the burst rather than the average. Model it explicitly – see [EPS – Power Requirements and Budgets](eps.md#power-requirements-and-budgets).
 
-The same inefficiency appears as heat, concentrated in one component. PA dissipation is a recognised CubeSat thermal problem, particularly during long transmit windows; see [Thermal Management](thermal.md).
+The same inefficiency appears as heat, concentrated in one component. PA dissipation is a recognized CubeSat thermal problem, particularly during long transmit windows; see [Thermal Management](thermal.md).
 
 ### RF silence and inhibits
 
@@ -197,7 +197,7 @@ In practice these options remain limited by regulatory constraints, service avai
 
 Optical (laser) communications transmit data on a tightly focused beam instead of a radio carrier, offering very high data rates for the size and power, narrow beamwidths that reduce interference and interception, and no spectrum allocation to coordinate.
 
-That last point is often overstated. Optical links avoid ITU frequency coordination and IARU coordination, but they do not avoid regulation: the mission still needs national authorisation, and directed-energy transmission brings its own approvals, including coordination to protect aircraft and other spacecraft from the beam.
+That last point is often overstated. Optical links avoid ITU frequency coordination and IARU coordination, but they do not avoid regulation: the mission still needs national authorization, and directed-energy transmission brings its own approvals, including coordination to protect aircraft and other spacecraft from the beam.
 
 The engineering costs are substantial: extremely tight pointing and stability requirements that feed straight back into [GNC](gnc.md), sensitivity to cloud cover and atmospheric conditions, complex acquisition and tracking, and very few compatible ground stations. NASA's state-of-the-art survey treats free-space optical as a compelling alternative for high-rate links while noting it remains at low maturity for small spacecraft.[^nasa-soa-comms]
 
@@ -218,4 +218,4 @@ Still uncommon on CubeSats, but an active area of demonstration, and increasingl
 
 [^endurosat-sband]: EnduroSat, [*S-Band Transceiver*](https://www.endurosat.com/products/s-band-transceiver/) product documentation. Cited as a representative COTS CubeSat S-band unit: 2025–2110 MHz receive, 2200–2290 MHz transmit, configurable 5–125 kbps, 24–33 dBm output. Named as an example rather than a recommendation.
 
-[^fcc-telecommand]: [47 CFR § 97.211 – Space telecommand station](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211). Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." This is an explicit exception to the general prohibition in §97.113(a)(4) on messages encoded to obscure their meaning. Other administrations treat telecommand separately to varying degrees; check your own licence conditions rather than generalising from this one.
+[^fcc-telecommand]: [47 CFR § 97.211 – Space telecommand station](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211). Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." This is an explicit exception to the general prohibition in §97.113(a)(4) on messages encoded to obscure their meaning. Other administrations treat telecommand separately to varying degrees; check your own license conditions rather than generalizing from this one.

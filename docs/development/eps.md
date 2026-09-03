@@ -69,7 +69,7 @@ Emerging options – perovskites (26.7% single-junction in the lab, tandem silic
 - **Deployable** arrays fold panels against the body for launch and swing them out on orbit, multiplying collecting area severalfold. Specific power runs **31–140 W/kg**, with flexible roll-out systems such as Redwire's ROSA reaching ~100 W/kg at much larger scale.[^nasa-soa-power] The cost is a hinge, a release mechanism, a stowed-volume allocation and a new single-point failure. See [Structure – Deployable Structures and Mechanisms](structure.md#deployable-structures-and-mechanisms).
 - **Sun-tracking** arrays add a drive mechanism to keep panels normal to the Sun. Rare below 6U – the mass, power and complexity rarely pay back at CubeSat scale.
 
-A useful sanity check before committing: at normal incidence a single 1U panel produces around 2.4 W, so a 1U with body-mounted 30% cells realistically averages **1–2 W across an orbit** once eclipse and incidence angle are accounted for. Two to three watts is achievable only with a favourable and stable attitude, and a tumbling spacecraft will do considerably worse than 1 W. If your [power budget](#power-requirements-and-budgets) needs 8 W, no amount of MPPT tuning will save it – you need deployables or a bigger bus.
+A useful sanity check before committing: at normal incidence a single 1U panel produces around 2.4 W, so a 1U with body-mounted 30% cells realistically averages **1–2 W across an orbit** once eclipse and incidence angle are accounted for. Two to three watts is achievable only with a favorable and stable attitude, and a tumbling spacecraft will do considerably worse than 1 W. If your [power budget](#power-requirements-and-budgets) needs 8 W, no amount of MPPT tuning will save it – you need deployables or a bigger bus.
 
 ### Illumination, eclipse and incidence angle
 
@@ -103,7 +103,7 @@ The battery carries the spacecraft through eclipse, supplies peak loads the arra
 
 **Lithium-ion in its various forms is the only realistic choice.** NASA's survey puts commercial Li-ion at **150–270 Wh/kg**, with advanced designs reaching 450–500 Wh/kg, and notes that NiCd and NiH₂ have been essentially fully displaced.[^nasa-soa-power] Within that family:
 
-- **Li-ion cylindrical cells (18650, 21700)** – the workhorse. Cheap, extremely well characterised, high energy density, and available with flight heritage from Panasonic, LG Chem, Samsung and Sony. Most CubeSat packs are two or four of these in series/parallel.
+- **Li-ion cylindrical cells (18650, 21700)** – the workhorse. Cheap, extremely well characterized, high energy density, and available with flight heritage from Panasonic, LG Chem, Samsung and Sony. Most CubeSat packs are two or four of these in series/parallel.
 - **Lithium polymer (LiPo)** – pouch cells, better volumetric packing, but they swell with age and need mechanical restraint. Widely used commercially: AAC Clyde Space's OPTIMUS range spans 30 Wh (268 g) to 80 Wh (670 g) at 8.26 V.[^satsearch-batteries]
 - **Lithium iron phosphate (LFP/LiFePO₄)** – lower energy density (~3.2 V nominal, less Wh/kg), but excellent cycle life, high discharge-rate capability and a much better safety profile. A good trade when the mission is long and the power demand modest.
 - **Primary (non-rechargeable) cells** – LiSOCl₂, LiSO₂, LiCFₓ. Used for very short missions or for a one-shot deployment function, not for a spacecraft that has to survive thousands of orbits.
@@ -206,16 +206,16 @@ MPPT typically buys 10–30% more energy than a naive fixed operating point, wit
 - **Boost (step-up)** converters are needed when a short solar string must charge a higher-voltage pack.
 - **Buck-boost** handles the case where input voltage crosses the output voltage – common with an unregulated lithium bus that swings from 8.4 V down to 6.0 V across a discharge.
 
-**Efficiency versus noise is the core tradeoff.** Switching converters run at 85–95% efficiency but inject switching noise onto the bus and radiate it. That noise lands directly on your receiver's noise floor and on your analogue sensors. Mitigations: keep switching frequencies away from sensitive bands, filter aggressively at the point of load, use separate quiet rails for RF and analogue sections, and pay attention to layout and return paths. Linear regulators are wasteful but quiet, and are still the right answer for a low-current, noise-critical sensor rail.
+**Efficiency versus noise is the core tradeoff.** Switching converters run at 85–95% efficiency but inject switching noise onto the bus and radiate it. That noise lands directly on your receiver's noise floor and on your analog sensors. Mitigations: keep switching frequencies away from sensitive bands, filter aggressively at the point of load, use separate quiet rails for RF and analog sections, and pay attention to layout and return paths. Linear regulators are wasteful but quiet, and are still the right answer for a low-current, noise-critical sensor rail.
 
-### Startup and brownout behaviour
+### Startup and brownout behavior
 
 The most dangerous moment in a CubeSat's electrical life is the first power-up in orbit, on a cold, deeply discharged battery, while tumbling.
 
 - **Cold-start from a dead battery** must work with only solar input and no help from the ground. Verify it on the bench with a solar array simulator and an actually-flat pack, not a charged one.
 - **Brownout loops** are a classic CubeSat killer: the bus comes up, the OBC boots, the boot sequence draws more than the array can supply, the bus collapses, and the cycle repeats indefinitely. Defend against it by sequencing loads, keeping the minimum boot configuration minimal in fact, and requiring a charge threshold before non-essential loads are enabled.
 - **Inrush current** at switch-on – capacitor charging, motor stall currents – can trip protection or collapse the bus. Soft-start on every switched load. See [Power Switching and Protection](#power-switching-and-protection).
-- Give the EPS the authority to hold the OBC off until conditions are safe, and make that behaviour independent of the OBC's own software.
+- Give the EPS the authority to hold the OBC off until conditions are safe, and make that behavior independent of the OBC's own software.
 
 ## Power Distribution and Buses
 
@@ -232,10 +232,10 @@ Higher bus voltages (12 V, 28 V) start to make sense at 6U and above, where curr
 
 ### Practical distribution concerns
 
-- **Switched versus always-on.** A very small always-on domain – the EPS itself, the watchdog, the [inhibit](inhibits-hdrm.md) logic, the RTC – plus everything else on switchable channels. A [propulsion](propulsion.md) system, if you carry one, sits on the switched side behind its own inhibit chain. The always-on domain is your last line of defence: it must be simple enough that you are confident it cannot fail.
+- **Switched versus always-on.** A very small always-on domain – the EPS itself, the watchdog, the [inhibit](inhibits-hdrm.md) logic, the RTC – plus everything else on switchable channels. A [propulsion](propulsion.md) system, if you carry one, sits on the switched side behind its own inhibit chain. The always-on domain is your last line of defense: it must be simple enough that you are confident it cannot fail.
 - **High-side switching** (interrupting the positive rail) is standard, because it leaves the load's ground reference intact. Low-side switching is simpler and cheaper but leaves the load floating at ground potential with the supply still connected, which causes leakage paths and confusing failure modes.
 - **Harness and connectors** deserve more attention than they get. Voltage drop on a 3.3 V rail carrying 2 A through thin wire is not negligible, and connector contact resistance drifts with thermal cycling and vibration. Use connectors with positive retention, keep power and signal separated, and label everything. See [AIT – Electrical Assembly and Harnessing](ait.md#electrical-assembly-and-harnessing).
-- **Grounding.** Decide on a grounding topology early (single-point star ground is the usual CubeSat answer) and document it. Anodised structures do not conduct, so the return path must be designed rather than assumed – see [Structure – Materials](structure.md#materials-and-manufacturing).
+- **Grounding.** Decide on a grounding topology early (single-point star ground is the usual CubeSat answer) and document it. Anodized structures do not conduct, so the return path must be designed rather than assumed – see [Structure – Materials](structure.md#materials-and-manufacturing).
 
 ## Power Switching and Protection
 
@@ -248,11 +248,11 @@ Every switched load needs to be independently controllable and independently pro
 - **Inrush management** – soft-start ramps, series resistance during startup, or staged enabling. A large bulk capacitor on a payload looks like a dead short at the instant of switch-on.
 - **Latch-up protection.** [Single-event latch-up](../references/glossary.md#sel) in a CMOS device creates a low-impedance path that will destroy the part unless power is removed. A current limiter that trips and power-cycles the affected channel is the standard mitigation, and it is a strong argument for putting each susceptible device on its own switched channel. See [OBC – Redundancy and Fault Tolerance](obc.md#redundancy-and-fault-tolerance).
 
-Design rule worth internalising: **no single load failure should be able to take down the bus.** Walk each channel and ask what a dead short there does. If the answer is "the spacecraft dies", add protection.
+Design rule worth internalizing: **no single load failure should be able to take down the bus.** Walk each channel and ask what a dead short there does. If the answer is "the spacecraft dies", add protection.
 
 ## Inhibits and Deployment Safety
 
-The EPS is where launch safety is physically implemented: the inhibits that keep the spacecraft electrically dead inside the deployer, the deployment switches that tell it it has been released, and the timers that hold the transmitter and any deployables off afterwards. Inhibit verification evidence is the most scrutinised item in a launch delivery package, and it is EPS hardware that has to produce it.
+The EPS is where launch safety is physically implemented: the inhibits that keep the spacecraft electrically dead inside the deployer, the deployment switches that tell it it has been released, and the timers that hold the transmitter and any deployables off afterwards. Inhibit verification evidence is the most scrutinized item in a launch delivery package, and it is EPS hardware that has to produce it.
 
 Treat the inhibit chain as part of the power architecture from the first schematic rather than as a late addition: it determines which domain is always-on, where the switches sit in the battery path, and what the spacecraft does in the first seconds after separation. See [Inhibits and HDRM – Inhibit interaction with the EPS](inhibits-hdrm.md#inhibit-interaction-with-the-electrical-power-system-eps).
 
@@ -279,7 +279,7 @@ Power telemetry is the highest-value housekeeping data on a CubeSat. It is often
 
 - **Trending is the point.** A single battery voltage reading tells you very little; the same reading over 200 orbits tells you about capacity fade, illumination changes and load growth.
 - **Charge accounting (coulomb counting)** – integrating battery current over an orbit – gives a far better state-of-charge estimate than voltage alone, particularly for LFP chemistries with flat discharge curves.
-- **Power signatures identify behaviour.** Each subsystem draws a characteristic current profile; a deviation is often the first symptom of a fault, and sometimes the only one.
+- **Power signatures identify behavior.** Each subsystem draws a characteristic current profile; a deviation is often the first symptom of a fault, and sometimes the only one.
 - Build a ground-side dashboard early. The [SatNOGS dashboards](../references/missions.md#satnogs-dashboard) collection shows what flown missions publish and is a good source of ideas for what to plot.
 
 ## EPS Integration Considerations
@@ -317,14 +317,14 @@ The PyCubed paper is a useful read for the radiation question specifically: the 
 
 ### Ground testing
 
-- **Use a solar array simulator**, not a bench supply, wherever you can. A bench supply has effectively infinite current capability at a fixed voltage; a solar array does not, and the difference is precisely what MPPT and brownout behaviour depend on.
-- **Test with a real, discharged battery.** Cold-start behaviour with a flat pack is a different circuit from cold-start with a charged one.
+- **Use a solar array simulator**, not a bench supply, wherever you can. A bench supply has effectively infinite current capability at a fixed voltage; a solar array does not, and the difference is precisely what MPPT and brownout behavior depend on.
+- **Test with a real, discharged battery.** Cold-start behavior with a flat pack is a different circuit from cold-start with a charged one.
 - **Run day-in-the-life tests** with realistic eclipse cycling and mode transitions, over many orbits, rather than testing each function once. Most EPS bugs are sequence-dependent.
 - **Instrument the bench setup** as thoroughly as the flight telemetry. If you cannot see a brownout on the bench, you certainly will not diagnose it from orbit.
 
 ### Common pitfalls
 
-- Assuming nominal pointing before the ADCS has been proven, and discovering in orbit that a tumbling spacecraft generates a third of the modelled power.
+- Assuming nominal pointing before the ADCS has been proven, and discovering in orbit that a tumbling spacecraft generates a third of the modeled power.
 - Sizing the array for beginning-of-life efficiency.
 - Forgetting heater power in the coldest case, which is exactly when the budget is tightest.
 - Software that can disable its own recovery path – a command that turns off the radio with no independent timeout to turn it back on.
@@ -339,7 +339,7 @@ The PyCubed paper is a useful read for the radiation question specifically: the 
 
 [^clyde-space]: Craig Clark and Ritchie Logan (Clyde Space), ["Power Budgets for Mission Success"](http://mstl.atl.calpoly.edu/~workshop/archive/2011/Spring/Day%203/1610%20-%20Clark%20-%20Power%20Budgets%20for%20CubeSat%20Mission%20Success.pdf), Cal Poly CubeSat Workshop, 28 April 2011. Free PDF. Practical slide deck on estimating OAP, managing loads, and avoiding negative budgets, including a worked budget carrying 20% design margin and 14% margin at end of life. One of the most-cited introductory treatments.
 
-[^nasa-margins]: The 30/20/10 curve is a CubeSat convention rather than a published requirement. Its closest formal analogue is the NASA NTRS paper by David A. Di Pietro, ["Techniques for Conducting Effective Concept Design and Design-to-Cost Trade Studies"](https://ntrs.nasa.gov/api/citations/20150018331/downloads/20150018331.pdf) (2015), which describes project managers holding 25% margins for power and dry mass at the start of Phase B, with targets of ≥20% at end of Phase B and ≥15% at end of Phase C. Free PDF. NASA's binding requirements are lower than both and are set per resource rather than as a single curve: [GSFC-STD-1000 Rev H](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf) requires mass margin above 10% at PDR and above 5% at CDR, and power margin above 15% at PDR and above 10% at CDR, the latter measured against end-of-life capacity. Free PDF. CubeSat teams carry more early margin than any of these to compensate for short schedules, little flight heritage, and datasheet figures standing in for test data. See [Systems Engineering – Margin philosophy](systems-engineering.md#margin-philosophy).
+[^nasa-margins]: The 30/20/10 curve is a CubeSat convention rather than a published requirement. Its closest formal analog is the NASA NTRS paper by David A. Di Pietro, ["Techniques for Conducting Effective Concept Design and Design-to-Cost Trade Studies"](https://ntrs.nasa.gov/api/citations/20150018331/downloads/20150018331.pdf) (2015), which describes project managers holding 25% margins for power and dry mass at the start of Phase B, with targets of ≥20% at end of Phase B and ≥15% at end of Phase C. Free PDF. NASA's binding requirements are lower than both and are set per resource rather than as a single curve: [GSFC-STD-1000 Rev H](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf) requires mass margin above 10% at PDR and above 5% at CDR, and power margin above 15% at PDR and above 10% at CDR, the latter measured against end-of-life capacity. Free PDF. CubeSat teams carry more early margin than any of these to compensate for short schedules, little flight heritage, and datasheet figures standing in for test data. See [Systems Engineering – Margin philosophy](systems-engineering.md#margin-philosophy).
 
 [^degradation]: Yermek Amangeldi et al., ["Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites"](https://www.mdpi.com/2076-3417/15/16/9208), *Applied Sciences*, 15(16), 2025. Open access. Reports that GaAs cells degrade 4.5–7.0% over typical mission lifetimes at 300–700 km altitude, with TJ cells showing the highest radiation resistance and Si cells the most pronounced loss below 500 km. Smaller satellites (<10 kg) show higher rates than larger ones.
 
@@ -353,4 +353,4 @@ The PyCubed paper is a useful read for the radiation question specifically: the 
 
 [^satsearch-batteries]: satsearch, ["Satellite batteries - for CubeSats, nanosats, and other form factors"](https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors) (June 2021). Open access. Vendor-by-vendor comparison of commercially available CubeSat battery packs with capacities, voltages, masses and operating temperature ranges. Useful for calibrating what is actually purchasable, but now several years old – confirm capacities, masses and temperature limits against the current datasheet before designing against them.
 
-[^pycubed]: Maximillian Holliday et al., ["PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python"](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf), *33rd Annual AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. Free PDF. Documents the integrated power/compute/radio/ADCS board and its total ionising dose test campaign – a rare published example of a CubeSat team justifying COTS part selection with measured radiation data.
+[^pycubed]: Maximillian Holliday et al., ["PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python"](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf), *33rd Annual AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. Free PDF. Documents the integrated power/compute/radio/ADCS board and its total ionizing dose test campaign – a rare published example of a CubeSat team justifying COTS part selection with measured radiation data.

@@ -22,7 +22,7 @@ Environmental testing performed on each flight article to demonstrate that it is
 **Assembly, Integration and Testing.** The phase of spacecraft development in which hardware is physically assembled, subsystems are integrated together, and the combined system is tested. AIT comes after individual subsystem verification and before delivery for launch. See [AIT](../development/ait.md).
 
 ### Albedo
-Sunlight reflected from a planet's surface and atmosphere back into space, and one of the three environmental heat inputs to a spacecraft in orbit. Modelled as a fraction of the [solar constant](#solar-constant); spacecraft thermal analysis conventionally uses an albedo factor of 0.30 nominal, 0.25 cold case and 0.35 hot case, though instantaneous values range from roughly 0.06 over ocean to 0.50 over cloud and ice. See [Thermal](../development/thermal.md#thermal-environment-in-orbit).
+Sunlight reflected from a planet's surface and atmosphere back into space, and one of the three environmental heat inputs to a spacecraft in orbit. Modeled as a fraction of the [solar constant](#solar-constant); spacecraft thermal analysis conventionally uses an albedo factor of 0.30 nominal, 0.25 cold case and 0.35 hot case, though instantaneous values range from roughly 0.06 over ocean to 0.50 over cloud and ice. See [Thermal](../development/thermal.md#thermal-environment-in-orbit).
 
 ### Apogee / Perigee
 The highest and lowest points of an orbit relative to the body being orbited – apogee farthest from Earth, perigee closest. In a circular orbit the two coincide. For CubeSats the relevant consequence is usually orbital lifetime: perigee altitude governs how much atmospheric drag the spacecraft experiences and therefore how quickly the orbit decays.
@@ -56,7 +56,7 @@ The angle between the orbital plane and the vector from the Earth to the Sun. It
 **Binary Phase Shift Keying.** A digital modulation scheme that encodes data by shifting the phase of a carrier signal between two values (0° and 180°). Common in CubeSat UHF downlinks for its simplicity and robustness at low SNR.
 
 ### Burn wire
-The most common CubeSat release mechanism: a synthetic line (Dyneema, Vectran or similar) under tension restrains a stowed deployable, and a resistive heater pressed against it melts or severs the line on command, letting springs deploy the structure. Cheap, light and easy to test many times. The critical caveat is that with no convection in vacuum the heater runs far hotter for the same power, so burn times measured in air are not valid – always characterise in vacuum. NASA's CubeSat 101 recommends two separate restraint lines to reduce the chance of a deployable coming loose prematurely – that improves retention, not release; release redundancy comes from independent heaters and drive circuits. See [Inhibits and HDRM – Burn Wire–Based HDRM](../development/inhibits-hdrm.md#burn-wirebased-hdrm).
+The most common CubeSat release mechanism: a synthetic line (Dyneema, Vectran or similar) under tension restrains a stowed deployable, and a resistive heater pressed against it melts or severs the line on command, letting springs deploy the structure. Cheap, light and easy to test many times. The critical caveat is that with no convection in vacuum the heater runs far hotter for the same power, so burn times measured in air are not valid – always characterize in vacuum. NASA's CubeSat 101 recommends two separate restraint lines to reduce the chance of a deployable coming loose prematurely – that improves retention, not release; release redundancy comes from independent heaters and drive circuits. See [Inhibits and HDRM – Burn Wire–Based HDRM](../development/inhibits-hdrm.md#burn-wirebased-hdrm).
 
 ### Bus (spacecraft)
 Everything on a spacecraft that is not the [payload](../development/payload.md) – structure, power, avionics, communications, attitude control, thermal. The bus exists to keep the payload alive, powered, pointed and connected. Note the collision with the other engineering sense of "bus" (a shared electrical or data connection, as in an I²C bus); context normally disambiguates.
@@ -78,10 +78,10 @@ Everything on a spacecraft that is not the [payload](../development/payload.md) 
 Restrictions requiring commercial GNSS receivers to stop reporting a position above roughly 18 km altitude and 1,900 km/h, originally intended to prevent their use in guided missiles. Space-capable receivers have these limits removed or reconfigured, which is precisely what places them under dual-use export control regimes such as the Wassenaar Arrangement and, in the US, ITAR/EAR. A procurement lead-time risk worth identifying early.
 
 ### Cold welding
-The spontaneous bonding of two clean metal surfaces pressed together in vacuum. On Earth a thin oxide and adsorbed gas layer keeps metal surfaces apart; in vacuum that layer is absent and the surfaces can fuse. This is why the [CDS](#cds) requires aluminium CubeSat surfaces in contact with the dispenser rails to be hard anodised – a cold-welded CubeSat cannot leave its [deployer](#deployer). See [Structure](../development/structure.md#materials-and-manufacturing).
+The spontaneous bonding of two clean metal surfaces pressed together in vacuum. On Earth a thin oxide and adsorbed gas layer keeps metal surfaces apart; in vacuum that layer is absent and the surfaces can fuse. This is why the [CDS](#cds) requires aluminum CubeSat surfaces in contact with the dispenser rails to be hard anodized – a cold-welded CubeSat cannot leave its [deployer](#deployer). See [Structure](../development/structure.md#materials-and-manufacturing).
 
 ### Commissioning
-The phase immediately after [LEOP](#leop) in which each subsystem is switched on, checked out and calibrated in turn before the mission enters routine operations. Deliberately incremental: sensors verified before actuators are enabled, each actuator's polarity confirmed individually, payload characterised against its ground calibration. Rushing commissioning is how teams turn a recoverable anomaly into a lost mission.
+The phase immediately after [LEOP](#leop) in which each subsystem is switched on, checked out and calibrated in turn before the mission enters routine operations. Deliberately incremental: sensors verified before actuators are enabled, each actuator's polarity confirmed individually, payload characterized against its ground calibration. Rushing commissioning is how teams turn a recoverable anomaly into a lost mission.
 
 ### CONOPS
 **Concept of Operations.** A document or narrative describing how a mission is intended to work end-to-end, across all phases from launch to end-of-life. Covers nominal and off-nominal scenarios, how the ground segment interacts with the spacecraft, and what the operators will do and when.
@@ -90,17 +90,17 @@ The phase immediately after [LEOP](#leop) in which each subsystem is switched on
 **Commercial Off-The-Shelf.** Hardware or software purchased as a standard product rather than custom-designed for the mission. COTS components are the norm in CubeSat development – using tested, available parts reduces cost, schedule, and risk compared to building from scratch. Tradeoffs include radiation tolerance, size/power fit, and availability over the mission lifetime.
 
 ### C-rate
-A normalised measure of battery charge or discharge current, expressed relative to capacity. 1C discharges the full nominal capacity in one hour; 0.5C takes two hours; 2C takes thirty minutes. Cell datasheets specify maximum charge and discharge C-rates, and cycle life degrades as they are approached. Most CubeSat batteries operate well below 1C, which is one reason they last.
+A normalized measure of battery charge or discharge current, expressed relative to capacity. 1C discharges the full nominal capacity in one hour; 0.5C takes two hours; 2C takes thirty minutes. Cell datasheets specify maximum charge and discharge C-rates, and cycle life degrades as they are approached. Most CubeSat batteries operate well below 1C, which is one reason they last.
 
 ### CSP
-**Cubesat Space Protocol.** A small, MIT-licensed network-layer protocol stack written in C for communication between subsystems on a small spacecraft. Modelled on TCP/IP, with a lightweight header carrying both transport and network information, and drivers for CAN, UDP, USART and ZMQ. Originating at Aalborg University and GomSpace, it is the closest thing the CubeSat world has to a standard onboard middleware. See [Flight Software](../development/flight-software.md#inter-subsystem-communication-protocols).
+**Cubesat Space Protocol.** A small, MIT-licensed network-layer protocol stack written in C for communication between subsystems on a small spacecraft. Modeled on TCP/IP, with a lightweight header carrying both transport and network information, and drivers for CAN, UDP, USART and ZMQ. Originating at Aalborg University and GomSpace, it is the closest thing the CubeSat world has to a standard onboard middleware. See [Flight Software](../development/flight-software.md#inter-subsystem-communication-protocols).
 
 ---
 
 ## D
 
 ### Delta-v
-The change in velocity a spacecraft can achieve with its propulsion system, in m/s – the standard currency of orbital manoeuvring, since it maps directly onto what manoeuvres are possible. Most CubeSats have no propulsion and therefore no delta-v budget at all; those that do use it for orbit raising, phasing, collision avoidance or controlled deorbit.
+The change in velocity a spacecraft can achieve with its propulsion system, in m/s – the standard currency of orbital maneuvering, since it maps directly onto what maneuvers are possible. Most CubeSats have no propulsion and therefore no delta-v budget at all; those that do use it for orbit raising, phasing, collision avoidance or controlled deorbit.
 
 ### Deorbit
 Removing a spacecraft from orbit at end of life, either passively (letting atmospheric drag decay the orbit) or actively (propulsion, a drag sail or another deorbit device). Increasingly a regulatory requirement rather than good practice: the [FCC](#fcc)'s 5-year rule requires disposal within five years of mission completion for satellites under its jurisdiction, against a long-standing 25-year international guideline. At or around 400 km natural decay meets a five-year limit on its own; beyond 500 km there is no guarantee, and a passive CubeSat in the commonly available 500–600 km sun-synchronous band should expect to demonstrate compliance rather than assume it. See [Qualification and Launch – Space debris mitigation](../development/launch.md#space-debris-mitigation).
@@ -137,7 +137,7 @@ The fraction of time a component is actively operating. Central to CubeSat desig
 ## E
 
 ### Earth IR
-Also **outgoing longwave radiation (OLR)**. The infrared energy radiated by the Earth itself, which a spacecraft in orbit intercepts as a heat input. Modelled as a roughly 255 K blackbody giving about 241 W/m², with thermal analysis values typically spanning 214–267 W/m². Unlike [albedo](#albedo), Earth IR continues during eclipse, and is therefore what keeps the cold case from being colder than it is.
+Also **outgoing longwave radiation (OLR)**. The infrared energy radiated by the Earth itself, which a spacecraft in orbit intercepts as a heat input. Modeled as a roughly 255 K blackbody giving about 241 W/m², with thermal analysis values typically spanning 214–267 W/m². Unlike [albedo](#albedo), Earth IR continues during eclipse, and is therefore what keeps the cold case from being colder than it is.
 
 ### ECEF
 **Earth-Centered, Earth-Fixed frame.** A coordinate frame centered at Earth's center of mass that rotates with the Earth. Convenient for describing ground station locations but not inertial – spacecraft state vectors are usually expressed in ECI, not ECEF.
@@ -164,7 +164,7 @@ A functionally equivalent, non-flight copy of the spacecraft or a subsystem, use
 A table or model giving a spacecraft's position and velocity as a function of time. On a CubeSat it is usually not stored as a table but generated onboard by propagating a [TLE](#tle) with [SGP4](#sgp4), or taken directly from a [GNSS](#gnss) receiver. Needed by anything that has to know where the spacecraft is: attitude determination, pointing, payload scheduling and pass planning.
 
 ### Epoch
-The reference instant at which a set of orbital elements or a state vector is valid. Orbit predictions degrade with time since epoch – a [TLE](#tle) is accurate to roughly a kilometre near its epoch and tens of kilometres a week or two later – which is why operational tracking requires regularly refreshed element sets.
+The reference instant at which a set of orbital elements or a state vector is valid. Orbit predictions degrade with time since epoch – a [TLE](#tle) is accurate to roughly a kilometer near its epoch and tens of kilometers a week or two later – which is why operational tracking requires regularly refreshed element sets.
 
 ### EPS
 **Electrical Power System.** The subsystem responsible for generating (solar panels), storing (batteries), conditioning, and distributing electrical power to all other subsystems. See [EPS](../development/eps.md).
@@ -186,7 +186,7 @@ The reference instant at which a set of orbital elements or a state vector is va
 **Forward Error Correction.** Adding structured redundancy to transmitted data so the receiver can detect and correct errors without asking for a retransmission – essential when the round trip is a satellite pass. Convolutional, Reed-Solomon, LDPC and turbo codes are common, often concatenated. The resulting coding gain of several dB is frequently the difference between a link that closes and one that does not.
 
 ### Finite element analysis (FEA)
-A numerical method for predicting how a structure responds to loads, by subdividing it into many small elements and solving the resulting system of equations. Used on CubeSats mainly for modal analysis (finding natural frequencies) and for demonstrating positive [margin of safety](#margin-of-safety) under launch loads. Also referred to as FEM (finite element method/modelling). See [Structure – Structural Analysis and FEM](../development/structure.md#structural-analysis-and-fem).
+A numerical method for predicting how a structure responds to loads, by subdividing it into many small elements and solving the resulting system of equations. Used on CubeSats mainly for modal analysis (finding natural frequencies) and for demonstrating positive [margin of safety](#margin-of-safety) under launch loads. Also referred to as FEM (finite element method/modeling). See [Structure – Structural Analysis and FEM](../development/structure.md#structural-analysis-and-fem).
 
 ### Flatsat
 A spacecraft's full electronics set laid out flat on a bench, wired as flown but fully accessible for probing, reprogramming and fault injection. The primary integration and software development environment for most CubeSat teams, used long before and long after the flight hardware is assembled. See [AIT](../development/ait.md#flatsat-and-integration-test-setups).
@@ -199,7 +199,7 @@ Evidence that a component or design has already operated successfully in space. 
 ## G
 
 ### GEVS
-**General Environmental Verification Standard**, NASA document GSFC-STD-7000. Defines generalised environmental test levels and verification requirements for spacecraft hardware – random vibration, shock, thermal vacuum, EMC and more. Widely used as the default qualification envelope by CubeSat teams that do not yet know their launch vehicle. The component-level random vibration qualification level is 14.1 Grms; acceptance levels sit 3 dB lower in PSD (≈10 Grms). See [Structure](../development/structure.md#structural-analysis-and-fem) and [AIT](../development/ait.md#environmental-testing).
+**General Environmental Verification Standard**, NASA document GSFC-STD-7000. Defines generalized environmental test levels and verification requirements for spacecraft hardware – random vibration, shock, thermal vacuum, EMC and more. Widely used as the default qualification envelope by CubeSat teams that do not yet know their launch vehicle. The component-level random vibration qualification level is 14.1 Grms; acceptance levels sit 3 dB lower in PSD (≈10 Grms). See [Structure](../development/structure.md#structural-analysis-and-fem) and [AIT](../development/ait.md#environmental-testing).
 
 ### Gimbal lock
 A loss of one rotational degree of freedom that occurs when two of three rotation axes align, a known singularity in Euler angle representations. Avoided in flight software by using [quaternions](#quaternion) for attitude representation.
@@ -216,20 +216,20 @@ A loss of one rotational degree of freedom that occurs when two of three rotatio
 ### Golden image
 A minimal, known-good software image held in write-protected memory that can never be overwritten in flight. It does not need to be capable of running the mission – only of booting, charging the battery, and listening for commands – so that a corrupted or faulty software update is always recoverable. Usually paired with a boot counter that falls back to the golden image automatically after repeated failed boots. See [Flight Software](../development/flight-software.md#bootloaders-and-the-golden-image).
 
-### Gravity gradient stabilisation
-A passive attitude stabilisation technique exploiting the torque that a gravity field exerts on an elongated body, tending to align its long axis with the local vertical. Requires no power and no actuators, typically achieves a few degrees of nadir pointing, provides no yaw control, and is bistable – the spacecraft will settle happily either way up. Often enhanced with a deployed boom and tip mass, and usually paired with magnetic hysteresis damping.
+### Gravity gradient stabilization
+A passive attitude stabilization technique exploiting the torque that a gravity field exerts on an elongated body, tending to align its long axis with the local vertical. Requires no power and no actuators, typically achieves a few degrees of nadir pointing, provides no yaw control, and is bistable – the spacecraft will settle happily either way up. Often enhanced with a deployed boom and tip mass, and usually paired with magnetic hysteresis damping.
 
 ### Green propellant
-A low-toxicity chemical propellant – ionic-liquid monopropellants such as LMP-103S and AF-M315E (ASCENT), ADN-based blends, or stored water split by electrolysis – used in place of hydrazine, which is corrosive, toxic and demands protective-suit handling that few CubeSat programmes or launch sites will accommodate. Under range safety rules a less hazardous propellant lowers the hazard classification and therefore the number of barriers required, which is what makes chemical propulsion feasible on a rideshare CubeSat. See [Propulsion](../development/propulsion.md#chemical-monopropellants).
+A low-toxicity chemical propellant – ionic-liquid monopropellants such as LMP-103S and AF-M315E (ASCENT), ADN-based blends, or stored water split by electrolysis – used in place of hydrazine, which is corrosive, toxic and demands protective-suit handling that few CubeSat programs or launch sites will accommodate. Under range safety rules a less hazardous propellant lowers the hazard classification and therefore the number of barriers required, which is what makes chemical propulsion feasible on a rideshare CubeSat. See [Propulsion](../development/propulsion.md#chemical-monopropellants).
 
 ### Grms
-**Root-mean-square acceleration**, in units of g. A single number summarising the overall energy of a [random vibration](#random-vibration) environment, obtained by integrating the acceleration power spectral density across the test frequency band and taking the square root. Useful for comparing environments at a glance, but it says nothing about *where* in frequency the energy sits – two very different PSDs can share a Grms value.
+**Root-mean-square acceleration**, in units of g. A single number summarizing the overall energy of a [random vibration](#random-vibration) environment, obtained by integrating the acceleration power spectral density across the test frequency band and taking the square root. Useful for comparing environments at a glance, but it says nothing about *where* in frequency the energy sits – two very different PSDs can share a Grms value.
 
 ### Ground track
 The path traced on the Earth's surface directly beneath a spacecraft's orbit. Because the Earth rotates underneath, successive orbits shift westward, which is what determines revisit times over a target and how often a given ground station gets a pass.
 
 ### GSaaS
-**Ground-Station-as-a-Service.** Commercial ground network capacity sold per pass or per minute, rather than built and operated by the mission. Providers include KSAT, ATLAS, Leaf Space, SSC and AWS Ground Station. Attractive for missions needing S-band or above, where building comparable capability is expensive, and for short missions where capital cost cannot be amortised. Generally does not serve amateur UHF/VHF bands. See [Ground Segment](../development/ground-segment.md#ground-station-architectures).
+**Ground-Station-as-a-Service.** Commercial ground network capacity sold per pass or per minute, rather than built and operated by the mission. Providers include KSAT, ATLAS, Leaf Space, SSC and AWS Ground Station. Attractive for missions needing S-band or above, where building comparable capability is expensive, and for short missions where capital cost cannot be amortized. Generally does not serve amateur UHF/VHF bands. See [Ground Segment](../development/ground-segment.md#ground-station-architectures).
 
 ### G/T
 **Gain-to-noise-temperature ratio**, in dB/K. The standard figure of merit for a receiving station, combining antenna gain and system noise temperature into a single number that can be dropped straight into a [link budget](#link-budget). Higher is better. Representative values for commercial ground networks range from about 11 dB/K for small S-band apertures to about 36 dB/K for large X-band dishes.
@@ -242,22 +242,22 @@ The path traced on the Earth's surface directly beneath a spacecraft's orbit. Be
 **Hardware Abstraction Layer.** The software layer that isolates all register-level hardware access behind interfaces, so application logic never touches hardware directly. Beyond portability, its value is testability: application code written against a HAL can be compiled and run on a development machine against simulated hardware, turning bugs that would otherwise surface slowly on a [flatsat](#flatsat) into ones caught by an automated test suite.
 
 ### Harness
-The wiring assembly connecting a spacecraft's subsystems – wires, connectors, shielding, strain relief and labelling. A disproportionate source of integration problems, largely because it is often improvised rather than designed. A harness that accreted during integration cannot be verified or rebuilt identically; one that was drawn, documented and built to a schedule can be.
+The wiring assembly connecting a spacecraft's subsystems – wires, connectors, shielding, strain relief and labeling. A disproportionate source of integration problems, largely because it is often improvised rather than designed. A harness that accreted during integration cannot be verified or rebuilt identically; one that was drawn, documented and built to a schedule can be.
 
 ### HDRM
 **Hold Down and Release Mechanism.** A mechanical device that keeps deployable structures (antennas, solar panels, booms) stowed during launch and releases them on command in orbit. See [Inhibits and HDRM](../development/inhibits-hdrm.md).
 
 ### Heat pipe
-A sealed passive device that transports heat with a very high effective thermal conductivity, using a working fluid that evaporates at the hot end, travels as vapour to the cold end, condenses, and returns via a capillary wick. Standard on larger spacecraft; flat-plate and conformable micro variants have been demonstrated on 6U CubeSats. No moving parts and no power required, but orientation-sensitive during ground testing.
+A sealed passive device that transports heat with a very high effective thermal conductivity, using a working fluid that evaporates at the hot end, travels as vapor to the cold end, condenses, and returns via a capillary wick. Standard on larger spacecraft; flat-plate and conformable micro variants have been demonstrated on 6U CubeSats. No moving parts and no power required, but orientation-sensitive during ground testing.
 
 ### HIL
-**Hardware-In-the-Loop.** A test configuration in which real flight hardware runs against a simulated environment – synthetic sensor data, modelled orbital dynamics and actuator responses – so that control loops and mode logic can be exercised across many orbits without leaving the lab. See [AIT](../development/ait.md#hardware-in-the-loop-hil-testing).
+**Hardware-In-the-Loop.** A test configuration in which real flight hardware runs against a simulated environment – synthetic sensor data, modeled orbital dynamics and actuator responses – so that control loops and mode logic can be exercised across many orbits without leaving the lab. See [AIT](../development/ait.md#hardware-in-the-loop-hil-testing).
 
 ### Hot case / cold case
-The two bounding thermal scenarios a spacecraft design is analysed against. The **hot case** combines maximum solar flux, high [albedo](#albedo) and [Earth IR](#earth-ir), worst-case attitude, maximum internal dissipation and degraded (end-of-life) surface properties. The **cold case** combines minimum environmental inputs, maximum eclipse and minimum internal dissipation – typically safe mode, when the spacecraft has shed exactly the loads whose waste heat it needs. See [Thermal](../development/thermal.md#hot-case-and-cold-case).
+The two bounding thermal scenarios a spacecraft design is analyzed against. The **hot case** combines maximum solar flux, high [albedo](#albedo) and [Earth IR](#earth-ir), worst-case attitude, maximum internal dissipation and degraded (end-of-life) surface properties. The **cold case** combines minimum environmental inputs, maximum eclipse and minimum internal dissipation – typically safe mode, when the spacecraft has shed exactly the loads whose waste heat it needs. See [Thermal](../development/thermal.md#hot-case-and-cold-case).
 
 ### Hyperspectral imaging
-Imaging in hundreds of contiguous, narrow spectral bands, producing a full spectrum for every pixel rather than a few discrete colour channels. Scientifically rich and a severe data-volume problem for a small spacecraft: a single scene can exceed a CubeSat's entire daily downlink capacity, which is why onboard filtering and standards such as CCSDS 123.0-B-2 matter. Contrast **multispectral** imaging, which uses a handful of bands chosen for a specific application.
+Imaging in hundreds of contiguous, narrow spectral bands, producing a full spectrum for every pixel rather than a few discrete color channels. Scientifically rich and a severe data-volume problem for a small spacecraft: a single scene can exceed a CubeSat's entire daily downlink capacity, which is why onboard filtering and standards such as CCSDS 123.0-B-2 matter. Contrast **multispectral** imaging, which uses a handful of bands chosen for a specific application.
 
 ---
 
@@ -299,7 +299,7 @@ A recursive estimator that combines a dynamic model with noisy measurements to p
 **Low Earth Orbit.** Roughly defined as orbits with altitudes between ~200 km and ~2000 km. The vast majority of CubeSats fly in LEO. Orbital periods are typically 90–120 minutes, eclipse fractions up to 37–40% at low beta angles, and radiation environments are relatively benign compared to higher orbits (though the South Atlantic Anomaly can be significant for some missions).
 
 ### LEOP
-**Launch and Early Orbit Phase.** The period immediately after deployment, covering first acquisition of signal, detumbling, initial health assessment and establishing routine contact. The highest-workload and highest-risk phase of a CubeSat mission, and the one where automation is least useful and rehearsal most valuable. Complicated for rideshare CubeSats by the fact that the spacecraft may not yet be individually identified in the catalogue.
+**Launch and Early Orbit Phase.** The period immediately after deployment, covering first acquisition of signal, detumbling, initial health assessment and establishing routine contact. The highest-workload and highest-risk phase of a CubeSat mission, and the one where automation is least useful and rehearsal most valuable. Complicated for rideshare CubeSats by the fact that the spacecraft may not yet be individually identified in the catalog.
 
 ### Link budget
 An accounting of all gains and losses along a communications path, from transmitter to receiver. The result is a **link margin** – how many dB of headroom exist above the minimum required SNR. Positive link margin means the link should close; the required margin depends on how much uncertainty is in the system. See [Comms – Link Budget](../development/comms.md#link-budget).
@@ -321,7 +321,7 @@ The difference (in dB) between the received signal level and the minimum signal 
 An attitude actuator that generates torque by producing a magnetic dipole which interacts with the Earth's magnetic field, following **τ = m × B**. Simple, robust, power-efficient and with no moving parts or consumables. The cross product means no torque can be produced about the field direction, so magnetorquers are underactuated at any instant and rely on the field direction changing around the orbit – which makes magnetic-only control slow but workable. Implemented as air-core coils, rods wound on a ferromagnetic core, or traces embedded in a PCB. See [GNC](../development/gnc.md#magnetorquers).
 
 ### Margin of safety
-A normalised measure of how much structural capability remains beyond what the applied load requires: **MS = allowable / (factor of safety × applied) − 1**. A margin of safety must be positive; zero means the structure is exactly at its limit with no headroom. Reported separately against yield and ultimate allowables. Distinct from the [margins](../development/systems-engineering.md#budgets-and-margins) tracked in mass and power budgets, which are bookkeeping reserves rather than structural quantities.
+A normalized measure of how much structural capability remains beyond what the applied load requires: **MS = allowable / (factor of safety × applied) − 1**. A margin of safety must be positive; zero means the structure is exactly at its limit with no headroom. Reported separately against yield and ultimate allowables. Distinct from the [margins](../development/systems-engineering.md#budgets-and-margins) tracked in mass and power budgets, which are bookkeeping reserves rather than structural quantities.
 
 ### MLI
 **Multi-Layer Insulation.** Thin layers of reflective foil (typically aluminized Mylar or Kapton) separated by spacer netting, used to reduce radiative heat transfer between a spacecraft and its environment. Common in thermal control but requires careful design around conductive pathways and grounding.
@@ -337,13 +337,13 @@ Also **momentum dumping**. The process of removing accumulated angular momentum 
 ## N
 
 ### Nadir
-The direction from a spacecraft straight down toward the centre of the body it orbits – for a CubeSat, the centre of the Earth. **Nadir-pointing** holds a chosen body axis along this direction, which is the standard attitude for Earth observation payloads and downward-facing antennas. The opposite direction is **zenith**.
+The direction from a spacecraft straight down toward the center of the body it orbits – for a CubeSat, the center of the Earth. **Nadir-pointing** holds a chosen body axis along this direction, which is the standard attitude for Earth observation payloads and downward-facing antennas. The opposite direction is **zenith**.
 
 ### Nanosatellite
-A satellite with a mass between roughly 1 and 10 kg. Most CubeSats from 1U to 6U fall in this class. Neighbouring classes are picosatellites (0.1–1 kg, including [PocketQubes](#pocketqube)), microsatellites (10–100 kg) and minisatellites (100–500 kg), though the boundaries are conventions rather than standards.
+A satellite with a mass between roughly 1 and 10 kg. Most CubeSats from 1U to 6U fall in this class. Neighboring classes are picosatellites (0.1–1 kg, including [PocketQubes](#pocketqube)), microsatellites (10–100 kg) and minisatellites (100–500 kg), though the boundaries are conventions rather than standards.
 
 ### Nodal model
-Also **lumped-parameter model**. The standard method of spacecraft thermal analysis: the spacecraft is divided into a number of isothermal nodes, each with a thermal capacitance, linked by conductive and radiative couplings and driven by environmental and internal heat loads. Model fidelity ranges from a single node (useful for a first feasibility estimate) through 6–20 nodes (typical for a CubeSat) to hundreds for gradient-critical payloads. See [Thermal – Thermal Modelling and Simulation](../development/thermal.md#thermal-modelling-and-simulation).
+Also **lumped-parameter model**. The standard method of spacecraft thermal analysis: the spacecraft is divided into a number of isothermal nodes, each with a thermal capacitance, linked by conductive and radiative couplings and driven by environmental and internal heat loads. Model fidelity ranges from a single node (useful for a first feasibility estimate) through 6–20 nodes (typical for a CubeSat) to hundreds for gradient-critical payloads. See [Thermal – Thermal Modeling and Simulation](../development/thermal.md#thermal-modeling-and-simulation).
 
 ---
 
@@ -362,10 +362,10 @@ A closed (or near-closed) path followed by a spacecraft around a celestial body 
 The orbital parameters determine almost everything else about the mission environment: how long each pass lasts over a ground station, what fraction of each orbit is spent in eclipse, how intense the radiation environment is, how quickly the orbit decays from atmospheric drag, and what beta angle the spacecraft sees at different times of year. See [LEO](#leo), [beta angle](#beta-angle), [eclipse fraction](#eclipse-fraction), and [TLE](#tle).
 
 ### OTV
-**Orbital Transfer Vehicle**, also OMV (orbital manoeuvring vehicle). A propulsive "space tug" that carries payloads from a rideshare drop-off orbit to a different altitude, inclination or phasing. Flown examples include D-Orbit's ION, Rocket Lab's Photon, Impulse Space's Mira and Momentus's Vigoride. An increasingly practical answer when the available rideshare orbit is wrong for the mission.
+**Orbital Transfer Vehicle**, also OMV (orbital maneuvering vehicle). A propulsive "space tug" that carries payloads from a rideshare drop-off orbit to a different altitude, inclination or phasing. Flown examples include D-Orbit's ION, Rocket Lab's Photon, Impulse Space's Mira and Momentus's Vigoride. An increasingly practical answer when the available rideshare orbit is wrong for the mission.
 
 ### Outgassing
-The release of trapped gases and volatile compounds from materials exposed to vacuum. The escaping molecules condense on the coldest nearby surfaces – typically optics, radiators and solar cells – degrading their performance. Non-metals are the main offenders: adhesives, tapes, cable ties, conformal coatings, printed parts and potting compounds. Materials are screened using **ASTM E595**, which reports **TML** (total mass loss) and **CVCM** (collected volatile condensable material) after 24 hours at 125 °C in vacuum; the commonly applied screening criteria are CVCM ≤ 0.10% and TML ≤ 1.00% – strictly, TML less water vapour recovery; see [Structure – Outgassing](../development/structure.md#outgassing). The [NASA Goddard Outgassing Database](https://etd.gsfc.nasa.gov/capabilities/outgassing-database/) publishes results for thousands of materials.
+The release of trapped gases and volatile compounds from materials exposed to vacuum. The escaping molecules condense on the coldest nearby surfaces – typically optics, radiators and solar cells – degrading their performance. Non-metals are the main offenders: adhesives, tapes, cable ties, conformal coatings, printed parts and potting compounds. Materials are screened using **ASTM E595**, which reports **TML** (total mass loss) and **CVCM** (collected volatile condensable material) after 24 hours at 125 °C in vacuum; the commonly applied screening criteria are CVCM ≤ 0.10% and TML ≤ 1.00% – strictly, TML less water vapor recovery; see [Structure – Outgassing](../development/structure.md#outgassing). The [NASA Goddard Outgassing Database](https://etd.gsfc.nasa.gov/capabilities/outgassing-database/) publishes results for thousands of materials.
 
 ---
 
@@ -375,13 +375,13 @@ The release of trapped gases and volatile compounds from materials exposed to va
 A single opportunity to communicate with a satellite, from the moment it rises above the station's usable horizon until it sets. A typical LEO CubeSat gives a mid-latitude ground station roughly four to six usable passes a day, each lasting 5–12 minutes – on the order of 30–60 minutes of daily contact, which is the fundamental constraint on how much data a mission can return. Pass quality varies enormously with maximum elevation.
 
 ### Passivation
-Permanently de-energising a spacecraft at end of life – discharging batteries, venting or depleting any stored pressure, and disabling transmitters – so that it cannot later explode or fragment and generate debris. Increasingly a licensing requirement rather than good practice, and it needs to be a commandable function that has actually been tested.
+Permanently de-energizing a spacecraft at end of life – discharging batteries, venting or depleting any stored pressure, and disabling transmitters – so that it cannot later explode or fragment and generate debris. Increasingly a licensing requirement rather than good practice, and it needs to be a commandable function that has actually been tested.
 
 ### Payload user guide (PUG)
-The document issued by a launch provider defining what a payload must do to fly on their vehicle: mechanical envelope, mass and centre-of-mass limits, environmental levels, electrical interfaces, safety requirements and delivery schedule. Together with the [deployer](#deployer) manual, it supersedes the [CDS](#cds) wherever they conflict. Read it before finalising any external geometry.
+The document issued by a launch provider defining what a payload must do to fly on their vehicle: mechanical envelope, mass and center-of-mass limits, environmental levels, electrical interfaces, safety requirements and delivery schedule. Together with the [deployer](#deployer) manual, it supersedes the [CDS](#cds) wherever they conflict. Read it before finalizing any external geometry.
 
 ### PC/104
-An embedded computing form factor, originally for industrial PCs, whose stacking-connector concept was adapted by the CubeSat community into a de facto internal board standard – roughly 90 × 96 mm boards joined by a 104-pin stacking header. The mechanical convention is widely shared; the **pinout is not standardised**, so boards from different vendors may mate physically and still be electrically incompatible. See [Structure – Mounting and Mechanical Interfaces](../development/structure.md#mounting-and-mechanical-interfaces).
+An embedded computing form factor, originally for industrial PCs, whose stacking-connector concept was adapted by the CubeSat community into a de facto internal board standard – roughly 90 × 96 mm boards joined by a 104-pin stacking header. The mechanical convention is widely shared; the **pinout is not standardized**, so boards from different vendors may mate physically and still be electrically incompatible. See [Structure – Mounting and Mechanical Interfaces](../development/structure.md#mounting-and-mechanical-interfaces).
 
 ### PCM
 **Phase Change Material.** A substance used to buffer thermal transients by absorbing latent heat as it melts and releasing it as it solidifies, holding a near-constant temperature meanwhile. Paraffins melting between 20 and 60 °C store roughly 140–280 kJ/kg. Useful for payloads that dissipate hard in short bursts; the cost is the mass of the containment housing.
@@ -402,7 +402,7 @@ Two distinct requirements that are frequently conflated. **Pointing accuracy** (
 A test philosophy in which the actual flight hardware is tested at qualification *levels* but for reduced *duration*, rather than qualifying a separate dedicated test article. Standard practice for CubeSats, where building a second full spacecraft purely to break it is rarely affordable. The tradeoff is that the flight article accumulates some fatigue life during testing. See [AIT](../development/ait.md#environmental-testing).
 
 ### PUS
-**Packet Utilization Standard**, ECSS-E-ST-70-41C. The European standard defining a service-based model for spacecraft telemetry and telecommand: standardised services for command verification, housekeeping reporting, event reporting, onboard scheduling, parameter management and more. Comprehensive to the point of being heavy for a 1U, but explicitly designed to be tailored – adopting a handful of its services is a common middle path.
+**Packet Utilization Standard**, ECSS-E-ST-70-41C. The European standard defining a service-based model for spacecraft telemetry and telecommand: standardized services for command verification, housekeeping reporting, event reporting, onboard scheduling, parameter management and more. Comprehensive to the point of being heavy for a 1U, but explicitly designed to be tailored – adopting a handful of its services is a common middle path.
 
 ---
 
@@ -422,28 +422,28 @@ A four-element mathematical representation of orientation in 3D space, widely us
 ## R
 
 ### RAAN
-**Right Ascension of the Ascending Node.** One of the six classical orbital elements: the angle, measured in an inertial frame, to the point where the orbit crosses the equatorial plane travelling north. Together with inclination it defines the orientation of the orbital plane in space. RAAN precesses over time due to Earth's oblateness – an effect deliberately exploited by [sun-synchronous orbits](#sso).
+**Right Ascension of the Ascending Node.** One of the six classical orbital elements: the angle, measured in an inertial frame, to the point where the orbit crosses the equatorial plane traveling north. Together with inclination it defines the orientation of the orbital plane in space. RAAN precesses over time due to Earth's oblateness – an effect deliberately exploited by [sun-synchronous orbits](#sso).
 
 ### Radiator
-A surface designed to reject heat to space, characterised by high infrared [emissivity](#emissivity) and low solar [absorptivity](#absorptivity), with a clear view of deep space and a good conduction path to whatever it is cooling. Scarce on CubeSats, because the external faces are usually already committed to solar cells.
+A surface designed to reject heat to space, characterized by high infrared [emissivity](#emissivity) and low solar [absorptivity](#absorptivity), with a clear view of deep space and a good conduction path to whatever it is cooling. Scarce on CubeSats, because the external faces are usually already committed to solar cells.
 
 ### Radiometric calibration
 Establishing the relationship between an instrument's raw output counts and the physical quantity being measured, using reference sources of known output – integrating spheres for imagers, radioactive sources of known energy for particle and gamma-ray detectors, blackbodies for thermal instruments. Without it, instrument output is a number rather than a measurement. Ground calibration shifts during launch and drifts in orbit, so it must be verified and repeated on orbit.
 
 ### Rail
-The four load-bearing edges running along a CubeSat's Z axis, which slide against the matching rails inside the [deployer](#deployer). The [CDS](#cds) requires them to be at least 8.5 mm wide, with a surface roughness below 1.6 µm and edges rounded to at least 1 mm radius, and requires aluminium rails to be hard anodised against [cold welding](#cold-welding). At least 75% of the rail length should contact the deployer. Rails are simultaneously the most tolerance-critical and the most easily damaged surfaces on the spacecraft.
+The four load-bearing edges running along a CubeSat's Z axis, which slide against the matching rails inside the [deployer](#deployer). The [CDS](#cds) requires them to be at least 8.5 mm wide, with a surface roughness below 1.6 µm and edges rounded to at least 1 mm radius, and requires aluminum rails to be hard anodized against [cold welding](#cold-welding). At least 75% of the rail length should contact the deployer. Rails are simultaneously the most tolerance-critical and the most easily damaged surfaces on the spacecraft.
 
 ### Random vibration
-A broadband, statistically described vibration environment – the dominant structural load case for most CubeSat hardware. Specified as an acceleration power spectral density (PSD) in g²/Hz across a frequency band, and summarised by an overall [Grms](#grms) value. [GEVS](#gevs) gives 14.1 Grms for 2 minutes per axis as the component qualification level. See [Structure](../development/structure.md#structural-analysis-and-fem).
+A broadband, statistically described vibration environment – the dominant structural load case for most CubeSat hardware. Specified as an acceleration power spectral density (PSD) in g²/Hz across a frequency band, and summarized by an overall [Grms](#grms) value. [GEVS](#gevs) gives 14.1 Grms for 2 minutes per axis as the component qualification level. See [Structure](../development/structure.md#structural-analysis-and-fem).
 
 ### RBF pin
-**Remove-Before-Flight pin.** A physical insert that cuts all power to the spacecraft while in place, fitted with a large brightly coloured streamer so it cannot be overlooked. Removed before launch – before deployer integration if the deployer has no access port. The [CDS](#cds) requires it to cut *all* power and to protrude no more than 6.5 mm from the rail surface when fully inserted.
+**Remove-Before-Flight pin.** A physical insert that cuts all power to the spacecraft while in place, fitted with a large brightly colored streamer so it cannot be overlooked. Removed before launch – before deployer integration if the deployer has no access port. The [CDS](#cds) requires it to cut *all* power and to protrude no more than 6.5 mm from the rail surface when fully inserted.
 
 ### Reaction wheel
 A spinning flywheel used as an attitude actuator. By accelerating or decelerating the wheel, angular momentum is exchanged with the spacecraft body, producing a controlled torque without expelling propellant. Reaction wheels can become saturated (spin at their maximum rate) and must be periodically desaturated using magnetorquers or thrusters.
 
 ### Requirements traceability
-The practice of linking every requirement to the parent objective it derives from, the design element that satisfies it, and the verification activity that proves it. Usually maintained as a matrix – a spreadsheet is perfectly adequate on a CubeSat. Its practical value shows up twice: when a late change forces you to identify what it breaks, and when the [V&V](#vv) programme needs to demonstrate that every requirement has been closed out.
+The practice of linking every requirement to the parent objective it derives from, the design element that satisfies it, and the verification activity that proves it. Usually maintained as a matrix – a spreadsheet is perfectly adequate on a CubeSat. Its practical value shows up twice: when a late change forces you to identify what it breaks, and when the [V&V](#vv) program needs to demonstrate that every requirement has been closed out.
 
 ### Rideshare
 Flying as a secondary payload alongside a primary mission, sharing the cost of a launch. The dominant route to orbit for CubeSats, and the origin of most of their constraints: the primary's orbit is the orbit you get, and a set of "do no harm" requirements – restricting transmitters, deployments and hazardous materials – is imposed to protect the primary payload. See [Qualification and Launch](../development/launch.md#launch-procurement).
@@ -465,7 +465,7 @@ The fallback operating state a spacecraft enters autonomously when something goe
 Periodically reading through memory (or an SRAM-based FPGA's configuration) and rewriting corrected values, so that accumulated [single-event upsets](#seu) are removed before a second upset in the same word makes them uncorrectable. Usually paired with [EDAC](#edac).
 
 ### SDR
-**Software-Defined Radio.** A radio in which demodulation, filtering and decoding are performed in software on digitised samples rather than in fixed analogue hardware. This makes one piece of hardware able to receive almost any waveform, which is why SDRs dominate CubeSat ground stations. Common devices range from the very low-cost RTL-SDR (the SatNOGS reference radio) through Airspy and Adalm-Pluto to full-duplex USRP hardware.
+**Software-Defined Radio.** A radio in which demodulation, filtering and decoding are performed in software on digitized samples rather than in fixed analog hardware. This makes one piece of hardware able to receive almost any waveform, which is why SDRs dominate CubeSat ground stations. Common devices range from the very low-cost RTL-SDR (the SatNOGS reference radio) through Airspy and Adalm-Pluto to full-duplex USRP hardware.
 
 ### SEFI
 **Single-Event Functional Interrupt.** A radiation-induced fault that puts a device into a non-functional state – a hung processor, a corrupted control register, a peripheral that stops responding – without physically damaging it. Cleared by a reset, which is the main reason spacecraft carry layered [watchdogs](#watchdog).
@@ -501,10 +501,10 @@ The efficiency of a propulsion system, in seconds: the impulse delivered per uni
 **Sun-Synchronous Orbit.** A near-polar orbit whose plane precesses at the same rate as the Earth orbits the Sun, so that the local solar time of each pass stays constant. Valuable for imaging missions because lighting conditions are repeatable, and in the **dawn–dusk** variant it keeps the spacecraft in near-continuous sunlight – which transforms the [power budget](../development/eps.md#power-requirements-and-budgets) while making the thermal hot case harder.
 
 ### Standoff
-A threaded spacer that separates and supports stacked circuit boards inside a spacecraft, carrying both the mechanical load and, frequently, the electrical ground path between boards. Standoff material is a deliberate thermal design choice: metal standoffs couple a board to the structure as a heat sink, polymer ones isolate it. Where the structure is hard anodised and therefore non-conductive, the ground return must be designed explicitly rather than assumed through the standoffs.
+A threaded spacer that separates and supports stacked circuit boards inside a spacecraft, carrying both the mechanical load and, frequently, the electrical ground path between boards. Standoff material is a deliberate thermal design choice: metal standoffs couple a board to the structure as a heat sink, polymer ones isolate it. Where the structure is hard anodized and therefore non-conductive, the ground return must be designed explicitly rather than assumed through the standoffs.
 
 ### Star tracker
-An attitude sensor that images the star field and matches the observed pattern against an onboard catalogue to determine absolute orientation, typically to a few arcseconds. The most accurate attitude sensor available, and the most demanding: it needs real onboard compute, careful baffle design against stray light from the Sun, Earth and Moon, and it loses lock above a few degrees per second of body rate – so it cannot help during [detumbling](#detumbling).
+An attitude sensor that images the star field and matches the observed pattern against an onboard catalog to determine absolute orientation, typically to a few arcseconds. The most accurate attitude sensor available, and the most demanding: it needs real onboard compute, careful baffle design against stray light from the Sun, Earth and Moon, and it loses lock above a few degrees per second of body rate – so it cannot help during [detumbling](#detumbling).
 
 ### Sun sensor
 An attitude sensor measuring the direction to the Sun, and the cheapest useful attitude sensor available. Ranges from cosine detectors (a bare photodiode, 2–5° accuracy – often just a solar panel's current) through quadrant detectors (0.2–0.5°) to digital sun cameras (0.1° down to 0.01°). Needs several units for full sky coverage, can be confused by Earth albedo, and is useless in eclipse.
@@ -517,10 +517,10 @@ An attitude sensor measuring the direction to the Sun, and the cheapest useful a
 An instruction sent from the ground to a spacecraft. Because the spacecraft cannot be reached physically and contact is intermittent, telecommands are validated at several levels – packet integrity, command validity, argument range, and whether the command makes sense in the current state – and irreversible ones are typically guarded by an arm-then-fire sequence with an independent timeout. See [Flight Software](../development/flight-software.md#commands).
 
 ### Thermal strap
-A flexible conductive link that carries heat between two points while allowing them to move relative to one another, decoupling thermal and mechanical design. Typically copper or aluminium braid, or pyrolytic graphite sheet (PGS), which offers higher conductivity than either metal in the same geometry.
+A flexible conductive link that carries heat between two points while allowing them to move relative to one another, decoupling thermal and mechanical design. Typically copper or aluminum braid, or pyrolytic graphite sheet (PGS), which offers higher conductivity than either metal in the same geometry.
 
 ### TID
-**Total Ionising Dose.** The cumulative radiation dose a component absorbs over a mission, measured in rad or gray (1 krad(Si) = 10 Gy). TID causes gradual parameter drift and eventual failure in semiconductors. A typical [LEO](#leo) CubeSat mission accumulates on the order of a few krad(Si) behind normal shielding, which is why carefully screened [COTS](#cots) parts are viable where they would not be in a higher-radiation orbit.
+**Total Ionizing Dose.** The cumulative radiation dose a component absorbs over a mission, measured in rad or gray (1 krad(Si) = 10 Gy). TID causes gradual parameter drift and eventual failure in semiconductors. A typical [LEO](#leo) CubeSat mission accumulates on the order of a few krad(Si) behind normal shielding, which is why carefully screened [COTS](#cots) parts are viable where they would not be in a higher-radiation orbit.
 
 ### TLE
 **Two-Line Element set.** A standardized format for encoding a satellite's orbital parameters at a given epoch, used as input to propagators such as SGP4. TLEs are published by the US Space Surveillance Network (via Space-Track) and used widely for tracking and pass prediction. See [GNC – Orbit Representation / TLEs](../development/gnc.md#orbit-representation-tles).
@@ -544,7 +544,7 @@ A photovoltaic cell stacking three semiconductor junctions of different bandgaps
 The additional cylindrical volume permitted beyond the nominal CubeSat envelope on certain form factors, so named for its shape and size. Commonly used to house a deployable antenna, a propulsion nozzle or a radiator that will not fit inside the rails. Availability and dimensions vary by [deployer](#deployer) – confirm against the [payload user guide](#payload-user-guide-pug) rather than assuming.
 
 ### TVAC
-**Thermal Vacuum testing.** Environmental testing in a vacuum chamber with a controlled thermal environment – the only realistic way to verify spacecraft thermal behaviour, since removing convection fundamentally changes how heat moves. Two distinct tests are run under this heading: **thermal cycling**, which demonstrates survival and function across the temperature range and exposes workmanship defects, and **thermal balance**, which reaches steady state at a predicted case so the [nodal model](#nodal-model) can be correlated against measurement. See [AIT](../development/ait.md#environmental-testing).
+**Thermal Vacuum testing.** Environmental testing in a vacuum chamber with a controlled thermal environment – the only realistic way to verify spacecraft thermal behavior, since removing convection fundamentally changes how heat moves. Two distinct tests are run under this heading: **thermal cycling**, which demonstrates survival and function across the temperature range and exposes workmanship defects, and **thermal balance**, which reaches steady state at a predicted case so the [nodal model](#nodal-model) can be correlated against measurement. See [AIT](../development/ait.md#environmental-testing).
 
 ---
 

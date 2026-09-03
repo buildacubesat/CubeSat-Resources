@@ -7,10 +7,10 @@ A practical note: some of these are free, some are paywalled, and the ones that 
 ## CubeSat specifications
 
 <!-- CSR-RESOURCES:START ref-standards-cubesat-specs -->
-- **[CubeSat Design Specification Rev. 14.1](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf)** `PDF` – Cal Poly SLO. The baseline CubeSat specification: envelope and rail geometry, mass and centre-of-mass limits, materials and anodising, deployment switches, inhibits, and the 30-minute deployable and 45-minute RF quiet periods. Free
+- **[CubeSat Design Specification Rev. 14.1](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf)** `PDF` – Cal Poly SLO. The baseline CubeSat specification: envelope and rail geometry, mass and center-of-mass limits, materials and anodizing, deployment switches, inhibits, and the 30-minute deployable and 45-minute RF quiet periods. Free
 - **[CubeSat Design Specification Rev. 13](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/56e9b62337013b6c063a655a/1458157095454/cds_rev13_final2.pdf)** `PDF` – The previous revision, still worth knowing because much older material (and some deployer documentation) quotes its figures, notably the 1.33 kg/U mass limit
 - **[ISO 17981:2024 – Space systems: Cube satellite (CubeSat) interface](https://www.iso.org/standard/85136.html)** `Link` – International standard for CubeSat internal interfaces – component to component, platform to payload, umbilical connectors and commercial product datasheets. It explicitly does not cover the CubeSat-to-deployer interface, which stays with the CDS. Paywalled
-- **[Cal Poly CubeSat Program](https://www.cubesat.org/)** `Link` – The source for current CDS revisions and CubeSat programme documentation
+- **[Cal Poly CubeSat Program](https://www.cubesat.org/)** `Link` – The source for current CDS revisions and CubeSat program documentation
 <!-- CSR-RESOURCES:END ref-standards-cubesat-specs -->
 
 ## Deployer manuals and payload user guides
@@ -18,7 +18,7 @@ A practical note: some of these are free, some are paywalled, and the ones that 
 Whatever the CDS says, the document that governs a CubeSat's mechanical and safety design is the deployer manual or payload user guide of the provider it flies with. Two are openly published and make good worked examples of the class:
 
 <!-- CSR-RESOURCES:START ref-standards-deployer-manuals -->
-- **[Exolaunch EXOpod Nova User Manual, Rev. 1.2](https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf)** `PDF` – Deployer manual covering 1U–16U, with mass and centre-of-mass allowances, rail dimensions and protrusion limits; states that where it conflicts with the CDS, the manual takes priority. Free PDF
+- **[Exolaunch EXOpod Nova User Manual, Rev. 1.2](https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf)** `PDF` – Deployer manual covering 1U–16U, with mass and center-of-mass allowances, rail dimensions and protrusion limits; states that where it conflicts with the CDS, the manual takes priority. Free PDF
 - **[NanoRacks CubeSat Deployer (NRCSD) Interface Definition Document](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/Nanoracks-CubeSat-Deployer-NRCSD-IDD.pdf)** `PDF` – ISS deployer interface document, and a worked example of a provider layering its own inhibit and timer requirements on top of the CDS. Free PDF
 <!-- CSR-RESOURCES:END ref-standards-deployer-manuals -->
 

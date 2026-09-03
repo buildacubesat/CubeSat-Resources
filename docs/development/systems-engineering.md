@@ -4,7 +4,7 @@ This page covers requirements, the concept of operations, architecture and inter
 
 Every CubeSat starts with a sentence – "measure X", "demonstrate Y", "give students flight experience". Systems engineering is the discipline of turning that sentence into something buildable without losing what mattered about it.
 
-It is what holds the rest of this site together: the requirements that tell each subsystem what it is for, the interfaces where subsystems meet, the budgets that keep the whole thing physically possible, and the evidence that any of it works. On a large programme this is a department. On a CubeSat it is usually one person doing it alongside something else, which makes it easy to skip and expensive to have skipped.
+It is what holds the rest of this site together: the requirements that tell each subsystem what it is for, the interfaces where subsystems meet, the budgets that keep the whole thing physically possible, and the evidence that any of it works. On a large program this is a department. On a CubeSat it is usually one person doing it alongside something else, which makes it easy to skip and expensive to have skipped.
 
 ---
 
@@ -40,8 +40,8 @@ Worth knowing that the published statistics use a similarly modest bar – the w
 
 Not every requirement comes from your objectives. A substantial fraction is levied from outside, arrives non-negotiable, and lands earlier than teams expect:
 
-- **The launch provider.** The [payload user guide](../references/glossary.md#payload-user-guide-pug) or deployer manual, and the [ICD](../references/glossary.md#icd) you sign against it, govern envelope, mass, centre of mass, materials, [inhibits](../references/glossary.md#inhibit), environmental levels and the evidence you must deliver. The [CDS](../references/glossary.md#cds) is the common language; the payload user guide is the contract, and where they disagree the payload user guide wins. See [Structure – The launch provider always wins](structure.md#the-launch-provider-always-wins).
-- **Spectrum and licensing.** [IARU](../references/glossary.md#iaru) coordination, an [ITU](../references/glossary.md#itu) filing submitted through your national administration, and a transmit licence. Lead times run to months and the outcome constrains the [comms](comms.md) design from the start. See [Qualification and Launch – Frequency licensing](launch.md#frequency-licensing).
+- **The launch provider.** The [payload user guide](../references/glossary.md#payload-user-guide-pug) or deployer manual, and the [ICD](../references/glossary.md#icd) you sign against it, govern envelope, mass, center of mass, materials, [inhibits](../references/glossary.md#inhibit), environmental levels and the evidence you must deliver. The [CDS](../references/glossary.md#cds) is the common language; the payload user guide is the contract, and where they disagree the payload user guide wins. See [Structure – The launch provider always wins](structure.md#the-launch-provider-always-wins).
+- **Spectrum and licensing.** [IARU](../references/glossary.md#iaru) coordination, an [ITU](../references/glossary.md#itu) filing submitted through your national administration, and a transmit license. Lead times run to months and the outcome constrains the [comms](comms.md) design from the start. See [Qualification and Launch – Frequency licensing](launch.md#frequency-licensing).
 - **Debris and disposal.** Orbital lifetime limits, a debris assessment, and [passivation](../references/glossary.md#passivation) at end of mission. These bound your orbit choice and can force a deorbit device onto a spacecraft that had not budgeted for one. See [Qualification and Launch – Space debris mitigation](launch.md#space-debris-mitigation).
 - **Your funder or institution.** Reporting, review gates, export control, and liability or insurance obligations under national space law.
 
@@ -63,7 +63,7 @@ Both failure modes are common, and both are expensive.
 
 ### Traceability
 
-A **[requirements traceability](../references/glossary.md#requirements-traceability) matrix** links every requirement to its parent, to the design element that satisfies it, and to the verification activity that proves it. On a CubeSat this need not be elaborate – a spreadsheet is fine – but it needs to exist, because it is what tells you what a late change breaks, and it becomes the backbone of the [V&V](#verification-and-validation-vv) programme.
+A **[requirements traceability](../references/glossary.md#requirements-traceability) matrix** links every requirement to its parent, to the design element that satisfies it, and to the verification activity that proves it. On a CubeSat this need not be elaborate – a spreadsheet is fine – but it needs to exist, because it is what tells you what a late change breaks, and it becomes the backbone of the [V&V](#verification-and-validation-vv) program.
 
 ## Concept of Operations (CONOPS)
 
@@ -91,7 +91,7 @@ The CONOPS also feeds directly into [validation](#verification-and-validation-vv
 
 ### Recurring architectural choices
 
-- **Centralised vs. distributed computing.** See [OBC – Centralised vs. distributed](obc.md#centralised-vs-distributed).
+- **Centralized vs. distributed computing.** See [OBC – Centralized vs. distributed](obc.md#centralized-vs-distributed).
 - **Buy vs. build, per subsystem.** Most CubeSats are hybrids – a bought structure and EPS with in-house avionics is a common pattern, and a defensible one. See [GNC – Integrated ADCS Units](gnc.md#integrated-adcs-units-buy-or-build).
 - **Regulated vs. unregulated power distribution.** See [EPS – Bus architecture](eps.md#bus-architecture).
 - **Passive vs. active attitude control**, which cascades into power, mass and complexity more than almost any other decision. See [GNC – Passive Stabilization](gnc.md#passive-stabilization-methods).
@@ -120,7 +120,7 @@ Interfaces are where CubeSats fail. Individual subsystems, built by people who u
 - **Mechanical**: mounting points, envelope, mass properties, alignment, thermal interface.
 - **Electrical**: voltages, nominal and peak current, inrush, sequencing, connector and pin-out, grounding.
 - **Data**: physical bus, protocol, addressing, message formats, timing and rates.
-- **Functional**: command and telemetry dictionaries, modes, error behaviour.
+- **Functional**: command and telemetry dictionaries, modes, error behavior.
 - **Environmental**: temperature limits, vibration levels, cleanliness.
 
 ### Ownership and discipline
@@ -130,8 +130,8 @@ An [ICD](../references/glossary.md#icd) is a **contract between two owners**, an
 - **One document per interface**, not one giant document. Smaller documents get read.
 - **Version everything**, and treat a change as a change requiring both parties' agreement – not a silent edit.
 - **Write ICDs even for internal interfaces.** Two boards built by the same three people still benefit, because the ICD outlives the memory of why something was done.
-- **Define error behaviour explicitly.** What happens if the other side does not respond? Returns garbage? Draws too much current? Undefined error behaviour is where interfaces actually break.
-- **Machine-readable where possible.** A command and telemetry dictionary that generates both flight and ground code eliminates a whole class of desynchronisation bugs. See [Flight Software – Documentation](flight-software.md#documentation-and-maintainability).
+- **Define error behavior explicitly.** What happens if the other side does not respond? Returns garbage? Draws too much current? Undefined error behavior is where interfaces actually break.
+- **Machine-readable where possible.** A command and telemetry dictionary that generates both flight and ground code eliminates a whole class of desynchronization bugs. See [Flight Software – Documentation](flight-software.md#documentation-and-maintainability).
 
 ### Common interface failure modes
 
@@ -160,7 +160,7 @@ Missions carrying propulsion add a **[delta-v](../references/glossary.md#delta-v
 
 ### Margin philosophy
 
-Margins exist because early estimates are wrong. The shape of a margin plan is always the same – wide early, tight at delivery – but the numbers are programme-specific, and, less obviously, **resource-specific**. A single curve applied to everything is the most common way to get this wrong.
+Margins exist because early estimates are wrong. The shape of a margin plan is always the same – wide early, tight at delivery – but the numbers are program-specific, and, less obviously, **resource-specific**. A single curve applied to everything is the most common way to get this wrong.
 
 NASA's Goddard sets its required margins per resource rather than as one number. Mass must stay above **15%** before and at the system requirements review, above **10% at [PDR](../references/glossary.md#pdr)**, above **5% at [CDR](../references/glossary.md#cdr)** and above 2% at the systems integration review, reaching zero in Phase D. Power, measured against **end-of-life** capacity, must stay above **15% at PDR** and above **10% at CDR**, and above 5% thereafter. Propellant is held to 3σ, and RF link margin above 3 dB, tightening to 1 dB from Phase C.[^gsfc-1000] Mass margin is spent faster than power margin for a good reason: mass converges as parts are weighed, while generation keeps degrading for the whole mission.
 
@@ -201,7 +201,7 @@ Cost, mass, power, volume, performance, risk, [TRL](../references/glossary.md#tr
 
 ### Knowing when to stop
 
-Most CubeSat decisions do not deserve a formal trade study. The judgement call is whether the decision is **hard to reverse** (structure, form factor, bus architecture, ADCS approach) or **cheap to change** (a connector, a sensor part number). Spend the effort on the former.
+Most CubeSat decisions do not deserve a formal trade study. The judgment call is whether the decision is **hard to reverse** (structure, form factor, bus architecture, ADCS approach) or **cheap to change** (a connector, a sensor part number). Spend the effort on the former.
 
 For the rest, "good enough" is a legitimate engineering conclusion, and an early decision that is 80% right usually beats a perfect decision made three months later – because everything downstream was blocked in the meantime.
 
@@ -276,7 +276,7 @@ Informally: verification asks *did we build the thing right?*; validation asks *
 
 ### The four verification methods
 
-- **Analysis** – mathematical or simulation-based demonstration. Used where testing is impractical, such as on-orbit thermal behaviour or structural margins.
+- **Analysis** – mathematical or simulation-based demonstration. Used where testing is impractical, such as on-orbit thermal behavior or structural margins.
 - **Demonstration** – show the function operating, without detailed measurement. Appropriate for operational and procedural requirements.
 - **Inspection** – visual or dimensional examination. Appropriate for mass, dimensions, workmanship, markings.
 - **Test** – operate the item and measure. The strongest evidence, and the most expensive.
@@ -289,11 +289,11 @@ The verification matrix – requirement, method, activity, evidence, status – 
 
 ### When is a requirement verified enough?
 
-The pragmatic answer: when the evidence would convince a competent sceptic who did not build it. A single successful run of a mechanism is not verification; a hundred runs across temperature and after vibration is. Analysis alone is weak where testing was feasible. And **verification evidence is only valid for the configuration it was taken in** – after a change, know what you invalidated.
+The pragmatic answer: when the evidence would convince a competent skeptic who did not build it. A single successful run of a mechanism is not verification; a hundred runs across temperature and after vibration is. Analysis alone is weak where testing was feasible. And **verification evidence is only valid for the configuration it was taken in** – after a change, know what you invalidated.
 
 ## Mission Phases and Operations
 
-Formal programmes use a phase structure, and while a CubeSat team need not adopt the full apparatus, the underlying sequence is useful because it tells you what should be settled by when. NASA runs Pre-Phase A through Phase F.[^nasa-se-handbook] ECSS divides the life cycle into seven phases – Phase 0 (mission analysis and needs identification), A (feasibility), B (preliminary definition), C (detailed definition), D (qualification and production), E (utilisation) and F (disposal) – which map onto the NASA sequence closely enough that mixed teams rarely have trouble.[^ecss-m-st-10]
+Formal programs use a phase structure, and while a CubeSat team need not adopt the full apparatus, the underlying sequence is useful because it tells you what should be settled by when. NASA runs Pre-Phase A through Phase F.[^nasa-se-handbook] ECSS divides the life cycle into seven phases – Phase 0 (mission analysis and needs identification), A (feasibility), B (preliminary definition), C (detailed definition), D (qualification and production), E (utilization) and F (disposal) – which map onto the NASA sequence closely enough that mixed teams rarely have trouble.[^ecss-m-st-10]
 
 | Phase | Purpose | CubeSat reality |
 |---|---|---|
@@ -305,19 +305,19 @@ Formal programmes use a phase structure, and while a CubeSat team need not adopt
 | Phase E | Mission operations | [LEOP](../references/glossary.md#leop), commissioning, nominal ops |
 | Phase F | Decommissioning and closeout | Passivation, disposal, data archiving, publication |
 
-Two observations specific to CubeSats. First, **the phases overlap heavily** – a small team cannot serialise design, build and test, and pretending otherwise produces a fictional schedule. Second, **Phase F is routinely forgotten**, and it is where the mission's lasting value is realised: archived data, published results, and lessons written down while the team still exists. See [Qualification and Launch – End of Life](launch.md#end-of-life).
+Two observations specific to CubeSats. First, **the phases overlap heavily** – a small team cannot serialize design, build and test, and pretending otherwise produces a fictional schedule. Second, **Phase F is routinely forgotten**, and it is where the mission's lasting value is realized: archived data, published results, and lessons written down while the team still exists. See [Qualification and Launch – End of Life](launch.md#end-of-life).
 
 **Reviews** punctuate the phases, and each asks a different question. Few CubeSat teams hold all of them formally; the point is to know which question is going unasked.
 
 - **[PDR](../references/glossary.md#pdr)**, ending Phase B – is the design likely to meet the requirements, and are the requirements themselves right? The last cheap moment to change the architecture.
-- **[CDR](../references/glossary.md#cdr)**, ending Phase C – is the detailed design complete and buildable, and is the verification programme defined?
+- **[CDR](../references/glossary.md#cdr)**, ending Phase C – is the detailed design complete and buildable, and is the verification program defined?
 - **Test readiness review**, before each major environmental campaign – is the article in the configuration you intend to test, is the procedure written and reviewed, and are the pass/fail criteria agreed before the data exists rather than negotiated afterwards?
 - **Pre-ship review**, before delivery – is the evidence package the launch provider expects actually complete? See [AIT – Sequencing](ait.md#sequencing) and [Qualification and Launch – Documentation checklist](launch.md#documentation-checklist).
 
 All of them are dramatically more valuable with **external reviewers**. Someone who did not build it will ask the question the team stopped asking a year ago.
 
 <!-- CSR-RESOURCES:START dev-systems-engineering-standards -->
-- **[NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)** `PDF` – Requirements, the four verification methods, validation, and the Pre-Phase A to Phase F life cycle. Written for far larger programmes, but the concepts scale down cleanly. Free PDF
+- **[NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)** `PDF` – Requirements, the four verification methods, validation, and the Pre-Phase A to Phase F life cycle. Written for far larger programs, but the concepts scale down cleanly. Free PDF
 - **[ECSS-M-ST-10C Rev.1 – Project planning and implementation](https://ecss.nl/standard/ecss-m-st-10c-rev-1-project-planning-and-implementation/)** `Link` – The European equivalent, and the source of the Phase 0 to Phase F structure. Free, registration required
 - **[ECSS-E-ST-10C Rev.1 – System engineering general requirements](https://ecss.nl/wp-content/uploads/2017/02/ECSS-E-ST-10C-Rev.1(15February2017).pdf)** `PDF` – The engineering-branch companion: requirements engineering, analysis, design, verification and system engineering integration and control. Free PDF
 - **[GSFC-STD-1000 Rev H](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf)** `PDF` – Goddard's design rules, including the technical resource margin table that sets separate mass, power, propellant and link margins per phase. Free PDF
@@ -343,7 +343,7 @@ Drawn from the statistics above and from the recurring themes across this site:
 - Ground segment finished after launch.
 - Interfaces verified on paper but never with both subsystems connected.
 
-### Organisational pitfalls
+### Organizational pitfalls
 
 These are as damaging as the technical ones and get discussed far less.
 
@@ -371,12 +371,12 @@ These are as damaging as the technical ones and get discussed far less.
 
 [^gsfc-1000]: NASA Goddard Space Flight Center, [*GSFC-STD-1000 Rev H – Rules for the Design, Development, Verification, and Operation of Flight Systems*](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf) (approved 15 March 2023). Free PDF, approved for public release. Rule 1.06 and Table 1.06-1 set required technical resource margins separately for each resource and phase: mass above 15% through the system requirements review, above 10% at PDR, above 5% at CDR and above 2% at the systems integration review, reaching zero from Phase D; power, with respect to end-of-life capacity, above 25%, 20%, 15%, 10% and 5% from Pre-Phase A through Phase D; propellant to 3σ; and RF link margin above 3 dB through Phase B, tightening to above 1 dB from Phase C. Mass margin is defined as (allowable − predicted) / basic × 100, following AIAA S-120A-2015.
 
-[^nasa-margins]: The 30/20/10 curve is a CubeSat convention rather than a published requirement. Its closest formal analogue is the NASA NTRS paper by David A. Di Pietro, ["Techniques for Conducting Effective Concept Design and Design-to-Cost Trade Studies"](https://ntrs.nasa.gov/api/citations/20150018331/downloads/20150018331.pdf) (2015), which describes project managers holding 25% margins for power and dry mass at the start of Phase B, with targets of ≥20% at end of Phase B and ≥15% at end of Phase C. Free PDF. NASA's binding requirements are lower than both and are set per resource rather than as a single curve: GSFC-STD-1000 Rev H requires mass margin above 10% at PDR and above 5% at CDR, and power margin above 15% at PDR and above 10% at CDR. CubeSat teams carry more early margin than any of these to compensate for short schedules, little flight heritage, and datasheet figures standing in for test data.
+[^nasa-margins]: The 30/20/10 curve is a CubeSat convention rather than a published requirement. Its closest formal analog is the NASA NTRS paper by David A. Di Pietro, ["Techniques for Conducting Effective Concept Design and Design-to-Cost Trade Studies"](https://ntrs.nasa.gov/api/citations/20150018331/downloads/20150018331.pdf) (2015), which describes project managers holding 25% margins for power and dry mass at the start of Phase B, with targets of ≥20% at end of Phase B and ≥15% at end of Phase C. Free PDF. NASA's binding requirements are lower than both and are set per resource rather than as a single curve: GSFC-STD-1000 Rev H requires mass margin above 10% at PDR and above 5% at CDR, and power margin above 15% at PDR and above 10% at CDR. CubeSat teams carry more early margin than any of these to compensate for short schedules, little flight heritage, and datasheet figures standing in for test data.
 
 [^villela]: Thyrso Villela et al., ["Towards the Thousandth CubeSat: A Statistical Overview"](https://onlinelibrary.wiley.com/doi/10.1155/2019/5063145), *International Journal of Aerospace Engineering*, 2019, Article ID 5063145, DOI 10.1155/2019/5063145. Open access. Estimates the CubeSat success rate at about 75% excluding launch failures, where a mission counts as a success if "it survived its early operational stages (deployed and commissioned)" – in the authors' phrasing, if "it did not die as an infant". Finds that around 20% of all failures occur during launch or the deployment phase, reports that overall success rates are increasing over time, and states that its data "suggest that CubeSat infant mortality is decreasing".
 
 [^nasa-soa-structures]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 6: Structures, Materials, and Mechanisms](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/). Open access. States that mechanisms "have contributed to over 10% of reported small satellite failures", with design simplicity, margin, supplier selection and testing given as the mitigations.
 
-[^nasa-se-handbook]: NASA, [*NASA Systems Engineering Handbook*, NASA/SP-2016-6105 Rev 2](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf). Free PDF. The standard reference on the discipline: defines verification as "proof of compliance with requirements – that the product can meet each 'shall' statement" and validation as showing "that the product accomplishes the intended purpose in the intended environment", lists analysis, demonstration, inspection and test as the verification methods, and sets out the Pre-Phase A to Phase F project life cycle. Comprehensive and aimed at much larger programmes than a CubeSat, but the concepts scale down cleanly.
+[^nasa-se-handbook]: NASA, [*NASA Systems Engineering Handbook*, NASA/SP-2016-6105 Rev 2](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf). Free PDF. The standard reference on the discipline: defines verification as "proof of compliance with requirements – that the product can meet each 'shall' statement" and validation as showing "that the product accomplishes the intended purpose in the intended environment", lists analysis, demonstration, inspection and test as the verification methods, and sets out the Pre-Phase A to Phase F project life cycle. Comprehensive and aimed at much larger programs than a CubeSat, but the concepts scale down cleanly.
 
-[^ecss-m-st-10]: ECSS, [*ECSS-M-ST-10C Rev.1 – Space project management: Project planning and implementation*](https://ecss.nl/standard/ecss-m-st-10c-rev-1-project-planning-and-implementation/) (6 March 2009). Free, registration required. Clause 4.4.1 divides the life cycle of space projects into seven phases: Phase 0 (mission analysis/needs identification), Phase A (feasibility), Phase B (preliminary definition), Phase C (detailed definition), Phase D (qualification and production), Phase E (utilisation) and Phase F (disposal).
+[^ecss-m-st-10]: ECSS, [*ECSS-M-ST-10C Rev.1 – Space project management: Project planning and implementation*](https://ecss.nl/standard/ecss-m-st-10c-rev-1-project-planning-and-implementation/) (6 March 2009). Free, registration required. Clause 4.4.1 divides the life cycle of space projects into seven phases: Phase 0 (mission analysis/needs identification), Phase A (feasibility), Phase B (preliminary definition), Phase C (detailed definition), Phase D (qualification and production), Phase E (utilization) and Phase F (disposal).

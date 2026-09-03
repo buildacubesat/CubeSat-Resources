@@ -1,6 +1,6 @@
 # Getting Started
 
-CubeSats are satellites in the nanosat class built around a published standard, the [CubeSat Design Specification](references/glossary.md#cds) (CDS). Standardised form factors share common deployer hardware, which lowers the cost of development and launch and makes access to space attainable for small teams, universities and individuals.
+CubeSats are satellites in the nanosat class built around a published standard, the [CubeSat Design Specification](references/glossary.md#cds) (CDS). Standardized form factors share common deployer hardware, which lowers the cost of development and launch and makes access to space attainable for small teams, universities and individuals.
 
 This page is for those new to CubeSats or small satellite development. It gives you a broad overview of what a CubeSat is, how a project runs, which constraints decide your design before you start drawing, and where to go next on this site.
 
@@ -57,7 +57,7 @@ Whichever you are, the discipline that holds a CubeSat project together is syste
 
 ### Project Phases
 
-Formal programmes use NASA's Pre-Phase A through Phase F or the ECSS equivalent. A CubeSat team does not need the full apparatus, but the sequence tells you what should be settled by when – see [Systems Engineering – Mission Phases and Operations](development/systems-engineering.md#mission-phases-and-operations). In practical terms:
+Formal programs use NASA's Pre-Phase A through Phase F or the ECSS equivalent. A CubeSat team does not need the full apparatus, but the sequence tells you what should be settled by when – see [Systems Engineering – Mission Phases and Operations](development/systems-engineering.md#mission-phases-and-operations). In practical terms:
 
 - Feasibility Study
 - Fundraising
@@ -80,7 +80,7 @@ Formal programmes use NASA's Pre-Phase A through Phase F or the ECSS equivalent.
 - [ ] Mission requirements baselined
 - [ ] Preliminary Design Review ([PDR](references/glossary.md#pdr)) completed
 - [ ] Critical Design Review ([CDR](references/glossary.md#cdr)) completed
-- [ ] Frequency coordination and licence applications submitted
+- [ ] Frequency coordination and license applications submitted
 - [ ] Export control implications identified
 - [ ] End-of-life and debris mitigation plan documented
 - [ ] Flight/qualification hardware procured
@@ -115,7 +115,7 @@ Four decisions are cheap to make at the start and expensive to revisit. Teams th
 
 **Export control.** If your team includes non-nationals, you ship hardware across a border, or you buy controlled components – [GNSS receivers that work at orbital velocity](references/glossary.md#cocom-limits) being the classic CubeSat example – export control applies to you. For an open-source project, what you may publish deserves early thought. See [Export control](development/launch.md#export-control).
 
-**Launch safety.** [Inhibits](references/glossary.md#inhibit), deployment switches, the [RBF pin](references/glossary.md#rbf-pin) and battery qualification are structural design drivers, not paperwork added at the end. Inhibit evidence is the most scrutinised item in a delivery package. See [Inhibits and HDRM](development/inhibits-hdrm.md).
+**Launch safety.** [Inhibits](references/glossary.md#inhibit), deployment switches, the [RBF pin](references/glossary.md#rbf-pin) and battery qualification are structural design drivers, not paperwork added at the end. Inhibit evidence is the most scrutinized item in a delivery package. See [Inhibits and HDRM](development/inhibits-hdrm.md).
 
 ## Sourcing and Building
 
@@ -131,26 +131,26 @@ Start looking for a ride early. It aligns you with your provider's requirements,
 - **Dedicated small launchers** – Rocket Lab's Electron, Firefly's Alpha, ISRO's SSLV. More expensive per kilogram, but you choose the orbit and the schedule.
 - **[Orbital transfer vehicles](references/glossary.md#otv)** – when the available rideshare orbit is wrong for your mission.
 - **ISS deployment** – via NASA's CSLI, JAXA's J-SSOD or commercial providers. Deployment is at 51.6° into a 400–420 km orbit, so lifetime is short and disposal compliance easy, but the safety requirements are the strictest of any route.
-- **Free and subsidised programmes** – [NASA CSLI](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative) for US educational and non-profit developers, [ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites) for teams in ESA member states, and [UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html) more widely. Competitive and slow, but free. Apply early.
+- **Free and subsidized programs** – [NASA CSLI](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative) for US educational and non-profit developers, [ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites) for teams in ESA member states, and [UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html) more widely. Competitive and slow, but free. Apply early.
 
 !!! warning "The cheap-launch era may be pausing"
-    Since 2020, SpaceX's Transporter and Bandwagon missions have set the price of access to orbit – around USD 350,000 for up to 50 kg, roughly USD 7,000/kg above that.[^rideshare-price] In July 2026 SpaceX was reported to have **stopped taking new commercial rideshare bookings beyond late 2028**, with Falcon 9 capacity redirected to next-generation Starlink and other internal payloads.[^rideshare-freeze] No replacement programme has been announced. Dedicated small launchers currently sell at roughly USD 15,000–25,000/kg, and the announced European and US alternatives are not yet flying at the cadence needed to absorb the demand.
+    Since 2020, SpaceX's Transporter and Bandwagon missions have set the price of access to orbit – around USD 350,000 for up to 50 kg, roughly USD 7,000/kg above that.[^rideshare-price] In July 2026 SpaceX was reported to have **stopped taking new commercial rideshare bookings beyond late 2028**, with Falcon 9 capacity redirected to next-generation Starlink and other internal payloads.[^rideshare-freeze] No replacement program has been announced. Dedicated small launchers currently sell at roughly USD 15,000–25,000/kg, and the announced European and US alternatives are not yet flying at the cadence needed to absorb the demand.
 
-    For a team starting now, a 1–2 year development means launching straight into that window. Practical response: talk to brokers earlier than you otherwise would, treat launch cost as a range rather than a number in your funding case, and take the free programmes and ISS routes more seriously than you might have in 2024.
+    For a team starting now, a 1–2 year development means launching straight into that window. Practical response: talk to brokers earlier than you otherwise would, treat launch cost as a range rather than a number in your funding case, and take the free programs and ISS routes more seriously than you might have in 2024.
 
-Two things worth internalising before you build a schedule: your deadline is hardware delivery, not launch day – typically one to six months earlier – and if the CubeSat is not ready, the manifest does not wait. Full detail on what you are actually buying, the working-backwards timeline, deployers, insurance and delivery is on [Qualification and Launch](development/launch.md).
+Two things worth internalizing before you build a schedule: your deadline is hardware delivery, not launch day – typically one to six months earlier – and if the CubeSat is not ready, the manifest does not wait. Full detail on what you are actually buying, the working-backwards timeline, deployers, insurance and delivery is on [Qualification and Launch](development/launch.md).
 
 ## Regulatory Approval
 
 What applies to you depends on where your team is based, where your launch provider is based, and what you intend to do in orbit. Four things need starting early, and none of them are under your control once started:
 
-- **Frequency authorisation.** [IARU](references/glossary.md#iaru) coordination plus a national licence for amateur bands, or a national filing coordinated with the [ITU](references/glossary.md#itu) for other bands. The international filing is submitted by your national administration, not by you and not by the IARU. Months, not weeks – and **without it your spacecraft will not be permitted to deploy**. This is the most common regulatory reason a finished CubeSat misses its launch.
-- **Space object registration** with your national authority, which forwards it to the UN. Administrative, but it has a deadline. Note that some countries, Switzerland among them, have no national space law yet, and teams there typically route authorisation through another state – find out which situation you are in early, because it can determine which providers you can fly with.
+- **Frequency authorization.** [IARU](references/glossary.md#iaru) coordination plus a national license for amateur bands, or a national filing coordinated with the [ITU](references/glossary.md#itu) for other bands. The international filing is submitted by your national administration, not by you and not by the IARU. Months, not weeks – and **without it your spacecraft will not be permitted to deploy**. This is the most common regulatory reason a finished CubeSat misses its launch.
+- **Space object registration** with your national authority, which forwards it to the UN. Administrative, but it has a deadline. Note that some countries, Switzerland among them, have no national space law yet, and teams there typically route authorization through another state – find out which situation you are in early, because it can determine which providers you can fly with.
 - **Export control**, as above.
-- **Remote sensing**, if you image the Earth – a separate licence from a national body such as NOAA in the US.
+- **Remote sensing**, if you image the Earth – a separate license from a national body such as NOAA in the US.
 
 !!! warning
-    Nothing on this site is legal advice. You will need to familiarise yourself with your own country's legislation, rules and best practices around launching and operating a satellite.
+    Nothing on this site is legal advice. You will need to familiarize yourself with your own country's legislation, rules and best practices around launching and operating a satellite.
 
 The full treatment is on [Qualification and Launch – Regulatory Requirements](development/launch.md#regulatory-requirements).
 
@@ -164,7 +164,7 @@ See [Ground Segment](development/ground-segment.md) and [Preparing for LEOP](dev
 
 ## Budget Expectations
 
-Rough orders of magnitude, excluding labour and assuming current launch pricing:
+Rough orders of magnitude, excluding labor and assuming current launch pricing:
 
 | Type | Typical range |
 | :---- | :---- |
@@ -178,7 +178,7 @@ Launch, environmental testing and licensing are the line items teams most often 
 
 - [Development](development/index.md) – the technical content of this site, subsystem by subsystem.
 - [References](references/index.md) – glossary, standards, books, papers, missions, courses.
-- [Communities](references/communities.md) – forums, organisations and programmes worth joining, including the [Libre Space Community](https://community.libre.space/) and the [Build a CubeSat Discord](https://bac.page/discord).
+- [Communities](references/communities.md) – forums, organizations and programs worth joining, including the [Libre Space Community](https://community.libre.space/) and the [Build a CubeSat Discord](https://bac.page/discord).
 
 The CubeSat and amateur satellite communities are unusually willing to help. A well-posed question with real data attached almost always gets a useful answer.
 

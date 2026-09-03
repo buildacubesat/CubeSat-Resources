@@ -23,13 +23,13 @@ The papers listed here are ones cited across this site's [development](../develo
 
 <!-- CSR-RESOURCES:START ref-papers-adcs -->
 - **[Design and Numerical Validation of an Algorithm for the Detumbling and Angular Rate Determination of a CubeSat Using Only Three-Axis Magnetometer Data](https://onlinelibrary.wiley.com/doi/10.1155/2018/9768475)** `Link` – Stefano Carletta, Paolo Teofilatto and M. Salim Farissi, *International Journal of Aerospace Engineering*, 2018. Open access. Magnetometer-only detumbling reducing rotational kinetic energy by two orders of magnitude in under one orbit for a 3U with a 0.3 A·m² dipole limit
-- **[Attitude Analysis of Small Satellites Using Model-Based Simulation](https://www.hindawi.com/journals/ijae/2019/3020581/)** `Link` – Samir A. Rawashdeh, *International Journal of Aerospace Engineering*, 2019. Open access. Describes the SNAP simulation tool and its modelling of gravity gradient, aerodynamic, magnetic and hysteresis damping torques on small satellites
+- **[Attitude Analysis of Small Satellites Using Model-Based Simulation](https://www.hindawi.com/journals/ijae/2019/3020581/)** `Link` – Samir A. Rawashdeh, *International Journal of Aerospace Engineering*, 2019. Open access. Describes the SNAP simulation tool and its modeling of gravity gradient, aerodynamic, magnetic and hysteresis damping torques on small satellites
 <!-- CSR-RESOURCES:END ref-papers-adcs -->
 
 ## Avionics and power
 
 <!-- CSR-RESOURCES:START ref-papers-avionics-and-power -->
-- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Maximillian Holliday et al., *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with measured total ionising dose test data. Free PDF
+- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Maximillian Holliday et al., *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with measured total ionizing dose test data. Free PDF
 - **[Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites](https://www.mdpi.com/2076-3417/15/16/9208)** `Link` – Yermek Amangeldi et al., *Applied Sciences* 15(16), 2025. Open access. On-orbit solar cell degradation rates by cell technology and altitude
 - **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://doi.org/10.1109/ACCESS.2025.3546066)** `Link` – Abdulazez Abagero et al., *IEEE Access* 13, 40076–40089, 2025. Open access (CC BY 4.0). A deep-learning approach to maximum power point tracking for CubeSat solar arrays
 <!-- CSR-RESOURCES:END ref-papers-avionics-and-power -->

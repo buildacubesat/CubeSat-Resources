@@ -8,17 +8,17 @@ The structure is unusual among CubeSat subsystems in that most of its requiremen
 
 Every CubeSat is defined by two things: how many [U](../references/glossary.md#u-cubesat-unit) it is, and whose deployer it flies in.
 
-The [CubeSat Design Specification](../references/glossary.md#cds) (CDS) Rev. 14.1 defines a 1U CubeSat as **100.0 × 100.0 × 113.5 mm**. The 13.5 mm of extra height in the Z axis is the part newcomers most often miss – a "10 cm cube" is a useful shorthand, not a dimension you can machine to. Larger form factors scale this base cell: a 3U is 100 × 100 × 340.5 mm, a 6U doubles the cross-section, and a 12U reaches roughly 226.3 × 226.3 × 366 mm.[^nasa-soa-structures] Several form factors also offer extra volume beyond the nominal envelope – the **[tuna can](../references/glossary.md#tuna-can)** space on 3U, 6U and 12U variants, commonly used for antennas, thrusters or radiators.[^nasa-soa-structures] Form factors up to 16U are routinely supported by commercial deployers, and the community's centre of gravity has drifted steadily upward – NASA's state-of-the-art survey notes the shift "from 1U to 3U, to include 6U and 12U" over the last decade.[^nasa-soa-structures]
+The [CubeSat Design Specification](../references/glossary.md#cds) (CDS) Rev. 14.1 defines a 1U CubeSat as **100.0 × 100.0 × 113.5 mm**. The 13.5 mm of extra height in the Z axis is the part newcomers most often miss – a "10 cm cube" is a useful shorthand, not a dimension you can machine to. Larger form factors scale this base cell: a 3U is 100 × 100 × 340.5 mm, a 6U doubles the cross-section, and a 12U reaches roughly 226.3 × 226.3 × 366 mm.[^nasa-soa-structures] Several form factors also offer extra volume beyond the nominal envelope – the **[tuna can](../references/glossary.md#tuna-can)** space on 3U, 6U and 12U variants, commonly used for antennas, thrusters or radiators.[^nasa-soa-structures] Form factors up to 16U are routinely supported by commercial deployers, and the community's center of gravity has drifted steadily upward – NASA's state-of-the-art survey notes the shift "from 1U to 3U, to include 6U and 12U" over the last decade.[^nasa-soa-structures]
 
 ### What the CDS actually requires
 
 The parts of the CDS that constrain your mechanical design most directly:[^cds-rev14]
 
 - **[Rails](../references/glossary.md#rail)**: the four Z-axis edges that slide against the deployer. They must have a minimum width of **8.5 mm** measured from the rail edge to the first protrusion on each face, should have a surface roughness below **1.6 µm**, and should have edges rounded to a radius of at least **1 mm** (§2.2.5–2.2.7).
-- **Rail end contact**: the rail ends on the ±Z faces need a minimum **6.5 × 6.5 mm** contact area, because in a stacked deployer they bear against the neighbouring CubeSat's rails (§2.2.8).
+- **Rail end contact**: the rail ends on the ±Z faces need a minimum **6.5 × 6.5 mm** contact area, because in a stacked deployer they bear against the neighboring CubeSat's rails (§2.2.8).
 - **Rail engagement**: at least **75% of the rail** should be in contact with the dispenser rails; 25% may be recessed (§2.2.9).
 - **Protrusions**: no component shall protrude farther than **6.5 mm** normal to the surface from the plane of the rail (§2.2.3). This is the budget your solar cells, connectors, antennas and [standoffs](../references/glossary.md#standoff) all share.
-- **Materials and finish**: aluminium 7075, 6061, 6082, 5005 and 5052 are the alloys typically used for both the main structure and the rails (§2.2.12.1), and any external aluminium surfaces in contact with the dispenser rails **shall be hard anodised** to prevent [cold welding](../references/glossary.md#cold-welding) within the dispenser (§2.2.13).
+- **Materials and finish**: aluminum 7075, 6061, 6082, 5005 and 5052 are the alloys typically used for both the main structure and the rails (§2.2.12.1), and any external aluminum surfaces in contact with the dispenser rails **shall be hard anodized** to prevent [cold welding](../references/glossary.md#cold-welding) within the dispenser (§2.2.13).
 - **Deployment timing**: deployables must wait a minimum of **30 minutes** after the deployment switches are activated, and no RF signal may be generated or transmitted earlier than **45 minutes** after on-orbit deployment (§2.4.4–2.4.5). See [Inhibits and HDRM](inhibits-hdrm.md#timers-and-delayed-activation).
 
 Mass is capped per form factor (§2.2.10, Table 1):
@@ -45,30 +45,30 @@ The CDS is the common language, but it is not the contract. Your **[payload user
 
 Exolaunch's EXOpod Nova manual makes this explicit: *"if there is any conflicting information between the CDS and the Nova User Manual, the Nova User Manual takes priority."*[^exopod] The differences are not cosmetic. Nova allows **2.5 kg for a 1U, 7.0 kg for a 3U and 14 kg for a 6U** – meaningfully more generous than the CDS – and permits lateral protrusions of **25 mm for 1U–4U** and **39.5 mm for 6U and larger**, versus the CDS's 6.5 mm.[^exopod] A design that assumes CDS protrusion limits will work anywhere; a design that assumes Nova's will not.
 
-Practical consequence: **pick your deployer family before you finalise the external geometry.** If you cannot, design to the CDS and treat every extra millimetre a specific provider offers as margin you have not spent.
+Practical consequence: **pick your deployer family before you finalize the external geometry.** If you cannot, design to the CDS and treat every extra millimeter a specific provider offers as margin you have not spent.
 
 ## Frames and Primary Structure
 
 ### Buy or build
 
-Most teams should buy. A commercial frame is a solved problem with [flight heritage](../references/glossary.md#flight-heritage), correct rail geometry and anodising already applied, and it removes an entire category of fit-check risk for a cost that is small next to a launch slot. EnduroSat, for instance, advertises "590+ CubeSat structures in orbit" across its product line.
+Most teams should buy. A commercial frame is a solved problem with [flight heritage](../references/glossary.md#flight-heritage), correct rail geometry and anodizing already applied, and it removes an entire category of fit-check risk for a cost that is small next to a launch slot. EnduroSat, for instance, advertises "590+ CubeSat structures in orbit" across its product line.
 
 Building in-house makes sense when the payload drives an unusual internal layout, when machining capacity is free (a university shop), or when the learning *is* the mission. It is a reasonable first project: a 1U frame is well within the reach of a competent 3-axis mill, and the tolerances that matter are few and clearly specified.
 
 <!-- CSR-RESOURCES:START dev-structure-frame-suppliers -->
 - **[ISISPACE CubeSat Structures](https://www.isispace.nl/product-category/cubesat-structures/)** `Link` – Modular CubeSat structures with multiple internal mounting configurations
 - **[EnduroSat CubeSat Structures](https://www.endurosat.com/products-category/structures/)** `Link` – CubeSat frames from 1U through 16U with extensive flight heritage
-- **[NanoAvionics CubeSat Structural Frame](https://nanoavionics.com/cubesat-components/cubesat-structural-frame/)** `Link` – 6U–16U frames in hard-anodised 7075-T7351 aluminium, tested to NASA GEVS
-- **[Pumpkin Space Systems](https://www.pumpkinspace.com/)** `Link` – Sheet-metal and skeletonised CubeSat structures; originators of the CubeSat Kit and the PC/104-derived stack convention
+- **[NanoAvionics CubeSat Structural Frame](https://nanoavionics.com/cubesat-components/cubesat-structural-frame/)** `Link` – 6U–16U frames in hard-anodized 7075-T7351 aluminum, tested to NASA GEVS
+- **[Pumpkin Space Systems](https://www.pumpkinspace.com/)** `Link` – Sheet-metal and skeletonized CubeSat structures; originators of the CubeSat Kit and the PC/104-derived stack convention
 <!-- CSR-RESOURCES:END dev-structure-frame-suppliers -->
 
 NASA's state-of-the-art survey lists 2NDSpace, AAC Clyde Space, C3S Electronics, EnduroSat, GomSpace, NanoAvionics, Pumpkin Space Systems and ISISPACE among its representative primary-structure suppliers, while noting that "the list of organizations/companies in this chapter is not all-encompassing and does not constitute an endorsement from NASA."[^nasa-soa-structures] [satsearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) and [CubeSatShop](https://www.cubesatshop.com/) are the practical places to compare what is currently available.
 
 ### Construction styles
 
-- **Monolithic / machined-from-solid frames**: a single milled aluminium body, sometimes with removable side panels. Stiff, dimensionally reliable, and easy to analyse, but expensive in machining time and awkward for late access to internal boards.
-- **Skeletonised rail-and-rib frames**: four corner rails tied together by ribs or end plates. The most common commercial pattern. Lighter, cheaper, and the side faces stay open for solar panels and access.
-- **Sheet-metal / folded frames**: cheap and light, but harder to hold tolerance on and generally less stiff. Pumpkin says it pioneered sheet-metal CubeSat structures back in 2000 and still offers both solid-wall and skeletonised versions, so the approach has heritage – but it rewards good tooling.
+- **Monolithic / machined-from-solid frames**: a single milled aluminum body, sometimes with removable side panels. Stiff, dimensionally reliable, and easy to analyze, but expensive in machining time and awkward for late access to internal boards.
+- **Skeletonized rail-and-rib frames**: four corner rails tied together by ribs or end plates. The most common commercial pattern. Lighter, cheaper, and the side faces stay open for solar panels and access.
+- **Sheet-metal / folded frames**: cheap and light, but harder to hold tolerance on and generally less stiff. Pumpkin says it pioneered sheet-metal CubeSat structures back in 2000 and still offers both solid-wall and skeletonized versions, so the approach has heritage – but it rewards good tooling.
 - **Secondary structures**: an internal sub-assembly (a board stack or payload cage) built and tested separately, then dropped into the load-carrying frame. This is what ISISPACE means by "multiple mounting configurations", and it is a good pattern for keeping integration reversible.
 
 For scale: commercial CubeSat primary structures average roughly **0.118 kg for a 1U and 1.84 kg for a 12U**.[^nasa-soa-structures] If your frame is far heavier than that, you are spending [mass budget](systems-engineering.md#budgets-and-margins) that the payload would rather have.
@@ -78,18 +78,18 @@ For scale: commercial CubeSat primary structures average roughly **0.118 kg for 
 <!-- CSR-RESOURCES:START dev-structure-open-source-designs -->
 - **[BIRDS-3 CAD](https://github.com/BIRDSOpenSource/BIRDS3-CAD)** `Link` – CAD documentation for the BIRDS-3 1U satellite and its integration stand
 - **[CAD_SUCHAI_II](https://github.com/spel-uchile/CAD_SUCHAI_II)** `Link` – Mechanical CAD for the SUCHAI-II 3U mission, including the structure assembly
-- **[Build a CubeSat – bac-structure](https://codeberg.org/buildacubesat-project/bac-structure)** `Link` – Open structural designs for 1U–4U in aluminium 6061, with fastener, adhesive and manufacturing notes (CC BY-SA 4.0)
+- **[Build a CubeSat – bac-structure](https://codeberg.org/buildacubesat-project/bac-structure)** `Link` – Open structural designs for 1U–4U in aluminum 6061, with fastener, adhesive and manufacturing notes (CC BY-SA 4.0)
 <!-- CSR-RESOURCES:END dev-structure-open-source-designs -->
 
 Reading a complete open design is the fastest way to understand what a structure package actually contains: not just a frame model, but fastener schedules, torque values, adhesive selections and assembly order. See also [CubeSat Missions](../references/missions.md) for the wider list of open-source projects.
 
 ## Materials and Manufacturing
 
-### Aluminium alloys
+### Aluminum alloys
 
-**6061-T6** is the default for CubeSat frames: readily machinable, weldable, corrosion-resistant, and cheap. **7075-T73** (and the T7351 temper used by NanoAvionics) is stronger and stiffer, and is the alloy most deployer rails are made from – matching alloys on both sides of the sliding interface keeps thermal expansion behaviour predictable. The CDS also names 6082, 5005 and 5052 as alloys typically used.[^cds-rev14]
+**6061-T6** is the default for CubeSat frames: readily machinable, weldable, corrosion-resistant, and cheap. **7075-T73** (and the T7351 temper used by NanoAvionics) is stronger and stiffer, and is the alloy most deployer rails are made from – matching alloys on both sides of the sliding interface keeps thermal expansion behavior predictable. The CDS also names 6082, 5005 and 5052 as alloys typically used.[^cds-rev14]
 
-**Hard anodising is not optional on the rails.** Bare aluminium sliding against bare aluminium in vacuum can cold weld – the surface oxide that normally keeps two metal surfaces apart is absent, and the surfaces bond. A hard anodic coating (typically Type III) is both electrically insulating and hard enough to survive the deployer slide. Note that this creates a design tension: the same coating that prevents cold welding also breaks the electrical bonding path, so grounding must be handled deliberately through defined contact points rather than assumed through the frame.
+**Hard anodizing is not optional on the rails.** Bare aluminum sliding against bare aluminum in vacuum can cold weld – the surface oxide that normally keeps two metal surfaces apart is absent, and the surfaces bond. A hard anodic coating (typically Type III) is both electrically insulating and hard enough to survive the deployer slide. Note that this creates a design tension: the same coating that prevents cold welding also breaks the electrical bonding path, so grounding must be handled deliberately through defined contact points rather than assumed through the frame.
 
 ### Non-metals and additive manufacturing
 
@@ -112,12 +112,12 @@ Electrostatic discharge is a second constraint on polymers, and the relevant qua
 
 Anything non-metallic – adhesives, conformal coatings, cable ties, printed parts, tapes, potting compounds – outgasses in vacuum. The escaping volatiles condense on the coldest, most valuable surfaces available: optics, radiators, solar cells.
 
-Materials are screened using **ASTM E595**, which measures **[total mass loss](../references/glossary.md#outgassing) (TML)**, **collected volatile condensable material (CVCM)** and **water vapour recovery (WVR)** after 24 hours at 125 °C in vacuum. NASA-STD-6016C sets the acceptance criteria, and the exact wording is worth having:[^nasa-std-6016]
+Materials are screened using **ASTM E595**, which measures **[total mass loss](../references/glossary.md#outgassing) (TML)**, **collected volatile condensable material (CVCM)** and **water vapor recovery (WVR)** after 24 hours at 125 °C in vacuum. NASA-STD-6016C sets the acceptance criteria, and the exact wording is worth having:[^nasa-std-6016]
 
 - **CVCM ≤ 0.1%**
 - **TML less WVR ≤ 1.0%** – note the subtraction. Many materials contain absorbed water, and losing it does not normally affect functionality, so the water is taken out of the mass-loss figure before the limit is applied. Screening against raw TML is stricter than the requirement and will reject materials that are actually compliant. Europe does the same bookkeeping under a different name: ECSS reports **recovered mass loss (RML)** as its own quantity, with the water already taken out, and sets the limit there – so an ESA-screened material quoting RML and a NASA-screened one quoting TML less WVR are being held to the same thing.
 
-Two qualifications matter more than the numbers. The requirement applies to non-metallic materials exposed to space vacuum, **excluding** ceramics, metal oxides, inorganic glasses and cetyl alcohol fastener lubricants outside closed compartments. And it is a floor, not a ceiling: for materials with line of sight to contamination-sensitive surfaces – "windows, lenses, star trackers, solar arrays, radiators, and other surfaces with highly controlled optical properties" – NASA notes that more stringent treatment may be needed, which can mean tightening CVCM to **≤ 0.01%**, or characterising deposition directly with ASTM E1559 and an integrated vehicle model rather than relying on a screening pass at all. If you carry optics or a precision radiator, assume you are in that second category. A spacecraft with cryogenic optics is stricter again: there the WVR is *not* subtracted, because deposited water is exactly the problem.
+Two qualifications matter more than the numbers. The requirement applies to non-metallic materials exposed to space vacuum, **excluding** ceramics, metal oxides, inorganic glasses and cetyl alcohol fastener lubricants outside closed compartments. And it is a floor, not a ceiling: for materials with line of sight to contamination-sensitive surfaces – "windows, lenses, star trackers, solar arrays, radiators, and other surfaces with highly controlled optical properties" – NASA notes that more stringent treatment may be needed, which can mean tightening CVCM to **≤ 0.01%**, or characterizing deposition directly with ASTM E1559 and an integrated vehicle model rather than relying on a screening pass at all. If you carry optics or a precision radiator, assume you are in that second category. A spacecraft with cryogenic optics is stricter again: there the WVR is *not* subtracted, because deposited water is exactly the problem.
 
 Failing the CVCM limit is also not automatically fatal, which is worth knowing before you rule a material out. The remedy is **vacuum bakeout** of the assembled hardware, and the requirement carries exemptions that cover a good deal of what actually goes into a small satellite:[^nasa-std-6016]
 
@@ -138,10 +138,10 @@ CubeSats are almost entirely bolted assemblies, and fasteners are a disproportio
 
 ### Selection
 
-- **Size**: M2.5 and M3 socket-head cap screws dominate. The Build a CubeSat structure package, for example, standardises on M3 socket-head screws to ISO 14579/14580 with ISO 4032 nuts and ISO 7092 washers.
-- **Material**: A2 (304) or A4 (316) stainless is the normal choice – strong, non-magnetic enough for most purposes, and dimensionally stable. Titanium saves mass where it matters and reduces thermal conduction; aluminium fasteners are rarely worth the strength penalty.
+- **Size**: M2.5 and M3 socket-head cap screws dominate. The Build a CubeSat structure package, for example, standardizes on M3 socket-head screws to ISO 14579/14580 with ISO 4032 nuts and ISO 7092 washers.
+- **Material**: A2 (304) or A4 (316) stainless is the normal choice – strong, non-magnetic enough for most purposes, and dimensionally stable. Titanium saves mass where it matters and reduces thermal conduction; aluminum fasteners are rarely worth the strength penalty.
 - **Magnetic cleanliness**: avoid ferritic (400-series) stainless anywhere near magnetometers. Even "non-magnetic" austenitic stainless can become slightly magnetic after cold working. See [GNC](gnc.md#magnetometers).
-- **Thread engagement**: aim for at least 1.5–2× the nominal diameter in aluminium. Where a joint will be opened and closed repeatedly during integration, use threaded inserts or helicoils rather than tapping the aluminium directly – the frame will outlast the threads otherwise.
+- **Thread engagement**: aim for at least 1.5–2× the nominal diameter in aluminum. Where a joint will be opened and closed repeatedly during integration, use threaded inserts or helicoils rather than tapping the aluminum directly – the frame will outlast the threads otherwise.
 
 ### Keeping them done up
 
@@ -163,13 +163,13 @@ Every enclosed volume must be able to vent during ascent, or the trapped air wil
 
 ### The PC/104-derived stack
 
-The CDS specifies the outside of a CubeSat and says nothing about the inside. In that vacuum, the community converged on a **[PC/104](../references/glossary.md#pc104)**-derived board stack, popularised by the Pumpkin CubeSat Kit: boards roughly **90 × 96 mm** carrying a 104-pin stacking header, mounted on standoffs so that each board's connector mates with the one below.
+The CDS specifies the outside of a CubeSat and says nothing about the inside. In that vacuum, the community converged on a **[PC/104](../references/glossary.md#pc104)**-derived board stack, popularized by the Pumpkin CubeSat Kit: boards roughly **90 × 96 mm** carrying a 104-pin stacking header, mounted on standoffs so that each board's connector mates with the one below.
 
 The advantages are why almost every COTS CubeSat board you can buy uses it. Boards from different vendors physically stack; the bus is available at every level; and adding a subsystem is mechanically trivial.
 
 The disadvantages are as concrete, and worth knowing before you commit:
 
-- **The pinout is not standardised.** The connector is common; what each pin carries is not. Two "PC/104 CubeSat" boards from different vendors will mate mechanically and may still be electrically incompatible. Always check pin assignments against each vendor's [ICD](../references/glossary.md#icd).
+- **The pinout is not standardized.** The connector is common; what each pin carries is not. Two "PC/104 CubeSat" boards from different vendors will mate mechanically and may still be electrically incompatible. Always check pin assignments against each vendor's [ICD](../references/glossary.md#icd).
 - **Access is serial.** Reaching the third board down means removing the two above it. Plan assembly order and debug access together.
 - **Stack height accumulates.** Standoff length, connector mated height and component height all add up; see [Tolerancing and Stack-Up](#tolerancing-and-stack-up).
 
@@ -190,16 +190,16 @@ Backplane and harness-based architectures are also used, particularly where a la
 
 ### Mounting practice
 
-- **Standoffs** carry both the mechanical load and, often, the electrical ground path. If the frame is anodised, the ground return has to be designed explicitly – through a dedicated bonding strap or a deliberately masked contact area.
+- **Standoffs** carry both the mechanical load and, often, the electrical ground path. If the frame is anodized, the ground return has to be designed explicitly – through a dedicated bonding strap or a deliberately masked contact area.
 - **Thermal coupling is a design choice made at the mounting interface.** A board bolted hard to the frame through metal standoffs is thermally coupled to it; the same board on nylon standoffs is not. Decide which you want per board rather than by default. See [Thermal](thermal.md).
 - **Alignment-critical items** – star trackers, cameras, antennas – should reference the frame directly through dowel pins or machined features, not through a stack of tolerances. See [GNC – ADCS Integration Considerations](gnc.md#adcs-integration-considerations).
 - **Plan for late access.** You will need to reach the [remove-before-flight pin](inhibits-hdrm.md#remove-before-flight-rbf-pins), the charge port and the debug connector after the satellite is fully assembled, and in some cases after it is inside the deployer. Locate them on an accessible face early; retrofitting an access port into a finished frame is miserable.
 
-## Mass Properties and Centre of Mass
+## Mass Properties and Center of Mass
 
 Mass is tracked by the [mass budget](systems-engineering.md#budgets-and-margins); *where* that mass sits is a structural requirement in its own right, and one that tends to be discovered late.
 
-The CDS constrains the centre of mass relative to the geometric centre (§2.2.11, Table 2):[^cds-rev14]
+The CDS constrains the center of mass relative to the geometric center (§2.2.11, Table 2):[^cds-rev14]
 
 | Configuration | X | Y | Z |
 | :---- | ----: | ----: | ----: |
@@ -210,12 +210,12 @@ The CDS constrains the centre of mass relative to the geometric centre (§2.2.11
 | 6U | ±4.5 cm | ±2 cm | ±7 cm |
 | 12U | ±4.5 cm | ±4.5 cm | ±7 cm |
 
-Deployers care because an off-centre mass causes the CubeSat to bind or tumble on ejection, and imparts unwanted tip-off rates. Your [ADCS](../references/glossary.md#adcs) cares because a large offset increases gravity-gradient and aerodynamic disturbance torques that the magnetorquers then have to fight for the whole mission.
+Deployers care because an off-center mass causes the CubeSat to bind or tumble on ejection, and imparts unwanted tip-off rates. Your [ADCS](../references/glossary.md#adcs) cares because a large offset increases gravity-gradient and aerodynamic disturbance torques that the magnetorquers then have to fight for the whole mission.
 
 Practical handling:
 
-- Track centre of mass in CAD from the first layout, not as a check before delivery. Batteries and payloads are dense and are exactly the things that move late in the design.
-- Measure it on the flight spacecraft. CAD densities are approximations, harnesses are never where the model says, and adhesives and conformal coating add unmodelled mass.
+- Track center of mass in CAD from the first layout, not as a check before delivery. Batteries and payloads are dense and are exactly the things that move late in the design.
+- Measure it on the flight spacecraft. CAD densities are approximations, harnesses are never where the model says, and adhesives and conformal coating add unmodeled mass.
 - Moments of inertia matter to [GNC](gnc.md) even where the deployer does not check them; export them from the same CAD model and keep them under version control alongside the mass budget.
 - Balance mass is legitimate but is a last resort – it is mass that does nothing. Prefer relocating something heavy.
 
@@ -227,7 +227,7 @@ Deployables are where structural design gets risky. NASA's survey is blunt about
 
 - **Antennas** – tape-spring UHF/VHF monopoles and dipoles are the most common deployable on any CubeSat, usually held by a burn wire and released after the mandated 30-minute delay. See [Comms](comms.md).
 - **Solar arrays** – deployed panels multiply available area severalfold and are often the difference between a closing and a non-closing [power budget](eps.md#power-requirements-and-budgets). They also add stowed volume, a release mechanism, hinge stiffness questions and a new failure mode.
-- **Booms** – for magnetometers (getting the sensor away from the spacecraft's own magnetic field), gravity-gradient stabilisation, or drag sails. NASA's Deployable Composite Boom work reports **25% less weight than metallic booms**, and states that the "DCB/ACS3 7-m boom technology is extensible to 16.5 m deployable boom lengths" following that mission's launch in April 2024.[^nasa-soa-structures]
+- **Booms** – for magnetometers (getting the sensor away from the spacecraft's own magnetic field), gravity-gradient stabilization, or drag sails. NASA's Deployable Composite Boom work reports **25% less weight than metallic booms**, and states that the "DCB/ACS3 7-m boom technology is extensible to 16.5 m deployable boom lengths" following that mission's launch in April 2024.[^nasa-soa-structures]
 - **Drag sails and deorbit devices** – increasingly common as end-of-life disposal requirements tighten. See [Qualification and Launch](launch.md#space-debris-mitigation).
 
 ### Release mechanisms
@@ -255,11 +255,11 @@ NASA's survey additionally lists Beyond Gravity, Comat, DHV Technology, Ensign-B
 ### Load cases
 
 - **[Quasi-static loads](../references/glossary.md#quasi-static-load)** – the steady acceleration envelope during ascent, taken from the launcher's user guide. Simple to apply and usually not the driving case for something as small and stiff as a CubeSat.
-- **[Random vibration](../references/glossary.md#random-vibration)** – the driving case for most CubeSat hardware. Applied as a power spectral density and characterised by an overall **[Grms](../references/glossary.md#grms)** value.
+- **[Random vibration](../references/glossary.md#random-vibration)** – the driving case for most CubeSat hardware. Applied as a power spectral density and characterized by an overall **[Grms](../references/glossary.md#grms)** value.
 - **Shock** – from stage separation and deployer actuation. Rarely sizing for the primary structure, but relevant for crystals, relays and optics.
 - **Acoustic** – generally not sizing at CubeSat scale, where surface area is small.
 
-NASA's **[GEVS](../references/glossary.md#gevs)** (GSFC-STD-7000A) provides the generalised levels most CubeSat teams work to in the absence of a specific launcher manifest. Its component-level table specifies a flat **0.16 g²/Hz from 50 to 800 Hz**, rolling off at ±6 dB/octave to 0.026 g²/Hz at 20 Hz and 2000 Hz, giving an overall **14.1 Grms** for qualification. The acceptance level is the same shape at half the spectral density – 3 dB down – for an overall **10.0 Grms**. Qualification is run for **2 minutes in each of three orthogonal axes**.[^gevs]
+NASA's **[GEVS](../references/glossary.md#gevs)** (GSFC-STD-7000A) provides the generalized levels most CubeSat teams work to in the absence of a specific launcher manifest. Its component-level table specifies a flat **0.16 g²/Hz from 50 to 800 Hz**, rolling off at ±6 dB/octave to 0.026 g²/Hz at 20 Hz and 2000 Hz, giving an overall **14.1 Grms** for qualification. The acceptance level is the same shape at half the spectral density – 3 dB down – for an overall **10.0 Grms**. Qualification is run for **2 minutes in each of three orthogonal axes**.[^gevs]
 
 Actual launchers are usually gentler than the GEVS envelope. EnduroSat publishes a Falcon 9-referenced [protoflight](../references/glossary.md#protoflight) level of **7.877 Grms for 1 minute per axis** alongside its 14.1 Grms GEVS batch-qualification campaign – a useful illustration that GEVS is a bounding envelope, not a prediction.[^endurosat-qual] Qualifying to GEVS means you are covered almost anywhere; qualifying to your actual launcher's levels means you are covered where you are actually going.
 
@@ -280,7 +280,7 @@ Actual launchers are usually gentler than the GEVS envelope. EnduroSat publishes
 - **[Elmer FEM](https://www.elmerfem.org/)** `Link` – Open-source multiphysics finite element software
 <!-- CSR-RESOURCES:END dev-structure-fem-tools -->
 
-Commercial options – Ansys Mechanical, MSC Nastran/Patran, Siemens Femap, Autodesk Fusion's simulation environment – are what most launch providers' reviewers are used to seeing, and many are available under free or heavily discounted academic licences. For a CubeSat the deciding factor is usually which tool someone on the team already knows well enough to be confident in the results, not which solver is technically superior. See [Tools – Software Tools](tools.md#software-tools).
+Commercial options – Ansys Mechanical, MSC Nastran/Patran, Siemens Femap, Autodesk Fusion's simulation environment – are what most launch providers' reviewers are used to seeing, and many are available under free or heavily discounted academic licenses. For a CubeSat the deciding factor is usually which tool someone on the team already knows well enough to be confident in the results, not which solver is technically superior. See [Tools – Software Tools](tools.md#software-tools).
 
 ## Tolerancing and Stack-Up
 
@@ -289,18 +289,18 @@ The CDS gives tight tolerances on the features that touch the deployer: rail dim
 Where teams get caught:
 
 - **Accumulated stack height.** Six boards, seven sets of standoffs, connector mated heights and a lid: each with its own tolerance. Tolerances add across the stack, and an assembly that is nominally fine can be 1.5 mm too tall at the extremes. Do the stack-up arithmetic explicitly, worst-case first, and only then decide whether a statistical (RSS) treatment is defensible.
-- **Anodising thickness.** Hard anodising grows the surface – roughly half the coating thickness is above the original surface. On a rail machined to nominal, that can push you out of tolerance. Machine undersize by the expected growth and confirm with your finisher.
+- **Anodizing thickness.** Hard anodizing grows the surface – roughly half the coating thickness is above the original surface. On a rail machined to nominal, that can push you out of tolerance. Machine undersize by the expected growth and confirm with your finisher.
 - **Fasteners as a datum.** Clearance holes give the assembly somewhere between 0.2 and 0.5 mm of freedom in every joint. If a payload needs to be aligned better than that, it needs dowel pins or a machined register, not screws.
 - **Deployables in the stowed state.** The envelope check that matters is the stowed one, with the deployable compressed against its restraint and the [harness](../references/glossary.md#harness) routed as flown.
 
-Verification is mostly unglamorous measurement: calipers and a surface plate for a 1U, a CMM if you have access, and a **fit check in a test pod** as the definitive answer. Deployer providers supply test pods for exactly this – Exolaunch's TestPod, ISISPACE's equivalents, and the original Cal Poly [P-POD](../references/glossary.md#p-pod) lineage – and a fit check early in the programme is worth far more than a re-measured drawing.
+Verification is mostly unglamorous measurement: calipers and a surface plate for a 1U, a CMM if you have access, and a **fit check in a test pod** as the definitive answer. Deployer providers supply test pods for exactly this – Exolaunch's TestPod, ISISPACE's equivalents, and the original Cal Poly [P-POD](../references/glossary.md#p-pod) lineage – and a fit check early in the program is worth far more than a re-measured drawing.
 
 ## Cleanliness, Handling and Contamination
 
 Structures work is dirty work, and the spacecraft it produces has to be clean.
 
 - **Particulate contamination** from machining, drilling and deburring finds its way into connectors, mechanisms and optics. Deburr and clean parts before they enter the integration area, never after.
-- **Molecular contamination** – skin oils, fingerprints, mould release, cutting fluid – degrades thermal coatings and optical surfaces and is much harder to remove than dust. Nitrile gloves for everything that will fly, without exceptions that erode over the course of a build.
+- **Molecular contamination** – skin oils, fingerprints, mold release, cutting fluid – degrades thermal coatings and optical surfaces and is much harder to remove than dust. Nitrile gloves for everything that will fly, without exceptions that erode over the course of a build.
 - **Cleanliness levels** should be set by the most sensitive item aboard. An optical payload or a precision radiator may justify a controlled environment; a technology demonstration with no optics probably does not. Decide deliberately rather than by default.
 - **Handling fixtures** protect the rails, which are both the most tolerance-critical and the most easily damaged surfaces on the spacecraft. A scratched or dinged rail is a fit-check problem.
 - **Foreign object debris.** Every loose washer, offcut of wire and dropped screw is a potential short in orbit. Count fasteners in and out, and inspect before closing any volume you cannot reopen.
@@ -315,13 +315,13 @@ Launch is short, violent, and the only time the structure is loaded in earnest. 
 
 ### Thermal
 
-- **Differential expansion.** Aluminium expands roughly twice as much as steel and several times as much as FR4 across the same temperature swing. A long bolted joint between dissimilar materials will move, and either the fastener preload changes or something warps. Slotted holes, flexures and compliant washers are the usual answers.
+- **Differential expansion.** Aluminum expands roughly twice as much as steel and several times as much as FR4 across the same temperature swing. A long bolted joint between dissimilar materials will move, and either the fastener preload changes or something warps. Slotted holes, flexures and compliant washers are the usual answers.
 - **Thermal cycling as a fatigue driver.** In [LEO](../references/glossary.md#leo), a spacecraft sees an eclipse cycle every orbit – for a typical 95-minute orbit, roughly **5,500 cycles per year**. Joints, solder and bonded interfaces experience this as low-amplitude fatigue loading. Qualification campaigns compress this into a handful of cycles: EnduroSat's, for example, runs 8 cycles from −35 to +75 °C with 2-hour dwells at the extremes and ramp rates below 2 K/min.[^endurosat-qual]
 - **The structure is a thermal element.** Conduction paths through the frame are frequently the dominant heat transfer mechanism inside a CubeSat. Structural and thermal design cannot be sequenced; they have to converge together. See [Thermal](thermal.md).
 
 ### Space environment
 
-- **Atomic oxygen** erodes polymers and some coatings on ram-facing surfaces below roughly 600 km. Metals and most anodised surfaces are largely unaffected.
+- **Atomic oxygen** erodes polymers and some coatings on ram-facing surfaces below roughly 600 km. Metals and most anodized surfaces are largely unaffected.
 - **Radiation** matters far more to electronics than to structure, but it does embrittle some polymers and darken optical coatings over time.
 - **Vacuum** drives the outgassing and cold-welding concerns already covered, and removes convection entirely from your thermal design.
 
@@ -331,15 +331,15 @@ Launch is short, violent, and the only time the structure is loaded in earnest. 
 
 [^nasa-soa-structures]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 6: Structures, Materials, and Mechanisms](https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/) (revision dated 4 August 2026). Open access, updated annually, and the single best general-purpose survey of CubeSat structural technology. Source for form factor dimensions and average structural masses (Table 6-1: 0.118 kg for a 1U, 1.84 kg for a 12U), the additive manufacturing filament tables (6-7 PLA, 6-8 ABS, 6-12 PEI, and the Windform SLS table), the 10¹² Ω·cm electrostatic discharge threshold, the deployable composite boom figures, the mechanism failure statistic, and a representative and explicitly non-endorsing list of commercial suppliers.
 
-[^cds-rev14]: Cal Poly CubeSat Program, [*CubeSat Design Specification Rev. 14.1*](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf) (9 February 2022). Free PDF. Source for the rail geometry requirements (§2.2.5–2.2.9), the 6.5 mm protrusion limit (§2.2.3), the alloys typically used (§2.2.12.1), the hard anodising requirement (§2.2.13), the mass limits in Table 1 (§2.2.10), the centre of mass limits in Table 2 (§2.2.11), and the deployment and RF quiet periods (§2.4.4–2.4.5).
+[^cds-rev14]: Cal Poly CubeSat Program, [*CubeSat Design Specification Rev. 14.1*](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf) (9 February 2022). Free PDF. Source for the rail geometry requirements (§2.2.5–2.2.9), the 6.5 mm protrusion limit (§2.2.3), the alloys typically used (§2.2.12.1), the hard anodizing requirement (§2.2.13), the mass limits in Table 1 (§2.2.10), the center of mass limits in Table 2 (§2.2.11), and the deployment and RF quiet periods (§2.4.4–2.4.5).
 
-[^exopod]: Exolaunch, [*EXOpod Nova User Manual*, Rev. 1.2](https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf) (June 2024). Free PDF. Openly published deployer manual covering 1U–16U, with mass and centre-of-mass allowances, rail dimensions and protrusion limits. Section 1.2 states that where the manual conflicts with the CDS, the manual takes priority. A good example of the class of document that actually governs a CubeSat's mechanical design.
+[^exopod]: Exolaunch, [*EXOpod Nova User Manual*, Rev. 1.2](https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf) (June 2024). Free PDF. Openly published deployer manual covering 1U–16U, with mass and center-of-mass allowances, rail dimensions and protrusion limits. Section 1.2 states that where the manual conflicts with the CDS, the manual takes priority. A good example of the class of document that actually governs a CubeSat's mechanical design.
 
 [^iso17981]: International Organization for Standardization, [*ISO 17981:2024 – Space systems – Cube satellite (CubeSat) interface*](https://www.iso.org/standard/85136.html), Edition 1, published 1 October 2024 by ISO/TC 20/SC 14. Covers interfaces between CubeSat components, the interface between the CubeSat platform and its mission payload, umbilical connectors serving as access ports, and datasheet requirements for CubeSat components and platforms offered as commercial products. It explicitly does not address the interface between CubeSats and deployers, and applies to CubeSats of all sizes. Paywalled; this description is taken from the published scope.
 
 [^gevs]: NASA Goddard Space Flight Center, *General Environmental Verification Standard (GEVS)*, [GSFC-STD-7000A](https://standards.nasa.gov/standard/gsfc/gsfc-std-7000). Free. Table 2.4-3, "Generalized Random Vibration Test Levels, Components", specifies 0.026 g²/Hz at 20 Hz rising at 6 dB/octave to 0.16 g²/Hz from 50 to 800 Hz, then falling at 6 dB/octave to 0.026 g²/Hz at 2000 Hz, for an overall 14.1 Grms at qualification; the acceptance spectrum is half the spectral density throughout for an overall 10.0 Grms. Table 2.2-3, "Flight Hardware Design/Analysis Factors of Safety Applied to Limit Loads", gives metallic yield and ultimate factors of 1.25 and 1.4 for static and sine loads and 1.6 and 1.8 for random and acoustic loads, with composite and bonded-joint ultimate factors of 1.5 and 1.9 respectively. Revision A is the revision CubeSat practice and vendor qualification campaigns generally reference.
 
-[^nasa-std-6016]: NASA, *Standard Materials and Processes Requirements for Spacecraft*, [NASA-STD-6016C w/Change 1](https://standards.nasa.gov/standard/nasa/nasa-std-6016), §4.2.3.6 "Thermal Vacuum Stability", requirement [MPR 95]. Free. Requires non-metallic materials exposed to space vacuum – excluding ceramics, metal oxides, inorganic glasses and cetyl alcohol lubricants used on fasteners outside closed compartments – to be tested per ASTM E595-15, with acceptance at "≤0.1 percent collected volatile condensable materials (CVCM)" and "≤1.0 percent total mass loss (TML) less water vapor recovery (WVR)", the latter permitting a higher mass loss where it demonstrably affects nothing. Also sets out the stricter treatment for materials with line of sight to contamination-sensitive surfaces, including a ≤0.01 percent CVCM option and ASTM E1559 deposition characterisation, and notes that WVR is not subtracted where cryogenic optics are involved. Requirement [MPR 96] in the same section covers the remedy: hardware containing materials that fail the CVCM requirement, or containing unidentified materials, is vacuum baked, subject to exemptions for exposed areas below 1.6 cm², for materials away from critical surfaces with CVCM between 0.1 and 1.0 percent and exposed area below 13 cm², for unexposed, overcoated or encapsulated materials, and for sealed containers leaking less than 1 × 10⁻⁴ cm³/s. It recommends ASTM E2900 as the bakeout guide and cautions that baking at the ASTM E595-15 screening temperature of 125 °C may damage spaceflight hardware. Note that NASA-STD-6001 defines the test methods; 6016 is where the acceptance criteria live.
+[^nasa-std-6016]: NASA, *Standard Materials and Processes Requirements for Spacecraft*, [NASA-STD-6016C w/Change 1](https://standards.nasa.gov/standard/nasa/nasa-std-6016), §4.2.3.6 "Thermal Vacuum Stability", requirement [MPR 95]. Free. Requires non-metallic materials exposed to space vacuum – excluding ceramics, metal oxides, inorganic glasses and cetyl alcohol lubricants used on fasteners outside closed compartments – to be tested per ASTM E595-15, with acceptance at "≤0.1 percent collected volatile condensable materials (CVCM)" and "≤1.0 percent total mass loss (TML) less water vapor recovery (WVR)", the latter permitting a higher mass loss where it demonstrably affects nothing. Also sets out the stricter treatment for materials with line of sight to contamination-sensitive surfaces, including a ≤0.01 percent CVCM option and ASTM E1559 deposition characterization, and notes that WVR is not subtracted where cryogenic optics are involved. Requirement [MPR 96] in the same section covers the remedy: hardware containing materials that fail the CVCM requirement, or containing unidentified materials, is vacuum baked, subject to exemptions for exposed areas below 1.6 cm², for materials away from critical surfaces with CVCM between 0.1 and 1.0 percent and exposed area below 13 cm², for unexposed, overcoated or encapsulated materials, and for sealed containers leaking less than 1 × 10⁻⁴ cm³/s. It recommends ASTM E2900 as the bakeout guide and cautions that baking at the ASTM E595-15 screening temperature of 125 °C may damage spaceflight hardware. Note that NASA-STD-6001 defines the test methods; 6016 is where the acceptance criteria live.
 
 [^prusament]: Prusa Research, [*Prusament PC Space Grade*](https://prusament.com/materials/prusament-pc-space-grade/) material page and [launch article](https://blog.prusa3d.com/prusament-pc-space-grade-black_121877/). Carbon-filled polycarbonate developed with TRL Space. Heat deflection temperature 137.6 °C at 0.45 MPa, tensile strength 75 MPa, tensile modulus 3.7 GPa. Outgassing tested by Aerospace & Advanced Composites GmbH against the ESA criteria: TML 0.25%, CVCM 0.00%, RML 0.12%. Volume resistivity 2.2 × 10⁴ Ω·m (2.2 × 10⁶ Ω·cm) and surface resistivity 6 × 10⁷ Ω/sq, measured on printed samples without post-processing. Vendor-published, but the outgassing figures come from a third-party laboratory against a named standard, which is more than most filament datasheets offer.
 

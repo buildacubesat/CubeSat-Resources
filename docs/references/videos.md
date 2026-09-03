@@ -6,7 +6,7 @@ Recorded lecture series, channels worth subscribing to, and single videos that e
 
 <!-- CSR-RESOURCES:START ref-videos-lecture-series -->
 - **[KiboCUBE Academy](https://www.unoosa.org/oosa/en/ourwork/access2space4all/KiboCUBE_Academy_Webinars.html)** `Link` – UNOOSA/JAXA lecture series with recorded video and slides covering CubeSat mission design, subsystems, testing and operations. The most complete free CubeSat video course available
-- **[Open Source CubeSat Workshop talks](https://community.libre.space/c/oscw/28)** `Link` – Recorded talks from the annual open-source CubeSat workshop organised by the Libre Space Foundation
+- **[Open Source CubeSat Workshop talks](https://community.libre.space/c/oscw/28)** `Link` – Recorded talks from the annual open-source CubeSat workshop organized by the Libre Space Foundation
 <!-- CSR-RESOURCES:END ref-videos-lecture-series -->
 
 ## YouTube Channels

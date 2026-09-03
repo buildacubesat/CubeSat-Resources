@@ -1,6 +1,6 @@
 # Onboard Computing (OBC)
 
-This page covers the onboard computer: microcontrollers, single-board computers and FPGAs and the radiation environment that shapes the choice between them, memory, watchdogs and redundancy, boot and reset behaviour, the buses that link subsystems, and timekeeping. The software the hardware carries is on [Flight Software](flight-software.md).
+This page covers the onboard computer: microcontrollers, single-board computers and FPGAs and the radiation environment that shapes the choice between them, memory, watchdogs and redundancy, boot and reset behavior, the buses that link subsystems, and timekeeping. The software the hardware carries is on [Flight Software](flight-software.md).
 
 The governing constraint is that you cannot press the reset button. Every design decision on this page is really an answer to one question: when something goes wrong 500 km up, what brings the spacecraft back?
 
@@ -8,9 +8,9 @@ The governing constraint is that you cannot press the reset button. Every design
 
 The OBC is the spacecraft's decision-maker. It runs the [flight software](flight-software.md), holds the mission state, executes stored and uplinked commands, gathers telemetry, and arbitrates between subsystems that all want power, bus bandwidth and attention at the same time.
 
-### Centralised vs. distributed
+### Centralized vs. distributed
 
-- **Centralised.** One processor runs everything: attitude control loops, payload management, comms protocol, housekeeping. Simplest to reason about, cheapest, and the norm on 1U–3U missions. The obvious weakness is that it is a single point of failure, and a busy control loop competing with payload processing creates real-time headaches.
+- **Centralized.** One processor runs everything: attitude control loops, payload management, comms protocol, housekeeping. Simplest to reason about, cheapest, and the norm on 1U–3U missions. The obvious weakness is that it is a single point of failure, and a busy control loop competing with payload processing creates real-time headaches.
 - **Distributed.** Each subsystem carries its own microcontroller and the OBC coordinates. This is what you get by default when you buy COTS boards, since a commercial [EPS](eps.md), radio and [ADCS](../references/glossary.md#adcs) each arrive with firmware already running. Faults are contained naturally, but you now own an inter-processor communication problem, several firmware update paths, and a much harder integration debug.
 - **Hybrid** is what most missions actually fly: smart subsystems handling their own real-time work, with a central OBC doing mission management. The design question is not which pattern is better but **where the boundary sits** – which decisions belong to the subsystem and which to the OBC.
 
@@ -27,7 +27,7 @@ Some useful principles:
 
 Before comparing processors, it is worth being precise about what space actually does to electronics, because the mitigations dominate OBC architecture.
 
-- **[Total ionising dose](../references/glossary.md#tid) (TID)** is cumulative damage causing gradual parameter drift and eventual failure. NASA defines it as "the ionizing radiation absorbed by the device material over time, causing parametric or functional degradation of the device".[^nasa-soa-avionics] A typical [LEO](../references/glossary.md#leo) CubeSat mission behind normal aluminium shielding accumulates on the order of a few krad(Si) – modest, which is precisely why [COTS](../references/glossary.md#cots) parts are viable. The PyCubed team, for example, established a **10 krad(Si)** threshold for KickSat-2 at 300 km and tested their parts past 35 krad.[^pycubed]
+- **[Total ionizing dose](../references/glossary.md#tid) (TID)** is cumulative damage causing gradual parameter drift and eventual failure. NASA defines it as "the ionizing radiation absorbed by the device material over time, causing parametric or functional degradation of the device".[^nasa-soa-avionics] A typical [LEO](../references/glossary.md#leo) CubeSat mission behind normal aluminum shielding accumulates on the order of a few krad(Si) – modest, which is precisely why [COTS](../references/glossary.md#cots) parts are viable. The PyCubed team, for example, established a **10 krad(Si)** threshold for KickSat-2 at 300 km and tested their parts past 35 krad.[^pycubed]
 - **[Single-event upsets](../references/glossary.md#seu) (SEU)** are bit flips in memory or registers from a single particle strike – "nondestructive SEEs that can affect the logic state of a memory cell".[^nasa-soa-avionics] Not damaging, but silently corrupting.
 - **[Single-event latch-up](../references/glossary.md#sel) (SEL)** creates a destructive low-impedance path – parasitic structures in CMOS logic that produce a high-current state.[^nasa-soa-avionics] Mitigated by current-limited, power-cyclable supply rails – see [EPS – Power Switching and Protection](eps.md#power-switching-and-protection).
 - **[Single-event functional interrupt](../references/glossary.md#sefi) (SEFI)** puts a device into a non-functional state that only a reset clears. This is what watchdogs exist for.
@@ -42,7 +42,7 @@ For most CubeSats, a microcontroller is the right answer. Low power, determinist
 
 - **ARM Cortex-M** dominates. STM32 parts are ubiquitous; the Microchip ATSAMD51 (Cortex-M4) is the PyCubed processor; Cortex-M7 parts appear where more headroom is needed. Huge ecosystems, good toolchains, plenty of community knowledge.
 - **TI MSP430** has strong heritage in early CubeSats, chosen for very low power. Still seen, though increasingly displaced.
-- **Radiation-hardened MCUs** exist – Vorago's Arm-based rad-hard families, Microchip's SAMRH71, Frontgrade/Cobham's LEON-based devices – and buy you predictable behaviour rather than statistical hope. NASA puts the trade plainly: "COTS components typically offer superior performance, energy efficiency, and affordability compared to their rad-hard alternatives; however COTS devices tend to be highly susceptible to radiation."[^nasa-soa-avionics] The cost of going rad-hard is money, lead time, lower performance for the same generation, and smaller ecosystems.
+- **Radiation-hardened MCUs** exist – Vorago's Arm-based rad-hard families, Microchip's SAMRH71, Frontgrade/Cobham's LEON-based devices – and buy you predictable behavior rather than statistical hope. NASA puts the trade plainly: "COTS components typically offer superior performance, energy efficiency, and affordability compared to their rad-hard alternatives; however COTS devices tend to be highly susceptible to radiation."[^nasa-soa-avionics] The cost of going rad-hard is money, lead time, lower performance for the same generation, and smaller ecosystems.
 
 For scale, NASA's state-of-the-art table (Table 8-4) lists complete avionics products rated at 20 krad, 30 krad and, for the Aitech SP0-S, 100 krad TID – board-level figures rather than the device ratings of the MCUs named above.[^nasa-soa-avionics]
 
@@ -50,7 +50,7 @@ For scale, NASA's state-of-the-art table (Table 8-4) lists complete avionics pro
 
 ### COTS with screening: the CubeSat default
 
-Very few CubeSats fly rad-hard silicon. The prevailing architecture is not simply "COTS instead" but COTS at the core with hardened support around it – NASA describes the default as "COTS components first (e.g., processor and memory), combined with rad-hardened supporting electronics such as ECC, watchdog timers, scrubbing, and redundancy to maximize the benefits of both technologies".[^nasa-soa-avionics] That framing is worth internalising, because it tells you where to spend: not on the processor, but on what watches it.
+Very few CubeSats fly rad-hard silicon. The prevailing architecture is not simply "COTS instead" but COTS at the core with hardened support around it – NASA describes the default as "COTS components first (e.g., processor and memory), combined with rad-hardened supporting electronics such as ECC, watchdog timers, scrubbing, and redundancy to maximize the benefits of both technologies".[^nasa-soa-avionics] That framing is worth internalizing, because it tells you where to spend: not on the processor, but on what watches it.
 
 Alongside that:
 
@@ -109,7 +109,7 @@ Choosing memory technology is a design decision in its own right and one that Cu
 
 The design rule that follows: **match the technology to the write pattern, not to the capacity you happen to need.** A boot counter incremented on every reset, in a spacecraft deliberately designed to reset often, is a wear problem if you put it in flash and a non-problem if you put it in FRAM. Separate the two storage classes physically – small, high-endurance, checksummed memory for state that must survive, and bulk flash for data whose loss costs you science but never the spacecraft.
 
-Whatever the technology, the radiation and power-loss rules still apply: use error detection and correction where the part supports it, keep redundant copies of critical records, and treat every write as potentially interrupted. See [Brownout and reset behaviour](#brownout-and-reset-behaviour) and [Flight Software – Storage and filesystems](flight-software.md#storage-and-filesystems).
+Whatever the technology, the radiation and power-loss rules still apply: use error detection and correction where the part supports it, keep redundant copies of critical records, and treat every write as potentially interrupted. See [Brownout and reset behavior](#brownout-and-reset-behavior) and [Flight Software – Storage and filesystems](flight-software.md#storage-and-filesystems).
 
 ## Redundancy and Fault Tolerance
 
@@ -139,7 +139,7 @@ Design rules that repay themselves: **pet the watchdog from a task that proves t
 
 The order matters. Rails coming up out of sequence can forward-bias protection diodes and latch devices into undefined states. Establish an explicit sequence, implement it in the EPS hardware rather than software, and verify it on the bench with a scope.
 
-The most important case is the **first boot in orbit**: cold, tumbling, and on a battery that has been discharging in a deployer for weeks. See [EPS – Startup and brownout behaviour](eps.md#startup-and-brownout-behaviour), [Inhibits and HDRM](inhibits-hdrm.md) and [Flight Software – The first boot in orbit](flight-software.md#the-first-boot-in-orbit).
+The most important case is the **first boot in orbit**: cold, tumbling, and on a battery that has been discharging in a deployer for weeks. See [EPS – Startup and brownout behavior](eps.md#startup-and-brownout-behavior), [Inhibits and HDRM](inhibits-hdrm.md) and [Flight Software – The first boot in orbit](flight-software.md#the-first-boot-in-orbit).
 
 ### Bootloaders and safe boot
 
@@ -149,7 +149,7 @@ The software side – an immutable **golden image**, boot counting with automati
 - **Give the boot counter a home built for constant rewriting.** A counter incremented on every reset belongs in FRAM or MRAM, not in the same flash as the application – see [Memory](#memory).
 - **Keep a path to the debug port.** A bricked flight computer is recoverable on the bench only if JTAG/SWD is still reachable after the spacecraft is closed up – see [OBC Integration and Testing](#obc-integration-and-testing).
 
-### Brownout and reset behaviour
+### Brownout and reset behavior
 
 Brownouts – where supply voltage sags below the operating threshold but not to zero – are more dangerous than clean power cycles, because a processor can execute unpredictably on the way down and corrupt non-volatile memory as it goes.
 
@@ -169,7 +169,7 @@ The mechanism: I²C is a shared, open-drain bus with no arbitration recovery bui
 
 - **I²C** – simple, few pins, universally supported. Use it, but harden it: bus recovery routines that clock out stuck devices, timeouts on every transaction, bus multiplexers to segment critical devices, watchdog-triggered power cycling of a hung peripheral, and pull-up sizing that has actually been checked.
 - **SPI** – point-to-point with separate chip selects, so a failed device cannot hang the bus. More pins, no addressing, but markedly more robust. Preferred for critical links where pin count allows.
-- **UART/RS-232/RS-422/RS-485** – simple, well isolated, good for subsystem-to-subsystem links. RS-422/485 differential signalling is far more noise-immune than single-ended.
+- **UART/RS-232/RS-422/RS-485** – simple, well isolated, good for subsystem-to-subsystem links. RS-422/485 differential signaling is far more noise-immune than single-ended.
 - **CAN** – designed for automotive fault tolerance: differential, multi-master, with built-in error detection and automatic fault confinement that removes a misbehaving node from the bus. This is exactly the property I²C lacks, and it is why CAN adoption has grown. See [Flight Software – Inter-Subsystem Communication Protocols](flight-software.md#inter-subsystem-communication-protocols) for the middleware that runs over it.
 - **SpaceWire** – high-speed point-to-point standard used on larger spacecraft. Overkill for most CubeSats, but relevant for high-rate payload data.
 
@@ -185,7 +185,7 @@ The mechanism: I²C is a shared, open-drain bus with no arbitration recovery bui
 Accurate time matters more than newcomers expect: telemetry is uninterpretable without it, attitude determination needs it to evaluate orbit position and magnetic field models, and payload data is often worthless without an accurate timestamp.
 
 - **Time sources.** The MCU's internal oscillator drifts badly with temperature. A dedicated **RTC with a temperature-compensated crystal** is much better. **[GNSS](../references/glossary.md#gnss)** gives absolute time to sub-microsecond accuracy when a fix is available. Ground stations can uplink time corrections at each pass.
-- **Drift.** An uncompensated crystal drifting 20 ppm accumulates about 1.7 seconds per day. Characterise your oscillator against temperature and correct in software.
+- **Drift.** An uncompensated crystal drifting 20 ppm accumulates about 1.7 seconds per day. Characterize your oscillator against temperature and correct in software.
 - **Resets destroy time.** An RTC without a backup supply loses time on every power cycle. Either give it one, or accept that time restarts and design telemetry so it remains interpretable – which means **carrying a monotonic boot counter and uptime alongside wall-clock time**, so events can always be ordered even when absolute time is unknown.
 - **Keep the RTC inside the launch rules.** An RTC is the one thing the CDS permits to stay powered through launch, and only within limits – isolated from the main power system, below 320 kHz, current-limited under 10 mA. See [Inhibits and HDRM – Inhibit Interaction with the EPS](inhibits-hdrm.md#inhibit-interaction-with-the-electrical-power-system-eps).
 - **Distribution.** Every subsystem timestamping with its own clock produces telemetry that cannot be correlated. Distribute time from one authority, or record the offsets.
@@ -216,14 +216,14 @@ Onboard processing has moved from research to demonstrated capability, driven by
 - **PhiSat-2** (6U, Open Cosmos, launched 16 August 2024) carries the model further: multiple AI applications – cloud detection, street-map generation, vessel detection, image compression – installed and operated remotely, with further apps uploaded after launch rather than baked in before it.[^phisat2] That is the interesting part, not the inference itself.
 - **OPS-SAT** (3U, ESA, launched 18 December 2019, end of life 22 May 2024) existed to let experimenters run software on a platform ESA described as "10 times more powerful than any other preceding ESA satellite". It was designed for an S-band uplink of at least 256 kbit/s and for "a complete reload of the entire software in less than 3 passes".[^opssat] It is the clearest demonstration that the barrier to onboard autonomy has been operational caution rather than available compute.
 
-The current limitations are practical ones: power (an inference accelerator running continuously will dominate a CubeSat budget), thermal (see [Thermal](thermal.md)), radiation tolerance of accelerators, and the difficulty of validating a model whose behaviour you cannot exhaustively test. The pragmatic pattern today is **duty-cycled inference on a switchable processor**, with the [spacecraft bus](../references/glossary.md#bus-spacecraft) kept firmly under the control of something simple.
+The current limitations are practical ones: power (an inference accelerator running continuously will dominate a CubeSat budget), thermal (see [Thermal](thermal.md)), radiation tolerance of accelerators, and the difficulty of validating a model whose behavior you cannot exhaustively test. The pragmatic pattern today is **duty-cycled inference on a switchable processor**, with the [spacecraft bus](../references/glossary.md#bus-spacecraft) kept firmly under the control of something simple.
 
 ## OBC Integration and Testing
 
 - **Flatsat first.** Lay every board out on a bench, connected as flown but accessible, and bring the system up incrementally. See [AIT – Flatsat and Integration Test Setups](ait.md#flatsat-and-integration-test-setups).
 - **Keep a debug path** – JTAG/SWD headers, a serial console, test points on every bus. You will need them long after the spacecraft is closed up, so plan physical access early. See [Structure – Mounting](structure.md#mounting-and-mechanical-interfaces).
-- **EMI and signal integrity.** A CubeSat is a dense stack of switching converters a few centimetres from a sensitive receiver. Keep high-speed digital away from RF and analogue, mind return paths, and test with the radio actually running – self-interference is common and easiest to find on a [flatsat](../references/glossary.md#flatsat).
-- **Test the failure paths, not just the functions.** Yank power mid-write. Hold the I²C bus low. Corrupt a firmware image. Let the watchdog fire. These are the behaviours that decide whether the mission survives, and they are the ones that never get exercised by nominal testing.
+- **EMI and signal integrity.** A CubeSat is a dense stack of switching converters a few centimeters from a sensitive receiver. Keep high-speed digital away from RF and analog, mind return paths, and test with the radio actually running – self-interference is common and easiest to find on a [flatsat](../references/glossary.md#flatsat).
+- **Test the failure paths, not just the functions.** Yank power mid-write. Hold the I²C bus low. Corrupt a firmware image. Let the watchdog fire. These are the behaviors that decide whether the mission survives, and they are the ones that never get exercised by nominal testing.
 - **Hardware-in-the-loop** lets you drive the OBC with simulated sensor data and orbital dynamics, which is the only practical way to exercise mode logic across many orbits. See [AIT – HIL Testing](ait.md#hardware-in-the-loop-hil-testing).
 
 ### Common integration pitfalls

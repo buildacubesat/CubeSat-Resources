@@ -8,9 +8,9 @@ A CubeSat lab does not need everything listed here on day one. The ordering that
 
 ### Fastener tools
 
-- **Calibrated torque driver.** The single most important tool on this page. CubeSats live on M2.5 and M3 fasteners in aluminium, where the gap between "not tight enough" and "stripped" is small. A driver covering roughly 0.2–2 Nm handles most CubeSat work. Have it calibrated, and record the torque applied to every fastener. See [Structure – Fasteners and Assembly](structure.md#fasteners-and-assembly).
+- **Calibrated torque driver.** The single most important tool on this page. CubeSats live on M2.5 and M3 fasteners in aluminum, where the gap between "not tight enough" and "stripped" is small. A driver covering roughly 0.2–2 Nm handles most CubeSat work. Have it calibrated, and record the torque applied to every fastener. See [Structure – Fasteners and Assembly](structure.md#fasteners-and-assembly).
 - **Quality hex and Torx drivers.** Cheap drivers round out socket heads, and a rounded fastener in a nearly finished spacecraft is a bad afternoon.
-- **Thread repair kit** – helicoils or thread inserts. Aluminium threads do not survive many cycles, and being able to repair one is much better than replacing a machined part.
+- **Thread repair kit** – helicoils or thread inserts. Aluminum threads do not survive many cycles, and being able to repair one is much better than replacing a machined part.
 
 ### Wiring and harness tools
 
@@ -42,7 +42,7 @@ Nitrile gloves, lint-free wipes, isopropyl alcohol, and covered storage for anyt
 - **Feeler gauges and pin gauges** for clearance and hole checks.
 - **A surface plate and height gauge**, if you want to verify rail flatness and envelope dimensions without CMM access.
 - **CMM access**, if you have it, for the definitive dimensional verification – but a fit check in a test pod is the answer that actually matters. See [Structure – Tolerancing and Stack-Up](structure.md#tolerancing-and-stack-up).
-- **Mass properties measurement.** Centre of mass can be determined adequately with a knife-edge balance or a three-point scale setup and some arithmetic; commercial mass properties benches exist but are rarely justified at CubeSat scale. See [Structure – Mass Properties](structure.md#mass-properties-and-centre-of-mass).
+- **Mass properties measurement.** Center of mass can be determined adequately with a knife-edge balance or a three-point scale setup and some arithmetic; commercial mass properties benches exist but are rarely justified at CubeSat scale. See [Structure – Mass Properties](structure.md#mass-properties-and-center-of-mass).
 
 Visual inspection remains the highest-yield inspection method for a small team. Photograph everything at every stage – it costs nothing and repeatedly turns out to be the only record of how something was before it was disturbed.
 
@@ -66,8 +66,8 @@ Design fixtures with the same care as flight hardware in one respect: **they sho
 ### Power
 
 - **A bench power supply with adjustable current limit** is the most important electrical instrument you own. The current limit is what prevents a wiring error from destroying a board.
-- **A solar array simulator** is what a bench supply is *not*. A supply provides effectively unlimited current at a fixed voltage; a solar array does not, and that difference is precisely what [MPPT](../references/glossary.md#mppt) and brownout behaviour depend on. A programmable supply with an I-V curve capability, or a purpose-built simulator, changes the fidelity of EPS testing completely. See [EPS – Ground testing](eps.md#ground-testing).
-- **An electronic load** for characterising battery packs and converters.
+- **A solar array simulator** is what a bench supply is *not*. A supply provides effectively unlimited current at a fixed voltage; a solar array does not, and that difference is precisely what [MPPT](../references/glossary.md#mppt) and brownout behavior depend on. A programmable supply with an I-V curve capability, or a purpose-built simulator, changes the fidelity of EPS testing completely. See [EPS – Ground testing](eps.md#ground-testing).
+- **An electronic load** for characterizing battery packs and converters.
 - **Current probes or shunt-based measurement** for per-channel current, ideally logged over hours so that mode transitions and duty cycles are visible.
 
 ### Signals
@@ -79,7 +79,7 @@ Design fixtures with the same care as flight hardware in one respect: **they sho
 ### RF
 
 - **Spectrum analyser** for verifying transmitter output, spurious emissions and, importantly, the RF silence period during [inhibit](inhibits-hdrm.md#verification-and-testing) verification. A low-cost analyser or even an [SDR](../references/glossary.md#sdr) with calibrated attenuation covers a lot of ground.
-- **Vector network analyser** for antenna matching and filter characterisation. Inexpensive VNAs covering VHF/UHF are now widely available and are entirely adequate for CubeSat antenna work.
+- **Vector network analyser** for antenna matching and filter characterization. Inexpensive VNAs covering VHF/UHF are now widely available and are entirely adequate for CubeSat antenna work.
 - **Attenuators and dummy loads**, so that end-to-end RF testing can be done without transmitting into the air – which also keeps you legal. See [AIT – Mission Simulation](ait.md#mission-simulation).
 - **An SDR** doubles as a receiver, a spectrum monitor and a signal-analysis tool. See [Ground Segment](ground-segment.md#sdr-rf-software).
 
@@ -97,7 +97,7 @@ Design fixtures with the same care as flight hardware in one respect: **they sho
 - **[Elmer FEM](https://www.elmerfem.org/)** `Link` – Multiphysics finite element software. Open source (GPL)
 <!-- CSR-RESOURCES:END dev-tools-cad-and-fem -->
 
-Commercial options – SolidWorks, Fusion, Onshape, Ansys, Nastran/Femap – dominate in industry and most offer free or heavily discounted educational licences. See [Structure – Toolchains](structure.md#toolchains).
+Commercial options – SolidWorks, Fusion, Onshape, Ansys, Nastran/Femap – dominate in industry and most offer free or heavily discounted educational licenses. See [Structure – Toolchains](structure.md#toolchains).
 
 ### Electronics design
 
@@ -111,7 +111,7 @@ Using KiCad has a specific advantage for this community beyond cost: **open-hard
 ### Orbital mechanics and mission analysis
 
 <!-- CSR-RESOURCES:START dev-tools-orbital-analysis -->
-- **[NASA GMAT (General Mission Analysis Tool)](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Mission design, optimisation and navigation tool used for flight mission operations as well as analysis and teaching. This is the current R2026 catalogue entry; older release entries are still indexed and easy to land on by mistake. Open source
+- **[NASA GMAT (General Mission Analysis Tool)](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Mission design, optimization and navigation tool used for flight mission operations as well as analysis and teaching. This is the current R2026 catalog entry; older release entries are still indexed and easy to land on by mistake. Open source
 - **[Basilisk](https://avslab.github.io/basilisk/)** `Link` – Modular astrodynamics simulation framework from the University of Colorado AVS Lab, well suited to spacecraft dynamics and ADCS simulation. Open source
 - **[CelesTrak](https://celestrak.org/)** `Link` – Orbital element sets, SGP4 references and a large body of astrodynamics documentation. Free
 <!-- CSR-RESOURCES:END dev-tools-orbital-analysis -->
@@ -120,7 +120,7 @@ Python has become the default language for this work, with mature libraries for 
 
 ### Thermal analysis
 
-See [Thermal – Tools](thermal.md#tools) for open-source and commercial thermal modelling options, including SATMO and the single-node approach.
+See [Thermal – Tools](thermal.md#tools) for open-source and commercial thermal modeling options, including SATMO and the single-node approach.
 
 ### Firmware and software development
 
@@ -173,21 +173,21 @@ Automation is where a small team buys back time, and the returns compound over a
 - **Continuous integration** for firmware and ground software – build on every commit, run the host-based unit tests, flag regressions. Free for open repositories.
 - **Documentation CI.** This site is itself an example: MkDocs building from a Git repository on every push. The same pattern works for mission documentation, and it means the published document always matches the repository.
 - **Test data collection scripts.** Instrument the bench: log currents, temperatures and telemetry to a file automatically rather than by hand. Long-duration tests are only useful if the data is captured.
-- **Reproducible environments.** Containerised or scripted toolchain setup, so a new team member is productive in an hour and a build from three years ago still works. On a project with complete team turnover every few years, this is a reliability measure.
+- **Reproducible environments.** Containerized or scripted toolchain setup, so a new team member is productive in an hour and a build from three years ago still works. On a project with complete team turnover every few years, this is a reliability measure.
 - **Automated ground operations** – pass scheduling, tracking, decoding and ingest. See [Ground Segment – Automation and Operations](ground-segment.md#automation-and-operations).
 
 The general principle: **anything done more than about five times should be automated**, and anything whose manual execution could damage flight hardware should be automated sooner than that.
 
 ## Documentation and Knowledge Management
 
-University CubeSat teams turn over on the same timescale as the project itself – see [Systems Engineering – Organisational pitfalls](systems-engineering.md#organisational-pitfalls) – so knowledge management is not administrative overhead. It is the mechanism by which the project survives its own team.
+University CubeSat teams turn over on the same timescale as the project itself – see [Systems Engineering – Organizational pitfalls](systems-engineering.md#organizational-pitfalls) – so knowledge management is not administrative overhead. It is the mechanism by which the project survives its own team.
 
 - **Lab notebooks and build logs.** Dated, specific, and including the things that did not work. "Tried X, it failed because Y" is often more valuable than the record of what eventually worked.
 - **Written procedures** for every repeated operation – assembly steps, test setups, operations. Two people: one performing, one recording.
 - **Checklists** for anything with irreversible consequences. Pre-integration, pre-delivery, pre-pass. Checklists are how aviation stopped losing aircraft to forgotten steps, and the reasoning transfers directly.
 - **Version control for hardware too.** Board revisions, mechanical drawings, BOMs and assembly instructions all belong in the repository alongside the code. See [Systems Engineering – Configuration and Change Management](systems-engineering.md#configuration-and-change-management).
 - **A single source of truth for interfaces.** The command and telemetry dictionary, the [ICD](../references/glossary.md#icd) set, and the pin assignments should live in one place that both flight and ground software derive from.
-- **An anomaly log** capturing every unexpected behaviour with its investigation and resolution. See [Systems Engineering – Lessons Learned](systems-engineering.md#lessons-learned-and-common-pitfalls).
+- **An anomaly log** capturing every unexpected behavior with its investigation and resolution. See [Systems Engineering – Lessons Learned](systems-engineering.md#lessons-learned-and-common-pitfalls).
 - **Onboarding documentation** so a new member can get productive without a founder's attention. Write it the first time somebody joins, then keep it current.
 
 A useful test: **if the three people who know most about the project left tomorrow, could the remaining team finish it?** For most CubeSat projects the honest answer is no, and closing that gap is documentation work.
@@ -196,4 +196,4 @@ A useful test: **if the three people who know most about the project left tomorr
 
 👉 **Please consider [contributing](../contributing.md)!**
 
-[^exopod]: Exolaunch, [*EXOpod Nova User Manual*, Rev. 1.2](https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf) (June 2024). Free PDF. Openly published deployer manual covering 1U–16U, with mass and centre-of-mass allowances, rail dimensions and protrusion limits – it quotes ±0.1 mm on rail width and ±0.5 mm on rail length. Section 1.2 states that where the manual conflicts with the CDS, the manual takes priority.
+[^exopod]: Exolaunch, [*EXOpod Nova User Manual*, Rev. 1.2](https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf) (June 2024). Free PDF. Openly published deployer manual covering 1U–16U, with mass and center-of-mass allowances, rail dimensions and protrusion limits – it quotes ±0.1 mm on rail width and ±0.5 mm on rail length. Section 1.2 states that where the manual conflicts with the CDS, the manual takes priority.

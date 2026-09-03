@@ -1,6 +1,6 @@
 # Thermal Management
 
-This page covers thermal design for a CubeSat: the orbital environment and its hot and cold cases, component limits and margins, passive and active control, modelling, telemetry, and thermal vacuum testing.
+This page covers thermal design for a CubeSat: the orbital environment and its hot and cold cases, component limits and margins, passive and active control, modeling, telemetry, and thermal vacuum testing.
 
 CubeSats are thermally awkward for reasons that follow directly from their size. There is very little thermal mass, so temperatures track the environment quickly instead of averaging it out. External surface area is scarce and already contested by solar cells, antennas and apertures, so there is rarely a spare face to use as a radiator. Everything is packed close together, so isolating a hot component from a cold-sensitive one is difficult. And the power budget rarely has room for active cooling.[^nasa-soa-thermal] The result is that most CubeSat thermal design is passive, and most of the work happens in the layout rather than in dedicated hardware.
 
@@ -13,7 +13,7 @@ In vacuum there is no convection. A spacecraft exchanges heat with its surroundi
 A CubeSat in [LEO](../references/glossary.md#leo) sees three external heat inputs:
 
 - **Direct solar** – the dominant term. The [solar constant](../references/glossary.md#solar-constant) is **1367.5 W/m²** nominal at 1 AU, varying seasonally by about ±3.5% as Earth's distance from the Sun changes. NASA's recommended hot and cold design values sit at the ends of that swing: **1422 W/m² at perihelion** (northern winter) and **1318 W/m² at aphelion**, each 4.0% from nominal.[^gsfc-2301][^tfaws-environments]
-- **[Albedo](../references/glossary.md#albedo)** – sunlight reflected off the Earth. Conventionally modelled as a fraction of the solar constant, with a nominal albedo factor of **0.30** and a recommended analysis range of **0.25 (cold) to 0.35 (hot)**.[^gsfc-2301] Instantaneous values vary far more widely – from about 0.06 over ocean to 0.50 over cloud and ice – but short excursions matter less than they might, because a CubeSat's thermal time constant smooths them.[^tfaws-environments]
+- **[Albedo](../references/glossary.md#albedo)** – sunlight reflected off the Earth. Conventionally modeled as a fraction of the solar constant, with a nominal albedo factor of **0.30** and a recommended analysis range of **0.25 (cold) to 0.35 (hot)**.[^gsfc-2301] Instantaneous values vary far more widely – from about 0.06 over ocean to 0.50 over cloud and ice – but short excursions matter less than they might, because a CubeSat's thermal time constant smooths them.[^tfaws-environments]
 - **[Earth infrared](../references/glossary.md#earth-ir) (outgoing longwave radiation)** – the planet radiating as a roughly 255 K blackbody, giving about **241 W/m²** nominal, with analysis values typically spanning **214–267 W/m²**.[^gsfc-2301] Unlike albedo, Earth IR does not switch off in eclipse, which makes it the thing keeping your cold case from being much colder.
 
 Internally, every watt the electronics consume becomes heat. On a small spacecraft this is not a rounding error. A 3U at 100 × 100 × 340.5 mm has about **0.16 m²** of external surface in total, so 6 W of internal dissipation is roughly 38 W/m² leaving the spacecraft – and radiation is the only route it has. That is the whole reason a CubeSat runs hot in sunlight and cold in eclipse with very little in between.
@@ -21,7 +21,7 @@ Internally, every watt the electronics consume becomes heat. On a small spacecra
 ### Orbit and attitude effects
 
 - **Eclipse cycling** is the fundamental driver. In LEO the spacecraft passes into and out of Earth's shadow every 90–105 minutes, spending **37–40% of each orbit in eclipse** at low [beta angles](../references/glossary.md#beta-angle) across the 300–600 km band where most CubeSats fly. The more useful number is the duration, which barely moves: **35 to 36 minutes** at every altitude in that band, because a higher orbit trades a longer period against a smaller shadow. Size heaters against those 35 minutes. Each cycle is a full thermal transient.
-- **Beta angle** sets how much eclipse you get. Near β = 0° the eclipses are longest and the cold case is coldest. At high beta – a dawn–dusk sun-synchronous orbit, for instance – the spacecraft may see continuous sunlight, eliminating the cold case but making the hot case much harder. Both extremes need analysing, because beta angle changes over the year.
+- **Beta angle** sets how much eclipse you get. Near β = 0° the eclipses are longest and the cold case is coldest. At high beta – a dawn–dusk sun-synchronous orbit, for instance – the spacecraft may see continuous sunlight, eliminating the cold case but making the hot case much harder. Both extremes need analyzing, because beta angle changes over the year.
 - **Attitude decides which face gets the Sun.** A nadir-pointing spacecraft has one face permanently looking at a 255 K Earth and another looking at deep space at 4 K. A sun-pointing one concentrates the solar load on a single face. A tumbling one averages everything, which is thermally benign and electrically terrible. See [GNC](gnc.md).
 - **Altitude** affects both the fraction of sky filled by the Earth (and therefore how much albedo and IR you intercept) and the eclipse geometry.
 
@@ -32,7 +32,7 @@ Almost all CubeSat thermal analysis reduces to bounding two scenarios:
 - **[Hot case](../references/glossary.md#hot-case-cold-case)**: maximum solar constant, high albedo, high Earth IR, worst-case attitude, all high-power modes active, end-of-life surface properties (degraded coatings absorb more).
 - **Cold case**: minimum solar constant, low albedo and Earth IR, maximum eclipse, minimum internal dissipation – typically safe mode, where the spacecraft has shed load precisely when it most needs the waste heat.
 
-The cold case catches teams out more often than the hot case, because safe mode looks like a good thing until you realise it means the battery is being kept warm by nothing.
+The cold case catches teams out more often than the hot case, because safe mode looks like a good thing until you realize it means the battery is being kept warm by nothing.
 
 <!-- CSR-RESOURCES:START dev-thermal-environment -->
 - **[Introduction to On-Orbit Thermal Environments (TFAWS)](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Steven Rickman (NASA NESC) lecture on orbital thermal environments, with measured albedo and outgoing longwave radiation distributions rather than the condensed design values. Free PDF
@@ -42,9 +42,9 @@ The cold case catches teams out more often than the hot case, because safe mode 
 
 ## Thermal Requirements and Limits
 
-Thermal requirements come from components, and they come in two flavours that are frequently confused.
+Thermal requirements come from components, and they come in two flavors that are frequently confused.
 
-- **Operating limits** – the range over which a component meets its specification. Outside it, behaviour is undefined but the part is not necessarily damaged.
+- **Operating limits** – the range over which a component meets its specification. Outside it, behavior is undefined but the part is not necessarily damaged.
 - **Survival limits** – the range the component can be exposed to while switched off without permanent damage. Always wider than the operating range.
 
 Your thermal design must keep every component within its **survival** range at all times, and within its **operating** range whenever it is being used. These are different requirements and produce different analyses.
@@ -55,11 +55,11 @@ Your thermal design must keep every component within its **survival** range at a
 - **Batteries**: the binding constraint on almost every CubeSat. A representative commercial space pack specifies roughly **0 to 45 °C for charging** against a materially wider discharge window.[^satsearch-batteries] Charging a lithium cell below 0 °C plates metallic lithium on the anode – permanent, cumulative damage rather than a derate – which is why battery heaters are near-universal. Use your own cell's datasheet; the shape is universal but the numbers are not. See [EPS – Energy Storage](eps.md#energy-storage).
 - **Solar cells**: tolerant of wide swings, but output falls as they heat – the AZUR 3G30-Advanced loses **6.7 mV/°C on Vmp** and 6.2 mV/°C on Voc.[^azur-3g30] A panel in full sun can easily sit **40–60 °C above its cold-case temperature**, so string voltage has to be sized for the hot case. See [EPS – Cell technologies and efficiencies](eps.md#cell-technologies-and-efficiencies).
 - **Optical payloads and star trackers**: often the tightest requirements, both absolute and in terms of gradients and stability, because focus and alignment shift with temperature.
-- **Mechanisms and deployables**: lubricants, shape-memory actuators and burn wires all have temperature-dependent behaviour. See [Inhibits and HDRM](inhibits-hdrm.md).
+- **Mechanisms and deployables**: lubricants, shape-memory actuators and burn wires all have temperature-dependent behavior. See [Inhibits and HDRM](inhibits-hdrm.md).
 
 ### Margins
 
-Analysis is uncertain, so requirements carry margin. A common approach is to require predicted temperatures to stay within component limits by a margin of around **±10 °C** at the analysis stage, tightening once the model has been correlated against thermal balance test data. Different programmes use different numbers – what matters is that the margin is stated, tracked and reduced deliberately as evidence accumulates, in the same way as the [budgets and margins](systems-engineering.md#budgets-and-margins) tracked elsewhere.
+Analysis is uncertain, so requirements carry margin. A common approach is to require predicted temperatures to stay within component limits by a margin of around **±10 °C** at the analysis stage, tightening once the model has been correlated against thermal balance test data. Different programs use different numbers – what matters is that the margin is stated, tracked and reduced deliberately as evidence accumulates, in the same way as the [budgets and margins](systems-engineering.md#budgets-and-margins) tracked elsewhere.
 
 Build a **thermal limits table** early: every component, its operating and survival range, its dissipation in each mode, and where it sits in the spacecraft. It is a small document that prevents a lot of late surprises.
 
@@ -71,22 +71,22 @@ Passive control is the default and usually the whole answer. It costs no power, 
 
 #### Surface finishes and coatings
 
-Every external surface is characterised by two numbers: **solar [absorptivity](../references/glossary.md#absorptivity) (α)**, the fraction of incident sunlight absorbed, and **infrared [emissivity](../references/glossary.md#emissivity) (ε)**, how efficiently it radiates heat away. Their ratio **α/ε** determines equilibrium temperature in sunlight.
+Every external surface is characterized by two numbers: **solar [absorptivity](../references/glossary.md#absorptivity) (α)**, the fraction of incident sunlight absorbed, and **infrared [emissivity](../references/glossary.md#emissivity) (ε)**, how efficiently it radiates heat away. Their ratio **α/ε** determines equilibrium temperature in sunlight.
 
 - **Low α/ε (cold coatings)** – matte white paint has low solar absorptivity and IR emissivity close to 1.0, making it the classic radiator finish. Second-surface silver FEP tape reaches solar absorptivity of about **0.08** with high emissivity, which is why it is the go-to radiator tape.[^nasa-soa-thermal]
 - **High α/ε (hot coatings)** – polished or bare metal absorbs sunlight while radiating poorly, running hot. Sometimes exactly what you want on a cold-biased surface.
-- **Metallised tapes** span a wide range, roughly **0.07 to 0.56 solar absorptivity** depending on the material.[^nasa-soa-thermal]
+- **Metallized tapes** span a wide range, roughly **0.07 to 0.56 solar absorptivity** depending on the material.[^nasa-soa-thermal]
 
-The critical caveat: **optical properties degrade in orbit**. Atomic oxygen erosion, UV darkening and contamination all tend to raise α while leaving ε roughly unchanged, so surfaces get hotter with age. NASA's survey puts it plainly – "thermal performance at beginning-of-life may not be the same at end-of-life."[^nasa-soa-thermal] Analyse both.
+The critical caveat: **optical properties degrade in orbit**. Atomic oxygen erosion, UV darkening and contamination all tend to raise α while leaving ε roughly unchanged, so surfaces get hotter with age. NASA's survey puts it plainly – "thermal performance at beginning-of-life may not be the same at end-of-life."[^nasa-soa-thermal] Analyze both.
 
 #### Conduction paths and thermal coupling
 
 Inside a CubeSat, conduction through the structure is usually the dominant heat transfer mechanism, which makes the mechanical design and the thermal design the same design.
 
 - **Deliberate coupling**: bolt a dissipating component hard to the frame with metal standoffs and thermal interface material, and the frame becomes its heat sink.
-- **Deliberate isolation**: mount on polymer standoffs, use washers with low conductivity, or minimise contact area to keep a component thermally independent.
+- **Deliberate isolation**: mount on polymer standoffs, use washers with low conductivity, or minimize contact area to keep a component thermally independent.
 - **Thermal interface materials** – gap pads, greases and graphite sheets – matter far more than people expect. A bolted joint conducts through a small number of asperity contacts; the interface material fills the gaps. Check outgassing before selecting one (see [Structure – Materials](structure.md#materials-and-manufacturing)).
-- **[Thermal straps](../references/glossary.md#thermal-strap)** move heat between points that must remain mechanically decoupled. Copper and aluminium braid are common; pyrolytic graphite sheet (PGS) offers higher conductivity than either in the same geometry.[^nasa-soa-thermal]
+- **[Thermal straps](../references/glossary.md#thermal-strap)** move heat between points that must remain mechanically decoupled. Copper and aluminum braid are common; pyrolytic graphite sheet (PGS) offers higher conductivity than either in the same geometry.[^nasa-soa-thermal]
 
 #### Radiators and geometry
 
@@ -123,7 +123,7 @@ Mostly out of reach at 1U–3U scale, but relevant for larger platforms and payl
 - **Thermoelectric coolers** – solid-state Peltier devices, no moving parts, but inefficient and mechanically fragile.[^nasa-soa-thermal]
 - **Louvers and pumped fluid loops** – standard on large spacecraft, generally too heavy and power-hungry below microsat scale, though sub-1U pumped loop demonstrators exist.[^nasa-soa-thermal]
 
-## Thermal Modelling and Simulation
+## Thermal Modeling and Simulation
 
 ### Lumped-parameter models
 
@@ -159,7 +159,7 @@ A model that only produces a final answer has been under-used. The valuable outp
 
 ### Sensor placement
 
-Thermistors are cheap, small and low-power, so the usual mistake is fitting too few rather than too many. Prioritise:
+Thermistors are cheap, small and low-power, so the usual mistake is fitting too few rather than too many. Prioritize:
 
 - **The battery** – ideally more than one sensor, on the cells themselves rather than the board.
 - **Each external face**, which is how you validate the model and diagnose attitude problems.
@@ -181,7 +181,7 @@ Thermal design touches everything, which is why it belongs in [systems engineeri
 - **[EPS](eps.md)** – battery temperature limits are usually the tightest constraint on the spacecraft, heater power lands in the cold-case budget, and solar cell efficiency falls with panel temperature. Power and thermal converge or both fail.
 - **[Payload](payload.md)** – often both the largest heat source and the component with the tightest requirements. Detectors in particular may need cooling or tight stability.
 - **[OBC](obc.md)** – high-power compute concentrates dissipation in a small area. An SBC running a machine-learning workload is a thermal design driver, not just a power one.
-- **[Comms](comms.md)** – transmitter power amplifiers are inefficient by nature, dumping most of their input as heat in short bursts during passes. Transient, localised, and easy to underestimate.
+- **[Comms](comms.md)** – transmitter power amplifiers are inefficient by nature, dumping most of their input as heat in short bursts during passes. Transient, localized, and easy to underestimate.
 - **[Structure](structure.md)** – the frame is the primary conduction path and the mounting interface is where coupling is decided. Differential expansion between materials is a structural consequence of thermal design.
 - **[GNC](gnc.md)** – attitude determines the thermal environment, and thermal gradients can distort optical bench alignment.
 
@@ -189,14 +189,14 @@ Thermal design touches everything, which is why it belongs in [systems engineeri
 
 ### Thermal vacuum (TVAC) testing
 
-**[TVAC](../references/glossary.md#tvac)** places the spacecraft in a vacuum chamber with a controlled thermal environment and is the only way to verify thermal behaviour realistically, because removing convection changes the answer completely.
+**[TVAC](../references/glossary.md#tvac)** places the spacecraft in a vacuum chamber with a controlled thermal environment and is the only way to verify thermal behavior realistically, because removing convection changes the answer completely.
 
 Two distinct tests are often conflated:
 
 - **Thermal cycling** demonstrates that the hardware survives and functions across its temperature range, and shakes out workmanship defects – cracked solder joints, marginal connectors. Driven by cycle count and range, not by matching flight conditions. A representative CubeSat campaign runs **8 cycles from −35 to +75 °C, with 2-hour dwells at the extremes and ramp rates below 2 K/min**.[^endurosat-qual]
 - **Thermal balance** aims to reach steady-state conditions matching a specific predicted case, so the measured temperatures can be compared against the model and used to correct it. This is a **model correlation exercise**, and it is the one that tells you whether your analysis was right.
 
-Most CubeSat programmes do cycling; fewer do balance. If your design has thermal margin, cycling may be enough. If it is marginal, balance is what turns an assumption into evidence. See [AIT – Environmental Testing](ait.md#environmental-testing).
+Most CubeSat programs do cycling; fewer do balance. If your design has thermal margin, cycling may be enough. If it is marginal, balance is what turns an assumption into evidence. See [AIT – Environmental Testing](ait.md#environmental-testing).
 
 ### Correlating models to test
 
@@ -205,17 +205,17 @@ The point of correlation is to adjust uncertain model parameters – contact con
 ### Common pitfalls
 
 - **Testing without vacuum.** Convection in air can carry away several times the heat that radiation does, so an ambient test tells you almost nothing about flight temperatures.
-- **Chamber-induced artefacts.** Support fixtures conduct heat, and a poorly designed one becomes a heat leak that dominates the result. Design the test setup as carefully as the spacecraft.
+- **Chamber-induced artifacts.** Support fixtures conduct heat, and a poorly designed one becomes a heat leak that dominates the result. Design the test setup as carefully as the spacecraft.
 - **Not reaching steady state.** Thermal balance requires equilibrium; stopping early gives a number that looks like data but is not.
 - **Insufficient instrumentation.** Add test thermocouples beyond the flight sensors – you cannot correlate what you did not measure.
 - **Testing only the hot case.** The cold case with minimum dissipation is often the harder one and is easier to skip.
 
 ## Thermal Design Tradeoffs
 
-- **Simplicity versus controllability.** A fully passive design has nothing to fail but also nothing to adjust once in orbit. Adding a heater gives you a control handle and a new failure mode. At CubeSat scale, favour passive until analysis proves you cannot.
+- **Simplicity versus controllability.** A fully passive design has nothing to fail but also nothing to adjust once in orbit. Adding a heater gives you a control handle and a new failure mode. At CubeSat scale, favor passive until analysis proves you cannot.
 - **Mass, power and complexity.** Thermal straps and PCM buy performance with mass; heaters buy it with power; deployable radiators buy it with mechanism risk. Each is a trade against budgets that other subsystems also want.
 - **Worst case versus typical case.** Designing for the absolute worst-case combination of every parameter produces a heavy, over-constrained spacecraft. Designing for the typical case produces one that fails in a particular season. The usual compromise is bounding cases with explicit, stated margin.
-- **Surface allocation is the fight.** Every square centimetre is contested between solar cells, radiators, antennas and apertures. This is a systems-level decision that should be made explicitly and early, not settled by whoever finalises their CAD first.
+- **Surface allocation is the fight.** Every square centimeter is contested between solar cells, radiators, antennas and apertures. This is a systems-level decision that should be made explicitly and early, not settled by whoever finalizes their CAD first.
 - **Late changes cascade.** Changing a coating changes the hot case; adding a payload changes the internal dissipation; moving the battery changes everything. Keep the model current, because a stale thermal model is worse than none – it gives false confidence.
 
 ---
@@ -228,7 +228,7 @@ The point of correlation is to adjust uncertain model parameters – contact con
 
 [^tfaws-environments]: Steven L. Rickman, NASA Engineering and Safety Center, [*Introduction to On-Orbit Thermal Environments*](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf), Thermal and Fluids Analysis Workshop, 2014. Free PDF. Useful for showing how much measured albedo and outgoing longwave radiation vary with location and averaging period, and how that variation is condensed into hot and cold design cases.
 
-[^satmo]: Alexander Chipps, Daniel Forgette and Kerri Cahoy, ["SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions"](https://arxiv.org/abs/2512.07896), AIAA SciTech Forum 2026, DOI 10.2514/6.2026-2269. The AIAA version is paywalled; the arXiv preprint (submitted 4 December 2025) is open access and is what is linked here. Describes an open-source MATLAB thermal model representing the spacecraft as a six-sided box with one face-centred node per surface, validated against Thermal Desktop to within 1.17 °C for a 1U at Venus, Earth and Mars. The tool itself carries analysis options for all major planets plus the Moon and Pluto; those three are the validated set. Code at [github.com/alexchipps/SATMO](https://github.com/alexchipps/SATMO), MIT licence.
+[^satmo]: Alexander Chipps, Daniel Forgette and Kerri Cahoy, ["SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions"](https://arxiv.org/abs/2512.07896), AIAA SciTech Forum 2026, DOI 10.2514/6.2026-2269. The AIAA version is paywalled; the arXiv preprint (submitted 4 December 2025) is open access and is what is linked here. Describes an open-source MATLAB thermal model representing the spacecraft as a six-sided box with one face-centered node per surface, validated against Thermal Desktop to within 1.17 °C for a 1U at Venus, Earth and Mars. The tool itself carries analysis options for all major planets plus the Moon and Pluto; those three are the validated set. Code at [github.com/alexchipps/SATMO](https://github.com/alexchipps/SATMO), MIT license.
 
 [^satsearch-batteries]: satsearch, ["Satellite batteries - for CubeSats, nanosats, and other form factors"](https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors) (June 2021). Open access. Vendor-by-vendor comparison of commercially available CubeSat battery packs with capacities, voltages, masses and operating temperature ranges. Useful for calibrating what is actually purchasable, but now several years old – confirm capacities, masses and temperature limits against the current datasheet before designing against them.
 

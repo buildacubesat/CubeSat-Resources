@@ -27,7 +27,7 @@ The decision factors are frequency band, budget, and how much contact time the m
 
 Before committing to a location, sweep the bands you intend to use and record the noise floor. An urban or campus site can be 10–20 dB noisier than a rural one, and a single nearby switching supply, LED lighting installation or solar inverter can raise the floor across the whole UHF band. That figure goes straight into your [link budget](comms.md#link-budget) as receiver system noise, so measuring it early can be worth more than any component choice you make later.
 
-Note also what is *intermittently* present – a pager transmitter or a nearby repeater that only appears at certain hours will not show up in a five-minute survey but will desensitise your front end during a pass.
+Note also what is *intermittently* present – a pager transmitter or a nearby repeater that only appears at certain hours will not show up in a five-minute survey but will desensitize your front end during a pass.
 
 ### Evolution over a mission
 
@@ -40,19 +40,19 @@ Build the automated path early. A ground segment that only works with a person d
 ### Antenna choice
 
 - **Omnidirectional / low-gain** – turnstile, Lindenblad, QFH, or a simple dipole. No tracking hardware, no pointing, always receiving. Gain is low, so this works for strong beacons and for missions with generous [link margin](../references/glossary.md#link-margin). An excellent starting point: a fixed antenna and an SDR will hear plenty of CubeSats.
-- **Directional / high-gain** – Yagi, cross-Yagi, helical, or a dish. Much more gain, and therefore much more link margin, but requires a rotator and accurate tracking. Cross-Yagis with a phasing harness give switchable circular polarisation, which is what you want for a tumbling spacecraft.
+- **Directional / high-gain** – Yagi, cross-Yagi, helical, or a dish. Much more gain, and therefore much more link margin, but requires a rotator and accurate tracking. Cross-Yagis with a phasing harness give switchable circular polarization, which is what you want for a tumbling spacecraft.
 - **Dishes** – necessary at S-band and above, where the wavelength makes reasonable gain achievable in a manageable aperture.
 
-### Polarisation
+### Polarization
 
-A tumbling CubeSat's linearly polarised antenna presents a constantly changing polarisation angle to the ground. Against a linearly polarised ground antenna this produces deep, repeated fades – theoretically infinite loss at the cross-polarised moment. **Circular polarisation on the ground caps the mismatch loss at about 3 dB** regardless of the spacecraft's orientation, which is why almost every serious amateur satellite station uses circularly polarised antennas, and why switchable RHCP/LHCP is worth the extra relay.
+A tumbling CubeSat's linearly polarized antenna presents a constantly changing polarization angle to the ground. Against a linearly polarized ground antenna this produces deep, repeated fades – theoretically infinite loss at the cross-polarized moment. **Circular polarization on the ground caps the mismatch loss at about 3 dB** regardless of the spacecraft's orientation, which is why almost every serious amateur satellite station uses circularly polarized antennas, and why switchable RHCP/LHCP is worth the extra relay.
 
 ### Front-end design
 
 Receiver sensitivity is set by the first amplifier in the chain, so the ordering matters more than the component quality:
 
 - **Mast-mounted LNA.** A [low-noise amplifier](../references/glossary.md#lna) at the antenna, before the feedline, is the single highest-value improvement to a marginal station. Feedline loss ahead of the LNA adds directly to the system noise figure; the same loss after it is nearly irrelevant.
-- **Filtering.** Band-pass and SAW filters ahead of the LNA protect against strong out-of-band signals – pagers, broadcast, mobile – which will otherwise desensitise the receiver. In an urban RF environment this is not optional.
+- **Filtering.** Band-pass and SAW filters ahead of the LNA protect against strong out-of-band signals – pagers, broadcast, mobile – which will otherwise desensitize the receiver. In an urban RF environment this is not optional.
 - **Feedline.** Use good coax and keep it short. At 437 MHz, cheap cable over a long run can cost several dB.
 - **Gain staging.** Enough gain to overcome the SDR's noise figure, not so much that strong signals overload the front end. SDR dynamic range is usually the binding constraint.
 - **Grounding and lightning protection** for anything on a mast.
@@ -63,14 +63,14 @@ See [Comms – Link Budget](comms.md#link-budget) for how these terms combine.
 
 ### Orbital data
 
-Pass prediction needs a current orbit. [TLEs](../references/glossary.md#tle) from Space-Track or CelesTrak, propagated with [SGP4](../references/glossary.md#sgp4), are the standard source. Refresh them at least daily – accuracy degrades from roughly a kilometre near [epoch](../references/glossary.md#epoch) to tens of kilometres after a week or two, which is enough to point a narrow-beam antenna at empty sky.
+Pass prediction needs a current orbit. [TLEs](../references/glossary.md#tle) from Space-Track or CelesTrak, propagated with [SGP4](../references/glossary.md#sgp4), are the standard source. Refresh them at least daily – accuracy degrades from roughly a kilometer near [epoch](../references/glossary.md#epoch) to tens of kilometers after a week or two, which is enough to point a narrow-beam antenna at empty sky.
 
-**The identification problem after launch.** When a rideshare deploys dozens of CubeSats, they are initially catalogued as an unidentified cluster and take days to weeks to be resolved individually. During that window you track several candidate TLEs, listen on each, and use the Doppler signature and beacon content to work out which is yours. Plan for this: it is a normal part of LEOP, not an anomaly. See [GNC – Orbit Representation](gnc.md#orbit-representation-tles).
+**The identification problem after launch.** When a rideshare deploys dozens of CubeSats, they are initially cataloged as an unidentified cluster and take days to weeks to be resolved individually. During that window you track several candidate TLEs, listen on each, and use the Doppler signature and beacon content to work out which is yours. Plan for this: it is a normal part of LEOP, not an anomaly. See [GNC – Orbit Representation](gnc.md#orbit-representation-tles).
 
 ### Scheduling
 
 - **Elevation mask.** Passes below about 10° elevation suffer long slant ranges, atmospheric loss and terrain obstruction. Setting a realistic mask based on your actual horizon avoids wasting time on passes that were never going to work.
-- **Pass quality varies enormously.** A 5° maximum-elevation pass may give two usable minutes; an 80° overhead pass gives ten. Prioritise accordingly, and plan bulk downlink for high-elevation passes.
+- **Pass quality varies enormously.** A 5° maximum-elevation pass may give two usable minutes; an 80° overhead pass gives ten. Prioritize accordingly, and plan bulk downlink for high-elevation passes.
 - **Conflicts** between multiple satellites, or between your commanding and someone else's, need managing once you are operating more than one thing.
 
 ### Doppler
@@ -147,7 +147,7 @@ Uplink is the dangerous direction. Everything on this side can be redone; a bad 
 - **Store raw first.** Archive the rawest form you can afford – IQ recordings if storage permits, raw frames as a minimum – before any parsing. Parsers have bugs and formats change; raw data lets you reprocess.
 - **Database the parsed telemetry** with timestamps in a consistent time base, tagged with the receiving station and the decoder version. Time-series databases suit this naturally.
 - **Discipline the station clock.** Run NTP (or better) on every machine that timestamps a received frame. Ground receipt time is what you correlate against the spacecraft's own clock when reconstructing an anomaly, and a station whose clock is minutes out silently corrupts that correlation – particularly across a distributed network where frames arrive from several stations. See [Flight Software – Timing](flight-software.md#timing-scheduling-and-timekeeping).
-- **Dashboards.** A visualisation showing battery voltage, temperatures, mode and reset count over time is how anomalies are actually spotted. The [SatNOGS Dashboards](https://dashboard.satnogs.org/) collection is both a hosting option and a good source of ideas – see the examples in [CubeSat Missions](../references/missions.md).
+- **Dashboards.** A visualization showing battery voltage, temperatures, mode and reset count over time is how anomalies are actually spotted. The [SatNOGS Dashboards](https://dashboard.satnogs.org/) collection is both a hosting option and a good source of ideas – see the examples in [CubeSat Missions](../references/missions.md).
 - **Reproducibility.** Version the decoder and the calibration applied, so a value can be traced back to the raw frame that produced it.
 - **Publish.** Open telemetry and open decoders are the reason the amateur satellite community can help you. They also make the mission useful to people who were not on the team, which for an educational mission is much of the point. See [Payload – Archiving and sharing](payload.md#archiving-and-sharing).
 - **Back it up off-site.** Mission data that exists only on the lab machine has a well-documented tendency to be lost during a lab move.
@@ -169,15 +169,15 @@ The ground segment must be finished and proven *before* launch, and it usually i
 - **Rehearse passes** with the real timing constraints. Ten minutes is not long, and the first time you discover your procedure takes fifteen should not be in orbit.
 - **Test the automation** against a spacecraft on the bench, over days, unattended.
 - **Verify the decoder against modulated signals**, off the air or from a loopback, not just against synthetic test vectors.
-- **Practise contingencies**: no signal at the expected time, a spacecraft in safe mode, a partial frame, an unexpected reset. See [AIT – Mission Simulation](ait.md#mission-simulation).
+- **Practice contingencies**: no signal at the expected time, a spacecraft in safe mode, a partial frame, an unexpected reset. See [AIT – Mission Simulation](ait.md#mission-simulation).
 
 The most common early-operations failures are mundane: uplink Doppler not corrected, the antenna pointing at the wrong satellite from an ambiguous TLE, a decoder that was never tested against a real signal, and a rotator that ran into its end stops mid-pass.
 
 ## Regulatory and Operational Considerations
 
-- **Licensing.** Operating a transmitter requires a licence. Amateur-band operation requires an appropriately licensed operator who takes responsibility for compliance; non-amateur bands require coordination through your national regulator and the [ITU](../references/glossary.md#itu). See [Qualification and Launch – Regulatory Requirements](launch.md#regulatory-requirements) and [Getting Started](../getting-started.md).
+- **Licensing.** Operating a transmitter requires a license. Amateur-band operation requires an appropriately licensed operator who takes responsibility for compliance; non-amateur bands require coordination through your national regulator and the [ITU](../references/glossary.md#itu). See [Qualification and Launch – Regulatory Requirements](launch.md#regulatory-requirements) and [Getting Started](../getting-started.md).
 - **Amateur service constraints** typically include a prohibition on commercial use, a requirement that communications be open, and restrictions on obscuring the meaning of transmissions. Note that the last of these is not necessarily symmetric: telecommand to a space station is treated separately in at least some jurisdictions, including the US.[^fcc-telecommand] These constraints are not obstacles for an educational mission, but they shape the mission and must be understood before choosing the band.
-- **Power and duty cycle limits** apply to your ground transmitter under your licence.
+- **Power and duty cycle limits** apply to your ground transmitter under your license.
 - **Coordination.** The [IARU](https://www.iaru.org/reference/satellites/) coordinates amateur satellite frequencies to avoid interference; going through this process is expected practice.
 - **Written procedures.** Nominal and contingency operations documented well enough that someone who was not present at launch can execute them.
 - **Handover between operators** needs a shared log – what was commanded, what was observed, what is outstanding. An operations log that everyone writes to is worth more than any single tool.
@@ -214,7 +214,7 @@ The most common early-operations failures are mundane: uplink Doppler not correc
 <!-- CSR-RESOURCES:START dev-ground-segment-sdr-rf-software -->
 - **[GNU Radio](https://www.gnuradio.org/)** `Link` – The de facto signal-processing framework for building custom CubeSat ground-station pipelines
 - **[SatDump](https://www.satdump.org/)** `Link` – Generic satellite data processing software covering a wide range of downlink formats and pipelines
-- **[gr-leo](https://gitlab.com/librespacefoundation/gr-leo)** `Link` – GNU Radio LEO space channel simulator from the Libre Space Foundation, for modelling a link before you have one
+- **[gr-leo](https://gitlab.com/librespacefoundation/gr-leo)** `Link` – GNU Radio LEO space channel simulator from the Libre Space Foundation, for modeling a link before you have one
 - **[Gqrx SDR](https://www.gqrx.dk/)** `Link` – Lightweight Qt SDR receiver, good for quick signal inspection and debugging
 - **[SDRangel](https://www.sdrangel.org/)** `Link` – Advanced multi-channel SDR suite with plugins for satellites, decoding and control
 - **[SDR++Brown](https://sdrpp-brown.san.systems/)** `Link` – Modern, modular SDR++ fork with good performance and active development
@@ -280,4 +280,4 @@ Built on top of Hamlib, and worth knowing about:
 
 [^gr-satellites]: Daniel Estévez, [gr-satellites](https://github.com/daniestevez/gr-satellites). A GNU Radio out-of-tree module collecting telemetry decoders for most amateur satellites in orbit, begun in 2015. Supports AX.25, the GomSpace NanoCom U482C and AX100 modems, CCSDS stack components and the AO-40 protocol used by FUNcube, alongside many satellite-specific formats, with file reassembly and human-readable telemetry output. GPL-3.0 licensed.
 
-[^fcc-telecommand]: [47 CFR § 97.211 – Space telecommand station](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211). Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." This is the US rule, and it is an explicit exception to the general prohibition in §97.113(a)(4) on messages encoded to obscure their meaning. Other administrations treat telecommand separately from ordinary amateur traffic to varying degrees; check your own licence conditions rather than generalising from this one.
+[^fcc-telecommand]: [47 CFR § 97.211 – Space telecommand station](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211). Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." This is the US rule, and it is an explicit exception to the general prohibition in §97.113(a)(4) on messages encoded to obscure their meaning. Other administrations treat telecommand separately from ordinary amateur traffic to varying degrees; check your own license conditions rather than generalizing from this one.

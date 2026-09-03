@@ -1,6 +1,6 @@
 # Communities
 
-Forums, organisations and programmes where CubeSat developers, students and professionals share knowledge, ask questions and collaborate – the places to go for help, feedback or like-minded builders.
+Forums, organizations and programs where CubeSat developers, students and professionals share knowledge, ask questions and collaborate – the places to go for help, feedback or like-minded builders.
 
 The help on offer is concrete: strangers with ground stations have found, and occasionally recovered, missions whose own teams had lost them. Bring specifics when you ask – telemetry, a spectrum capture, a schematic – and the answer is usually specific too.
 
@@ -13,7 +13,7 @@ The help on offer is concrete: strangers with ground stations have found, and oc
 - **[Build a CubeSat Discord](https://bac.page/discord)** `Link` – Community focused on open-source hardware and software in CubeSat development
 <!-- CSR-RESOURCES:END ref-communities-forums -->
 
-## Organisations and networks
+## Organizations and networks
 
 <!-- CSR-RESOURCES:START ref-communities-organisations -->
 - **[Libre Space Foundation](https://libre.space/)** `Link` – Non-profit developing open-source space technologies, including SatNOGS and UPSat; runs the Open Source CubeSat Workshop
@@ -22,12 +22,12 @@ The help on offer is concrete: strangers with ground stations have found, and oc
 - **[NASA Small Spacecraft Systems Virtual Institute (S3VI)](https://s3vi.ndc.nasa.gov/)** `Link` – NASA's hub for small spacecraft technology, including a searchable knowledge base
 <!-- CSR-RESOURCES:END ref-communities-organisations -->
 
-## Programmes that come with a community
+## Programs that come with a community
 
 <!-- CSR-RESOURCES:START ref-communities-programmes -->
-- **[ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites)** `Link` – ESA education programme for university teams, providing training, test facility access and a cohort of peer teams
-- **[NASA CubeSat Launch Initiative](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative)** `Link` – US launch opportunity programme for educational and non-profit developers
-- **[UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html)** `Link` – UN programme providing CubeSat deployment opportunities and open training material to developing countries
+- **[ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites)** `Link` – ESA education program for university teams, providing training, test facility access and a cohort of peer teams
+- **[NASA CubeSat Launch Initiative](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative)** `Link` – US launch opportunity program for educational and non-profit developers
+- **[UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html)** `Link` – UN program providing CubeSat deployment opportunities and open training material to developing countries
 <!-- CSR-RESOURCES:END ref-communities-programmes -->
 
 ---

@@ -29,16 +29,16 @@ Most CubeSat flight software ends up as a **time-triggered schedule with event h
 
 Writing your own is the norm on small missions and is entirely defensible – the total functionality needed by a 1U technology demonstrator is modest, and full comprehension of your own stack has value when debugging from 500 km away.
 
-Adopting a framework such as NASA's [Core Flight System](#open-source-flight-software-projects) buys architecture, flight heritage across 40+ NASA missions, and a component model that scales. It costs a substantial learning curve and pulls in more machinery than a small CubeSat needs. The test is team size and mission duration: a two-person 1U project is usually better served writing something small and comprehensible; a university programme flying successive missions over a decade benefits enormously from a framework it can carry forward.
+Adopting a framework such as NASA's [Core Flight System](#open-source-flight-software-projects) buys architecture, flight heritage across 40+ NASA missions, and a component model that scales. It costs a substantial learning curve and pulls in more machinery than a small CubeSat needs. The test is team size and mission duration: a two-person 1U project is usually better served writing something small and comprehensible; a university program flying successive missions over a decade benefits enormously from a framework it can carry forward.
 
 ### Language and coding standards
 
-- **C** remains the default: every RTOS and framework targets it, toolchains for space-grade parts assume it, and its behaviour is predictable. It also offers no protection whatsoever, which is why the coding standards below exist.
-- **C++** is used in larger stacks, cFS-adjacent tooling and PUS implementations. Workable with a restricted subset – no exceptions, no RTTI, no dynamic allocation after initialisation – and a liability without one.
-- **MicroPython and CircuitPython** trade determinism and memory headroom for development speed, and have flight heritage on small missions through PyCubed. A reasonable choice for a technology demonstrator where iteration speed matters more than hard real-time behaviour, and a poor one where control loops must close on schedule.
+- **C** remains the default: every RTOS and framework targets it, toolchains for space-grade parts assume it, and its behavior is predictable. It also offers no protection whatsoever, which is why the coding standards below exist.
+- **C++** is used in larger stacks, cFS-adjacent tooling and PUS implementations. Workable with a restricted subset – no exceptions, no RTTI, no dynamic allocation after initialization – and a liability without one.
+- **MicroPython and CircuitPython** trade determinism and memory headroom for development speed, and have flight heritage on small missions through PyCubed. A reasonable choice for a technology demonstrator where iteration speed matters more than hard real-time behavior, and a poor one where control loops must close on schedule.
 - **Rust** is increasingly credible for new work, with memory safety that removes a whole class of the bugs the standards below try to prevent by discipline. The constraint is ecosystem: fewer vendor HALs, fewer eyes on your code within the team, and a smaller pool of people who can maintain it after you graduate.
 
-Two coding standards are worth knowing even if you do not adopt them formally. **MISRA C** is the automotive-derived rule set that most safety-critical embedded work references, and **NASA's Power of Ten** is a much shorter set of rules for safety-critical code – no recursion, fixed loop bounds, no dynamic allocation after initialisation, functions short enough to read whole, check every return value.[^power-of-ten] The full apparatus is disproportionate for a 1U, but the individual rules are not: **no dynamic allocation after startup** and **bounded loops** alone eliminate the two failure modes most likely to strand a spacecraft, and cost nothing to adopt on day one. Whatever you choose, run a static analyser in CI and treat compiler warnings as errors.
+Two coding standards are worth knowing even if you do not adopt them formally. **MISRA C** is the automotive-derived rule set that most safety-critical embedded work references, and **NASA's Power of Ten** is a much shorter set of rules for safety-critical code – no recursion, fixed loop bounds, no dynamic allocation after initialization, functions short enough to read whole, check every return value.[^power-of-ten] The full apparatus is disproportionate for a 1U, but the individual rules are not: **no dynamic allocation after startup** and **bounded loops** alone eliminate the two failure modes most likely to strand a spacecraft, and cost nothing to adopt on day one. Whatever you choose, run a static analyser in CI and treat compiler warnings as errors.
 
 ## Boot, Reset, and Update Strategy
 
@@ -80,7 +80,7 @@ Updating software in orbit is possible, valuable, and dangerous.
 
 ### Brownouts and partial failures
 
-A brownout is more dangerous than a clean power cycle because the processor may execute unpredictably on the way down – [OBC – Brownout and reset behaviour](obc.md#brownout-and-reset-behaviour) covers the hardware side. For software the rule is to assume any non-volatile write can be interrupted: use atomic update patterns (write, verify, then update a pointer), keep redundant copies of critical configuration, and never leave a single half-written record able to prevent boot. See [OBC – Boot, Power, and Reset Management](obc.md#boot-power-and-reset-management).
+A brownout is more dangerous than a clean power cycle because the processor may execute unpredictably on the way down – [OBC – Brownout and reset behavior](obc.md#brownout-and-reset-behavior) covers the hardware side. For software the rule is to assume any non-volatile write can be interrupted: use atomic update patterns (write, verify, then update a pointer), keep redundant copies of critical configuration, and never leave a single half-written record able to prevent boot. See [OBC – Boot, Power, and Reset Management](obc.md#boot-power-and-reset-management).
 
 ### Storage and filesystems
 
@@ -88,7 +88,7 @@ The same reasoning extends to bulk storage, and this is where a surprising numbe
 
 - **A general-purpose filesystem is a liability.** FAT in particular has no crash consistency: an interrupted write can corrupt the allocation table and take the whole volume with it, not just the record being written. If you must use FAT for ground-side convenience, keep flight-critical state somewhere else.
 - **Prefer append-only logs or a journaling filesystem.** An append-only ring buffer with per-record checksums degrades gracefully – a torn record at the end is discardable, and everything before it is still readable. LittleFS and similar power-loss-resilient filesystems are designed for exactly this.
-- **Raw flash needs wear levelling and bad-block handling.** NAND blocks fail with use, and a naive driver that rewrites the same block for every telemetry record will find its limits within a mission.
+- **Raw flash needs wear leveling and bad-block handling.** NAND blocks fail with use, and a naive driver that rewrites the same block for every telemetry record will find its limits within a mission.
 - **Separate the critical from the bulk.** Boot configuration, the golden image and the mode state belong in small, redundant, checksummed storage that is written rarely. Telemetry and payload data belong in bulk storage whose corruption costs you data but never the spacecraft.
 - **Test with power cuts.** Pull power mid-write, repeatedly, and confirm the system boots and the log is readable afterwards. This is the single most informative storage test and almost nobody runs it.
 
@@ -116,24 +116,24 @@ Design principles worth adopting early:
 - **Downlink budget is the constraint.** At 9600 bps over four 8-minute passes you have on the order of 2.3 MB per day *before* protocol overhead and retries. See [Comms – Expected Data Rates](comms.md#expected-data-rates).
 - **Store far more than you send.** Log at high rate onboard, downlink summaries routinely, and dump full-rate data only when investigating.
 - **Beacon something useful.** A short periodic beacon with the most important values gives you and the [SatNOGS](../references/glossary.md#satnogs) community a health picture even when you have no pass.
-- **Never let telemetry storage fill up and block.** Define ring-buffer behaviour explicitly.
+- **Never let telemetry storage fill up and block.** Define ring-buffer behavior explicitly.
 
 ### Inter-Subsystem Communication Protocols
 
 Middleware sits above the physical bus and gives subsystems addresses and services instead of raw bytes, so that moving a function between processors does not rewrite everything.
 
-- **[CSP](../references/glossary.md#csp) (Cubesat Space Protocol)** is the de facto CubeSat standard. A small C stack modelled on TCP/IP with a very lightweight header carrying both transport and network-layer information, connection-oriented and connectionless modes, ICMP-like ping and buffer-status requests, a QoS router, zero-copy buffers and a thread-safe socket API. It runs over CAN, UDP, USART and ZMQ, on FreeRTOS, Zephyr and Linux, and is MIT-licensed.[^libcsp] Originating at Aalborg University and GomSpace, it is widely flown.
+- **[CSP](../references/glossary.md#csp) (Cubesat Space Protocol)** is the de facto CubeSat standard. A small C stack modeled on TCP/IP with a very lightweight header carrying both transport and network-layer information, connection-oriented and connectionless modes, ICMP-like ping and buffer-status requests, a QoS router, zero-copy buffers and a thread-safe socket API. It runs over CAN, UDP, USART and ZMQ, on FreeRTOS, Zephyr and Linux, and is MIT-licensed.[^libcsp] Originating at Aalborg University and GomSpace, it is widely flown.
 - **SpaceCAN**, from LibreCube, takes a different approach: a deliberately simplified derivative of the ECSS CANbus extension standard (ECSS-E-ST-50-15C), on the reasoning that the full ECSS protocol is "too complex in terms of implementation and usage" for small spacecraft. It defines a nominal and redundant bus pair (A and B) with one controller and up to 127 responder nodes, and uses controller heartbeats for cold redundancy – responders that stop hearing the heartbeat switch buses automatically.[^spacecan]
 
 The tradeoff between them is characteristic: CSP gives you a flexible network abstraction over almost any transport; SpaceCAN gives you a tightly specified, redundancy-aware bus with less flexibility and fewer ways to get it wrong. Either is better than inventing an ad-hoc byte protocol, which is what most first missions do and later regret.
 
 Whatever you choose, **fault isolation is the property that matters**: one subsystem misbehaving must not silently corrupt or block traffic for everyone else. See [OBC – Interfaces and Buses](obc.md#interfaces-and-buses) for the physical-layer half of this problem.
 
-### Data Serialisation and Message Formats
+### Data Serialization and Message Formats
 
-- **Custom binary structs** are compact and fast, and are what most CubeSats use. The risk is versioning: the moment ground software and flight software disagree about a struct layout, your telemetry becomes silently wrong rather than obviously broken. Never rely on compiler struct packing across platforms – serialise field by field, explicitly.
+- **Custom binary structs** are compact and fast, and are what most CubeSats use. The risk is versioning: the moment ground software and flight software disagree about a struct layout, your telemetry becomes silently wrong rather than obviously broken. Never rely on compiler struct packing across platforms – serialize field by field, explicitly.
 - **[CCSDS](../references/glossary.md#ccsds) Space Packet Protocol** is the international standard for spacecraft packet structure, with a defined primary header carrying an application process identifier, sequence flags and length. Adopting it costs a little overhead and buys interoperability with existing ground tooling and, potentially, third-party ground stations.
-- **[PUS](../references/glossary.md#pus) (ECSS-E-ST-70-41C)** layers a full service model on top: standardised services for telecommand verification, housekeeping, event reporting, on-board scheduling, parameter management and more. It is the European operational standard, and it is comprehensive to the point of being heavy for a 1U – but PUS is designed to be *tailored*, and adopting a handful of its services is a legitimate middle path that gives you a well-thought-out design instead of an invented one.
+- **[PUS](../references/glossary.md#pus) (ECSS-E-ST-70-41C)** layers a full service model on top: standardized services for telecommand verification, housekeeping, event reporting, on-board scheduling, parameter management and more. It is the European operational standard, and it is comprehensive to the point of being heavy for a 1U – but PUS is designed to be *tailored*, and adopting a handful of its services is a legitimate middle path that gives you a well-thought-out design instead of an invented one.
 - **Self-describing formats** (CBOR, MessagePack, Protocol Buffers) trade a few bytes for forward and backward compatibility. Worth considering for payload data and configuration; usually too heavy for high-rate housekeeping.
 
 **Versioning is the requirement people forget.** Put a schema or version field in every packet type from day one. You will change telemetry formats during development, and possibly in flight, and without a version field you will not be able to tell which format an archived file is in.
@@ -157,7 +157,7 @@ See also: [Communications](comms.md).
 
 Most CubeSats have four to eight modes. A representative set:
 
-- **Boot / initialisation** – minimal, transient, establishing basic health.
+- **Boot / initialization** – minimal, transient, establishing basic health.
 - **Detumble** – reducing body rates after deployment. See [GNC](gnc.md).
 - **[Safe mode](../references/glossary.md#safe-mode)** – the fallback: everything non-essential off, sun-pointing or tumbling, battery charging, radio listening, beacon transmitting. Safe mode must be reachable from every other mode, must be entered autonomously, and must be able to sustain itself indefinitely.
 - **Nominal** – routine operations, housekeeping, attitude control.
@@ -166,7 +166,7 @@ Most CubeSats have four to eight modes. A representative set:
 
 ### Implementing modes
 
-- **Make the state machine explicit.** A single, readable table of states, permitted transitions and their guard conditions, in one place. Mode logic that emerges from flags scattered across the codebase is the most common source of unreproducible in-flight behaviour.
+- **Make the state machine explicit.** A single, readable table of states, permitted transitions and their guard conditions, in one place. Mode logic that emerges from flags scattered across the codebase is the most common source of unreproducible in-flight behavior.
 - **Guard every transition.** Do not enter payload mode below a battery threshold. Do not slew while the [ADCS](../references/glossary.md#adcs) is unconverged.
 - **Add hysteresis.** A mode boundary at exactly 7.2 V will oscillate. Enter safe mode at 7.0 V and leave it at 7.5 V.
 - **Telemeter the mode and the reason for the last transition.** "Entered safe mode" is not diagnostic; "entered safe mode due to battery under-voltage at T+4213 s" is.
@@ -229,7 +229,7 @@ Assume every sensor will eventually give bad data, every actuator will eventuall
 - **Time sources, drift and RTC backup** are hardware questions, covered under [OBC – Timing and Timekeeping](obc.md#timing-and-timekeeping); the software has to cope with whatever they deliver.
 - **Timestamp everything**, and carry both wall-clock time and a monotonic uptime/boot counter. Wall-clock time can be wrong or lost after a reset; the monotonic counter always lets you order events.
 - **Handle time discontinuities explicitly.** When the clock is corrected, time can jump backwards. Any code computing elapsed time by subtracting timestamps needs to cope with that, or it will occasionally compute a negative interval and behave bizarrely.
-- **Correct for drift in software** from the temperature characterisation the OBC page describes, because even a compensated crystal drifts enough over a day to degrade attitude determination and Doppler correction if left alone.
+- **Correct for drift in software** from the temperature characterization the OBC page describes, because even a compensated crystal drifts enough over a day to degrade attitude determination and Doppler correction if left alone.
 
 ## Software Testing and Validation
 
@@ -239,7 +239,7 @@ Flight software is the one subsystem you can test essentially for free and essen
 
 - **Unit tests** on host, covering logic in isolation – mode transitions, command validation, packet encoding, limit checking. Fast, numerous, run on every commit.
 - **Integration tests** on host with simulated hardware, covering subsystem interaction and protocol handling.
-- **On-target tests** on the flight processor, catching everything the host cannot: timing, memory constraints, compiler differences, actual driver behaviour.
+- **On-target tests** on the flight processor, catching everything the host cannot: timing, memory constraints, compiler differences, actual driver behavior.
 - **[Flatsat](../references/glossary.md#flatsat) tests** with all the hardware connected. The closest thing to flight, and where interface assumptions go to die.
 - **[HIL](../references/glossary.md#hil) tests** with simulated orbital dynamics and sensor data, which is the only practical way to exercise a full mission timeline. See [AIT](ait.md#hardware-in-the-loop-hil-testing).
 
@@ -266,14 +266,14 @@ See also: [Assembly, Integration and Testing (AIT)](ait.md).
 - **Power and inhibit awareness.** Software must know which loads are enabled, must not command a device on a powered-down rail, and must respect [inhibit](inhibits-hdrm.md) state – including the RF silence period after deployment, which is a launch provider requirement and not a preference.
 - **[ADCS](gnc.md) coupling.** Control loops need deterministic timing and consistent sensor timestamps. Sensor data with unknown latency produces control instability that is very hard to diagnose from telemetry.
 - **Thermal and EPS feedback.** Heater control loops, load shedding on low battery, and duty-cycling to manage dissipation all live in software but are governed by physics defined elsewhere. See [Thermal](thermal.md) and [EPS](eps.md).
-- **Never trust a peripheral to respond.** Every hardware transaction needs a timeout and a defined failure behaviour. A blocking read from a hung I²C device will hang the spacecraft.
+- **Never trust a peripheral to respond.** Every hardware transaction needs a timeout and a defined failure behavior. A blocking read from a hung I²C device will hang the spacecraft.
 
 ## Documentation and Maintainability
 
-University teams turn over on the same timescale as a CubeSat project – see [Systems Engineering – Organisational pitfalls](systems-engineering.md#organisational-pitfalls) – so **bus factor is a design constraint, not a soft concern.**
+University teams turn over on the same timescale as a CubeSat project – see [Systems Engineering – Organizational pitfalls](systems-engineering.md#organizational-pitfalls) – so **bus factor is a design constraint, not a soft concern.**
 
-- **Document interfaces, not implementations.** [ICDs](../references/glossary.md#icd) between subsystems, telemetry and command dictionaries, and the mode state machine are the artefacts that outlive their authors. Code comments explaining *why* age far better than ones explaining *what*.
-- **Keep a machine-readable command and telemetry dictionary** – a single source of truth generating both flight and ground code. This eliminates an entire class of desynchronisation bugs and makes ground tooling nearly free.
+- **Document interfaces, not implementations.** [ICDs](../references/glossary.md#icd) between subsystems, telemetry and command dictionaries, and the mode state machine are the artifacts that outlive their authors. Code comments explaining *why* age far better than ones explaining *what*.
+- **Keep a machine-readable command and telemetry dictionary** – a single source of truth generating both flight and ground code. This eliminates an entire class of desynchronization bugs and makes ground tooling nearly free.
 - **Configuration over code.** Thresholds, limits and timings in a parameter table that can be updated in flight, rather than compiled-in constants. Changing a safe-mode threshold should not require a software upload. The [libparam](https://github.com/spaceinventor/libparam) approach from Space Inventor is one worked example.
 - **Version control everything**, including ground scripts, test procedures and configuration. Tag what actually flew.
 - **Write the operations handbook while you build**, not the week before launch. Nominal procedures, contingency procedures, and what each telemetry point means – the person on console at 3 a.m. may not be the person who wrote the code.
@@ -316,6 +316,6 @@ University teams turn over on the same timescale as a CubeSat project – see [S
 
 [^spacecan]: LibreCube, [SpaceCAN standard](https://librecube.gitlab.io/standards/spacecan/). A deliberately simplified derivative of ECSS-E-ST-50-15C, defining a nominal and redundant bus pair with one controller and up to 127 responder nodes, using controller heartbeat monitoring for cold redundancy. The rationale given is explicit: the full ECSS CANbus standard is "deemed too complex in terms of implementation and usage" for small spacecraft.
 
-[^power-of-ten]: Gerard J. Holzmann (NASA/JPL Laboratory for Reliable Software), ["The Power of 10: Rules for Developing Safety-Critical Code"](https://spinroot.com/gerard/pdf/P10.pdf), *IEEE Computer*, vol. 39, no. 6, June 2006. Free PDF. Ten rules intended to be checkable by static analysis: simple control flow, fixed loop bounds, no dynamic memory allocation after initialisation, functions short enough to print on one page, a minimum assertion density, smallest possible data scope, checked return values, restricted preprocessor use, restricted pointer use, and compilation with all warnings enabled from day one.
+[^power-of-ten]: Gerard J. Holzmann (NASA/JPL Laboratory for Reliable Software), ["The Power of 10: Rules for Developing Safety-Critical Code"](https://spinroot.com/gerard/pdf/P10.pdf), *IEEE Computer*, vol. 39, no. 6, June 2006. Free PDF. Ten rules intended to be checkable by static analysis: simple control flow, fixed loop bounds, no dynamic memory allocation after initialization, functions short enough to print on one page, a minimum assertion density, smallest possible data scope, checked return values, restricted preprocessor use, restricted pointer use, and compilation with all warnings enabled from day one.
 
-[^fcc-telecommand]: [47 CFR § 97.211 – Space telecommand station](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211). Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." Paragraph (c) lists the authorised telecommand segments, including 144–146 MHz, 435–438 MHz, 1260–1270 MHz and 2400–2450 MHz. This is the US rule; other administrations treat telecommand separately from the general prohibition on obscured amateur communications, but the details differ and should be checked against your own licence conditions.
+[^fcc-telecommand]: [47 CFR § 97.211 – Space telecommand station](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211). Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." Paragraph (c) lists the authorized telecommand segments, including 144–146 MHz, 435–438 MHz, 1260–1270 MHz and 2400–2450 MHz. This is the US rule; other administrations treat telecommand separately from the general prohibition on obscured amateur communications, but the details differ and should be checked against your own license conditions.
