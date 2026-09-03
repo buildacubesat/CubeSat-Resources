@@ -138,7 +138,7 @@ Start looking for a ride early. It aligns you with your provider's requirements,
 
     For a team starting now, a 1–2 year development means launching straight into that window. Practical response: talk to brokers earlier than you otherwise would, treat launch cost as a range rather than a number in your funding case, and take the free programmes and ISS routes more seriously than you might have in 2024.
 
-Full detail – what you are actually buying, the working-backwards timeline, deployers, insurance and delivery – on [Qualification and Launch](development/launch.md).
+Two things worth internalising before you build a schedule: your real deadline is hardware delivery, not launch day – typically one to six months earlier – and if the CubeSat is not ready, the manifest does not wait. Full detail on what you are actually buying, the working-backwards timeline, deployers, insurance and delivery is on [Qualification and Launch](development/launch.md).
 
 ## Regulatory Approval
 
