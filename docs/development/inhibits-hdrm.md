@@ -1,5 +1,7 @@
 # Inhibits, Hold Down and Release Mechanisms (HDRM)
 
+This page covers launch safety hardware: what the CubeSat Design Specification and launch providers require of inhibits, deployment switches, remove-before-flight pins and timers, how those interact with the power system, the hold-down and release mechanisms that keep deployables stowed, and the evidence a safety review expects.
+
 This is the part of a CubeSat that exists entirely for other people's benefit. Inhibits do nothing for your mission – their only job is to guarantee that your spacecraft cannot do anything hazardous while it is inside someone else's rocket, next to someone else's payload, and sometimes inside a crewed vehicle. They are also, for the same reason, the part of your design most likely to be examined line by line in a safety review.
 
 ## Purpose and Safety Context

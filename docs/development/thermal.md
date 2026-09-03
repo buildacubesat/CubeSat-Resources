@@ -1,5 +1,7 @@
 # Thermal Management
 
+This page covers thermal design for a CubeSat: the orbital environment and its hot and cold cases, component limits and margins, passive and active control, modelling, telemetry, and thermal vacuum testing.
+
 CubeSats are thermally awkward for reasons that follow directly from their size. There is very little thermal mass, so temperatures track the environment quickly instead of averaging it out. External surface area is scarce and already contested by solar cells, antennas and apertures, so there is rarely a spare face to use as a radiator. Everything is packed close together, so isolating a hot component from a cold-sensitive one is difficult. And the power budget rarely has room for active cooling.[^nasa-soa-thermal] The result is that most CubeSat thermal design is passive, and most of the work happens in the layout rather than in dedicated hardware.
 
 ## Thermal Environment in Orbit

@@ -1,5 +1,7 @@
 # Onboard Computing (OBC)
 
+This page covers the onboard computer: microcontrollers, single-board computers and FPGAs and the radiation environment that shapes the choice between them, memory, watchdogs and redundancy, boot and reset behaviour, the buses that link subsystems, and timekeeping. The software the hardware carries is on [Flight Software](flight-software.md).
+
 The governing constraint is that you cannot press the reset button. Every design decision on this page is really an answer to one question: when something goes wrong 500 km up, what brings the spacecraft back?
 
 ## Role of the OBC in a CubeSat

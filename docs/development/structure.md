@@ -1,5 +1,7 @@
 # Structure
 
+This page covers the mechanical side of a CubeSat: the envelope and rails the deployer dictates, frames and whether to buy or build them, materials and outgassing, fasteners, the internal board stack, mass properties, deployables, structural analysis, tolerancing and cleanliness. Release mechanisms and inhibits have their own page under [Inhibits and HDRM](inhibits-hdrm.md); the test campaign is under [AIT](ait.md).
+
 The structure is unusual among CubeSat subsystems in that most of its requirements come from outside the mission. The [deployer](../references/glossary.md#deployer) dictates the envelope, the launch vehicle dictates the loads, and both are fixed long before your design is finished. Getting the external interface right early is cheap; discovering at the fit check that your antenna protrudes 2 mm too far is not.
 
 ## Form Factors and the CubeSat Envelope

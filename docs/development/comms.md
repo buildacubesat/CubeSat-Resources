@@ -1,6 +1,6 @@
 # Communications
 
-The Communications section covers the radio link between a CubeSat and its operators: bands and their regulatory constraints, link budgets, modulation and coding, and the flight-side hardware that implements them. Ground station design lives on the [Ground Segment](ground-segment.md) page; this page stops at the antenna.
+This page covers the radio link between a CubeSat and its operators: bands and their regulatory constraints, link budgets, modulation and coding, and the flight-side hardware that implements them. Ground station design lives on the [Ground Segment](ground-segment.md) page; this page stops at the antenna.
 
 The communications subsystem is unusual in that its hardest constraints are legal rather than technical. Which band you may use, what you may send over it, and whether you may encrypt it are decided by your licence and your [IARU](../references/glossary.md#iaru) coordination, not by your design. Settle that first – see [Qualification and Launch – Frequency licensing](launch.md#frequency-licensing) – because it determines the transceiver you buy.
 

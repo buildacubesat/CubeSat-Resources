@@ -1,6 +1,8 @@
 # Electrical Power Systems (EPS)
 
-This section covers power generation (solar panels), storage (batteries and BMS), conditioning and distribution (EPS and power buses).
+This page covers the power system end to end: building and defending a power budget, solar generation, batteries and their management, conditioning and distribution, switching and protection, the inhibits that live in the power path, and the telemetry that tells you whether any of it is working.
+
+Power faults are among the most common causes of early CubeSat failure, and they rarely come from an exotic component. They come from a budget that closed on paper – at beginning of life, at nominal pointing, with a charged battery on the bench – and never closed in orbit.
 
 ## Power Requirements and Budgets
 

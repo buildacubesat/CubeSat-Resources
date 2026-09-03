@@ -8,6 +8,8 @@ Guidance, Navigation, and Control (GNC) is the set of systems that allow a space
 
 Within this broader framework, **Attitude Determination and Control Systems (ADCS)** focus specifically on the spacecraft's **orientation** – how it is rotated in space and how that orientation is measured and controlled. On a CubeSat this is where nearly all the GNC effort goes: few small missions manoeuvre, but many need to point.
 
+This page covers all three functions, with the weight on ADCS: reference frames and orbits, sensors, actuators, control and estimation, disturbances, modes, the buy-or-build decision, integration and testing. Propulsion has [its own page](propulsion.md).
+
 ## Overview
 
 <!-- CSR-RESOURCES:START dev-gnc-overview -->

@@ -1,5 +1,7 @@
 # Payload
 
+This page covers the payload from the bus's point of view: what counts as one, the common types and what each demands of the spacecraft, onboard processing and data reduction, mechanical and electrical integration, operations, calibration, testing, and data products.
+
 Everything else on this site describes a *bus* – the machinery that keeps a spacecraft alive. The payload is the reason the bus exists. That relationship should shape how you design: the payload's needs generate the bus requirements, not the other way round. Teams that pick a bus first and then discover what their payload actually needs tend to spend the rest of the project negotiating with their own earlier decisions.
 
 ## What Constitutes a Payload

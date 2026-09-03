@@ -1,6 +1,6 @@
 # Ground Segment
 
-The ground segment includes everything on Earth that supports your CubeSat mission: ground stations, antennas, radios, tracking software, and data handling pipelines. This section covers both amateur and professional setups, from SatNOGS to custom stations, and includes tools for decoding, commanding, and archiving telemetry.
+This page covers everything on Earth that supports your CubeSat mission – ground stations, antennas, radios, tracking, decoding, commanding, automation and data handling – for both amateur and professional setups, from a SatNOGS station to a custom one.
 
 The ground segment is the half of the mission that most CubeSat teams under-resource. A spacecraft you cannot hear is indistinguishable from one that failed, and the difference between a mission that returns data and one that does not is frequently on this side of the link. It is also the only half you can fix after launch.
 

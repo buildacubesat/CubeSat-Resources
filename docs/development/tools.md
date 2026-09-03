@@ -1,8 +1,8 @@
 # Tools and Helpers
 
-A CubeSat lab does not need everything listed here on day one. The ordering that generally serves teams best is **measurement before fabrication** – a decent multimeter, a caliper and an oscilloscope earn their keep long before a reflow oven does – and **buy the tool that makes a job repeatable** rather than the one that makes it possible. Repeatability is what separates a spacecraft from a prototype.
-
 This page covers the bench: hand tools, inspection, fixtures, instruments, software and the templates that save you rebuilding a spreadsheet somebody has already built.
+
+A CubeSat lab does not need everything listed here on day one. The ordering that generally serves teams best is **measurement before fabrication** – a decent multimeter, a caliper and an oscilloscope earn their keep long before a reflow oven does – and **buy the tool that makes a job repeatable** rather than the one that makes it possible. Repeatability is what separates a spacecraft from a prototype.
 
 ## Hand Tools and Assembly Equipment
 

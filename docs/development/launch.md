@@ -1,5 +1,7 @@
 # Qualification and Launch
 
+This page covers everything between a finished spacecraft and a deployed one: turning the test campaign into a delivery package, buying a launch, insurance, frequency licensing, registration, export control and debris rules, deployers, delivery, the run-up to first contact, and end of life. The testing itself is on [AIT](ait.md).
+
 The recurring theme of this page is **lead time**. Building the spacecraft is under your control; frequency coordination, export licensing, safety review and manifest availability are not. Teams that treat these as end-of-project paperwork routinely find that their hardware is ready and their spacecraft still cannot legally or contractually fly. Start all of them early – a year or more before launch is not excessive.
 
 ## Qualification

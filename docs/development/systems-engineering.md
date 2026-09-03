@@ -1,5 +1,7 @@
 # Systems Engineering
 
+This page covers requirements, the concept of operations, architecture and interfaces, budgets and margins, trade studies, reliability and risk, configuration management, verification and validation, mission phases, and the pitfalls that recur across CubeSat projects.
+
 Every CubeSat starts with a sentence – "measure X", "demonstrate Y", "give students flight experience". Systems engineering is the discipline of turning that sentence into something buildable without losing what mattered about it.
 
 It is what holds the rest of this site together: the requirements that tell each subsystem what it is for, the interfaces where subsystems meet, the budgets that keep the whole thing physically possible, and the evidence that any of it works. On a large programme this is a department. On a CubeSat it is usually one person doing it alongside something else, which makes it easy to skip and expensive to have skipped.
