@@ -317,7 +317,7 @@ All of them are dramatically more valuable with **external reviewers**. Someone 
 <!-- CSR-RESOURCES:START dev-systems-engineering-standards -->
 - **[NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)** `PDF` – Requirements, the four verification methods, validation, and the Pre-Phase A to Phase F life cycle. Written for far larger programmes, but the concepts scale down cleanly. Free PDF
 - **[ECSS-M-ST-10C Rev.1 – Project planning and implementation](https://ecss.nl/standard/ecss-m-st-10c-rev-1-project-planning-and-implementation/)** `Link` – The European equivalent, and the source of the Phase 0 to Phase F structure. Free, registration required
-- **[ECSS-E-ST-10C Rev.1 – System engineering general requirements](https://ecss.nl/wp-content/uploads/2017/02/ECSS-E-ST-10C-Rev.1(15February2017).pdf)** `PDF` – The engineering-branch companion: requirements engineering, analysis, design, verification and system engineering integration and control. Freely available
+- **[ECSS-E-ST-10C Rev.1 – System engineering general requirements](https://ecss.nl/wp-content/uploads/2017/02/ECSS-E-ST-10C-Rev.1(15February2017).pdf)** `PDF` – The engineering-branch companion: requirements engineering, analysis, design, verification and system engineering integration and control. Free PDF
 - **[GSFC-STD-1000 Rev H](https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf)** `PDF` – Goddard's design rules, including the technical resource margin table that sets separate mass, power, propellant and link margins per phase. Free PDF
 <!-- CSR-RESOURCES:END dev-systems-engineering-standards -->
 

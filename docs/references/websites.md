@@ -9,9 +9,9 @@ Websites worth bookmarking: resource collections, development hubs, component ma
 - **[BIRDS Bus Open Source](https://birds-project.com/open-source/)** `Link` – CubeSat resource collection, with a focus on the BIRDS Bus
 - **[Phoenix Docs](https://phxcubesat.asu.edu/resources/documents)** `Link` – Arizona State Phoenix CubeSat presentations, papers, NOAA and FCC licensing docs
 - **[Awesome Space](https://github.com/orbitalindex/awesome-space)** `Link` – A list of awesome space-related packages and resources maintained by The Orbital Index
-- **[NASA State of the Art in Small Spacecraft Technology](https://www.nasa.gov/smallsat-institute/sst-soa)** `Link` – Annually updated survey of every smallsat subsystem with current hardware, performance figures and vendor listings. Free, and cited throughout this site.
+- **[NASA State of the Art in Small Spacecraft Technology](https://www.nasa.gov/smallsat-institute/sst-soa)** `Link` – Annually updated survey of every smallsat subsystem with current hardware, performance figures and vendor listings. Free, and cited throughout this site
 - **[Small Satellite Conference Proceedings](https://digitalcommons.usu.edu/smallsat/)** `Link` – Freely accessible proceedings archive going back to 1987; the richest open source of CubeSat engineering literature
-- **[CubeSat Resources](https://cubesat-resources.space/)** `Link` – A curated collection of links and resources for anyone interested in building CubeSats, from first-time makers to experienced developers (this very website, mentioned for completeness).
+- **[CubeSat Resources](https://cubesat-resources.space/)** `Link` – A curated collection of links and resources for anyone interested in building CubeSats, from first-time makers to experienced developers (this very website, mentioned for completeness)
 <!-- CSR-RESOURCES:END ref-websites-resource-collections -->
 
 ## CubeSat Development

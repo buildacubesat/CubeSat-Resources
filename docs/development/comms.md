@@ -44,7 +44,7 @@ These require a spectrum authorisation from your national regulator, which files
 
 <!-- CSR-RESOURCES:START dev-comms-bands-and-coordination -->
 - **[Amateur and Amateur-Satellite Service Spectrum (IARU)](https://www.iaru.org/wp-content/uploads/2020/01/Amateur-Services-Spectrum-2020_.pdf)** `PDF` – The allocations and the ITU footnotes that govern them, including 5.282 and the 1260–1270 MHz Earth-to-space restriction
-- **[IARU Satellite Frequency Coordination](https://www.iaru.org/reference/satellites/)** `Link` – The coordination process, the current request form, and the panel's meeting schedule. Requests are submitted through your national member society.
+- **[IARU Satellite Frequency Coordination](https://www.iaru.org/reference/satellites/)** `Link` – The coordination process, the current request form, and the panel's meeting schedule. Requests are submitted through your national member society
 - **[NASA State of the Art – Communications](https://www.nasa.gov/smallsat-institute/sst-soa/soa-communications/)** `Link` – Annually revised survey of small spacecraft RF and optical communications, including COTS transceiver classes and demonstrated data rates
 <!-- CSR-RESOURCES:END dev-comms-bands-and-coordination -->
 
@@ -212,7 +212,7 @@ Still uncommon on CubeSats, but an active area of demonstration, and increasingl
 
 👉 **Please consider [contributing](../contributing.md)!**
 
-[^iaru-spectrum]: International Amateur Radio Union, [*Amateur and Amateur-Satellite Service Spectrum*](https://www.iaru.org/wp-content/uploads/2020/01/Amateur-Services-Spectrum-2020_.pdf) (revised January 2020). Source for the amateur-satellite allocations and the ITU Radio Regulations footnotes governing them, including No. 5.282 and its restriction of amateur-satellite operation in 1260–1270 MHz to the Earth-to-space direction. Practical satellite segments in the 2 m band – 145.800–146.000 MHz and 144.000–144.025 MHz – follow the IARU band plan rather than the ITU allocation, which covers the whole of 144–146 MHz.
+[^iaru-spectrum]: International Amateur Radio Union, [*Amateur and Amateur-Satellite Service Spectrum*](https://www.iaru.org/wp-content/uploads/2020/01/Amateur-Services-Spectrum-2020_.pdf) (revised January 2020). Free PDF. Source for the amateur-satellite allocations and the ITU Radio Regulations footnotes governing them, including No. 5.282 and its restriction of amateur-satellite operation in 1260–1270 MHz to the Earth-to-space direction. Practical satellite segments in the 2 m band – 145.800–146.000 MHz and 144.000–144.025 MHz – follow the IARU band plan rather than the ITU allocation, which covers the whole of 144–146 MHz.
 
 [^nasa-soa-comms]: NASA Small Spacecraft Systems Virtual Institute, [*State-of-the-Art of Small Spacecraft Technology*, Chapter 9: Communications](https://www.nasa.gov/smallsat-institute/sst-soa/soa-communications/) (revision dated May 2026). Source for the ISARA Ka-band demonstration exceeding 100 Mbps, the MarCO X-band relay, COTS transceiver classes, and the maturity assessment of free-space optical communications for small spacecraft.
 

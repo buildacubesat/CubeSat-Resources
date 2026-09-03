@@ -226,7 +226,7 @@ The most common early-operations failures are mundane: uplink Doppler not correc
 
 <!-- CSR-RESOURCES:START dev-ground-segment-decoders -->
 - **[gr-satellites](https://github.com/daniestevez/gr-satellites)** `Link` – GNU Radio decoders for most amateur satellites in orbit, covering AX.25, GOMspace AX100/U482C, CCSDS and AO-40 protocols, with file reassembly and human-readable telemetry output (GPL-3.0)
-- **[SatNOGS DB](https://db.satnogs.org/)** `Link` – Community database of satellite transmitters, telemetry formats and decoded data. Register your satellite and its transmitters here before launch.
+- **[SatNOGS DB](https://db.satnogs.org/)** `Link` – Community database of satellite transmitters, telemetry formats and decoded data. Register your satellite and its transmitters here before launch
 - **[SatNOGS Dashboards](https://dashboard.satnogs.org/)** `Link` – Grafana dashboards for current and past missions, and a hosting option for your own
 <!-- CSR-RESOURCES:END dev-ground-segment-decoders -->
 
@@ -241,7 +241,7 @@ The most common early-operations failures are mundane: uplink Doppler not correc
 ### Rotator and Radio Control
 
 <!-- CSR-RESOURCES:START dev-ground-segment-rotator-control -->
-- **[Hamlib](https://hamlib.github.io/)** `Link` – The standard control layer for antenna rotators and radios, providing a consistent API across hardware. Supplies `rotctl`/`rotctld` for rotators and `rigctl`/`rigctld` for radios, and is what almost every tracking program speaks.
+- **[Hamlib](https://hamlib.github.io/)** `Link` – The standard control layer for antenna rotators and radios, providing a consistent API across hardware. Supplies `rotctl`/`rotctld` for rotators and `rigctl`/`rigctld` for radios, and is what almost every tracking program speaks
 <!-- CSR-RESOURCES:END dev-ground-segment-rotator-control -->
 
 Built on top of Hamlib, and worth knowing about:

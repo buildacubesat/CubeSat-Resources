@@ -18,10 +18,10 @@ For problems with the site, [open an issue on GitHub](https://github.com/buildac
 
 ### Citing Sources
 
-Name up to three authors; beyond three, use the first author and `et al.`
+Name up to three authors in full – first name and surname, as they publish – and beyond three, the first author in full and `et al.` The same form is used everywhere:
 
-- **Reference list entries** (the `references/` pages) use surnames only, followed by venue and year: `Bouwmeester, Langer and Gill, *CEAS Space Journal* 9(2), 2017`, or `Villela et al., *International Journal of Aerospace Engineering*, 2019`.
-- **Footnotes** on development pages use full names: `Jasper Bouwmeester, Martin Langer and Eberhard Gill, "Survey on ..."`, or `Maximillian Holliday et al., "PyCubed: ..."`.
+- **Reference list entries** (the `references/` pages) give authors, venue and year: `Jasper Bouwmeester, Martin Langer and Eberhard Gill, *CEAS Space Journal* 9(2), 2017`, or `Thyrso Villela et al., *International Journal of Aerospace Engineering*, 2019`.
+- **Footnotes** on development pages add the title, the link and a sentence on exactly what the source supports: `Jasper Bouwmeester, Martin Langer and Eberhard Gill, "Survey on ..."`, or `Maximillian Holliday et al., "PyCubed: ..."`.
 
 Please state whether a source is free to read – `Open access`, `Free PDF`, or `paywalled` – so nobody follows a link into a paywall unwarned. Where the same source is cited from more than one page, use the same footnote slug on each, so the pair stays greppable.
 

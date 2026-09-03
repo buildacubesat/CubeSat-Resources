@@ -140,8 +140,8 @@ Steady-state solutions tell you where temperatures settle; transient solutions s
 ### Tools
 
 <!-- CSR-RESOURCES:START dev-thermal-modelling-tools -->
-- **[Single-node thermal analysis Python script](https://github.com/MelbourneSpaceProgram/single-node-thermal-analysis)** `Link` – Melbourne Space Program's minimal single-node CubeSat thermal model in Python. MIT licence, open source
-- **[SATMO](https://github.com/alexchipps/SATMO)** `Link` – Open-source MATLAB thermal analysis tool for CubeSats in low circular orbits, with analysis options for all major planets plus the Moon and Pluto. MIT licence, open source
+- **[Single-node thermal analysis Python script](https://github.com/MelbourneSpaceProgram/single-node-thermal-analysis)** `Link` – Melbourne Space Program's minimal single-node CubeSat thermal model in Python. Open source (MIT)
+- **[SATMO](https://github.com/alexchipps/SATMO)** `Link` – Open-source MATLAB thermal analysis tool for CubeSats in low circular orbits, with analysis options for all major planets plus the Moon and Pluto. Open source (MIT)
 - **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/abs/2512.07896)** `Link` – AIAA SciTech 2026 paper describing SATMO and its validation against Thermal Desktop. Open access preprint
 <!-- CSR-RESOURCES:END dev-thermal-modelling-tools -->
 
@@ -224,7 +224,7 @@ The point of correlation is to adjust uncertain model parameters – contact con
 
 [^gsfc-2301]: NASA Goddard Space Flight Center, [*Earth Orbit Environmental Heating*, Preferred Reliability Practice GD-AP-2301](https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/2301.pdf). Free PDF. Gives recommended design values: solar constant 1367.5 W/m² nominal with ±3.5% seasonal variation, and hot and cold cases of 1422.0 W/m² and 1318.0 W/m² at ±4.0% from nominal; albedo factor 0.30 nominal, 0.25 cold and 0.35 hot; and Earth-emitted IR of 241 W/m² for a 255 K Earth. Table 1 tabulates the nine solar-constant and albedo combinations, giving Earth-emitted energy from 214 W/m² (summer solstice, albedo 0.35) to 267 W/m² (winter solstice, albedo 0.25).
 
-[^tfaws-environments]: Steven L. Rickman, NASA Engineering and Safety Center, [*Introduction to On-Orbit Thermal Environments*](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf), Thermal and Fluids Analysis Workshop, 2014. Useful for showing how much real albedo and outgoing longwave radiation vary with location and averaging period, and how that variation is condensed into hot and cold design cases.
+[^tfaws-environments]: Steven L. Rickman, NASA Engineering and Safety Center, [*Introduction to On-Orbit Thermal Environments*](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf), Thermal and Fluids Analysis Workshop, 2014. Free PDF. Useful for showing how much real albedo and outgoing longwave radiation vary with location and averaging period, and how that variation is condensed into hot and cold design cases.
 
 [^satmo]: Alexander Chipps, Daniel Forgette and Kerri Cahoy, ["SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions"](https://arxiv.org/abs/2512.07896), AIAA SciTech Forum 2026, DOI 10.2514/6.2026-2269. The AIAA version is paywalled; the arXiv preprint (submitted 4 December 2025) is open access and is what is linked here. Describes an open-source MATLAB thermal model representing the spacecraft as a six-sided box with one face-centred node per surface, validated against Thermal Desktop to within 1.17 °C for a 1U at Venus, Earth and Mars. The tool itself carries analysis options for all major planets plus the Moon and Pluto; those three are the validated set. Code at [github.com/alexchipps/SATMO](https://github.com/alexchipps/SATMO), MIT licence.
 

@@ -186,7 +186,7 @@ The CubeSat and amateur satellite communities are unusually willing to help. A w
 
 👉 **Please consider [contributing](contributing.md)!**
 
-[^cds]: The CubeSat Program, Cal Poly SLO, [*CubeSat Design Specification Rev. 14.1*](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf) (9 February 2022). Source for the 100.0 × 100.0 × 113.5 mm 1U envelope, the 2 kg/U mass table covering 1U–12U, and the 30-minute deployable and 45-minute RF quiet periods.
+[^cds]: The CubeSat Program, Cal Poly SLO, [*CubeSat Design Specification Rev. 14.1*](https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf) (9 February 2022). Free PDF. Source for the 100.0 × 100.0 × 113.5 mm 1U envelope, the 2 kg/U mass table covering 1U–12U, and the 30-minute deployable and 45-minute RF quiet periods.
 
 [^rideshare-price]: SpaceX, [Rideshare Program](https://www.spacex.com/rideshare/); pricing as published for sun-synchronous Transporter missions, with a 50 kg minimum. Corroborated by NASA SSSVI, [*State of the Art in Small Spacecraft Technology*, Chapter 10](https://www.nasa.gov/smallsat-institute/sst-soa/integration-launch-and-deployment/).
 
