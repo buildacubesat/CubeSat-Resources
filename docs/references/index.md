@@ -11,8 +11,8 @@ Online forums, groups, and platforms where CubeSat developers connect and share 
 [**Courses and Events**](courses.md)  
 Online and in-person learning opportunities covering engineering, space policy, and CubeSat missions.
 
-[**CubeSat Missions**](missions.md)  
-Selected CubeSat projects and open-source missions with public documentation or hardware.
+[**Missions**](missions.md)  
+Selected CubeSat and PocketQube projects and open-source missions with public documentation or hardware.
 
 [**Glossary**](glossary.md)  
 Key terms, acronyms, and concepts used throughout this site.
