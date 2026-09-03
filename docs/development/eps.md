@@ -18,7 +18,7 @@ Power budgets are rarely a one-pass calculation. They evolve from coarse estimat
 ### Estimating generation
 
 - **Solar input**: depends on cell efficiency, panel area, sun-incidence angle, and [beta angle](../references/glossary.md#beta-angle) (which drives eclipse fraction).
-- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)**: a typical [LEO](../references/glossary.md#leo) orbit spends 30–35% of its period in eclipse, but this varies seasonally and with orbit geometry. Eclipse duration falls as the magnitude of the beta angle rises, and above a critical value the orbit is sunlit continuously – see [Illumination, eclipse and incidence angle](#illumination-eclipse-and-incidence-angle).
+- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)**: a [LEO](../references/glossary.md#leo) orbit at low beta angle spends 37–40% of its period in eclipse – about 35 minutes – but this varies seasonally and with orbit geometry. Eclipse duration falls as the magnitude of the beta angle rises, and above a critical value the orbit is sunlit continuously – see [Illumination, eclipse and incidence angle](#illumination-eclipse-and-incidence-angle).
 - **Pointing**: a tumbling spacecraft generates far less than a stable, sun-pointing one. Account for this honestly during early phases – assuming nominal pointing before you've proven your [ADCS](../references/glossary.md#adcs) works is a classic source of negative-budget surprises.[^clyde-space]
 - **Degradation**: solar cell efficiency drops over time in the LEO radiation environment. The rate varies significantly by cell technology and orbital altitude – triple-junction (TJ) cells degrade the least, silicon cells the most, with small satellites (under 10 kg) experiencing higher rates than larger ones due to lower thermal inertia and shielding.[^degradation] A common planning figure is 1–3% per year for quality cells with coverglass; size your panels for end-of-life, not beginning-of-life.[^hawaii-gen]
 
@@ -74,7 +74,7 @@ A useful sanity check before committing: at normal incidence a single 1U panel p
 Generated power scales with the cosine of the angle between the panel normal and the Sun vector. A panel 60° off-Sun produces half its rated output; at 80° it produces almost nothing. This makes generation an **[ADCS](../references/glossary.md#adcs) problem as much as an EPS problem** – see [GNC](gnc.md).
 
 - A tumbling spacecraft averages far below its nominal figure, because faces spend much of their time edge-on or shadowed. Assume tumbling for the commissioning phase, because that is what you will actually have.
-- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)** is typically 30–35% for low-[beta-angle](../references/glossary.md#beta-angle) LEO orbits, and falls as the magnitude of the beta angle rises. Above a critical beta angle of β\* = arcsin(R_E / (R_E + h)) the orbit is sunlit continuously – roughly 70° at 400 km and 68° at 500 km. This is why dawn–dusk sun-synchronous orbits, which hold a high beta angle for much of the year, are so popular for power-hungry missions.
+- **[Eclipse fraction](../references/glossary.md#eclipse-fraction)** is 37–40% for low-[beta-angle](../references/glossary.md#beta-angle) LEO orbits across the 300–600 km band – roughly 35 minutes of eclipse, almost independent of altitude – and falls as the magnitude of the beta angle rises. Above a critical beta angle of β\* = arcsin(R_E / (R_E + h)) the orbit is sunlit continuously – roughly 70° at 400 km and 68° at 500 km. This is why dawn–dusk sun-synchronous orbits, which hold a high beta angle for much of the year, are so popular for power-hungry missions.
 - **Self-shadowing** by deployed panels, antennas and the body itself is easy to miss in a spreadsheet and obvious in a CAD-based illumination analysis. Do the analysis if your margin is thin.
 - **Albedo and [Earth IR](../references/glossary.md#earth-ir)** add a modest amount of extra input on nadir-facing panels. Nice to have; not something to rely on.
 
@@ -118,7 +118,7 @@ With DoD held to 20–30% to preserve cycle life, a mission drawing 2 W through 
 
 Add margin for:
 
-- **Capacity fade over the mission.** Lithium cells lose capacity with cycling and calendar age. At 15–16 orbits per day, a LEO mission accumulates roughly **5,700 charge-discharge cycles per year**.
+- **Capacity fade over the mission.** Lithium cells lose capacity with cycling and calendar age. For a typical 95-minute orbit, a LEO mission accumulates roughly **5,500 charge-discharge cycles per year**.
 - **Cold operation.** Usable capacity falls sharply below 0 °C.
 - **Peak loads.** A transmitter drawing 5 W for 3 minutes during eclipse is a bigger instantaneous demand than the orbit-average figure suggests.
 
