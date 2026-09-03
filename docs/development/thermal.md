@@ -1,7 +1,5 @@
 # Thermal Management
 
-Thermal management is a critical aspect of CubeSat design. This section looks at how to model, monitor, and control temperatures in orbit, including passive methods (like coatings and conduction paths) and active systems (like heaters or thermal straps). It also covers testing and simulation tools for predicting thermal behavior across mission phases.
-
 CubeSats are thermally awkward for reasons that follow directly from their size. There is very little thermal mass, so temperatures track the environment quickly instead of averaging it out. External surface area is scarce and already contested by solar cells, antennas and apertures, so there is rarely a spare face to use as a radiator. Everything is packed close together, so isolating a hot component from a cold-sensitive one is difficult. And the power budget rarely has room for active cooling.[^nasa-soa-thermal] The result is that most CubeSat thermal design is passive, and most of the work happens in the layout rather than in dedicated hardware.
 
 ## Thermal Environment in Orbit
@@ -12,15 +10,15 @@ In vacuum there is no convection. A spacecraft exchanges heat with its surroundi
 
 A CubeSat in [LEO](../references/glossary.md#leo) sees three external heat inputs:
 
-- **Direct solar** – the dominant term. The [solar constant](../references/glossary.md#solar-constant) averages **1367 W/m²** at 1 AU, varying seasonally by roughly ±3.5% as Earth's distance from the Sun changes: about **1422 W/m² at perihelion** (northern winter) and **1318 W/m² at aphelion**.[^gsfc-2301][^tfaws-environments]
+- **Direct solar** – the dominant term. The [solar constant](../references/glossary.md#solar-constant) is **1367.5 W/m²** nominal at 1 AU, varying seasonally by about ±3.5% as Earth's distance from the Sun changes. NASA's recommended hot and cold design values sit at the ends of that swing: **1422 W/m² at perihelion** (northern winter) and **1318 W/m² at aphelion**, each 4.0% from nominal.[^gsfc-2301][^tfaws-environments]
 - **[Albedo](../references/glossary.md#albedo)** – sunlight reflected off the Earth. Conventionally modelled as a fraction of the solar constant, with a nominal albedo factor of **0.30** and a recommended analysis range of **0.25 (cold) to 0.35 (hot)**.[^gsfc-2301] Real instantaneous values vary far more widely – from about 0.06 over ocean to 0.50 over cloud and ice – but short excursions matter less than they might, because a CubeSat's thermal time constant smooths them.[^tfaws-environments]
 - **[Earth infrared](../references/glossary.md#earth-ir) (outgoing longwave radiation)** – the planet radiating as a roughly 255 K blackbody, giving about **241 W/m²** nominal, with analysis values typically spanning **214–267 W/m²**.[^gsfc-2301] Unlike albedo, Earth IR does not switch off in eclipse, which makes it the thing keeping your cold case from being much colder.
 
-Internally, every watt the electronics consume becomes heat. On a small spacecraft this is not a rounding error: a 3U dissipating 6 W inside a body with a few hundred cm² of radiating surface has a genuinely significant internal load.
+Internally, every watt the electronics consume becomes heat. On a small spacecraft this is not a rounding error. A 3U at 100 × 100 × 340.5 mm has about **0.16 m²** of external surface in total, so 6 W of internal dissipation is roughly 38 W/m² leaving the spacecraft – and radiation is the only route it has. That is the whole reason a CubeSat runs hot in sunlight and cold in eclipse with very little in between.
 
 ### Orbit and attitude effects
 
-- **Eclipse cycling** is the fundamental driver. In LEO the spacecraft passes into and out of Earth's shadow every 90–120 minutes, spending typically 30–35% of each orbit in eclipse at low [beta angles](../references/glossary.md#beta-angle). Each cycle is a full thermal transient.
+- **Eclipse cycling** is the fundamental driver. In LEO the spacecraft passes into and out of Earth's shadow every 90–105 minutes, spending **37–40% of each orbit in eclipse** at low [beta angles](../references/glossary.md#beta-angle) across the 300–600 km band where most CubeSats fly. The more useful number is the duration, which barely moves: **35 to 36 minutes** at every altitude in that band, because a higher orbit trades a longer period against a smaller shadow. Size heaters against those 35 minutes. Each cycle is a full thermal transient.
 - **Beta angle** sets how much eclipse you get. Near β = 0° the eclipses are longest and the cold case is coldest. At high beta – a dawn–dusk sun-synchronous orbit, for instance – the spacecraft may see continuous sunlight, eliminating the cold case but making the hot case much harder. Both extremes need analysing, because beta angle changes over the year.
 - **Attitude decides which face gets the Sun.** A nadir-pointing spacecraft has one face permanently looking at a 255 K Earth and another looking at deep space at 4 K. A sun-pointing one concentrates the solar load on a single face. A tumbling one averages everything, which is thermally benign and electrically terrible. See [GNC](gnc.md).
 - **Altitude** affects both the fraction of sky filled by the Earth (and therefore how much albedo and IR you intercept) and the eclipse geometry.
@@ -35,9 +33,9 @@ Almost all CubeSat thermal analysis reduces to bounding two scenarios:
 The cold case catches teams out more often than the hot case, because safe mode looks like a good thing until you realise it means the battery is being kept warm by nothing.
 
 <!-- CSR-RESOURCES:START dev-thermal-environment -->
-- **[Introduction to On-Orbit Thermal Environments (TFAWS)](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Steven Rickman (NASA NESC) lecture on orbital thermal environments, with real albedo and OLR distributions
-- **[Earth Orbit Environmental Heating (NASA GD-AP-2301)](https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/2301.pdf)** `PDF` – NASA preferred-practice guideline giving recommended design values for solar flux, albedo and Earth IR
-- **[Intro to thermal balance for spacecraft by Scott Manley](https://www.youtube.com/watch?v=FlQYU3m1e80)** `Link` – Accessible video introduction to spacecraft thermal balance
+- **[Introduction to On-Orbit Thermal Environments (TFAWS)](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Steven Rickman (NASA NESC) lecture on orbital thermal environments, with real albedo and outgoing longwave radiation distributions rather than the condensed design values. Free PDF
+- **[Earth Orbit Environmental Heating (NASA GD-AP-2301)](https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/2301.pdf)** `PDF` – NASA preferred-practice guideline giving the recommended hot and cold design values for solar flux, albedo and Earth IR, with the combinations tabulated. Free PDF
+- **[Intro to thermal balance for spacecraft by Scott Manley](https://www.youtube.com/watch?v=FlQYU3m1e80)** `Link` – Accessible video introduction to spacecraft thermal balance. Free
 <!-- CSR-RESOURCES:END dev-thermal-environment -->
 
 ## Thermal Requirements and Limits
@@ -52,14 +50,14 @@ Your thermal design must keep every component within its **survival** range at a
 ### Typical ranges
 
 - **Industrial-grade electronics**: −40 to +85 °C operating. Most COTS CubeSat avionics.
-- **Batteries**: the binding constraint on almost every CubeSat. Roughly **0 to +45 °C for charging** and a wider range for discharge. Charging a lithium cell below 0 °C causes permanent damage, which is why battery heaters are near-universal. See [EPS – Energy Storage](eps.md#energy-storage).
-- **Solar cells**: tolerant of wide swings, but efficiency falls as they heat – the AZUR 3G30-Advanced loses 6.7 mV/°C on Vmp. Panels routinely run 40–60 °C hotter in sunlight than the bus.
+- **Batteries**: the binding constraint on almost every CubeSat. A representative commercial space pack specifies roughly **0 to 45 °C for charging** against a materially wider discharge window.[^satsearch-batteries] Charging a lithium cell below 0 °C plates metallic lithium on the anode – permanent, cumulative damage rather than a derate – which is why battery heaters are near-universal. Use your own cell's datasheet; the shape is universal but the numbers are not. See [EPS – Energy Storage](eps.md#energy-storage).
+- **Solar cells**: tolerant of wide swings, but output falls as they heat – the AZUR 3G30-Advanced loses **6.7 mV/°C on Vmp** and 6.2 mV/°C on Voc.[^azur-3g30] A panel in full sun can easily sit **40–60 °C above its cold-case temperature**, so string voltage has to be sized for the hot case. See [EPS – Cell technologies and efficiencies](eps.md#cell-technologies-and-efficiencies).
 - **Optical payloads and star trackers**: often the tightest requirements, both absolute and in terms of gradients and stability, because focus and alignment shift with temperature.
 - **Mechanisms and deployables**: lubricants, shape-memory actuators and burn wires all have temperature-dependent behaviour. See [Inhibits and HDRM](inhibits-hdrm.md).
 
 ### Margins
 
-Analysis is uncertain, so requirements carry margin. A common approach is to require predicted temperatures to stay within component limits by a margin of around **±10 °C** at the analysis stage, tightening once the model has been correlated against thermal balance test data. Different programs use different numbers – what matters is that the margin is stated, tracked and reduced deliberately as evidence accumulates, in the same way as the [budgets and margins](systems-engineering.md#budgets-and-margins) tracked elsewhere.
+Analysis is uncertain, so requirements carry margin. A common approach is to require predicted temperatures to stay within component limits by a margin of around **±10 °C** at the analysis stage, tightening once the model has been correlated against thermal balance test data. Different programmes use different numbers – what matters is that the margin is stated, tracked and reduced deliberately as evidence accumulates, in the same way as the [budgets and margins](systems-engineering.md#budgets-and-margins) tracked elsewhere.
 
 Build a **thermal limits table** early: every component, its operating and survival range, its dissipation in each mode, and where it sits in the spacecraft. It is a small document that prevents a lot of late surprises.
 
@@ -94,9 +92,9 @@ A radiator is simply a surface with high ε and low α, with a clear view of dee
 
 #### Insulation and isolation
 
-**[MLI](../references/glossary.md#mli)** works well at spacecraft scale and works poorly at CubeSat scale. NASA notes performance "drops drastically if compressed" and that edge effects create thermal short circuits — and on a 10 cm cube almost everything is edge.[^nasa-soa-thermal] It still has a role on specific components, but a blanket over a whole 1U is rarely the win it appears to be.
+**[MLI](../references/glossary.md#mli)** works well at spacecraft scale and works poorly at CubeSat scale. NASA notes performance "drops drastically if compressed" and that edge effects create thermal short circuits – and on a 10 cm cube almost everything is edge.[^nasa-soa-thermal] It still has a role on specific components, but a blanket over a whole 1U is rarely the win it appears to be.
 
-**[Phase change materials](../references/glossary.md#pcm)** buffer transients by absorbing latent heat: paraffins melting between 20 and 60 °C store **140–333 kJ/kg** depending on material.[^nasa-soa-thermal] Attractive for a payload that pulses hard for a short period, at the cost of the containment housing's mass.
+**[Phase change materials](../references/glossary.md#pcm)** buffer transients by absorbing latent heat: paraffins melting between 20 and 60 °C store **140–280 kJ/kg** depending on the formulation.[^nasa-soa-thermal] Attractive for a payload that pulses hard for a short period, at the cost of the containment housing's mass.
 
 ### Active Thermal Control
 
@@ -142,15 +140,14 @@ Steady-state solutions tell you where temperatures settle; transient solutions s
 ### Tools
 
 <!-- CSR-RESOURCES:START dev-thermal-modelling-tools -->
-- **[Single-node thermal analysis Python script](https://github.com/MelbourneSpaceProgram/single-node-thermal-analysis)** `Link` – Melbourne Space Program's minimal single-node CubeSat thermal model
-- **[SATMO](https://github.com/alexchipps/SATMO)** `Link` – Open-source six-node MATLAB thermal analysis tool for CubeSats in low circular orbits around Earth, Venus and Mars
-- **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/html/2512.07896v1)** `Link` – Paper describing SATMO and its validation against Thermal Desktop
+- **[Single-node thermal analysis Python script](https://github.com/MelbourneSpaceProgram/single-node-thermal-analysis)** `Link` – Melbourne Space Program's minimal single-node CubeSat thermal model in Python. MIT licence, open source
+- **[SATMO](https://github.com/alexchipps/SATMO)** `Link` – Open-source MATLAB thermal analysis tool for CubeSats in low circular orbits, with analysis options for all major planets plus the Moon and Pluto. MIT licence, open source
+- **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/abs/2512.07896)** `Link` – AIAA SciTech 2026 paper describing SATMO and its validation against Thermal Desktop. Open access preprint
 <!-- CSR-RESOURCES:END dev-thermal-modelling-tools -->
 
-SATMO is worth knowing about specifically because it closes a real gap: it is open source, needs only base MATLAB, and its authors report agreement with Thermal Desktop to **within 1.17 °C** for a 1U CubeSat modelled at Venus, Earth and Mars.[^satmo] For a student team without access to commercial thermal software, that is a defensible analysis path rather than a rough estimate.
+SATMO is worth knowing about specifically because it closes a real gap: it is open source, needs only base MATLAB with no additional toolboxes, and its authors report agreement with Thermal Desktop to **within 1.17 °C** for a 1U CubeSat, validated at Venus, Earth and Mars.[^satmo] For a student team without access to commercial thermal software, that is a defensible analysis path rather than a rough estimate.
 
 The commercial standards – ESATAN-TMS, Thermal Desktop (with SINDA/FLUINT), and Systema/Thermica – are what most reviewers expect to see, and several offer academic licensing. Many teams also build their own nodal solver in Python or MATLAB, which is a legitimate approach provided it is validated against a known case.
-<!-- NEEDS HUMAN REVIEW: I have named the three main commercial thermal tools without linking them, since vendor pages change and none is open access. Add links if you want them clickable. -->
 
 ### Using models to inform design
 
@@ -194,21 +191,21 @@ Thermal design touches everything, which is why it belongs in [systems engineeri
 
 Two distinct tests are often conflated:
 
-- **Thermal cycling** demonstrates that the hardware survives and functions across its temperature range, and shakes out workmanship defects — cracked solder joints, marginal connectors. Driven by cycle count and range, not by matching flight conditions. A representative CubeSat campaign runs **8 cycles from about −35 to +75 °C, with 2-hour dwells at the extremes and ramp rates below 2 K/min**.
+- **Thermal cycling** demonstrates that the hardware survives and functions across its temperature range, and shakes out workmanship defects – cracked solder joints, marginal connectors. Driven by cycle count and range, not by matching flight conditions. A representative CubeSat campaign runs **8 cycles from −35 to +75 °C, with 2-hour dwells at the extremes and ramp rates below 2 K/min**.[^endurosat-qual]
 - **Thermal balance** aims to reach steady-state conditions matching a specific predicted case, so the measured temperatures can be compared against the model and used to correct it. This is a **model correlation exercise**, and it is the one that tells you whether your analysis was right.
 
 Most CubeSat programmes do cycling; fewer do balance. If your design has thermal margin, cycling may be enough. If it is marginal, balance is what turns an assumption into evidence. See [AIT – Environmental Testing](ait.md#environmental-testing).
 
 ### Correlating models to test
 
-The point of correlation is to adjust uncertain model parameters — contact conductances, effective emissivities, interface resistances — until predictions match measurements, then re-run flight predictions with the corrected model. A correlation within a few degrees is a good result. A model that disagrees by 20 °C is telling you something important about your assumptions.
+The point of correlation is to adjust uncertain model parameters – contact conductances, effective emissivities, interface resistances – until predictions match measurements, then re-run flight predictions with the corrected model. A correlation within a few degrees is a good result. A model that disagrees by 20 °C is telling you something important about your assumptions.
 
 ### Common pitfalls
 
 - **Testing without vacuum.** Convection in air can carry away several times the heat that radiation does, so an ambient test tells you almost nothing about flight temperatures.
 - **Chamber-induced artefacts.** Support fixtures conduct heat, and a poorly designed one becomes a heat leak that dominates the result. Design the test setup as carefully as the spacecraft.
 - **Not reaching steady state.** Thermal balance requires genuine equilibrium; stopping early gives a number that looks like data but is not.
-- **Insufficient instrumentation.** Add test thermocouples beyond the flight sensors — you cannot correlate what you did not measure.
+- **Insufficient instrumentation.** Add test thermocouples beyond the flight sensors – you cannot correlate what you did not measure.
 - **Testing only the hot case.** The cold case with minimum dissipation is often the harder one and is easier to skip.
 
 ## Thermal Design Tradeoffs
@@ -217,16 +214,22 @@ The point of correlation is to adjust uncertain model parameters — contact con
 - **Mass, power and complexity.** Thermal straps and PCM buy performance with mass; heaters buy it with power; deployable radiators buy it with mechanism risk. Each is a trade against budgets that other subsystems also want.
 - **Worst case versus typical case.** Designing for the absolute worst-case combination of every parameter produces a heavy, over-constrained spacecraft. Designing for the typical case produces one that fails in a particular season. The usual compromise is bounding cases with explicit, stated margin.
 - **Surface allocation is the real fight.** Every square centimetre is contested between solar cells, radiators, antennas and apertures. This is a systems-level decision that should be made explicitly and early, not settled by whoever finalises their CAD first.
-- **Late changes cascade.** Changing a coating changes the hot case; adding a payload changes the internal dissipation; moving the battery changes everything. Keep the model current, because a stale thermal model is worse than none — it gives false confidence.
+- **Late changes cascade.** Changing a coating changes the hot case; adding a payload changes the internal dissipation; moving the battery changes everything. Keep the model current, because a stale thermal model is worse than none – it gives false confidence.
 
 ---
 
 👉 **Please consider [contributing](../contributing.md)!**
 
-[^nasa-soa-thermal]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 7: Thermal Control](https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/) (revision dated 18 May 2026). Open access. Source for coating optical properties, MLI limitations at small scale, heater power densities, phase change material latent heat figures, and cryocooler performance data.
+[^nasa-soa-thermal]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 7: Thermal Control](https://www.nasa.gov/smallsat-institute/sst-soa/thermal-control/) (revision dated 7 May 2026). Open access. Source for coating optical properties, MLI limitations at small scale, heater power densities, phase change material latent heat figures, and cryocooler performance data.
 
-[^gsfc-2301]: NASA Goddard Space Flight Center, [*Earth Orbit Environmental Heating*, Preferred Reliability Practice GD-AP-2301](https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/2301.pdf). Gives recommended design values: solar constant 1367.5 W/m² nominal with ±4% seasonal variation, albedo factor 0.30 nominal (0.25 cold / 0.35 hot), and Earth-emitted IR of 241 W/m² for a 255 K Earth.
+[^gsfc-2301]: NASA Goddard Space Flight Center, [*Earth Orbit Environmental Heating*, Preferred Reliability Practice GD-AP-2301](https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/2301.pdf). Free PDF. Gives recommended design values: solar constant 1367.5 W/m² nominal with ±3.5% seasonal variation, and hot and cold cases of 1422.0 W/m² and 1318.0 W/m² at ±4.0% from nominal; albedo factor 0.30 nominal, 0.25 cold and 0.35 hot; and Earth-emitted IR of 241 W/m² for a 255 K Earth. Table 1 tabulates the nine solar-constant and albedo combinations, giving Earth-emitted energy from 214 W/m² (summer solstice, albedo 0.35) to 267 W/m² (winter solstice, albedo 0.25).
 
 [^tfaws-environments]: Steven L. Rickman, NASA Engineering and Safety Center, [*Introduction to On-Orbit Thermal Environments*](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf), Thermal and Fluids Analysis Workshop, 2014. Useful for showing how much real albedo and outgoing longwave radiation vary with location and averaging period, and how that variation is condensed into hot and cold design cases.
 
-[^satmo]: Alexander G. Chipps, Daniel Forgette and Kerri Cahoy, ["SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions"](https://arxiv.org/html/2512.07896v1), *Journal of Spacecraft and Rockets*, 2025. Describes an open-source six-node MATLAB thermal model for CubeSats, validated against Thermal Desktop to within 1.17 °C for a 1U at Venus, Earth and Mars. Code at [github.com/alexchipps/SATMO](https://github.com/alexchipps/SATMO).
+[^satmo]: Alexander Chipps, Daniel Forgette and Kerri Cahoy, ["SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions"](https://arxiv.org/abs/2512.07896), AIAA SciTech Forum 2026, DOI 10.2514/6.2026-2269. The AIAA version is paywalled; the arXiv preprint (submitted 4 December 2025) is open access and is what is linked here. Describes an open-source MATLAB thermal model representing the spacecraft as a six-sided box with one face-centred node per surface, validated against Thermal Desktop to within 1.17 °C for a 1U at Venus, Earth and Mars. The tool itself carries analysis options for all major planets plus the Moon and Pluto; those three are the validated set. Code at [github.com/alexchipps/SATMO](https://github.com/alexchipps/SATMO), MIT licence.
+
+[^satsearch-batteries]: satsearch, ["Satellite batteries - for CubeSats, nanosats, and other form factors"](https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors) (June 2021). Open access. Vendor-by-vendor comparison of commercially available CubeSat battery packs with capacities, voltages, masses and operating temperature ranges. Useful for calibrating what is actually purchasable, but now several years old – confirm capacities, masses and temperature limits against the current datasheet before designing against them.
+
+[^azur-3g30]: AZUR SPACE Solar Power GmbH, [*30% Triple-Junction GaAs Solar Cell Assembly, Type: TJ Solar Cell Assembly 3G30A*](https://www.azurspace.com/media/uploads/file_links/file/bdb_00010891-01-00_tj3g30-advanced_4x8.pdf) datasheet. Free PDF. Gives 29.5% BOL efficiency, full IV parameters, temperature coefficients of 6.2 mV/°C on Voc and 6.7 mV/°C on Vmp, and radiation degradation data against 1 MeV electron fluence.
+
+[^endurosat-qual]: EnduroSat, ["Space Qualification – Satellite Testing Program"](https://www.endurosat.com/space-qualification/). Open access. Publishes the actual test levels used for its qualification and protoflight campaigns, including thermal vacuum cycling of 8 cycles from −35 to +75 °C with 2-hour dwells and ramp rates below 2 K/min. Useful as a concrete worked example of what a CubeSat qualification campaign actually consists of.
