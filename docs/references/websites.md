@@ -63,7 +63,7 @@ This section lists useful and authoritative websites related to CubeSats, small 
 - **[Supercluster](https://www.supercluster.com/app)** `Link` – Launch tracking and space mission database
 - **[Stellarium](https://stellarium.org/)** `Link` – Open-source planetarium software, useful for star field visualisation
 - **[SatelliteAnalysis.jl](https://juliaspace.github.io/SatelliteAnalysis.jl/stable/)** `Link` – Julia package for satellite analysis
-- **[NASA GMAT](https://software.nasa.gov/software/GSC-17177-1)** `Link` – Open-source mission design, optimisation and navigation tool
+- **[NASA GMAT](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Open-source mission design, optimisation and navigation tool (the current R2026 catalogue entry; older release entries are still indexed)
 - **[Basilisk](https://avslab.github.io/basilisk/)** `Link` – Open-source modular astrodynamics simulation framework
 <!-- CSR-RESOURCES:END ref-websites-apps-and-software -->
 
