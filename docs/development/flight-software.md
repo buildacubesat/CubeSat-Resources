@@ -290,6 +290,7 @@ University teams turn over on the same timescale as a CubeSat project – see [S
 - **[PyCubed](https://github.com/pycubed/software)** `Link` – A fully open-source CubeSat avionics and software stack in Python/MicroPython
 - **[OreSat](https://github.com/oresat/oresat-c3-software)** `Link` – Modular open-source flight software stack developed by students at Portland State University
 - **[Space Inventor stack](https://github.com/spaceinventor/)** `Link` – MIT-licensed libcsp, csh and libparam
+- **[Build a CubeSat – Rocinante](https://codeberg.org/buildacubesat-project/bac-software)** `Link` – Onboard software stack spanning the flight segment: Zephyr with custom firmware on small nodes (STM32F405-class MCUs), F Prime on Zephyr on medium nodes, F Prime on Yocto on large nodes (SBCs, FPGAs), all bridged by CSP over CAN. Open source (MIT), in development
 <!-- CSR-RESOURCES:END dev-flight-software-open-source-projects -->
 
 ### RTOS and Embedded Platforms

@@ -11,6 +11,7 @@ Websites worth bookmarking: resource collections, development hubs, component ma
 - **[Awesome Space](https://github.com/orbitalindex/awesome-space)** `Link` – A list of awesome space-related packages and resources maintained by The Orbital Index
 - **[NASA State of the Art in Small Spacecraft Technology](https://www.nasa.gov/smallsat-institute/sst-soa)** `Link` – Annually updated survey of every smallsat subsystem with current hardware, performance figures and vendor listings. Free, and cited throughout this site
 - **[Small Satellite Conference Proceedings](https://digitalcommons.usu.edu/smallsat/)** `Link` – Freely accessible proceedings archive going back to 1987; the richest open source of CubeSat engineering literature
+- **[Build a CubeSat](https://buildacubesat.space/)** `Link` – Open-source, accessible CubeSat platform documented end to end on video, with hardware, software and structure published on Codeberg; the project this site grew out of
 - **[CubeSat Resources](https://cubesat-resources.space/)** `Link` – A curated collection of links and resources for anyone interested in building CubeSats, from first-time makers to experienced developers (this very website, mentioned for completeness)
 <!-- CSR-RESOURCES:END ref-websites-resource-collections -->
 

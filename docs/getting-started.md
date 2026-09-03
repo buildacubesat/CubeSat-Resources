@@ -178,7 +178,7 @@ Launch, environmental testing and licensing are the line items teams most often 
 
 - [Development](development/index.md) – the technical content of this site, subsystem by subsystem.
 - [References](references/index.md) – glossary, standards, books, papers, missions, courses.
-- [Communities](references/communities.md) – forums, organisations and programmes worth joining, including the [Build a CubeSat Discord](https://bac.page/discord) and the [Libre Space Community](https://community.libre.space/).
+- [Communities](references/communities.md) – forums, organisations and programmes worth joining, including the [Libre Space Community](https://community.libre.space/) and the [Build a CubeSat Discord](https://bac.page/discord).
 
 The CubeSat and amateur satellite communities are unusually willing to help. A well-posed question with real data attached almost always gets a useful answer.
 

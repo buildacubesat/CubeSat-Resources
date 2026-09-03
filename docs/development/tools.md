@@ -103,6 +103,7 @@ Commercial options – SolidWorks, Fusion, Onshape, Ansys, Nastran/Femap – dom
 
 <!-- CSR-RESOURCES:START dev-tools-ecad -->
 - **[KiCad](https://www.kicad.org/)** `Link` – Free, open-source PCB design suite with schematic capture, PCB layout, 3D viewer, integrated SPICE simulation and a Gerber viewer; the default choice for open-hardware CubeSat projects. Open source
+- **[Build a CubeSat hardware](https://codeberg.org/buildacubesat-project/bac-hardware)** `Link` – Fully open KiCad designs and manufacturing files for every node in the Build a CubeSat stack. Open source (CERN OHL-S 2.0), in development
 <!-- CSR-RESOURCES:END dev-tools-ecad -->
 
 Using KiCad has a specific advantage for this community beyond cost: **open-hardware CubeSat designs are overwhelmingly published as KiCad projects**, so it is the format in which you can actually read other people's work. See the open-source missions in [CubeSat Missions](../references/missions.md).

@@ -7,10 +7,10 @@ The help on offer is concrete: strangers with ground stations have found, and oc
 ## Forums and discussion
 
 <!-- CSR-RESOURCES:START ref-communities-forums -->
-- **[Build a CubeSat Discord](https://bac.page/discord)** `Link` – Community focused on open-source hardware and software in CubeSat development
 - **[Libre Space Community](https://community.libre.space/)** `Link` – Discourse forum run around the Libre Space Foundation's projects, with active categories for SatNOGS, Gpredict, LibreCube, satellite observations and the Open Source CubeSat Workshop. The most technically substantive open CubeSat forum
 - **[r/CubeSats](https://www.reddit.com/r/CubeSats/)** `Link` – Active Reddit community for CubeSat developers and students
 - **[Space Exploration Stack Exchange](https://space.stackexchange.com/)** `Link` – Q&A site with a strong technical community; good for well-specified engineering questions
+- **[Build a CubeSat Discord](https://bac.page/discord)** `Link` – Community focused on open-source hardware and software in CubeSat development
 <!-- CSR-RESOURCES:END ref-communities-forums -->
 
 ## Organisations and networks

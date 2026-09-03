@@ -284,6 +284,7 @@ The cross product is the whole story:
 - **[PCB Magnetorquer Prototype](https://www.youtube.com/watch?v=cGJYCe6mGR0)** `Link` – PCB-embedded coil magnetorquer prototype
 - **[Magnetorquer Winding Machine](https://www.youtube.com/watch?v=s6DOWAMhrVA)** `Link` – DIY coil winding machine for magnetorquer manufacture
 - **[Carl Bugeja](https://www.youtube.com/@CarlBugeja)** `Link` – PCB coil and flexible electronics experiments relevant to PCB magnetorquer design
+- **[Build a CubeSat magnetorquers](https://codeberg.org/buildacubesat-project/bac-hardware)** `Link` – Panel-mounted PCB coil magnetorquers sitting under the solar panels, sized for 1U to 4U. Open KiCad designs (CERN OHL-S 2.0), in development
 <!-- CSR-RESOURCES:END dev-gnc-magnetorquer-resources -->
 
 ### Thrusters

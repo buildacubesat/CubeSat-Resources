@@ -76,9 +76,9 @@ For scale: commercial CubeSat primary structures average roughly **0.118 kg for 
 ### Open-source designs worth reading
 
 <!-- CSR-RESOURCES:START dev-structure-open-source-designs -->
-- **[Build a CubeSat – bac-structure](https://codeberg.org/buildacubesat-project/bac-structure)** `Link` – Open structural designs for 1U–4U in aluminium 6061, with fastener, adhesive and manufacturing notes (CC BY-SA 4.0)
 - **[BIRDS-3 CAD](https://github.com/BIRDSOpenSource/BIRDS3-CAD)** `Link` – CAD documentation for the BIRDS-3 1U satellite and its integration stand
 - **[CAD_SUCHAI_II](https://github.com/spel-uchile/CAD_SUCHAI_II)** `Link` – Mechanical CAD for the SUCHAI-II 3U mission, including the structure assembly
+- **[Build a CubeSat – bac-structure](https://codeberg.org/buildacubesat-project/bac-structure)** `Link` – Open structural designs for 1U–4U in aluminium 6061, with fastener, adhesive and manufacturing notes (CC BY-SA 4.0)
 <!-- CSR-RESOURCES:END dev-structure-open-source-designs -->
 
 Reading a complete open design is the fastest way to understand what a structure package actually contains: not just a frame model, but fastener schedules, torque values, adhesive selections and assembly order. See also [CubeSat Missions](../references/missions.md) for the wider list of open-source projects.

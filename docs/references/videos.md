@@ -12,11 +12,11 @@ Recorded lecture series, channels worth subscribing to, and single videos that e
 ## YouTube Channels
 
 <!-- CSR-RESOURCES:START ref-videos-youtube-channels -->
-- **[Build a CubeSat](https://youtube.com/@buildacubesat)** `Link` – Open-source, accessible CubeSat project documented end to end
 - **[saveitforparts](https://www.youtube.com/@saveitforparts)** `Link` – DIY satellite tracking and downlinking, often with improvised hardware
 - **[Alfonso Gonzalez - Astrodynamics & SE Podcast](https://www.youtube.com/@alfonsogonzalez-astrodynam2207)** `Link` – Astrodynamics, orbital mechanics, ADCS and space engineering, with practical Python
 - **[Dr. Thomas Albin](https://www.youtube.com/@DrThomasAlbin)** `Link` – Astronomy, astrodynamics and Python
 - **[Carl Bugeja](https://www.youtube.com/@CarlBugeja)** `Link` – PCB coil and flexible electronics experiments, directly relevant to PCB magnetorquer design
+- **[Build a CubeSat](https://youtube.com/@buildacubesat)** `Link` – Open-source, accessible CubeSat project documented end to end
 <!-- CSR-RESOURCES:END ref-videos-youtube-channels -->
 
 ## Topic explainers

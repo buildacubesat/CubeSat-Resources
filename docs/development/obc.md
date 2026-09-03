@@ -80,7 +80,7 @@ An SBC – a Linux-capable applications processor with hundreds of MB of RAM –
 - **Filesystem corruption.** Power loss mid-write corrupts filesystems. Use read-only root filesystems, journaling, and treat writable storage as expendable. See [Flight Software – Storage and filesystems](flight-software.md#storage-and-filesystems).
 - **Complexity.** More software means more failure modes and a much larger surface you cannot fully test.
 
-**The standard pattern is to pair them:** a small, reliable, always-on MCU owns the spacecraft – power, safe mode, comms, watchdogs – and the SBC is a switchable payload-class resource that can be powered off entirely without endangering the mission. This keeps the thing that must never fail simple, and quarantines the thing that will occasionally misbehave.
+**The standard pattern is to pair them:** a small, reliable, always-on MCU owns the spacecraft – power, safe mode, comms, watchdogs – and the SBC is a switchable payload-class resource that can be powered off entirely without endangering the mission. This keeps the thing that must never fail simple, and quarantines the thing that will occasionally misbehave. Build a CubeSat's own avionics follow this shape – small, medium and SBC-class nodes on one CAN bus – see [Flight Software – Open-source Flight Software Projects](flight-software.md#open-source-flight-software-projects).
 
 ## FPGAs and Programmable Logic
 
