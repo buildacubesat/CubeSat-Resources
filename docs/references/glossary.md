@@ -219,6 +219,9 @@ A minimal, known-good software image held in write-protected memory that can nev
 ### Gravity gradient stabilisation
 A passive attitude stabilisation technique exploiting the torque that a gravity field exerts on an elongated body, tending to align its long axis with the local vertical. Requires no power and no actuators, typically achieves a few degrees of nadir pointing, provides no yaw control, and is bistable – the spacecraft will settle happily either way up. Often enhanced with a deployed boom and tip mass, and usually paired with magnetic hysteresis damping.
 
+### Green propellant
+A low-toxicity chemical propellant – ionic-liquid monopropellants such as LMP-103S and AF-M315E (ASCENT), ADN-based blends, or stored water split by electrolysis – used in place of hydrazine, which is corrosive, toxic and demands protective-suit handling that few CubeSat programmes or launch sites will accommodate. Under range safety rules a less hazardous propellant lowers the hazard classification and therefore the number of barriers required, which is what makes chemical propulsion feasible on a rideshare CubeSat. See [Propulsion](../development/propulsion.md#chemical-monopropellants).
+
 ### Grms
 **Root-mean-square acceleration**, in units of g. A single number summarising the overall energy of a [random vibration](#random-vibration) environment, obtained by integrating the acceleration power spectral density across the test frequency band and taking the square root. Useful for comparing environments at a glance, but it says nothing about *where* in frequency the energy sits – two very different PSDs can share a Grms value.
 
@@ -487,6 +490,9 @@ A commanded reorientation of the spacecraft from one attitude to another. Slew r
 
 ### Solar constant
 The solar radiant flux at 1 AU, averaging about 1367 W/m². It varies seasonally by roughly ±3.5% with Earth's orbital distance – approximately 1422 W/m² at perihelion and 1318 W/m² at aphelion – and these bounds are used as the hot and cold case values in thermal analysis.
+
+### Specific impulse (Isp)
+The efficiency of a propulsion system, in seconds: the impulse delivered per unit weight of propellant, or equivalently exhaust velocity divided by g₀. It sets the exchange rate between [delta-v](#delta-v) and propellant mass through the rocket equation. Cold gas sits around 40–110 s, chemical monopropellants 150–310 s, electric propulsion from a few hundred to several thousand seconds – but electric systems buy that Isp with electrical power, which is the binding constraint on a CubeSat. See [Propulsion – Delta-v: The Currency](../development/propulsion.md#delta-v-the-currency).
 
 ### SPOF
 **Single Point of Failure.** Any element whose failure alone ends the mission. CubeSats have many – the battery, the EPS, the OBC, the radio, the antenna deployment, the bus linking OBC to EPS – and the useful exercise is not eliminating them, which mass and volume rarely permit, but knowing where they are and ensuring each is as simple, well-tested and recoverable as possible.

@@ -10,7 +10,7 @@ A CubeSat inside a [deployer](../references/glossary.md#deployer) is a sealed bo
 
 - **Inadvertent RF transmission**, which could interfere with launch vehicle telemetry and range safety systems at exactly the moment when nobody can afford interference.
 - **Inadvertent deployment**, where an antenna or solar panel releasing inside the deployer jams it – destroying your mission and potentially the co-passengers in the same pod.
-- **Inadvertent propulsion activation**, if you carry propulsion at all. The [CDS](../references/glossary.md#cds) treats this as its own hazard class with its own inhibit count and its own governing standard (§2.1.3, §2.1.4).[^cds-rev14]
+- **Inadvertent propulsion activation**, if you carry propulsion at all. The [CDS](../references/glossary.md#cds) treats this as its own hazard class with its own inhibit count and its own governing standard (§2.1.3, §2.1.4).[^cds-rev14] See [Propulsion – Safety and Launch Requirements](propulsion.md#safety-and-launch-requirements).
 - **Uncontrolled energy release** – a battery fault, thermal runaway, or unexpected current draw inside a sealed volume.
 
 ### Mission phases

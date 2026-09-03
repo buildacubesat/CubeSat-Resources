@@ -286,7 +286,7 @@ The cross product is the whole story:
 
 ### Thrusters
 
-Propulsion gives translational control – orbit raising, phasing, collision avoidance, controlled deorbit – and can provide attitude control, though it is rarely used that way on CubeSats because propellant is finite while magnetorquers are not. Miniaturised electric and cold-gas systems are increasingly available at CubeSat scale. Note that adding propulsion changes your launch safety and regulatory position considerably; see [Qualification and Launch](launch.md).
+Propulsion gives translational control – orbit raising, phasing, collision avoidance, controlled deorbit – and can provide attitude control, though it is rarely used that way on CubeSats because propellant is finite while magnetorquers are not. Miniaturised electric and cold-gas systems are increasingly available at CubeSat scale – see [Propulsion](propulsion.md) for the options, the delta-v arithmetic and the safety and regulatory requirements that arrive with them.
 
 ## Control Algorithms
 

@@ -154,7 +154,7 @@ Budgets are how systems engineering keeps a CubeSat realistic. Each one tracks a
 - **Pointing budget**: the error terms between where the payload needs to point and where it actually points – sensor noise, estimation error, control error, mounting and alignment error, thermal distortion – combined into a single number and compared against the requirement. Missions with a pointing requirement should build one, because it is what reveals when the requirement is being set by a 1° misalignment nobody measured rather than by the control loop. See [GNC – ADCS Integration Considerations](gnc.md#adcs-integration-considerations).
 - **Volume budget**: less rigorous than the others, but useful for tracking how much room is genuinely left after structure, harnessing, and mechanical clearances are accounted for. Especially easy to underestimate on dense 1U or 1.5U designs.
 
-Missions carrying propulsion add a **[delta-v](../references/glossary.md#delta-v) budget**, allocated across orbit raising, phasing, collision avoidance and controlled deorbit. Most CubeSats have no propulsion and therefore no such budget.
+Missions carrying propulsion add a **[delta-v](../references/glossary.md#delta-v) budget**, allocated across orbit raising, phasing, collision avoidance and controlled deorbit. Most CubeSats have no propulsion and therefore no such budget. See [Propulsion – Delta-v: The Currency](propulsion.md#delta-v-the-currency).
 
 ### Margin philosophy
 
