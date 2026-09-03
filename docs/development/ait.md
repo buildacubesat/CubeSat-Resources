@@ -132,7 +132,7 @@ Three approaches, distinguished by what they are trying to prove:
 Environmental test facilities are expensive, and few CubeSat teams own them. The realistic options are a university lab, a national metrology or space agency facility, a commercial test house, or a programme such as ESA's Fly Your Satellite! that provides access as part of its support. Book early – facility lead times are frequently the long pole in a CubeSat schedule.
 
 <!-- CSR-RESOURCES:START dev-ait-test-facilities -->
-- **[ESA - CubeSat Support Facility](https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
+- **[ESA CubeSat Support Facility](https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility)** `Link` – ESA AIT training and test facility
 - **[ESA Fly Your Satellite! Test Opportunities](https://www.esa.int/Education/Educational_Satellites/Fly_Your_Satellite!_Test_Opportunities)** `Link` – Programme offering European university teams access to ESA test facilities
 <!-- CSR-RESOURCES:END dev-ait-test-facilities -->
 
