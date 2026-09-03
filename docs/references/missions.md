@@ -2,7 +2,7 @@
 
 This section highlights interesting CubeSat missions and open-source satellite projects. These examples provide insight into real-world designs, mission profiles, challenges, and lessons learned. Some are fully open-source, offering schematics, software, and documentation that can serve as valuable references or starting points for your own work.
 
-<!-- CSR-RESOURCES:START ref-open-source-cubesat-missions -->
+<!-- CSR-RESOURCES:START ref-missions-open-source -->
 ## Open-Source (partially or fully)
 - [AcubeSAT](https://gitlab.com/acubesat) ([landing page](https://acubesat.spacedot.gr))
 - [AlbertaSat](https://albertasat.ca/) (multiple missions, [landing page](https://albertasat.ca/))
@@ -30,7 +30,7 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [Project Shadow Flight](https://github.com/bytecod3/Project-Shadow-Flight) (in development, not launched yet. [Landing page](https://bytecod3.github.io/Project-Shadow-Flight/))
 - [PROVES](https://github.com/proveskit) (kit, flown on multiple missions)
 - [PWSat](https://github.com/PW-Sat2) ([landing page](https://ska.pw.edu.pl/article/pwsat))
-- [PyCubed-Mini](https://github.com/PyCubed-Mini) (1p PocketQube platform, CMU RExLab; first flown as PROMETHEUS-1, Jan 2025)
+- [PyCubed-Mini](https://github.com/PyCubed-Mini) (1P PocketQube platform, CMU RExLab; first flown as PROMETHEUS-1, Jan 2025)
 - [PyCubed](https://pycubed.org/) (OSHW EPS and OBC, flown on multiple missions)
 - [Quetzal-1](https://github.com/danalvarez/gr-quetzal1) ([landing page](https://www.uvg.edu.gt/cubesat-en/))
 - [RGSat](https://www.youtube.com/@RGSAT) (development stalled, not launched yet)
@@ -43,9 +43,9 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [SUCHAI](https://github.com/spel-uchile/)
 - [Tartan Artibeus](https://github.com/CMUAbstract) (batteryless computational PocketQube, launched Jan 2022)
 - [UPSat](https://github.com/librespacefoundation), built with [LibreCube](https://gitlab.com/librecube)
-<!-- CSR-RESOURCES:END ref-open-source-cubesat-missions -->
+<!-- CSR-RESOURCES:END ref-missions-open-source -->
 
-<!-- CSR-RESOURCES:START ref-publicly-documented-cubesat-missions -->
+<!-- CSR-RESOURCES:START ref-missions-publicly-documented -->
 ## Publicly Documented
 - [ANTEL-SAT](https://iie.fing.edu.uy/investigacion/grupos/lai/)
 - [BINAR](https://www.youtube.com/@binarspacewa)
@@ -56,15 +56,15 @@ This section highlights interesting CubeSat missions and open-source satellite p
 - [MARMOTSat](https://www.propagationlab.ca/satellite/)
 - [Orbit NTNU](https://orbitntnu.com/) (multiple missions)
 - [Phoenix](https://phxcubesat.asu.edu/)
-<!-- CSR-RESOURCES:END ref-publicly-documented-cubesat-missions -->
+<!-- CSR-RESOURCES:END ref-missions-publicly-documented -->
 
-<!-- CSR-RESOURCES:START ref-cool-satnogs-dahsboards -->
+<!-- CSR-RESOURCES:START ref-missions-satnogs-dashboards -->
 ## SatNOGS Dashboard
-Collection of current and past Graphana mission dashboards: [SatNOGS Dashboards](https://dashboard.satnogs.org/). Some are very helpful for getting a sense of real-world mission data:
+Collection of current and past Grafana mission dashboards: [SatNOGS Dashboards](https://dashboard.satnogs.org/). Some are very helpful for getting a sense of real-world mission data:
 - [AAUSAT4](https://dashboard.satnogs.org/d/QGujdBBZk/aausat4?orgId=1&from=now-10y&to=now&timezone=browser)
 - [COSMO](https://dashboard.satnogs.org/d/bfhvxrnomp91ca/cosmo?orgId=1&from=now-)
 - [QMR-KWT 2](https://dashboard.satnogs.org/d/efgl2md8iap6oa/qmr-qwt-2?orgId=1&from=now-2d&to=now&timezone=utc&var-suid=67291&var-filter=)
 - [UMKA-1](https://dashboard.satnogs.org/d/ffc0ehd32qfpcc/umka-1?orgId=1&from=2021-01-30T04:28:17.186Z&to=2029-02-01T04:28:17.186Z&timezone=utc&var-suid=57172&var-filter=)
-<!-- CSR-RESOURCES:END ref-cool-satnogs-dahsboards -->
+<!-- CSR-RESOURCES:END ref-missions-satnogs-dashboards -->
 
 Any projects or missions missing? Please [contribute](../contributing.md).
