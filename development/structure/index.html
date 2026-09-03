@@ -1,0 +1,3244 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/development/structure/">
+      
+      
+        <link rel="prev" href="../systems-engineering/">
+      
+      
+        <link rel="next" href="../eps/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Structure - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#structure" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Structure
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#form-factors-and-the-cubesat-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Factors and the CubeSat Envelope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Factors and the CubeSat Envelope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-cds-actually-requires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the CDS actually requires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-launch-provider-always-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The launch provider always wins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frames-and-primary-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frames and Primary Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frames and Primary Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buy-or-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buy or build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construction styles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-source-designs-worth-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-source designs worth reading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materials-and-manufacturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materials and Manufacturing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Materials and Manufacturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aluminum-alloys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aluminum alloys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-metals-and-additive-manufacturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-metals and additive manufacturing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outgassing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outgassing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fasteners-and-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fasteners and Assembly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fasteners and Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keeping-them-done-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping them done up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vented-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vented volumes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting-and-mechanical-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mounting and Mechanical Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting and Mechanical Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-pc104-derived-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The PC/104-derived stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documented-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documented alternatives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mounting practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-properties-and-center-of-mass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Properties and Center of Mass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployable-structures-and-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployable Structures and Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployable Structures and Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-deployables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common deployables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-rules-that-earn-their-keep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design rules that earn their keep
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structural-analysis-and-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structural Analysis and FEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structural Analysis and FEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doing-the-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doing the analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Toolchains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tolerancing-and-stack-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tolerancing and Stack-Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanliness-handling-and-contamination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanliness, Handling and Contamination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environmental-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environmental Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inhibits-hdrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#form-factors-and-the-cubesat-envelope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Form Factors and the CubeSat Envelope
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Form Factors and the CubeSat Envelope">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-cds-actually-requires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the CDS actually requires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-launch-provider-always-wins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The launch provider always wins
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frames-and-primary-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frames and Primary Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frames and Primary Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#buy-or-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buy or build
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construction styles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-source-designs-worth-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-source designs worth reading
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#materials-and-manufacturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materials and Manufacturing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Materials and Manufacturing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aluminum-alloys" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aluminum alloys
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-metals-and-additive-manufacturing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-metals and additive manufacturing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outgassing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outgassing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fasteners-and-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fasteners and Assembly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fasteners and Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keeping-them-done-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keeping them done up
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vented-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vented volumes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mounting-and-mechanical-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mounting and Mechanical Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mounting and Mechanical Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-pc104-derived-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The PC/104-derived stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documented-alternatives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documented alternatives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mounting-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mounting practice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mass-properties-and-center-of-mass" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mass Properties and Center of Mass
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployable-structures-and-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployable Structures and Mechanisms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployable Structures and Mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-deployables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common deployables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#release-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-rules-that-earn-their-keep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design rules that earn their keep
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#structural-analysis-and-fem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structural Analysis and FEM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Structural Analysis and FEM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Load cases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doing-the-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doing the analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#toolchains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Toolchains
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tolerancing-and-stack-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tolerancing and Stack-Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleanliness-handling-and-contamination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleanliness, Handling and Contamination
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environmental-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental Considerations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environmental Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/development/structure.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h1>
+<p>This page covers the mechanical side of a CubeSat: the envelope and rails the deployer dictates, frames and whether to buy or build them, materials and outgassing, fasteners, the internal board stack, mass properties, deployables, structural analysis, tolerancing and cleanliness. Release mechanisms and inhibits have their own page under <a href="../inhibits-hdrm/">Inhibits and HDRM</a>; the test campaign is under <a href="../ait/">AIT</a>.</p>
+<p>The structure is unusual among CubeSat subsystems in that most of its requirements come from outside the mission. The <a href="../../references/glossary/#deployer">deployer</a> dictates the envelope, the launch vehicle dictates the loads, and both are fixed long before your design is finished. Getting the external interface right early is cheap; discovering at the fit check that your antenna protrudes 2 mm too far is not.</p>
+<h2 id="form-factors-and-the-cubesat-envelope">Form Factors and the CubeSat Envelope<a class="headerlink" href="#form-factors-and-the-cubesat-envelope" title="Permanent link">&para;</a></h2>
+<p>Every CubeSat is defined by two things: how many <a href="../../references/glossary/#u-cubesat-unit">U</a> it is, and whose deployer it flies in.</p>
+<p>The <a href="../../references/glossary/#cds">CubeSat Design Specification</a> (CDS) Rev. 14.1 defines a 1U CubeSat as <strong>100.0 × 100.0 × 113.5 mm</strong>. The 13.5 mm of extra height in the Z axis is the part newcomers most often miss – a "10 cm cube" is a useful shorthand, not a dimension you can machine to. Larger form factors scale this base cell: a 3U is 100 × 100 × 340.5 mm, a 6U doubles the cross-section, and a 12U reaches roughly 226.3 × 226.3 × 366 mm.<sup id="fnref:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup> Several form factors also offer extra volume beyond the nominal envelope – the <strong><a href="../../references/glossary/#tuna-can">tuna can</a></strong> space on 3U, 6U and 12U variants, commonly used for antennas, thrusters or radiators.<sup id="fnref2:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup> Form factors up to 16U are routinely supported by commercial deployers, and the community's center of gravity has drifted steadily upward – NASA's state-of-the-art survey notes the shift "from 1U to 3U, to include 6U and 12U" over the last decade.<sup id="fnref3:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup></p>
+<h3 id="what-the-cds-actually-requires">What the CDS actually requires<a class="headerlink" href="#what-the-cds-actually-requires" title="Permanent link">&para;</a></h3>
+<p>The parts of the CDS that constrain your mechanical design most directly:<sup id="fnref:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">2</a></sup></p>
+<ul>
+<li><strong><a href="../../references/glossary/#rail">Rails</a></strong>: the four Z-axis edges that slide against the deployer. They must have a minimum width of <strong>8.5 mm</strong> measured from the rail edge to the first protrusion on each face, should have a surface roughness below <strong>1.6 µm</strong>, and should have edges rounded to a radius of at least <strong>1 mm</strong> (§2.2.5–2.2.7).</li>
+<li><strong>Rail end contact</strong>: the rail ends on the ±Z faces need a minimum <strong>6.5 × 6.5 mm</strong> contact area, because in a stacked deployer they bear against the neighboring CubeSat's rails (§2.2.8).</li>
+<li><strong>Rail engagement</strong>: at least <strong>75% of the rail</strong> should be in contact with the dispenser rails; 25% may be recessed (§2.2.9).</li>
+<li><strong>Protrusions</strong>: no component shall protrude farther than <strong>6.5 mm</strong> normal to the surface from the plane of the rail (§2.2.3). This is the budget your solar cells, connectors, antennas and <a href="../../references/glossary/#standoff">standoffs</a> all share.</li>
+<li><strong>Materials and finish</strong>: aluminum 7075, 6061, 6082, 5005 and 5052 are the alloys typically used for both the main structure and the rails (§2.2.12.1), and any external aluminum surfaces in contact with the dispenser rails <strong>shall be hard anodized</strong> to prevent <a href="../../references/glossary/#cold-welding">cold welding</a> within the dispenser (§2.2.13).</li>
+<li><strong>Deployment timing</strong>: deployables must wait a minimum of <strong>30 minutes</strong> after the deployment switches are activated, and no RF signal may be generated or transmitted earlier than <strong>45 minutes</strong> after on-orbit deployment (§2.4.4–2.4.5). See <a href="../inhibits-hdrm/#timers-and-delayed-activation">Inhibits and HDRM</a>.</li>
+</ul>
+<p>Mass is capped per form factor (§2.2.10, Table 1):</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Configuration</th>
+<th style="text-align: right;">Maximum mass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1U</td>
+<td style="text-align: right;">2.00 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.5U</td>
+<td style="text-align: right;">3.00 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;">2U</td>
+<td style="text-align: right;">4.00 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;">3U</td>
+<td style="text-align: right;">6.00 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;">6U</td>
+<td style="text-align: right;">12.00 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;">12U</td>
+<td style="text-align: right;">24.00 kg</td>
+</tr>
+</tbody>
+</table>
+<p>Rev. 14 raised the long-standing 1.33 kg/U figure to 2 kg/U, and a lot of older material still quotes the old number.</p>
+<!-- CSR-RESOURCES:START dev-structure-specifications -->
+<ul>
+<li><strong><a href="https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf">CubeSat Design Specification Rev. 14.1</a></strong> <code>PDF</code> – The baseline CubeSat mechanical and operational specification from Cal Poly SLO. Free PDF</li>
+<li><strong><a href="https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/">NASA State of the Art in Small Spacecraft Technology – Structures, Materials and Mechanisms</a></strong> <code>Link</code> – Annually updated survey of CubeSat structures, materials and mechanism technology. Open access</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-structure-specifications -->
+
+<h3 id="the-launch-provider-always-wins">The launch provider always wins<a class="headerlink" href="#the-launch-provider-always-wins" title="Permanent link">&para;</a></h3>
+<p>The CDS is the common language, but it is not the contract. Your <strong><a href="../../references/glossary/#payload-user-guide-pug">payload user guide</a></strong> (PUG) or deployer manual is, and where the two disagree, the deployer manual is what gets checked at the fit check.</p>
+<p>Exolaunch's EXOpod Nova manual makes this explicit: <em>"if there is any conflicting information between the CDS and the Nova User Manual, the Nova User Manual takes priority."</em><sup id="fnref:exopod"><a class="footnote-ref" href="#fn:exopod">3</a></sup> The differences are not cosmetic. Nova allows <strong>2.5 kg for a 1U, 7.0 kg for a 3U and 14 kg for a 6U</strong> – meaningfully more generous than the CDS – and permits lateral protrusions of <strong>25 mm for 1U–4U</strong> and <strong>39.5 mm for 6U and larger</strong>, versus the CDS's 6.5 mm.<sup id="fnref2:exopod"><a class="footnote-ref" href="#fn:exopod">3</a></sup> A design that assumes CDS protrusion limits will work anywhere; a design that assumes Nova's will not.</p>
+<p>Practical consequence: <strong>pick your deployer family before you finalize the external geometry.</strong> If you cannot, design to the CDS and treat every extra millimeter a specific provider offers as margin you have not spent.</p>
+<h2 id="frames-and-primary-structure">Frames and Primary Structure<a class="headerlink" href="#frames-and-primary-structure" title="Permanent link">&para;</a></h2>
+<h3 id="buy-or-build">Buy or build<a class="headerlink" href="#buy-or-build" title="Permanent link">&para;</a></h3>
+<p>Most teams should buy. A commercial frame is a solved problem with <a href="../../references/glossary/#flight-heritage">flight heritage</a>, correct rail geometry and anodizing already applied, and it removes an entire category of fit-check risk for a cost that is small next to a launch slot. EnduroSat, for instance, advertises "590+ CubeSat structures in orbit" across its product line.</p>
+<p>Building in-house makes sense when the payload drives an unusual internal layout, when machining capacity is free (a university shop), or when the learning <em>is</em> the mission. It is a reasonable first project: a 1U frame is well within the reach of a competent 3-axis mill, and the tolerances that matter are few and clearly specified.</p>
+<!-- CSR-RESOURCES:START dev-structure-frame-suppliers -->
+<ul>
+<li><strong><a href="https://www.isispace.nl/product-category/cubesat-structures/">ISISPACE CubeSat Structures</a></strong> <code>Link</code> – Modular CubeSat structures with multiple internal mounting configurations</li>
+<li><strong><a href="https://www.endurosat.com/products-category/structures/">EnduroSat CubeSat Structures</a></strong> <code>Link</code> – CubeSat frames from 1U through 16U with extensive flight heritage</li>
+<li><strong><a href="https://nanoavionics.com/cubesat-components/cubesat-structural-frame/">NanoAvionics CubeSat Structural Frame</a></strong> <code>Link</code> – 6U–16U frames in hard-anodized 7075-T7351 aluminum, tested to NASA GEVS</li>
+<li><strong><a href="https://www.pumpkinspace.com/">Pumpkin Space Systems</a></strong> <code>Link</code> – Sheet-metal and skeletonized CubeSat structures; originators of the CubeSat Kit and the PC/104-derived stack convention</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-structure-frame-suppliers -->
+
+<p>NASA's state-of-the-art survey lists 2NDSpace, AAC Clyde Space, C3S Electronics, EnduroSat, GomSpace, NanoAvionics, Pumpkin Space Systems and ISISPACE among its representative primary-structure suppliers, while noting that "the list of organizations/companies in this chapter is not all-encompassing and does not constitute an endorsement from NASA."<sup id="fnref4:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup> <a href="https://satsearch.co/">satsearch</a>, <a href="https://www.satcatalog.com/">SatCatalog</a> and <a href="https://www.cubesatshop.com/">CubeSatShop</a> are the practical places to compare what is currently available.</p>
+<h3 id="construction-styles">Construction styles<a class="headerlink" href="#construction-styles" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Monolithic / machined-from-solid frames</strong>: a single milled aluminum body, sometimes with removable side panels. Stiff, dimensionally reliable, and easy to analyze, but expensive in machining time and awkward for late access to internal boards.</li>
+<li><strong>Skeletonized rail-and-rib frames</strong>: four corner rails tied together by ribs or end plates. The most common commercial pattern. Lighter, cheaper, and the side faces stay open for solar panels and access.</li>
+<li><strong>Sheet-metal / folded frames</strong>: cheap and light, but harder to hold tolerance on and generally less stiff. Pumpkin says it pioneered sheet-metal CubeSat structures back in 2000 and still offers both solid-wall and skeletonized versions, so the approach has heritage – but it rewards good tooling.</li>
+<li><strong>Secondary structures</strong>: an internal sub-assembly (a board stack or payload cage) built and tested separately, then dropped into the load-carrying frame. This is what ISISPACE means by "multiple mounting configurations", and it is a good pattern for keeping integration reversible.</li>
+</ul>
+<p>For scale: commercial CubeSat primary structures average roughly <strong>0.118 kg for a 1U and 1.84 kg for a 12U</strong>.<sup id="fnref5:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup> If your frame is far heavier than that, you are spending <a href="../systems-engineering/#budgets-and-margins">mass budget</a> that the payload would rather have.</p>
+<h3 id="open-source-designs-worth-reading">Open-source designs worth reading<a class="headerlink" href="#open-source-designs-worth-reading" title="Permanent link">&para;</a></h3>
+<!-- CSR-RESOURCES:START dev-structure-open-source-designs -->
+<ul>
+<li><strong><a href="https://github.com/BIRDSOpenSource/BIRDS3-CAD">BIRDS-3 CAD</a></strong> <code>Link</code> – CAD documentation for the BIRDS-3 1U satellite and its integration stand</li>
+<li><strong><a href="https://github.com/spel-uchile/CAD_SUCHAI_II">CAD_SUCHAI_II</a></strong> <code>Link</code> – Mechanical CAD for the SUCHAI-II 3U mission, including the structure assembly</li>
+<li><strong><a href="https://codeberg.org/buildacubesat-project/bac-structure">Build a CubeSat – bac-structure</a></strong> <code>Link</code> – Open structural designs for 1U–4U in aluminum 6061, with fastener, adhesive and manufacturing notes (CC BY-SA 4.0)</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-structure-open-source-designs -->
+
+<p>Reading a complete open design is the fastest way to understand what a structure package actually contains: not just a frame model, but fastener schedules, torque values, adhesive selections and assembly order. See also <a href="../../references/missions/">CubeSat Missions</a> for the wider list of open-source projects.</p>
+<h2 id="materials-and-manufacturing">Materials and Manufacturing<a class="headerlink" href="#materials-and-manufacturing" title="Permanent link">&para;</a></h2>
+<h3 id="aluminum-alloys">Aluminum alloys<a class="headerlink" href="#aluminum-alloys" title="Permanent link">&para;</a></h3>
+<p><strong>6061-T6</strong> is the default for CubeSat frames: readily machinable, weldable, corrosion-resistant, and cheap. <strong>7075-T73</strong> (and the T7351 temper used by NanoAvionics) is stronger and stiffer, and is the alloy most deployer rails are made from – matching alloys on both sides of the sliding interface keeps thermal expansion behavior predictable. The CDS also names 6082, 5005 and 5052 as alloys typically used.<sup id="fnref2:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">2</a></sup></p>
+<p><strong>Hard anodizing is not optional on the rails.</strong> Bare aluminum sliding against bare aluminum in vacuum can cold weld – the surface oxide that normally keeps two metal surfaces apart is absent, and the surfaces bond. A hard anodic coating (typically Type III) is both electrically insulating and hard enough to survive the deployer slide. Note that this creates a design tension: the same coating that prevents cold welding also breaks the electrical bonding path, so grounding must be handled deliberately through defined contact points rather than assumed through the frame.</p>
+<h3 id="non-metals-and-additive-manufacturing">Non-metals and additive manufacturing<a class="headerlink" href="#non-metals-and-additive-manufacturing" title="Permanent link">&para;</a></h3>
+<p>Polymer additive manufacturing has moved from jigs and fixtures into flight structures, though mostly for secondary rather than primary load paths. NASA's survey tabulates commercially available filaments; the ranges below are across every product listed for each material, so treat them as the spread of what you can buy rather than a specification:<sup id="fnref6:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup></p>
+<ul>
+<li><strong>PLA</strong> – TRL 3–4, deflection temperature <strong>50–55 °C</strong>. Fine for ground support equipment, marginal for flight.</li>
+<li><strong>ABS</strong> – deflection temperature <strong>97–106 °C</strong>, tensile strength <strong>21–58 MPa</strong>; flown as deployed structures on KickSat-2.</li>
+<li><strong>PEI (Ultem)</strong> – deflection temperature <strong>153–212 °C</strong>, tensile strength <strong>54–145 MPa</strong>, the spread depending heavily on whether the grade is carbon-filled. Low outgassing and dimensionally stable; the usual choice when a printed part has to be near optics.</li>
+<li><strong>Windform (SLS)</strong> – three grades listed (XT 2.0, RS, SP), spanning deflection temperature <strong>173–187 °C</strong> and tensile strength <strong>48–85 MPa</strong>, with flight heritage on KySat-2 and GPX-2.</li>
+</ul>
+<p>Polycarbonate is absent from NASA's tables but worth knowing about, because one PC filament has been put through the qualification a CubeSat team would otherwise have to pay for itself. <strong>Prusament PC Space Grade Black</strong>, developed with TRL Space, is a carbon-filled polycarbonate with a heat deflection temperature of <strong>137.6 °C</strong> at 0.45 MPa and a tensile strength of <strong>75 MPa</strong> – above every ABS grade in NASA's table and in the same band as mid-range PEI. Its outgassing was measured by Aerospace &amp; Advanced Composites GmbH to the ESA criteria at <strong>CVCM 0.00%</strong> and <strong>RML 0.12%</strong>, against limits of 0.10% and 1.0% (reported TML was 0.25%).<sup id="fnref:prusament"><a class="footnote-ref" href="#fn:prusament">7</a></sup> It is also dissipative as printed, without post-processing, at a volume resistivity of <strong>2.2 × 10⁶ Ω·cm</strong> – six orders of magnitude below the threshold NASA says to avoid, and comfortably inside the range the flight-used Windform grades occupy.</p>
+<p>That combination is unusual and worth being explicit about why: this is not a recommendation, and a filament passing a screening test is not a qualified part. What it does buy you is a starting point where the outgassing evidence already exists, on a material you can buy in 850 g spools and print on a desktop machine, rather than one that needs an industrial SLS bureau.</p>
+<p>The important caveat is that <a href="../../references/glossary/#trl">TRL</a> attaches to a <em>part</em>, not a material: NASA notes it "depends on the material, the configuration of the actual part, the manufacturing process used, the postprocessing... the testing and qualification process, and many other factors."<sup id="fnref7:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup> A printed bracket that flew on someone else's mission tells you very little about yours unless the process is the same.</p>
+<p>Electrostatic discharge is a second constraint on polymers, and the relevant quantity is volume resistivity. NASA's guidance is that dielectric materials above <strong>10¹² Ω·cm</strong> "should be avoided because charge accumulation occurs regardless"; the flight-used Windform grades sit around <strong>10⁸ Ω·cm</strong>.<sup id="fnref8:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup></p>
+<h3 id="outgassing">Outgassing<a class="headerlink" href="#outgassing" title="Permanent link">&para;</a></h3>
+<p>Anything non-metallic – adhesives, conformal coatings, cable ties, printed parts, tapes, potting compounds – outgasses in vacuum. The escaping volatiles condense on the coldest, most valuable surfaces available: optics, radiators, solar cells.</p>
+<p>Materials are screened using <strong>ASTM E595</strong>, which measures <strong><a href="../../references/glossary/#outgassing">total mass loss</a> (TML)</strong>, <strong>collected volatile condensable material (CVCM)</strong> and <strong>water vapor recovery (WVR)</strong> after 24 hours at 125 °C in vacuum. NASA-STD-6016C sets the acceptance criteria, and the exact wording is worth having:<sup id="fnref:nasa-std-6016"><a class="footnote-ref" href="#fn:nasa-std-6016">6</a></sup></p>
+<ul>
+<li><strong>CVCM ≤ 0.1%</strong></li>
+<li><strong>TML less WVR ≤ 1.0%</strong> – note the subtraction. Many materials contain absorbed water, and losing it does not normally affect functionality, so the water is taken out of the mass-loss figure before the limit is applied. Screening against raw TML is stricter than the requirement and will reject materials that are actually compliant. Europe does the same bookkeeping under a different name: ECSS reports <strong>recovered mass loss (RML)</strong> as its own quantity, with the water already taken out, and sets the limit there – so an ESA-screened material quoting RML and a NASA-screened one quoting TML less WVR are being held to the same thing.</li>
+</ul>
+<p>Two qualifications matter more than the numbers. The requirement applies to non-metallic materials exposed to space vacuum, <strong>excluding</strong> ceramics, metal oxides, inorganic glasses and cetyl alcohol fastener lubricants outside closed compartments. And it is a floor, not a ceiling: for materials with line of sight to contamination-sensitive surfaces – "windows, lenses, star trackers, solar arrays, radiators, and other surfaces with highly controlled optical properties" – NASA notes that more stringent treatment may be needed, which can mean tightening CVCM to <strong>≤ 0.01%</strong>, or characterizing deposition directly with ASTM E1559 and an integrated vehicle model rather than relying on a screening pass at all. If you carry optics or a precision radiator, assume you are in that second category. A spacecraft with cryogenic optics is stricter again: there the WVR is <em>not</em> subtracted, because deposited water is exactly the problem.</p>
+<p>Failing the CVCM limit is also not automatically fatal, which is worth knowing before you rule a material out. The remedy is <strong>vacuum bakeout</strong> of the assembled hardware, and the requirement carries exemptions that cover a good deal of what actually goes into a small satellite:<sup id="fnref2:nasa-std-6016"><a class="footnote-ref" href="#fn:nasa-std-6016">6</a></sup></p>
+<ul>
+<li>anything with an exposed surface area below <strong>1.6 cm²</strong>, unconditionally;</li>
+<li>materials <strong>not near a critical surface</strong>, with CVCM between 0.1 and 1.0% and an exposed area below <strong>13 cm²</strong>;</li>
+<li>materials that are unexposed, overcoated or encapsulated with approved materials;</li>
+<li>anything inside a sealed container leaking less than 1 × 10⁻⁴ cm³/s.</li>
+</ul>
+<p>A bead of threadlocker, a conformal coating fillet or a cable tie usually falls inside the first exemption. Where bakeout is needed, ASTM E2900 is the recommended guide, and the temperature is chosen as the highest the hardware tolerates rather than a fixed value – baking at the E595 screening temperature of 125 °C can damage flight hardware. Re-run a functional bench test afterwards.</p>
+<p>One scoping note, because it is easy to read all of this as law: NASA-STD-6016C is a NASA requirements document, and it binds you where NASA or ISS requirements flow down to your mission. On a commercial rideshare it is reference practice rather than a rule – good reference practice, and what most of the industry has converged on, but your launch provider's own materials requirements are what actually govern. See <a href="../launch/#documentation-checklist">Qualification and Launch</a>.</p>
+<p>The <strong><a href="https://etd.gsfc.nasa.gov/capabilities/outgassing-database/">NASA Goddard Outgassing Database</a></strong> holds E595 results for thousands of materials and is the first place to check before committing to an adhesive or a tape. Check it <em>before</em> you design the part, not after – substituting a compliant adhesive late usually means requalifying the joint.</p>
+<h2 id="fasteners-and-assembly">Fasteners and Assembly<a class="headerlink" href="#fasteners-and-assembly" title="Permanent link">&para;</a></h2>
+<p>CubeSats are almost entirely bolted assemblies, and fasteners are a disproportionate source of both mass and risk.</p>
+<h3 id="selection">Selection<a class="headerlink" href="#selection" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Size</strong>: M2.5 and M3 socket-head cap screws dominate. The Build a CubeSat structure package, for example, standardizes on M3 socket-head screws to ISO 14579/14580 with ISO 4032 nuts and ISO 7092 washers.</li>
+<li><strong>Material</strong>: A2 (304) or A4 (316) stainless is the normal choice – strong, non-magnetic enough for most purposes, and dimensionally stable. Titanium saves mass where it matters and reduces thermal conduction; aluminum fasteners are rarely worth the strength penalty.</li>
+<li><strong>Magnetic cleanliness</strong>: avoid ferritic (400-series) stainless anywhere near magnetometers. Even "non-magnetic" austenitic stainless can become slightly magnetic after cold working. See <a href="../gnc/#magnetometers">GNC</a>.</li>
+<li><strong>Thread engagement</strong>: aim for at least 1.5–2× the nominal diameter in aluminum. Where a joint will be opened and closed repeatedly during integration, use threaded inserts or helicoils rather than tapping the aluminum directly – the frame will outlast the threads otherwise.</li>
+</ul>
+<h3 id="keeping-them-done-up">Keeping them done up<a class="headerlink" href="#keeping-them-done-up" title="Permanent link">&para;</a></h3>
+<p>Launch vibration will undo anything that is merely tight. The options, roughly in order of how commonly they appear on CubeSats:</p>
+<ul>
+<li><strong>Liquid threadlocker</strong> – Loctite 271 or Vibra-Tite VC-3 are common; VC-3 has the advantage of being pre-applied and repositionable, which suits hardware that gets disassembled during integration. Threadlockers are non-metallic and therefore an outgassing item: check the specific product against the NASA database.</li>
+<li><strong>Belleville / conical spring washers</strong> – maintain preload as joints settle and as thermal cycling works against the clamp. Frequently specified for flight assemblies.</li>
+<li><strong>Staking</strong> – a dab of qualified adhesive (3M 2216 and similar epoxies are common) bridging fastener head to substrate. Reliable and inspectable, but destructive to remove.</li>
+<li><strong>Prevailing-torque nuts</strong> – effective, but nylon-insert (Nyloc) types are generally avoided for flight because the nylon outgasses and does not tolerate the temperature range.</li>
+<li><strong>Safety wire</strong> – rare at CubeSat scale; the fasteners are usually too small to drill sensibly.</li>
+</ul>
+<p><strong>Torque control matters more than torque value.</strong> Use a calibrated torque driver, record the value applied to every fastener, and use the same value at every reassembly. An under-torqued screw loses preload and backs out; an over-torqued one strips an M3 thread in 6061 with very little warning.</p>
+<h3 id="vented-volumes">Vented volumes<a class="headerlink" href="#vented-volumes" title="Permanent link">&para;</a></h3>
+<p>Every enclosed volume must be able to vent during ascent, or the trapped air will try to burst it. Vented (drilled) screws, deliberate vent holes, and avoiding blind tapped holes with a sealed fastener are the standard answers. Check enclosures, potted assemblies and any payload housing specifically.</p>
+<h2 id="mounting-and-mechanical-interfaces">Mounting and Mechanical Interfaces<a class="headerlink" href="#mounting-and-mechanical-interfaces" title="Permanent link">&para;</a></h2>
+<h3 id="the-pc104-derived-stack">The PC/104-derived stack<a class="headerlink" href="#the-pc104-derived-stack" title="Permanent link">&para;</a></h3>
+<p>The CDS specifies the outside of a CubeSat and says nothing about the inside. In that vacuum, the community converged on a <strong><a href="../../references/glossary/#pc104">PC/104</a></strong>-derived board stack, popularized by the Pumpkin CubeSat Kit: boards roughly <strong>90 × 96 mm</strong> carrying a 104-pin stacking header, mounted on standoffs so that each board's connector mates with the one below.</p>
+<p>The advantages are why almost every COTS CubeSat board you can buy uses it. Boards from different vendors physically stack; the bus is available at every level; and adding a subsystem is mechanically trivial.</p>
+<p>The disadvantages are as concrete, and worth knowing before you commit:</p>
+<ul>
+<li><strong>The pinout is not standardized.</strong> The connector is common; what each pin carries is not. Two "PC/104 CubeSat" boards from different vendors will mate mechanically and may still be electrically incompatible. Always check pin assignments against each vendor's <a href="../../references/glossary/#icd">ICD</a>.</li>
+<li><strong>Access is serial.</strong> Reaching the third board down means removing the two above it. Plan assembly order and debug access together.</li>
+<li><strong>Stack height accumulates.</strong> Standoff length, connector mated height and component height all add up; see <a href="#tolerancing-and-stack-up">Tolerancing and Stack-Up</a>.</li>
+</ul>
+<h3 id="documented-alternatives">Documented alternatives<a class="headerlink" href="#documented-alternatives" title="Permanent link">&para;</a></h3>
+<p>Two efforts address the pinout problem from opposite directions, and neither changes the board footprint much.</p>
+<p>The <strong>LibreCube board specification</strong> keeps a board of roughly the same <strong>90 × 96 mm</strong> size but replaces the single 104-pin header with <strong>two 52-pin headers</strong>, on a <strong>16 mm board pitch</strong>, with component height limited to <strong>8.5 mm above and 4.5 mm below</strong> the board. The point is not a different shape – it is that the pin assignments are written down and open, which is precisely what PC/104-derived CubeSat boards are not.</p>
+<p><strong>ISO 17981:2024, "Space systems – Cube satellite (CubeSat) interface"</strong>, published October 2024 by ISO/TC 20/SC 14, tackles the same gap from the standards side. It covers interfaces between components, the interface between the CubeSat platform and its mission payload, umbilical connectors used as access ports, and datasheet requirements for CubeSat components and platforms sold as commercial products. Note what it deliberately leaves alone: it <strong>does not</strong> cover the interface between the CubeSat and the deployer.<sup id="fnref:iso17981"><a class="footnote-ref" href="#fn:iso17981">4</a></sup> It is an internal-interface standard, not a replacement for or companion to the CDS's envelope – which makes it relevant here and nowhere else on this page.</p>
+<!-- CSR-RESOURCES:START dev-structure-internal-interface-standards -->
+<ul>
+<li><strong><a href="https://librecube.gitlab.io/standards/board_specification/">LibreCube board specification</a></strong> <code>Link</code> – Open board and connector specification defining board size, two 52-pin headers, 16 mm pitch and component height limits, with a published pinout</li>
+<li><strong><a href="https://www.iso.org/standard/85136.html">ISO 17981:2024 – Space systems: Cube satellite (CubeSat) interface</a></strong> <code>Link</code> – International standard for CubeSat internal interfaces, platform-to-payload interfaces, umbilical connectors and commercial product datasheets. Explicitly excludes the CubeSat-to-deployer interface. Paywalled</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-structure-internal-interface-standards -->
+
+<p>Backplane and harness-based architectures are also used, particularly where a large payload dominates the internal volume.</p>
+<h3 id="mounting-practice">Mounting practice<a class="headerlink" href="#mounting-practice" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Standoffs</strong> carry both the mechanical load and, often, the electrical ground path. If the frame is anodized, the ground return has to be designed explicitly – through a dedicated bonding strap or a deliberately masked contact area.</li>
+<li><strong>Thermal coupling is a design choice made at the mounting interface.</strong> A board bolted hard to the frame through metal standoffs is thermally coupled to it; the same board on nylon standoffs is not. Decide which you want per board rather than by default. See <a href="../thermal/">Thermal</a>.</li>
+<li><strong>Alignment-critical items</strong> – star trackers, cameras, antennas – should reference the frame directly through dowel pins or machined features, not through a stack of tolerances. See <a href="../gnc/#adcs-integration-considerations">GNC – ADCS Integration Considerations</a>.</li>
+<li><strong>Plan for late access.</strong> You will need to reach the <a href="../inhibits-hdrm/#remove-before-flight-rbf-pins">remove-before-flight pin</a>, the charge port and the debug connector after the satellite is fully assembled, and in some cases after it is inside the deployer. Locate them on an accessible face early; retrofitting an access port into a finished frame is miserable.</li>
+</ul>
+<h2 id="mass-properties-and-center-of-mass">Mass Properties and Center of Mass<a class="headerlink" href="#mass-properties-and-center-of-mass" title="Permanent link">&para;</a></h2>
+<p>Mass is tracked by the <a href="../systems-engineering/#budgets-and-margins">mass budget</a>; <em>where</em> that mass sits is a structural requirement in its own right, and one that tends to be discovered late.</p>
+<p>The CDS constrains the center of mass relative to the geometric center (§2.2.11, Table 2):<sup id="fnref3:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">2</a></sup></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Configuration</th>
+<th style="text-align: right;">X</th>
+<th style="text-align: right;">Y</th>
+<th style="text-align: right;">Z</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">1U</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±2 cm</td>
+</tr>
+<tr>
+<td style="text-align: left;">1.5U</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±3 cm</td>
+</tr>
+<tr>
+<td style="text-align: left;">2U</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±4.5 cm</td>
+</tr>
+<tr>
+<td style="text-align: left;">3U</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±7 cm</td>
+</tr>
+<tr>
+<td style="text-align: left;">6U</td>
+<td style="text-align: right;">±4.5 cm</td>
+<td style="text-align: right;">±2 cm</td>
+<td style="text-align: right;">±7 cm</td>
+</tr>
+<tr>
+<td style="text-align: left;">12U</td>
+<td style="text-align: right;">±4.5 cm</td>
+<td style="text-align: right;">±4.5 cm</td>
+<td style="text-align: right;">±7 cm</td>
+</tr>
+</tbody>
+</table>
+<p>Deployers care because an off-center mass causes the CubeSat to bind or tumble on ejection, and imparts unwanted tip-off rates. Your <a href="../../references/glossary/#adcs">ADCS</a> cares because a large offset increases gravity-gradient and aerodynamic disturbance torques that the magnetorquers then have to fight for the whole mission.</p>
+<p>Practical handling:</p>
+<ul>
+<li>Track center of mass in CAD from the first layout, not as a check before delivery. Batteries and payloads are dense and are exactly the things that move late in the design.</li>
+<li>Measure it on the flight spacecraft. CAD densities are approximations, harnesses are never where the model says, and adhesives and conformal coating add unmodeled mass.</li>
+<li>Moments of inertia matter to <a href="../gnc/">GNC</a> even where the deployer does not check them; export them from the same CAD model and keep them under version control alongside the mass budget.</li>
+<li>Balance mass is legitimate but is a last resort – it is mass that does nothing. Prefer relocating something heavy.</li>
+</ul>
+<h2 id="deployable-structures-and-mechanisms">Deployable Structures and Mechanisms<a class="headerlink" href="#deployable-structures-and-mechanisms" title="Permanent link">&para;</a></h2>
+<p>Deployables are where structural design gets risky. NASA's survey is blunt about it: <strong>mechanisms account for more than 10% of reported small satellite failures</strong>, and its recommended mitigations are unglamorous – "design simplicity, margin, supplier selection, and testing."<sup id="fnref9:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup></p>
+<h3 id="common-deployables">Common deployables<a class="headerlink" href="#common-deployables" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Antennas</strong> – tape-spring UHF/VHF monopoles and dipoles are the most common deployable on any CubeSat, usually held by a burn wire and released after the mandated 30-minute delay. See <a href="../comms/">Comms</a>.</li>
+<li><strong>Solar arrays</strong> – deployed panels multiply available area severalfold and are often the difference between a closing and a non-closing <a href="../eps/#power-requirements-and-budgets">power budget</a>. They also add stowed volume, a release mechanism, hinge stiffness questions and a new failure mode.</li>
+<li><strong>Booms</strong> – for magnetometers (getting the sensor away from the spacecraft's own magnetic field), gravity-gradient stabilization, or drag sails. NASA's Deployable Composite Boom work reports <strong>25% less weight than metallic booms</strong>, and states that the "DCB/ACS3 7-m boom technology is extensible to 16.5 m deployable boom lengths" following that mission's launch in April 2024.<sup id="fnref11:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup></li>
+<li><strong>Drag sails and deorbit devices</strong> – increasingly common as end-of-life disposal requirements tighten. See <a href="../launch/#space-debris-mitigation">Qualification and Launch</a>.</li>
+</ul>
+<h3 id="release-mechanisms">Release mechanisms<a class="headerlink" href="#release-mechanisms" title="Permanent link">&para;</a></h3>
+<p>The mechanism itself is covered in depth under <a href="../inhibits-hdrm/">Inhibits and HDRM</a>; from the structural side the questions are: what preload does the stowed configuration need, what carries that preload, and what happens to the released energy.</p>
+<!-- CSR-RESOURCES:START dev-structure-deployment-mechanisms -->
+<ul>
+<li><strong><a href="https://www.dcubed.space/">DCUBED release actuators</a></strong> <code>Link</code> – Shape-memory-based nano release nuts and pin pullers for CubeSat deployables</li>
+<li><strong><a href="https://oxford.space/">Oxford Space Systems AstroTube</a></strong> <code>Link</code> – Deployable boom reaching TRL 9, validated on orbit in November 2016 on the AlSat-Nano 3U mission; AstroTube scales 0.3–3 m and AstroTube Max 0.5–15 m</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-structure-deployment-mechanisms -->
+
+<p>NASA's survey additionally lists Beyond Gravity, Comat, DHV Technology, Ensign-Bickford, Sierra Space and Revolv Space as mechanism suppliers, and Composite Technology Development and Redwire as boom suppliers.<sup id="fnref10:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">1</a></sup></p>
+<h3 id="design-rules-that-earn-their-keep">Design rules that earn their keep<a class="headerlink" href="#design-rules-that-earn-their-keep" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Deploy it hundreds of times on the ground.</strong> Deployment mechanisms are one of the few things you can test to statistical confidence cheaply. Do it, and do it after vibration, not only before.</li>
+<li><strong>Gravity lies.</strong> A mechanism that deploys reliably on a bench may be relying on gravity to help or being hindered by it. Test in the orientation that is hardest, and use gravity offloading where the geometry allows.</li>
+<li><strong>Strain-relieve everything that crosses a hinge.</strong> Harness routed across a deployable is a classic single-point failure. Give it a service loop, secure it on both sides of the joint, and check the bend radius through the full range of motion.</li>
+<li><strong>Decide what happens if it does not deploy.</strong> A satellite that survives a failed solar array deployment in a reduced-power safe mode is a partial success. One that browns out is not. See <a href="../flight-software/#fault-detection-isolation-and-recovery-fdir">Flight Software – FDIR</a>.</li>
+</ul>
+<h2 id="structural-analysis-and-fem">Structural Analysis and FEM<a class="headerlink" href="#structural-analysis-and-fem" title="Permanent link">&para;</a></h2>
+<p><a href="../../references/glossary/#finite-element-analysis-fea">Finite element analysis</a> on a CubeSat has a narrow and achievable purpose: show that the spacecraft survives launch without shedding parts, and that it does not interact badly with the launch vehicle.</p>
+<h3 id="load-cases">Load cases<a class="headerlink" href="#load-cases" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><a href="../../references/glossary/#quasi-static-load">Quasi-static loads</a></strong> – the steady acceleration envelope during ascent, taken from the launcher's user guide. Simple to apply and usually not the driving case for something as small and stiff as a CubeSat.</li>
+<li><strong><a href="../../references/glossary/#random-vibration">Random vibration</a></strong> – the driving case for most CubeSat hardware. Applied as a power spectral density and characterized by an overall <strong><a href="../../references/glossary/#grms">Grms</a></strong> value.</li>
+<li><strong>Shock</strong> – from stage separation and deployer actuation. Rarely sizing for the primary structure, but relevant for crystals, relays and optics.</li>
+<li><strong>Acoustic</strong> – generally not sizing at CubeSat scale, where surface area is small.</li>
+</ul>
+<p>NASA's <strong><a href="../../references/glossary/#gevs">GEVS</a></strong> (GSFC-STD-7000A) provides the generalized levels most CubeSat teams work to in the absence of a specific launcher manifest. Its component-level table specifies a flat <strong>0.16 g²/Hz from 50 to 800 Hz</strong>, rolling off at ±6 dB/octave to 0.026 g²/Hz at 20 Hz and 2000 Hz, giving an overall <strong>14.1 Grms</strong> for qualification. The acceptance level is the same shape at half the spectral density – 3 dB down – for an overall <strong>10.0 Grms</strong>. Qualification is run for <strong>2 minutes in each of three orthogonal axes</strong>.<sup id="fnref:gevs"><a class="footnote-ref" href="#fn:gevs">5</a></sup></p>
+<p>Actual launchers are usually gentler than the GEVS envelope. EnduroSat publishes a Falcon 9-referenced <a href="../../references/glossary/#protoflight">protoflight</a> level of <strong>7.877 Grms for 1 minute per axis</strong> alongside its 14.1 Grms GEVS batch-qualification campaign – a useful illustration that GEVS is a bounding envelope, not a prediction.<sup id="fnref:endurosat-qual"><a class="footnote-ref" href="#fn:endurosat-qual">8</a></sup> Qualifying to GEVS means you are covered almost anywhere; qualifying to your actual launcher's levels means you are covered where you are actually going.</p>
+<h3 id="doing-the-analysis">Doing the analysis<a class="headerlink" href="#doing-the-analysis" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Modal analysis first.</strong> Find the first natural frequency and check it against whatever your launch provider requires. Note that deployer manuals are often unhelpful here – Exolaunch states that "modelling the dynamic behavior of a CubeSat-Deployer coupled system is challenging and not recommended for most missions,"<sup id="fnref4:exopod"><a class="footnote-ref" href="#fn:exopod">3</a></sup> which in practice means most teams demonstrate compliance by test rather than by analysis.</li>
+<li><strong><a href="../../references/glossary/#margin-of-safety">Margin of safety</a></strong> is the output that matters: MS = (allowable / (factor of safety × applied)) − 1, and it must be positive. <strong>Check which load case you are applying the factor to</strong>, because GEVS does not use one number: for metallic structures the factors are <strong>1.25 on yield and 1.4 on ultimate for static and sine loads, but 1.6 and 1.8 for random and acoustic loads</strong>.<sup id="fnref2:gevs"><a class="footnote-ref" href="#fn:gevs">5</a></sup> Since random vibration is the driving case for most CubeSats, the higher pair is usually the one that applies. Composite structures and bonded inserts carry 1.5 on ultimate for static and sine, 1.9 for random and acoustic.</li>
+<li><strong>Model the stack, not just the frame.</strong> For a CubeSat, most of the mass is boards, batteries and payload. A frame-only model will give you a first mode far higher than reality. Represent boards as plates with realistic mass and standoff stiffness, or lump them as point masses at their mounting points.</li>
+<li><strong>Correlate to test.</strong> An uncorrelated model is a hypothesis. After the first vibration campaign, compare predicted and measured modes and adjust. See <a href="../ait/#environmental-testing">AIT – Environmental Testing</a>.</li>
+</ul>
+<h3 id="toolchains">Toolchains<a class="headerlink" href="#toolchains" title="Permanent link">&para;</a></h3>
+<!-- CSR-RESOURCES:START dev-structure-fem-tools -->
+<ul>
+<li><strong><a href="https://www.freecad.org/">FreeCAD</a></strong> <code>Link</code> – Open-source parametric CAD with an integrated FEM workbench</li>
+<li><strong><a href="https://www.calculix.de/">CalculiX</a></strong> <code>Link</code> – Open-source three-dimensional structural finite element solver with Abaqus-like input syntax</li>
+<li><strong><a href="https://prepomax.fs.um.si/">PrePoMax</a></strong> <code>Link</code> – Open-source pre- and post-processor for CalculiX with a modern user interface</li>
+<li><strong><a href="https://code-aster.org/">Code_Aster</a></strong> <code>Link</code> – Open-source structural mechanics and thermomechanics solver developed by EDF</li>
+<li><strong><a href="https://www.elmerfem.org/">Elmer FEM</a></strong> <code>Link</code> – Open-source multiphysics finite element software</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-structure-fem-tools -->
+
+<p>Commercial options – Ansys Mechanical, MSC Nastran/Patran, Siemens Femap, Autodesk Fusion's simulation environment – are what most launch providers' reviewers are used to seeing, and many are available under free or heavily discounted academic licenses. For a CubeSat the deciding factor is usually which tool someone on the team already knows well enough to be confident in the results, not which solver is technically superior. See <a href="../tools/#software-tools">Tools – Software Tools</a>.</p>
+<h2 id="tolerancing-and-stack-up">Tolerancing and Stack-Up<a class="headerlink" href="#tolerancing-and-stack-up" title="Permanent link">&para;</a></h2>
+<p>The CDS gives tight tolerances on the features that touch the deployer: rail dimensions are specified to <strong>±0.1 mm</strong>, and Exolaunch quotes ±0.1 mm on rail width and ±0.5 mm on rail length for the Nova envelope.<sup id="fnref3:exopod"><a class="footnote-ref" href="#fn:exopod">3</a></sup> These are machining tolerances, not assembly tolerances, and that distinction is the whole subject.</p>
+<p>Where teams get caught:</p>
+<ul>
+<li><strong>Accumulated stack height.</strong> Six boards, seven sets of standoffs, connector mated heights and a lid: each with its own tolerance. Tolerances add across the stack, and an assembly that is nominally fine can be 1.5 mm too tall at the extremes. Do the stack-up arithmetic explicitly, worst-case first, and only then decide whether a statistical (RSS) treatment is defensible.</li>
+<li><strong>Anodizing thickness.</strong> Hard anodizing grows the surface – roughly half the coating thickness is above the original surface. On a rail machined to nominal, that can push you out of tolerance. Machine undersize by the expected growth and confirm with your finisher.</li>
+<li><strong>Fasteners as a datum.</strong> Clearance holes give the assembly somewhere between 0.2 and 0.5 mm of freedom in every joint. If a payload needs to be aligned better than that, it needs dowel pins or a machined register, not screws.</li>
+<li><strong>Deployables in the stowed state.</strong> The envelope check that matters is the stowed one, with the deployable compressed against its restraint and the <a href="../../references/glossary/#harness">harness</a> routed as flown.</li>
+</ul>
+<p>Verification is mostly unglamorous measurement: calipers and a surface plate for a 1U, a CMM if you have access, and a <strong>fit check in a test pod</strong> as the definitive answer. Deployer providers supply test pods for exactly this – Exolaunch's TestPod, ISISPACE's equivalents, and the original Cal Poly <a href="../../references/glossary/#p-pod">P-POD</a> lineage – and a fit check early in the program is worth far more than a re-measured drawing.</p>
+<h2 id="cleanliness-handling-and-contamination">Cleanliness, Handling and Contamination<a class="headerlink" href="#cleanliness-handling-and-contamination" title="Permanent link">&para;</a></h2>
+<p>Structures work is dirty work, and the spacecraft it produces has to be clean.</p>
+<ul>
+<li><strong>Particulate contamination</strong> from machining, drilling and deburring finds its way into connectors, mechanisms and optics. Deburr and clean parts before they enter the integration area, never after.</li>
+<li><strong>Molecular contamination</strong> – skin oils, fingerprints, mold release, cutting fluid – degrades thermal coatings and optical surfaces and is much harder to remove than dust. Nitrile gloves for everything that will fly, without exceptions that erode over the course of a build.</li>
+<li><strong>Cleanliness levels</strong> should be set by the most sensitive item aboard. An optical payload or a precision radiator may justify a controlled environment; a technology demonstration with no optics probably does not. Decide deliberately rather than by default.</li>
+<li><strong>Handling fixtures</strong> protect the rails, which are both the most tolerance-critical and the most easily damaged surfaces on the spacecraft. A scratched or dinged rail is a fit-check problem.</li>
+<li><strong>Foreign object debris.</strong> Every loose washer, offcut of wire and dropped screw is a potential short in orbit. Count fasteners in and out, and inspect before closing any volume you cannot reopen.</li>
+</ul>
+<p>See <a href="../ait/#mechanical-assembly">AIT – Mechanical Assembly</a> for the assembly-side practices.</p>
+<h2 id="environmental-considerations">Environmental Considerations<a class="headerlink" href="#environmental-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="launch">Launch<a class="headerlink" href="#launch" title="Permanent link">&para;</a></h3>
+<p>Launch is short, violent, and the only time the structure is loaded in earnest. Everything above – load cases, fasteners, deployable restraint – exists for those few minutes. The verification counterpart is covered under <a href="../ait/#environmental-testing">AIT</a>.</p>
+<h3 id="thermal">Thermal<a class="headerlink" href="#thermal" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Differential expansion.</strong> Aluminum expands roughly twice as much as steel and several times as much as FR4 across the same temperature swing. A long bolted joint between dissimilar materials will move, and either the fastener preload changes or something warps. Slotted holes, flexures and compliant washers are the usual answers.</li>
+<li><strong>Thermal cycling as a fatigue driver.</strong> In <a href="../../references/glossary/#leo">LEO</a>, a spacecraft sees an eclipse cycle every orbit – for a typical 95-minute orbit, roughly <strong>5,500 cycles per year</strong>. Joints, solder and bonded interfaces experience this as low-amplitude fatigue loading. Qualification campaigns compress this into a handful of cycles: EnduroSat's, for example, runs 8 cycles from −35 to +75 °C with 2-hour dwells at the extremes and ramp rates below 2 K/min.<sup id="fnref2:endurosat-qual"><a class="footnote-ref" href="#fn:endurosat-qual">8</a></sup></li>
+<li><strong>The structure is a thermal element.</strong> Conduction paths through the frame are frequently the dominant heat transfer mechanism inside a CubeSat. Structural and thermal design cannot be sequenced; they have to converge together. See <a href="../thermal/">Thermal</a>.</li>
+</ul>
+<h3 id="space-environment">Space environment<a class="headerlink" href="#space-environment" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Atomic oxygen</strong> erodes polymers and some coatings on ram-facing surfaces below roughly 600 km. Metals and most anodized surfaces are largely unaffected.</li>
+<li><strong>Radiation</strong> matters far more to electronics than to structure, but it does embrittle some polymers and darken optical coatings over time.</li>
+<li><strong>Vacuum</strong> drives the outgassing and cold-welding concerns already covered, and removes convection entirely from your thermal design.</li>
+</ul>
+<hr />
+<p>👉 <strong>Please consider <a href="../../contributing/">contributing</a>!</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:nasa-soa-structures">
+<p>NASA Small Spacecraft Systems Virtual Institute, <a href="https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/"><em>State of the Art in Small Spacecraft Technology</em>, Chapter 6: Structures, Materials, and Mechanisms</a> (revision dated 4 August 2026). Open access, updated annually, and the single best general-purpose survey of CubeSat structural technology. Source for form factor dimensions and average structural masses (Table 6-1: 0.118 kg for a 1U, 1.84 kg for a 12U), the additive manufacturing filament tables (6-7 PLA, 6-8 ABS, 6-12 PEI, and the Windform SLS table), the 10¹² Ω·cm electrostatic discharge threshold, the deployable composite boom figures, the mechanism failure statistic, and a representative and explicitly non-endorsing list of commercial suppliers.&#160;<a class="footnote-backref" href="#fnref:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref8:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref9:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref10:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref11:nasa-soa-structures" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cds-rev14">
+<p>Cal Poly CubeSat Program, <a href="https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf"><em>CubeSat Design Specification Rev. 14.1</em></a> (9 February 2022). Free PDF. Source for the rail geometry requirements (§2.2.5–2.2.9), the 6.5 mm protrusion limit (§2.2.3), the alloys typically used (§2.2.12.1), the hard anodizing requirement (§2.2.13), the mass limits in Table 1 (§2.2.10), the center of mass limits in Table 2 (§2.2.11), and the deployment and RF quiet periods (§2.4.4–2.4.5).&#160;<a class="footnote-backref" href="#fnref:cds-rev14" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:cds-rev14" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:cds-rev14" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:exopod">
+<p>Exolaunch, <a href="https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf"><em>EXOpod Nova User Manual</em>, Rev. 1.2</a> (June 2024). Free PDF. Openly published deployer manual covering 1U–16U, with mass and center-of-mass allowances, rail dimensions and protrusion limits. Section 1.2 states that where the manual conflicts with the CDS, the manual takes priority. A good example of the class of document that actually governs a CubeSat's mechanical design.&#160;<a class="footnote-backref" href="#fnref:exopod" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:exopod" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:exopod" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:exopod" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:iso17981">
+<p>International Organization for Standardization, <a href="https://www.iso.org/standard/85136.html"><em>ISO 17981:2024 – Space systems – Cube satellite (CubeSat) interface</em></a>, Edition 1, published 1 October 2024 by ISO/TC 20/SC 14. Covers interfaces between CubeSat components, the interface between the CubeSat platform and its mission payload, umbilical connectors serving as access ports, and datasheet requirements for CubeSat components and platforms offered as commercial products. It explicitly does not address the interface between CubeSats and deployers, and applies to CubeSats of all sizes. Paywalled; this description is taken from the published scope.&#160;<a class="footnote-backref" href="#fnref:iso17981" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:gevs">
+<p>NASA Goddard Space Flight Center, <em>General Environmental Verification Standard (GEVS)</em>, <a href="https://standards.nasa.gov/standard/gsfc/gsfc-std-7000">GSFC-STD-7000A</a>. Free. Table 2.4-3, "Generalized Random Vibration Test Levels, Components", specifies 0.026 g²/Hz at 20 Hz rising at 6 dB/octave to 0.16 g²/Hz from 50 to 800 Hz, then falling at 6 dB/octave to 0.026 g²/Hz at 2000 Hz, for an overall 14.1 Grms at qualification; the acceptance spectrum is half the spectral density throughout for an overall 10.0 Grms. Table 2.2-3, "Flight Hardware Design/Analysis Factors of Safety Applied to Limit Loads", gives metallic yield and ultimate factors of 1.25 and 1.4 for static and sine loads and 1.6 and 1.8 for random and acoustic loads, with composite and bonded-joint ultimate factors of 1.5 and 1.9 respectively. Revision A is the revision CubeSat practice and vendor qualification campaigns generally reference.&#160;<a class="footnote-backref" href="#fnref:gevs" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:gevs" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nasa-std-6016">
+<p>NASA, <em>Standard Materials and Processes Requirements for Spacecraft</em>, <a href="https://standards.nasa.gov/standard/nasa/nasa-std-6016">NASA-STD-6016C w/Change 1</a>, §4.2.3.6 "Thermal Vacuum Stability", requirement [MPR 95]. Free. Requires non-metallic materials exposed to space vacuum – excluding ceramics, metal oxides, inorganic glasses and cetyl alcohol lubricants used on fasteners outside closed compartments – to be tested per ASTM E595-15, with acceptance at "≤0.1 percent collected volatile condensable materials (CVCM)" and "≤1.0 percent total mass loss (TML) less water vapor recovery (WVR)", the latter permitting a higher mass loss where it demonstrably affects nothing. Also sets out the stricter treatment for materials with line of sight to contamination-sensitive surfaces, including a ≤0.01 percent CVCM option and ASTM E1559 deposition characterization, and notes that WVR is not subtracted where cryogenic optics are involved. Requirement [MPR 96] in the same section covers the remedy: hardware containing materials that fail the CVCM requirement, or containing unidentified materials, is vacuum baked, subject to exemptions for exposed areas below 1.6 cm², for materials away from critical surfaces with CVCM between 0.1 and 1.0 percent and exposed area below 13 cm², for unexposed, overcoated or encapsulated materials, and for sealed containers leaking less than 1 × 10⁻⁴ cm³/s. It recommends ASTM E2900 as the bakeout guide and cautions that baking at the ASTM E595-15 screening temperature of 125 °C may damage spaceflight hardware. Note that NASA-STD-6001 defines the test methods; 6016 is where the acceptance criteria live.&#160;<a class="footnote-backref" href="#fnref:nasa-std-6016" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-std-6016" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:prusament">
+<p>Prusa Research, <a href="https://prusament.com/materials/prusament-pc-space-grade/"><em>Prusament PC Space Grade</em></a> material page and <a href="https://blog.prusa3d.com/prusament-pc-space-grade-black_121877/">launch article</a>. Carbon-filled polycarbonate developed with TRL Space. Heat deflection temperature 137.6 °C at 0.45 MPa, tensile strength 75 MPa, tensile modulus 3.7 GPa. Outgassing tested by Aerospace &amp; Advanced Composites GmbH against the ESA criteria: TML 0.25%, CVCM 0.00%, RML 0.12%. Volume resistivity 2.2 × 10⁴ Ω·m (2.2 × 10⁶ Ω·cm) and surface resistivity 6 × 10⁷ Ω/sq, measured on printed samples without post-processing. Vendor-published, but the outgassing figures come from a third-party laboratory against a named standard, which is more than most filament datasheets offer.&#160;<a class="footnote-backref" href="#fnref:prusament" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:endurosat-qual">
+<p>EnduroSat, <a href="https://www.endurosat.com/space-qualification/">"Space Qualification – Satellite Testing Program"</a>. Open access. Publishes the actual test levels used for its qualification and protoflight campaigns, including 14.1 Grms for 2 minutes per axis referenced to NASA GEVS GSFC-STD-7000A, a Falcon 9-referenced protoflight level of 7.877 Grms for 1 minute per axis, and thermal vacuum cycling of 8 cycles from −35 to +75 °C with 2-hour dwells and ramp rates below 2 K/min. Useful as a concrete worked example of what a CubeSat qualification campaign actually consists of.&#160;<a class="footnote-backref" href="#fnref:endurosat-qual" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:endurosat-qual" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 17:12:37 UTC"><span class="timeago" datetime="2026-09-03T17:12:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 17:12:37 UTC">2026-09-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

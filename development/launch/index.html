@@ -1,0 +1,2733 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/development/launch/">
+      
+      
+        <link rel="prev" href="../ait/">
+      
+      
+        <link rel="next" href="../tools/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Qualification and Launch - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#qualification-and-launch" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Qualification and Launch
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inhibits-hdrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qualification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation and Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface-control-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Control Documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-do-no-harm-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "do no harm" principle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-procurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch Procurement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launch Procurement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routes-to-orbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routes to orbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-are-actually-buying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you are actually buying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insurance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insurance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regulatory-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regulatory Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regulatory Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequency-licensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequency licensing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-object-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space object registration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-debris-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space debris mitigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regulatory-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regulatory resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launch Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fit-checks-and-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fit checks and delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparing-for-leop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing for LEOP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-of-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End of Life
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qualification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qualification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Interfaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation and Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface-control-documents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Control Documents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-do-no-harm-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The "do no harm" principle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-procurement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch Procurement
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launch Procurement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routes-to-orbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Routes to orbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-are-actually-buying" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you are actually buying
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insurance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insurance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regulatory-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regulatory Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Regulatory Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequency-licensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequency licensing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-object-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space object registration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#space-debris-mitigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Space debris mitigation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regulatory-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Regulatory resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Launch Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fit-checks-and-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fit checks and delivery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preparing-for-leop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparing for LEOP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#end-of-life" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        End of Life
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/development/launch.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="qualification-and-launch">Qualification and Launch<a class="headerlink" href="#qualification-and-launch" title="Permanent link">&para;</a></h1>
+<p>This page covers everything between a finished spacecraft and a deployed one: turning the test campaign into a delivery package, buying a launch, insurance, frequency licensing, registration, export control and debris rules, deployers, delivery, the run-up to first contact, and end of life. The testing itself is on <a href="../ait/">AIT</a>.</p>
+<p>The recurring theme of this page is <strong>lead time</strong>. Building the spacecraft is under your control; frequency coordination, export licensing, safety review and manifest availability are not. Teams that treat these as end-of-project paperwork routinely find that their hardware is ready and their spacecraft still cannot legally or contractually fly. Start all of them early – a year or more before launch is not excessive.</p>
+<h2 id="qualification">Qualification<a class="headerlink" href="#qualification" title="Permanent link">&para;</a></h2>
+<p>Qualification is the process of demonstrating, with evidence, that the spacecraft will survive launch and function in orbit. The testing itself is covered in <a href="../ait/#environmental-testing">AIT</a>; what matters here is that the <em>outputs</em> of that campaign become the delivery package your launch provider reviews. The full list is in the <a href="#documentation-checklist">documentation checklist</a> below.</p>
+<p>Two practical points that shape how you plan the campaign. First, <strong>the review is iterative</strong> – expect questions, expect to supply additional evidence, and budget weeks rather than days for each cycle. Second, <strong>test evidence is only valid for the configuration it was taken in</strong>; a late change to the spacecraft may invalidate a report you have already submitted, and re-testing at that stage is expensive in both time and hardware life.</p>
+<p>Two items in the package get disproportionate attention:</p>
+<ul>
+<li><strong>Inhibit verification evidence</strong> is the single most scrutinized part of a CubeSat safety data package. See <a href="../inhibits-hdrm/#documentation-and-compliance">Inhibits and HDRM – Documentation and Compliance</a>.</li>
+<li><strong>Battery safety documentation</strong> – cell datasheets, pack design, protection circuits, test results. Requirements are considerably stricter for ISS deployment, where the spacecraft spends time inside a crewed vehicle.</li>
+</ul>
+<h2 id="documentation-and-interfaces">Documentation and Interfaces<a class="headerlink" href="#documentation-and-interfaces" title="Permanent link">&para;</a></h2>
+<h3 id="interface-control-documents">Interface Control Documents<a class="headerlink" href="#interface-control-documents" title="Permanent link">&para;</a></h3>
+<p>The <a href="../../references/glossary/#icd">ICD</a> between your spacecraft and the launch provider defines the boundary: mechanical envelope, mass and center of mass, electrical interfaces (if any – most CubeSats have none in flight beyond the deployment switch), environmental levels, and the deployment sequence.</p>
+<p>Your provider will issue their own <strong>payload user guide</strong> and deployer manual, and those documents govern. Where the <a href="../../references/glossary/#cds">CDS</a> and the provider's manual disagree, the manual wins – Exolaunch states this explicitly for the EXOpod Nova. See <a href="../structure/#the-launch-provider-always-wins">Structure – The launch provider always wins</a>.</p>
+<h3 id="the-do-no-harm-principle">The "do no harm" principle<a class="headerlink" href="#the-do-no-harm-principle" title="Permanent link">&para;</a></h3>
+<p>Rideshare payloads fly alongside someone else's primary mission, and the governing requirement is that you cannot endanger it. NASA's survey describes this directly: "a list of 'do no harm' requirements is imposed on the rideshare satellites by the launch provider, launch integrator, or primary mission owner", and these "usually include restrictions on transmitters, post separation mechanical deployments, and hazardous materials".<sup id="fnref:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup></p>
+<p>In practice this is what generates the <a href="../../references/glossary/#inhibit">inhibit</a> requirements, the RF silence period, the deployable delay, and the battery scrutiny. Understanding that framing helps: reviewers are not being obstructive, they are protecting a payload worth far more than yours.</p>
+<h3 id="documentation-checklist">Documentation checklist<a class="headerlink" href="#documentation-checklist" title="Permanent link">&para;</a></h3>
+<p>The delivery package, in one place:</p>
+<ul>
+<li>Interface control document and dimensional drawings</li>
+<li>Mass properties report – <strong>measured, not calculated</strong>, against the <a href="../../references/glossary/#deployer">deployer</a>'s limits. See <a href="../structure/#mass-properties-and-center-of-mass">Structure – Mass Properties</a></li>
+<li>Inhibit block diagram and state table with test evidence</li>
+<li>Environmental test reports – vibration, thermal vacuum and any shock testing, with levels, durations, configuration and results</li>
+<li>Battery safety data package</li>
+<li>Materials list with outgassing data, particularly where non-metals sit near sensitive surfaces</li>
+<li>Deployment mechanism description and test results</li>
+<li>Frequency license and coordination evidence</li>
+<li>Orbital debris assessment / <a href="../../references/glossary/#deorbit">deorbit</a> plan</li>
+<li>Export control documentation where applicable</li>
+<li>Integration procedures and any late-access requirements</li>
+<li>Fit check results, from a test pod and often from the actual deployer before delivery</li>
+</ul>
+<h2 id="launch-procurement">Launch Procurement<a class="headerlink" href="#launch-procurement" title="Permanent link">&para;</a></h2>
+<h3 id="routes-to-orbit">Routes to orbit<a class="headerlink" href="#routes-to-orbit" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Rideshare aggregators / brokers</strong> are the normal path. They buy capacity in bulk, provide the deployer, handle integration and much of the interface work, and sell you a slot. Exolaunch, D-Orbit, ISILaunch, Maverick Space Systems, SEOPS and Alba Orbital (for PocketQubes) operate in this space. For a first mission the broker's experience is worth as much as the slot itself – they have seen the mistakes before.</li>
+<li><strong>Direct with the launch provider.</strong> SpaceX's Transporter program publishes pricing; NASA's survey, revised May 2026, cites "Falcon 9 rides starting at $350k for ~50 kg, with a high launch cadence".<sup id="fnref4:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup> Confirm the current rate with the provider before budgeting – published rideshare pricing has moved upward more than once. You still need a deployer and an integrator in practice.</li>
+<li><strong>Dedicated small launchers</strong> – Rocket Lab's Electron, Firefly's Alpha, ISRO's SSLV and others. Far more expensive per kilogram, but you choose the orbit and the schedule rather than accepting the primary's. Electron is the most widely used small vehicle as of April 2026.<sup id="fnref5:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup> Read the capacity figures carefully, because vendors quote different orbits: Rocket Lab publishes <strong>300 kg to LEO</strong> for Electron, and Firefly publishes <strong>1,030 kg to a 300 km LEO but 630 kg to a 500 km SSO</strong> for Alpha.<sup id="fnref:launcher-performance"><a class="footnote-ref" href="#fn:launcher-performance">2</a></sup> The sun-synchronous figure is the one that matters for most CubeSat missions, and it is typically the smaller one.</li>
+<li><strong><a href="../../references/glossary/#otv">Orbital transfer vehicles</a></strong> – D-Orbit's ION (first used in 2020 and flown 21 times as of December 2025), Rocket Lab's Photon, Impulse Space's Mira, Momentus's Vigoride – take you from the rideshare drop-off orbit to something closer to what you wanted.<sup id="fnref6:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup> A growing option when the available rideshare orbit is wrong for your mission, including when it is too high to deorbit passively.</li>
+<li><strong>ISS deployment</strong> via NASA's CubeSat Launch Initiative, JAXA's J-SSOD, or commercial providers such as NanoRacks. CubeSats deploy at <strong>51.6° inclination into a 400–420 km orbit, one to three months after berthing</strong>.<sup id="fnref7:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup> The low altitude means a short orbital lifetime (typically months to about two years), which is convenient for debris compliance and inconvenient for a long mission. Safety requirements are the strictest of any route, because the spacecraft spends time inside a crewed vehicle.</li>
+<li><strong>Free and subsidized programs</strong> – NASA CSLI, ESA's Fly Your Satellite!, UNOOSA/JAXA KiboCUBE. Competitive, slow, and free. Worth applying to early. See <a href="../../getting-started/">Getting Started</a>.</li>
+</ul>
+<h3 id="what-you-are-actually-buying">What you are actually buying<a class="headerlink" href="#what-you-are-actually-buying" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Orbit.</strong> Rideshare means accepting the primary's orbit. Sun-synchronous at 500–600 km is the most commonly available and suits most Earth-observation and technology missions. Check the <a href="../../references/glossary/#beta-angle">beta angle</a> behavior and eclipse profile against your <a href="../eps/#power-requirements-and-budgets">power budget</a> before committing – <strong>and check the orbital lifetime</strong>, because this altitude band is above the point where passive decay reliably meets current disposal rules. See <a href="#space-debris-mitigation">Space debris mitigation</a>.</li>
+<li><strong>Schedule, and its slip.</strong> Launch dates move. Build schedule margin, and understand the contractual consequences of <em>you</em> slipping rather than the launcher.</li>
+<li><strong>Integration support.</strong> How much interface work the broker does, and how much falls to you.</li>
+<li><strong>Deployer.</strong> Which pod, and therefore which envelope, mass and center-of-mass limits apply.</li>
+</ul>
+<h3 id="timeline">Timeline<a class="headerlink" href="#timeline" title="Permanent link">&para;</a></h3>
+<p>Working backwards from launch, a realistic ordering:</p>
+<ul>
+<li><strong>18–24 months before:</strong> start conversations with brokers; begin frequency coordination; identify export control implications.</li>
+<li><strong>12 months:</strong> contract signed; deployer selected; ICD baselined.</li>
+<li><strong>6–12 months:</strong> safety data package and qualification evidence submitted; expect iteration.</li>
+<li><strong>1–6 months:</strong> flight hardware delivered. This varies by provider and is the number to confirm early, because it is the deadline that counts – not launch day.</li>
+<li><strong>Launch:</strong> the spacecraft has been out of your hands for months and you may or may not be present.</li>
+</ul>
+<p><strong>If the CubeSat is not ready, it does not fly.</strong> The manifest does not wait.</p>
+<!-- CSR-RESOURCES:START dev-launch-procurement -->
+<ul>
+<li><strong><a href="https://www.nasa.gov/smallsat-institute/sst-soa/integration-launch-and-deployment/">NASA State of the Art – Integration, Launch, Deployment and Orbital Transport</a></strong> <code>Link</code> – Survey of launch vehicles, rideshare pricing, deployer hardware, separation systems and orbital transfer vehicles</li>
+<li><strong><a href="https://www.spacex.com/rideshare/">SpaceX Rideshare Program</a></strong> <code>Link</code> – Transporter and Bandwagon rideshare program, with published pricing and a booking interface</li>
+<li><strong><a href="https://exolaunch.com/">Exolaunch</a></strong> <code>Link</code> – Launch brokerage, deployer hardware (EXOpod, EXOtube) and integration services for CubeSats</li>
+<li><strong><a href="https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative">NASA CubeSat Launch Initiative</a></strong> <code>Link</code> – NASA program providing launch opportunities to US educational and non-profit CubeSat developers</li>
+<li><strong><a href="https://www.esa.int/Education/Educational_Satellites">ESA Fly Your Satellite!</a></strong> <code>Link</code> – ESA education program offering support, test facilities and launch opportunities to European university teams</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-launch-procurement -->
+
+<h2 id="insurance">Insurance<a class="headerlink" href="#insurance" title="Permanent link">&para;</a></h2>
+<p>Insurance for CubeSats is unusual in that most missions carry none, and that is often the right decision.</p>
+<ul>
+<li><strong>Third-party liability</strong> is the exception. Under the Outer Space Treaty and the Liability Convention, the launching state bears international responsibility for damage caused by objects launched from its territory, and many national space laws pass that liability to the operator and require insurance as a licensing condition. <strong>Check your national law</strong> – in several jurisdictions this is compulsory rather than optional.</li>
+<li><strong>Pre-launch insurance</strong> covers damage or loss during transport, storage and integration. Relatively cheap, and worth considering for a spacecraft that took three years to build and cannot be quickly rebuilt.</li>
+<li><strong>Launch and in-orbit insurance</strong> covers loss of the spacecraft itself. Premiums are a substantial fraction of the insured value, and for a CubeSat whose hardware cost is small relative to the labor invested, the economics rarely work. You cannot insure three years of student effort.</li>
+<li><strong>The realistic risk picture</strong> is that CubeSat mission failures are dominated by the spacecraft's own faults rather than launch failures, and those are not what launch insurance covers.</li>
+</ul>
+<p>The UK is a useful worked example of how specific this gets. Under the Outer Space Act 1986 and the Space Industry Act 2018 the standard third-party liability requirement is <strong>€60 million</strong>, and while the insurance requirement "may be waived for low-risk missions", the €60 million indemnity obligation to the government remains either way; operator liability is separately capped in the license itself.<sup id="fnref:uk-caa"><a class="footnote-ref" href="#fn:uk-caa">6</a></sup> Numbers and mechanisms differ substantially elsewhere, so treat this as an illustration of the shape of the obligation rather than a template.</p>
+<p>The practical advice: treat third-party liability as a legal question to answer early, treat pre-launch cover as a cheap option worth pricing, and treat in-orbit cover as something most CubeSat missions correctly skip.</p>
+<!-- NEEDS HUMAN VERIFICATION: Only the UK position has been checked against a primary source. Country-specific pointers for the US, Switzerland, Germany and the other jurisdictions readers of this site are likely to be in would make this section considerably more actionable, but each needs verifying against the relevant national authority rather than inferred from the UK model. -->
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Nothing on this site is legal advice. Insurance and liability obligations depend on your national legislation and on the launching state, and both should be checked with someone qualified.</p>
+</div>
+<h2 id="regulatory-requirements">Regulatory Requirements<a class="headerlink" href="#regulatory-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="frequency-licensing">Frequency licensing<a class="headerlink" href="#frequency-licensing" title="Permanent link">&para;</a></h3>
+<p>You need authorization to transmit, and the process depends on which bands you use.</p>
+<ul>
+<li><strong>Amateur bands (UHF/VHF).</strong> Coordination through the <strong><a href="https://www.iaru.org/reference/satellites/">IARU</a></strong>, requested via your national member society, plus a license from your national regulator. A team member must hold an appropriate amateur license and takes personal responsibility for compliance. Amateur service rules constrain what you may do – no commercial use, and restrictions on encryption. The <a href="../../references/glossary/#iaru">IARU</a> coordination process is free, well documented and generally straightforward, but it takes months.</li>
+<li><strong>Non-amateur bands (S-band, X-band).</strong> Filing through your national regulator, who coordinates with the <strong><a href="../../references/glossary/#itu">ITU</a></strong>. Slower, more expensive, and with a risk of not obtaining what you asked for. Start at least 18 months out.</li>
+<li><strong>Remote sensing licenses</strong> are separate. If you image the Earth you may need authorization from a national body – NOAA in the US, and equivalents elsewhere.</li>
+</ul>
+<p>A point that is easy to get wrong: <strong>the international filing goes through your national administration in both cases</strong>, amateur included. Advance publication information, then notification and recording with the ITU, is submitted by the administration, not by you and not by the IARU. IARU coordination is a peer process within the amateur satellite service – a prerequisite for using the allocation, and its outcome carries weight with regulators – but it is not a license and it does not replace the national filing. Teams that treat a successful IARU coordination as "the paperwork is done" discover the gap late, when it is expensive.</p>
+<p><strong>Without frequency authorization in place, your spacecraft will not be permitted to deploy.</strong> This is the single most common regulatory reason a finished CubeSat misses its launch.</p>
+<h3 id="space-object-registration">Space object registration<a class="headerlink" href="#space-object-registration" title="Permanent link">&para;</a></h3>
+<p>States are obliged under the Registration Convention to register objects they launch, and your national authority will require information from you: orbital parameters, general function, and identification. This is usually administrative rather than difficult, but it has a deadline.</p>
+<h3 id="export-control">Export control<a class="headerlink" href="#export-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>ITAR/EAR (US)</strong> and equivalent regimes elsewhere control spacecraft components and technical data. Some CubeSat items – notably <strong><a href="../../references/glossary/#cocom-limits">GNSS receivers capable of operating at orbital velocity</a></strong>, and certain propulsion and imaging components – fall under dual-use control.</li>
+<li><strong>The Wassenaar Arrangement</strong> is the multilateral regime most European regulations derive from.</li>
+<li>The practical impacts are procurement lead time, restrictions on who may access technical data (relevant for international student teams), and constraints on publishing detailed designs. For an open-source project this last point deserves early thought.</li>
+</ul>
+<h3 id="space-debris-mitigation">Space debris mitigation<a class="headerlink" href="#space-debris-mitigation" title="Permanent link">&para;</a></h3>
+<p>Debris rules have tightened significantly and now affect CubeSat design directly.</p>
+<ul>
+<li>The long-standing international guideline was disposal within <strong>25 years</strong> of mission end.</li>
+<li>The <strong><a href="../../references/glossary/#fcc">FCC</a> adopted a "5-year rule" in 2022 (FCC 22-74, adopted 29 September 2022)</strong>, requiring that spacecraft "ending their mission in, or passing through, the LEO region below 2000 km altitude" complete disposal "as soon as practicable, and no later than five years after the end of the mission".<sup id="fnref:fcc-5yr"><a class="footnote-ref" href="#fn:fcc-5yr">3</a></sup> Note who this catches: it applies to <strong>Part 97 amateur satellites and Part 5 experimental authorizations</strong>, not only commercial Part 25 licenses, and to non-US systems seeking US market access. A university mission on amateur UHF is inside it. The two-year grandfathering for already-authorized but unlaunched satellites expired on <strong>29 September 2024</strong>, so there is no transitional relief left.</li>
+<li><strong>ESA moved in the same direction in November 2023.</strong> Its Space Debris Mitigation Policy and the accompanying requirements (ESSB-ST-U-007) cut the LEO disposal phase "from 25 to a maximum of five years" and require that "the probability of successful disposal must be larger than 90%".<sup id="fnref2:esa-sdm"><a class="footnote-ref" href="#fn:esa-sdm">4</a></sup> These bind missions procured and operated by ESA, which includes Fly Your Satellite! teams.</li>
+</ul>
+<p>What this means in practice: <strong>check your orbital lifetime during design, not after, and check it against 400 km rather than 600 km.</strong> NASA's survey is blunt about where the boundary sits – small spacecraft "launched at or around 400 km altitude naturally decay in under five years, however at orbital altitudes beyond 500 km, there is no guarantee the spacecraft will deorbit within that timeframe, and some may not deorbit within 25 years".<sup id="fnref:nasa-soa-deorbit"><a class="footnote-ref" href="#fn:nasa-soa-deorbit">5</a></sup> That puts the most commonly available rideshare orbit, sun-synchronous at 500–600 km, on the wrong side of the line for a passive CubeSat. Above roughly 400 km you should expect to demonstrate compliance rather than assume it, with a drag sail or deorbit device (effective up to about 800 km for suitable area-to-mass ratios),<sup id="fnref2:nasa-soa-deorbit"><a class="footnote-ref" href="#fn:nasa-soa-deorbit">5</a></sup> <a href="../propulsion/">propulsion</a>, an <a href="../../references/glossary/#otv">orbital transfer vehicle</a> to a lower drop-off, or simply a lower orbit. You will also be asked for an <strong>orbital debris assessment</strong> and an end-of-life plan, including <a href="../../references/glossary/#passivation">passivation</a> – safely discharging batteries and de-energizing the spacecraft so it cannot fragment.</p>
+<h3 id="regulatory-resources">Regulatory resources<a class="headerlink" href="#regulatory-resources" title="Permanent link">&para;</a></h3>
+<!-- CSR-RESOURCES:START dev-launch-registration-and-frequency-management -->
+<ul>
+<li><strong><a href="https://storage.googleapis.com/cubesat-resources/resources/registration-and-frequency-management/handout-on-small-satellitese.pdf">Guidance on Space Object Registration and Frequency Management for Small and Very Small Satellites (ITU)</a></strong> <code>PDF</code> – ITU handout introducing the two administrative processes every operator has to complete: registering the object with a national authority and securing frequency authorization. Free PDF</li>
+<li><strong><a href="https://storage.googleapis.com/cubesat-resources/resources/dev-launch-registration-and-frequency-management/itu-handbook-amateur-amateur-satellite-2026.pdf">Handbook on Amateur and Amateur-Satellite Services (ITU-R, 2026 edition)</a></strong> <code>PDF</code> – ITU-R Handbook R-HDB-52, 2026 edition, covering the regulatory basis of the amateur and amateur-satellite services. Free PDF</li>
+<li><strong><a href="https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx">Small Satellites Support (ITU-R)</a></strong> <code>Link</code> – ITU guidance on small satellite spectrum matters</li>
+<li><strong><a href="https://www.iaru.org/on-the-air/satellites/">IARU Amateur Satellite Frequency Coordination</a></strong> <code>Link</code> – The coordination process for amateur-band satellite frequencies</li>
+<li><strong><a href="https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites-0">FCC 5-Year Rule for Deorbiting Satellites</a></strong> <code>Link</code> – FCC Report and Order requiring LEO satellite disposal within five years of mission completion</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-launch-registration-and-frequency-management -->
+
+<h2 id="launch-integration">Launch Integration<a class="headerlink" href="#launch-integration" title="Permanent link">&para;</a></h2>
+<h3 id="deployers">Deployers<a class="headerlink" href="#deployers" title="Permanent link">&para;</a></h3>
+<p>The deployer defines your mechanical world. NASA's survey divides them into two families:<sup id="fnref2:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup></p>
+<ul>
+<li><strong>Rail-type</strong> dispensers are the dominant design, with more than fifteen manufacturers worldwide, supporting form factors up to 16U. Examples include Exolaunch's EXOtube and EXOpod, ISISPACE's DuoPack and ISIPOD, and Maverick's Mercury series. The CubeSat's <a href="../../references/glossary/#rail">rails</a> slide against matching rails inside the pod.</li>
+<li><strong>Tab-type</strong> dispensers are a minority design in which the spacecraft is retained by tabs rather than rails – Rocket Lab's Advanced Satellite Dispenser being the notable example. They impose a different mechanical interface, so the choice is not transparent to your structure.</li>
+</ul>
+<p>Above CubeSat scale, the <strong><a href="../../references/glossary/#espa-ring">ESPA ring</a></strong> is the standard secondary payload adapter, featuring six 38 cm (15″) ports that can each support up to 257 kg.<sup id="fnref3:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup></p>
+<p>The historically important deployer is the Cal Poly <strong><a href="../../references/glossary/#p-pod">P-POD</a></strong>, whose interface conventions shaped the standard everything since has followed.</p>
+<h3 id="fit-checks-and-delivery">Fit checks and delivery<a class="headerlink" href="#fit-checks-and-delivery" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Do a fit check early</strong>, in a test pod, before the design is frozen. Providers supply test pods for exactly this – Exolaunch's TestPod and ISISPACE's equivalents. An early fit check is the cheapest possible way to discover an envelope violation.</li>
+<li><strong>Final inspection and handover.</strong> Expect a joint inspection covering envelope, mass properties, inhibit state, RBF pin condition and general workmanship.</li>
+<li><strong>Battery state at delivery.</strong> The spacecraft may sit for months. Confirm the pack will still be above its minimum voltage at deployment, and find out whether the deployer's access ports allow late charging. See <a href="../eps/#energy-storage">EPS – Energy Storage</a>.</li>
+<li><strong>Late access.</strong> Anything you need to do after handover – charging, a final functional check, RBF removal – must be negotiated in advance and documented in the integration procedure.</li>
+<li><strong>Shipping.</strong> Transporting flight hardware internationally involves customs, possibly export licenses, and a risk of damage. Use a proper transport case with shock and humidity recording, and consider pre-launch insurance.</li>
+</ul>
+<h3 id="preparing-for-leop">Preparing for LEOP<a class="headerlink" href="#preparing-for-leop" title="Permanent link">&para;</a></h3>
+<p>The gap between handover and first contact is often two to four months, during which nothing about the spacecraft can change. Use it:</p>
+<ul>
+<li><strong>Rehearse <a href="../../references/glossary/#leop">LEOP</a></strong> with the flatsat and the real ground segment. See <a href="../ait/#mission-simulation">AIT – Mission Simulation</a>.</li>
+<li><strong>Confirm your TLE identification strategy.</strong> You will initially be one of many objects from the same deployment. See <a href="../ground-segment/#tracking-and-pass-prediction">Ground Segment – Tracking and Pass Prediction</a>.</li>
+<li><strong>Get the ground segment fully automated and tested</strong>, because the days after deployment are when you least want to be debugging a rotator.</li>
+<li><strong>Write and rehearse contingency procedures</strong> – no signal, tumbling faster than expected, safe mode on first contact.</li>
+<li><strong>Publish your beacon format</strong> so the <a href="../../references/glossary/#satnogs">SatNOGS</a> community can help find you.</li>
+</ul>
+<h2 id="end-of-life">End of Life<a class="headerlink" href="#end-of-life" title="Permanent link">&para;</a></h2>
+<p>Worth planning during design rather than at the end:</p>
+<ul>
+<li><strong>Passivation</strong> – discharging batteries and de-energizing the spacecraft so it cannot explode or fragment. Increasingly a licensing requirement, and it needs to be a commandable function that actually works.</li>
+<li><strong>Deorbit compliance</strong> – see the debris rules above. If your orbit does not decay in time, the mitigation is hardware and must be in the design from the start. Note that ESA now also asks for a <strong>probability</strong> of successful disposal, not merely a plan, which makes the reliability of the deorbit mechanism part of the argument.<sup id="fnref:esa-sdm"><a class="footnote-ref" href="#fn:esa-sdm">4</a></sup></li>
+<li><strong>Data archiving</strong> – the mission's data should outlive the spacecraft. See <a href="../ground-segment/#data-handling-and-archiving">Ground Segment – Data Handling and Archiving</a>.</li>
+<li><strong>Publish what you learned.</strong> Lessons-learned papers from CubeSat missions are disproportionately valuable to the community, and disproportionately rare – most teams disperse before writing one.</li>
+</ul>
+<hr />
+<p>👉 <strong>Please consider <a href="../../contributing/">contributing</a>!</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:nasa-soa-launch">
+<p>NASA Small Spacecraft Systems Virtual Institute, <a href="https://www.nasa.gov/smallsat-institute/sst-soa/integration-launch-and-deployment/"><em>State of the Art in Small Spacecraft Technology</em>, Chapter 10: Integration, Launch, Deployment, and Orbital Transport</a> (revision dated 18 May 2026). Open access. Source for SpaceX Transporter rideshare pricing (from $350k for ~50 kg), Electron being the most widely used small vehicle as of April 2026, rail-type vs. tab-type dispenser families and manufacturer counts, ESPA ring specifications (six 38 cm ports, 257 kg each), D-Orbit ION flight history, ISS deployment parameters (51.6° inclination, 400–420 km, 1–3 months after berthing), and the "do no harm" rideshare requirement framing. Note that its small-launcher performance table appears to mix LEO and sun-synchronous figures – see the next footnote.&#160;<a class="footnote-backref" href="#fnref:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:launcher-performance">
+<p>Manufacturer-published performance, checked against the NASA survey table: Rocket Lab, <a href="https://www.rocketlabcorp.com/launch/electron/"><em>Electron</em></a>, states 300 kg / 661 lb to LEO; Firefly Aerospace, <a href="https://fireflyspace.com/alpha/"><em>Alpha</em></a>, states 1,030 kg to a 300 km LEO and 630 kg to a 500 km SSO. The NASA survey lists both vehicles in a "performance to LEO" column at 200 kg and 630 kg respectively, which for Alpha is its sun-synchronous figure. Always confirm the orbit a quoted capacity refers to.&#160;<a class="footnote-backref" href="#fnref:launcher-performance" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:fcc-5yr">
+<p>Federal Communications Commission, <a href="https://docs.fcc.gov/public/attachments/FCC-22-74A1.pdf"><em>Mitigation of Orbital Debris in the New Space Age</em>, Second Report and Order, FCC 22-74</a>, adopted 29 September 2022. Requires space stations "ending their mission in, or passing through, the LEO region below 2000 km altitude" to complete post-mission disposal "as soon as practicable, and no later than five years after the end of the mission", replacing the 25-year guideline. Applies to US-licensed operators, to non-US systems seeking US market access under 47 CFR § 25.137, to small satellites under the streamlined § 25.122 process, and to Part 5 experimental and Part 97 amateur authorizations. Satellites already in orbit at adoption are exempt; authorized-but-unlaunched satellites had a two-year grandfathering period that ended 29 September 2024. A <a href="https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites-0">plain-language summary</a> is also published.&#160;<a class="footnote-backref" href="#fnref:fcc-5yr" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:esa-sdm">
+<p>European Space Agency, <a href="https://esoc.esa.int/new-space-debris-mitigation-policy-and-requirements-effect"><em>New Space Debris Mitigation Policy and Requirements in effect</em></a>. The ESA Space Debris Mitigation Policy and the associated requirements standard ESSB-ST-U-007 Issue 1 came into effect in November 2023, reducing the low-Earth-orbit disposal phase "from 25 to a maximum of five years" and requiring that "the probability of successful disposal must be larger than 90%". Applies to missions procured and operated by ESA, and is promoted more widely through the Zero Debris Charter.&#160;<a class="footnote-backref" href="#fnref:esa-sdm" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:esa-sdm" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nasa-soa-deorbit">
+<p>NASA Small Spacecraft Systems Virtual Institute, <a href="https://www.nasa.gov/smallsat-institute/sst-soa/deorbit-systems/"><em>State of the Art in Small Spacecraft Technology</em>, Chapter 13: Deorbit Systems</a>. Open access. States that small spacecraft "launched at or around 400 km altitude naturally decay in under five years, however at orbital altitudes beyond 500 km, there is no guarantee the spacecraft will deorbit within that timeframe, and some may not deorbit within 25 years", that natural decay in under five years "can be achieved for most SmallSats at altitudes &lt;400 km", and that drag devices can be deployed "for certain area-to-mass ratios in altitudes equal to or lower than 800 km" to meet the five-year requirement.&#160;<a class="footnote-backref" href="#fnref:nasa-soa-deorbit" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-soa-deorbit" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:uk-caa">
+<p>UK Civil Aviation Authority, <a href="https://www.caa.co.uk/space/resources/insurance-and-liability/"><em>Insurance and liability</em></a>. Sets the standard third-party liability insurance and indemnity limit for orbital operations under the Outer Space Act 1986 at €60 million, notes that the insurance requirement "may be waived for low-risk missions (but €60m indemnity obligation remains)", and states that all operator licenses issued under the Space Industry Act 2018 contain a limit of operator liability. Cited as one worked example; other jurisdictions differ substantially.&#160;<a class="footnote-backref" href="#fnref:uk-caa" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 17:12:37 UTC"><span class="timeago" datetime="2026-09-03T17:12:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 17:12:37 UTC">2026-09-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3227 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/development/flight-software/">
+      
+      
+        <link rel="prev" href="../obc/">
+      
+      
+        <link rel="next" href="../comms/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Flight Software - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#flight-software" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Flight Software
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-architecture-and-execution-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Architecture and Execution Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Architecture and Execution Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frameworks-vs-writing-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frameworks vs. writing your own
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-and-coding-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language and coding standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-reset-and-update-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boot, Reset, and Update Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boot, Reset, and Update Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bootloaders-and-the-golden-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootloaders and the golden image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boot-counting-and-autonomous-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boot counting and autonomous fallback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-first-boot-in-orbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The first boot in orbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-flight-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-flight updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brownouts-and-partial-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brownouts and partial failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-and-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage and filesystems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-and-telemetry-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command and Telemetry Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command and Telemetry Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inter-subsystem-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inter-Subsystem Communication Protocols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-serialization-and-message-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Serialization and Message Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-state-machines-and-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes, State Machines, and Autonomy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes, State Machines, and Autonomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementing modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fault-detection-isolation-and-recovery-fdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fault Detection, Isolation, and Recovery (FDIR)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fault Detection, Isolation, and Recovery (FDIR)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-for-partial-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design for partial failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing-scheduling-and-timekeeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timing, Scheduling, and Timekeeping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-testing-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Testing and Validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Testing and Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-test-pyramid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The test pyramid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-test-that-teams-usually-dont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to test that teams usually don't
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-testing-methodologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software testing methodologies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flight-software-and-hardware-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flight Software and Hardware Interaction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Maintainability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source-flight-software-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-source Flight Software Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rtos-and-embedded-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTOS and Embedded Platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commercial Platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inhibits-hdrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-architecture-and-execution-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Architecture and Execution Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Architecture and Execution Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#layering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Layering
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution models
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frameworks-vs-writing-your-own" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frameworks vs. writing your own
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#language-and-coding-standards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Language and coding standards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-reset-and-update-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boot, Reset, and Update Strategy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Boot, Reset, and Update Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bootloaders-and-the-golden-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bootloaders and the golden image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boot-counting-and-autonomous-fallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Boot counting and autonomous fallback
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-first-boot-in-orbit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The first boot in orbit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-flight-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In-flight updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brownouts-and-partial-failures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brownouts and partial failures
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-and-filesystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage and filesystems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-and-telemetry-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command and Telemetry Handling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command and Telemetry Handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Telemetry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inter-subsystem-communication-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inter-Subsystem Communication Protocols
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-serialization-and-message-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Serialization and Message Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-state-machines-and-autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes, State Machines, and Autonomy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes, State Machines, and Autonomy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mission-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementing-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Implementing modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autonomy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autonomy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fault-detection-isolation-and-recovery-fdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fault Detection, Isolation, and Recovery (FDIR)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fault Detection, Isolation, and Recovery (FDIR)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isolation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isolation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recovery
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-for-partial-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design for partial failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timing-scheduling-and-timekeeping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timing, Scheduling, and Timekeeping
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#software-testing-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Testing and Validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Software Testing and Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-test-pyramid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The test pyramid
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-test-that-teams-usually-dont" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to test that teams usually don't
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-testing-methodologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software testing methodologies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flight-software-and-hardware-interaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flight Software and Hardware Interaction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-maintainability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Maintainability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resources
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Resources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#open-source-flight-software-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-source Flight Software Projects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rtos-and-embedded-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTOS and Embedded Platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial-platforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commercial Platforms
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/development/flight-software.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="flight-software">Flight Software<a class="headerlink" href="#flight-software" title="Permanent link">&para;</a></h1>
+<p>Flight software is what coordinates everything onboard: data handling, command execution, mode management, fault response and telemetry. This page covers architecture and execution models, boot and update strategy, commanding, autonomy, FDIR, timing and testing, for both bare-metal and RTOS-based designs.</p>
+<p>Flight software differs from ordinary embedded software in one way that changes every design decision: <strong>you cannot attach a debugger, and you cannot ship a hotfix quickly.</strong> Your only interface is a few minutes of low-bandwidth radio contact per day, and that interface only works if the software is already running correctly. Everything below follows from that.</p>
+<h2 id="software-architecture-and-execution-model">Software Architecture and Execution Model<a class="headerlink" href="#software-architecture-and-execution-model" title="Permanent link">&para;</a></h2>
+<h3 id="layering">Layering<a class="headerlink" href="#layering" title="Permanent link">&para;</a></h3>
+<p>The single most valuable architectural decision is separating the software into layers with clean boundaries:</p>
+<ul>
+<li><strong>Hardware abstraction layer (<a href="../../references/glossary/#hal">HAL</a>)</strong> – register-level drivers, isolated behind interfaces. Everything hardware-specific lives here and nowhere else.</li>
+<li><strong>Services</strong> – the reusable machinery: telemetry collection, command dispatch, storage, time, scheduling, communications.</li>
+<li><strong>Application logic</strong> – what your mission actually does: mode management, payload operations, control loops.</li>
+</ul>
+<p>The payoff is testability. If the application layer talks only to interfaces, you can compile and run it <strong>on a development machine</strong> against simulated hardware, which turns a category of bugs that would otherwise be found on a flatsat (slowly, one at a time) into ones found by a test suite in seconds. Teams that get this right ship dramatically better software than teams that do not, and the difference compounds over a multi-year project.</p>
+<h3 id="execution-models">Execution models<a class="headerlink" href="#execution-models" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Superloop (bare metal).</strong> A <code>while(1)</code> cycling through tasks, with interrupts for time-critical work. Completely deterministic and small enough to hold in your head – a reliability advantage in itself. It degrades when one task needs to block, since everything else stops with it.</li>
+<li><strong>Cooperative scheduling.</strong> Tasks voluntarily yield. Retains much of the simplicity of a superloop while allowing more structure. No pre-emption means no surprise race conditions, but a misbehaving task still stalls the system.</li>
+<li><strong>Pre-emptive <a href="../../references/glossary/#rtos">RTOS</a>.</strong> Priority-based pre-emption with real-time guarantees. The mainstream choice above modest complexity, at the cost of having to reason about priority inversion, stack sizing per task, and shared-state races.</li>
+<li><strong>Event-driven.</strong> Tasks triggered by events from a queue. Maps well onto command handling and fault response, and combines naturally with a state machine design.</li>
+</ul>
+<p>Most CubeSat flight software ends up as a <strong>time-triggered schedule with event handling layered on</strong>: a periodic tick drives housekeeping, control loops and telemetry at fixed rates, while commands and faults are handled as they arrive. This is predictable, easy to reason about in a fault investigation, and easy to reproduce on the ground.</p>
+<h3 id="frameworks-vs-writing-your-own">Frameworks vs. writing your own<a class="headerlink" href="#frameworks-vs-writing-your-own" title="Permanent link">&para;</a></h3>
+<p>Writing your own is the norm on small missions and is entirely defensible – the total functionality needed by a 1U technology demonstrator is modest, and full comprehension of your own stack has value when debugging from 500 km away.</p>
+<p>Adopting a framework such as NASA's <a href="#open-source-flight-software-projects">Core Flight System</a> buys architecture, flight heritage across 40+ NASA missions, and a component model that scales. It costs a substantial learning curve and pulls in more machinery than a small CubeSat needs. The test is team size and mission duration: a two-person 1U project is usually better served writing something small and comprehensible; a university program flying successive missions over a decade benefits enormously from a framework it can carry forward.</p>
+<h3 id="language-and-coding-standards">Language and coding standards<a class="headerlink" href="#language-and-coding-standards" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>C</strong> remains the default: every RTOS and framework targets it, toolchains for space-grade parts assume it, and its behavior is predictable. It also offers no protection whatsoever, which is why the coding standards below exist.</li>
+<li><strong>C++</strong> is used in larger stacks, cFS-adjacent tooling and PUS implementations. Workable with a restricted subset – no exceptions, no RTTI, no dynamic allocation after initialization – and a liability without one.</li>
+<li><strong>MicroPython and CircuitPython</strong> trade determinism and memory headroom for development speed, and have flight heritage on small missions through PyCubed. A reasonable choice for a technology demonstrator where iteration speed matters more than hard real-time behavior, and a poor one where control loops must close on schedule.</li>
+<li><strong>Rust</strong> is increasingly credible for new work, with memory safety that removes a whole class of the bugs the standards below try to prevent by discipline. The constraint is ecosystem: fewer vendor HALs, fewer eyes on your code within the team, and a smaller pool of people who can maintain it after you graduate.</li>
+</ul>
+<p>Two coding standards are worth knowing even if you do not adopt them formally. <strong>MISRA C</strong> is the automotive-derived rule set that most safety-critical embedded work references, and <strong>NASA's Power of Ten</strong> is a much shorter set of rules for safety-critical code – no recursion, fixed loop bounds, no dynamic allocation after initialization, functions short enough to read whole, check every return value.<sup id="fnref:power-of-ten"><a class="footnote-ref" href="#fn:power-of-ten">3</a></sup> The full apparatus is disproportionate for a 1U, but the individual rules are not: <strong>no dynamic allocation after startup</strong> and <strong>bounded loops</strong> alone eliminate the two failure modes most likely to strand a spacecraft, and cost nothing to adopt on day one. Whatever you choose, run a static analyser in CI and treat compiler warnings as errors.</p>
+<h2 id="boot-reset-and-update-strategy">Boot, Reset, and Update Strategy<a class="headerlink" href="#boot-reset-and-update-strategy" title="Permanent link">&para;</a></h2>
+<h3 id="bootloaders-and-the-golden-image">Bootloaders and the golden image<a class="headerlink" href="#bootloaders-and-the-golden-image" title="Permanent link">&para;</a></h3>
+<p>The rule is simple: <strong>there must always be a path back to a known-good state that no in-flight action can destroy.</strong></p>
+<ul>
+<li>A <strong><a href="../../references/glossary/#golden-image">golden image</a></strong> in write-protected or read-only memory, which always boots to a minimal state capable of receiving commands, charging the battery and accepting a new upload. It is never updated in flight. It does not need to be capable of the mission – only of recovery.</li>
+<li>A <strong>primary application image</strong>, updatable, holding the flight software proper.</li>
+<li>Ideally a <strong>backup application image</strong>, so a bad update can be rolled back without falling all the way to golden.</li>
+</ul>
+<p>Every image should be <strong>checksummed and verified before execution</strong>, not after. A corrupted image that gets executed can do arbitrary damage; a corrupted image that fails a CRC check is merely a failed update.</p>
+<h3 id="boot-counting-and-autonomous-fallback">Boot counting and autonomous fallback<a class="headerlink" href="#boot-counting-and-autonomous-fallback" title="Permanent link">&para;</a></h3>
+<p>Keep a boot counter in non-volatile memory. Increment it on every boot; clear it only once the system has run stably for a defined period (say, an hour) and has had contact with the ground. If the counter passes a threshold, boot the golden image instead.</p>
+<p>This one mechanism converts the classic CubeSat boot loop – the spacecraft resetting endlessly and never surviving long enough to hear a command – from mission-ending into self-healing.</p>
+<h3 id="the-first-boot-in-orbit">The first boot in orbit<a class="headerlink" href="#the-first-boot-in-orbit" title="Permanent link">&para;</a></h3>
+<p>The first hours after deployment are the only part of the mission that is entirely unattended and entirely unrepeatable, and the sequence needs to be written down and rehearsed as deliberately as any other procedure.</p>
+<ul>
+<li><strong>Respect the timers before anything else.</strong> No deployables for 30 minutes and no RF for 45 minutes after release from the deployer, or whatever stricter figure your provider imposes. These are contractual, not preferences, and the timer must survive a reset during the wait – count from persisted state, not from boot. See <a href="../inhibits-hdrm/#timers-and-delayed-activation">Inhibits and HDRM – Timers and Delayed Activation</a>.</li>
+<li><strong>Retry antenna deployment, and keep retrying.</strong> Attempting deployment once, failing, and giving up has ended missions. Design for escalating attempts: repeat the burn with increasing duration, spaced over hours and then days, alternating redundant burn circuits if you have them. Keep the attempt counter and success flag in non-volatile memory so a reset does not restart the sequence from zero or, worse, re-run a successful deployment.</li>
+<li><strong>Verify deployment, don't assume it.</strong> A deployment switch, a continuity break in the burn wire, or a change in received signal strength gives you evidence. Telemeter it, because "no signal" and "antenna still stowed" need different responses from the ground.</li>
+<li><strong>Charge before you talk.</strong> A spacecraft deployed into eclipse on a partly discharged pack should establish power positive before it starts transmitting. Sequence the first beacon behind a state-of-charge threshold, with a timeout so a faulty sensor cannot suppress it forever.</li>
+<li><strong>Beacon early and simply.</strong> The first beacon should require the least possible machinery to produce – ideally it works from the golden image. Everything else about commissioning depends on someone hearing you.</li>
+</ul>
+<h3 id="in-flight-updates">In-flight updates<a class="headerlink" href="#in-flight-updates" title="Permanent link">&para;</a></h3>
+<p>Updating software in orbit is possible, valuable, and dangerous.</p>
+<ul>
+<li><strong>Design for it from the start.</strong> Retrofitting an update path onto software that never had one is much harder than building it in.</li>
+<li><strong>Uplink in verified chunks</strong>, with per-chunk checksums and the ability to resume. Remember that the uplink is usually far slower than the downlink: a 1200 bps command channel carries about 90 kB across a 10-minute pass, so a 200 kB image is a multi-pass operation that must survive interruption between passes.</li>
+<li><strong>Stage, verify, then commit.</strong> Write to inactive storage, verify the whole image, and only then switch the boot pointer.</li>
+<li><strong>Always keep a rollback.</strong> Automatic reversion if the new image fails to check in within a timeout is the standard pattern, and it is what makes updating survivable.</li>
+<li><strong>Update only when there is a reason.</strong> Every update is a chance to lose the spacecraft. Batch fixes, test exhaustively on a flatsat with the same hardware, and rehearse the full procedure through the real comms path before doing it in flight.</li>
+</ul>
+<h3 id="brownouts-and-partial-failures">Brownouts and partial failures<a class="headerlink" href="#brownouts-and-partial-failures" title="Permanent link">&para;</a></h3>
+<p>A brownout is more dangerous than a clean power cycle because the processor may execute unpredictably on the way down – <a href="../obc/#brownout-and-reset-behavior">OBC – Brownout and reset behavior</a> covers the hardware side. For software the rule is to assume any non-volatile write can be interrupted: use atomic update patterns (write, verify, then update a pointer), keep redundant copies of critical configuration, and never leave a single half-written record able to prevent boot. See <a href="../obc/#boot-power-and-reset-management">OBC – Boot, Power, and Reset Management</a>.</p>
+<h3 id="storage-and-filesystems">Storage and filesystems<a class="headerlink" href="#storage-and-filesystems" title="Permanent link">&para;</a></h3>
+<p>The same reasoning extends to bulk storage, and this is where a surprising number of CubeSats lose data or fail to boot.</p>
+<ul>
+<li><strong>A general-purpose filesystem is a liability.</strong> FAT in particular has no crash consistency: an interrupted write can corrupt the allocation table and take the whole volume with it, not just the record being written. If you must use FAT for ground-side convenience, keep flight-critical state somewhere else.</li>
+<li><strong>Prefer append-only logs or a journaling filesystem.</strong> An append-only ring buffer with per-record checksums degrades gracefully – a torn record at the end is discardable, and everything before it is still readable. LittleFS and similar power-loss-resilient filesystems are designed for exactly this.</li>
+<li><strong>Raw flash needs wear leveling and bad-block handling.</strong> NAND blocks fail with use, and a naive driver that rewrites the same block for every telemetry record will find its limits within a mission.</li>
+<li><strong>Separate the critical from the bulk.</strong> Boot configuration, the golden image and the mode state belong in small, redundant, checksummed storage that is written rarely. Telemetry and payload data belong in bulk storage whose corruption costs you data but never the spacecraft.</li>
+<li><strong>Test with power cuts.</strong> Pull power mid-write, repeatedly, and confirm the system boots and the log is readable afterwards. This is the single most informative storage test and almost nobody runs it.</li>
+</ul>
+<h2 id="command-and-telemetry-handling">Command and Telemetry Handling<a class="headerlink" href="#command-and-telemetry-handling" title="Permanent link">&para;</a></h2>
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<p>A <a href="../../references/glossary/#telecommand">telecommand</a> is an instruction to do something irreversible on a spacecraft you cannot reach. Treat it accordingly.</p>
+<ul>
+<li><strong>Validate before executing</strong>: checksum the packet, check the command is known, range-check every argument, and verify the spacecraft is in a state where the command makes sense. Rejecting a command is nearly always safer than half-executing one.</li>
+<li><strong>Authenticate.</strong> Validation asks whether a command is well-formed; authentication asks whether it came from you. Your uplink frequency, modulation and frame format are public – they are in your IARU coordination and very likely in a paper you published – so anyone with a transmitter can construct a plausible command. The standard answer is a message authentication code (an HMAC over the command payload) plus a monotonically increasing counter or timestamp to defeat replay of a previously captured command. Note the regulatory asymmetry: obscuring the <em>meaning</em> of general amateur transmissions is prohibited, but telecommand is treated separately, and in the US a space telecommand station "may transmit special codes intended to obscure the meaning of telecommand messages".<sup id="fnref:fcc-telecommand"><a class="footnote-ref" href="#fn:fcc-telecommand">4</a></sup> Check your own administration's equivalent. Authentication alone is legal everywhere and sufficient for the threat, so start there.</li>
+<li><strong>Acknowledge in stages</strong> – received, accepted, started, completed – so the ground can tell the difference between a command that never arrived and one that arrived and failed.</li>
+<li><strong>Time-tagged commands</strong> let you schedule activity outside contact windows, which is essential given a few passes a day. This means the command store needs its own management: listing, clearing, and surviving reset.</li>
+<li><strong>Guard dangerous commands.</strong> Anything that could end the mission – disabling the radio, changing inhibit state, erasing memory, commanding a deployment – should require an arm-then-fire sequence, and should carry an independent timeout that undoes it if nothing further is heard. <strong>Never allow a command that can permanently disable your only recovery path.</strong></li>
+<li><strong>Idempotency.</strong> Given a lossy link, the ground will resend. Design commands so a duplicate is harmless.</li>
+</ul>
+<h3 id="telemetry">Telemetry<a class="headerlink" href="#telemetry" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Housekeeping</strong> – periodic health data at a fixed cadence: voltages, currents, temperatures, mode, error counters. This is your primary diagnostic channel and should be small enough to fit in a <a href="../../references/glossary/#beacon">beacon</a>.</li>
+<li><strong>Event/log data</strong> – discrete occurrences with timestamps: mode changes, faults, resets, command receipts. Log to non-volatile storage; downlink on request.</li>
+<li><strong>Payload data</strong> – usually the bulk, downlinked on a different schedule and often a different link.</li>
+</ul>
+<p>Design principles worth adopting early:</p>
+<ul>
+<li><strong>Downlink budget is the constraint.</strong> At 9600 bps over four 8-minute passes you have on the order of 2.3 MB per day <em>before</em> protocol overhead and retries. See <a href="../comms/#expected-data-rates">Comms – Expected Data Rates</a>.</li>
+<li><strong>Store far more than you send.</strong> Log at high rate onboard, downlink summaries routinely, and dump full-rate data only when investigating.</li>
+<li><strong>Beacon something useful.</strong> A short periodic beacon with the most important values gives you and the <a href="../../references/glossary/#satnogs">SatNOGS</a> community a health picture even when you have no pass.</li>
+<li><strong>Never let telemetry storage fill up and block.</strong> Define ring-buffer behavior explicitly.</li>
+</ul>
+<h3 id="inter-subsystem-communication-protocols">Inter-Subsystem Communication Protocols<a class="headerlink" href="#inter-subsystem-communication-protocols" title="Permanent link">&para;</a></h3>
+<p>Middleware sits above the physical bus and gives subsystems addresses and services instead of raw bytes, so that moving a function between processors does not rewrite everything.</p>
+<ul>
+<li><strong><a href="../../references/glossary/#csp">CSP</a> (Cubesat Space Protocol)</strong> is the de facto CubeSat standard. A small C stack modeled on TCP/IP with a very lightweight header carrying both transport and network-layer information, connection-oriented and connectionless modes, ICMP-like ping and buffer-status requests, a QoS router, zero-copy buffers and a thread-safe socket API. It runs over CAN, UDP, USART and ZMQ, on FreeRTOS, Zephyr and Linux, and is MIT-licensed.<sup id="fnref:libcsp"><a class="footnote-ref" href="#fn:libcsp">1</a></sup> Originating at Aalborg University and GomSpace, it is widely flown.</li>
+<li><strong>SpaceCAN</strong>, from LibreCube, takes a different approach: a deliberately simplified derivative of the ECSS CANbus extension standard (ECSS-E-ST-50-15C), on the reasoning that the full ECSS protocol is "too complex in terms of implementation and usage" for small spacecraft. It defines a nominal and redundant bus pair (A and B) with one controller and up to 127 responder nodes, and uses controller heartbeats for cold redundancy – responders that stop hearing the heartbeat switch buses automatically.<sup id="fnref:spacecan"><a class="footnote-ref" href="#fn:spacecan">2</a></sup></li>
+</ul>
+<p>The tradeoff between them is characteristic: CSP gives you a flexible network abstraction over almost any transport; SpaceCAN gives you a tightly specified, redundancy-aware bus with less flexibility and fewer ways to get it wrong. Either is better than inventing an ad-hoc byte protocol, which is what most first missions do and later regret.</p>
+<p>Whatever you choose, <strong>fault isolation is the property that matters</strong>: one subsystem misbehaving must not silently corrupt or block traffic for everyone else. See <a href="../obc/#interfaces-and-buses">OBC – Interfaces and Buses</a> for the physical-layer half of this problem.</p>
+<h3 id="data-serialization-and-message-formats">Data Serialization and Message Formats<a class="headerlink" href="#data-serialization-and-message-formats" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Custom binary structs</strong> are compact and fast, and are what most CubeSats use. The risk is versioning: the moment ground software and flight software disagree about a struct layout, your telemetry becomes silently wrong rather than obviously broken. Never rely on compiler struct packing across platforms – serialize field by field, explicitly.</li>
+<li><strong><a href="../../references/glossary/#ccsds">CCSDS</a> Space Packet Protocol</strong> is the international standard for spacecraft packet structure, with a defined primary header carrying an application process identifier, sequence flags and length. Adopting it costs a little overhead and buys interoperability with existing ground tooling and, potentially, third-party ground stations.</li>
+<li><strong><a href="../../references/glossary/#pus">PUS</a> (ECSS-E-ST-70-41C)</strong> layers a full service model on top: standardized services for telecommand verification, housekeeping, event reporting, on-board scheduling, parameter management and more. It is the European operational standard, and it is comprehensive to the point of being heavy for a 1U – but PUS is designed to be <em>tailored</em>, and adopting a handful of its services is a legitimate middle path that gives you a well-thought-out design instead of an invented one.</li>
+<li><strong>Self-describing formats</strong> (CBOR, MessagePack, Protocol Buffers) trade a few bytes for forward and backward compatibility. Worth considering for payload data and configuration; usually too heavy for high-rate housekeeping.</li>
+</ul>
+<p><strong>Versioning is the requirement people forget.</strong> Put a schema or version field in every packet type from day one. You will change telemetry formats during development, and possibly in flight, and without a version field you will not be able to tell which format an archived file is in.</p>
+<!-- CSR-RESOURCES:START dev-flight-software-protocols-and-standards -->
+<ul>
+<li><strong><a href="https://libcsp.github.io/libcsp/">LibCSP documentation</a></strong> <code>Link</code> – Documentation for the Cubesat Space Protocol reference implementation</li>
+<li><strong><a href="https://github.com/libcsp/libcsp">libcsp on GitHub</a></strong> <code>Link</code> – MIT-licensed CSP source, running on FreeRTOS, Zephyr and Linux</li>
+<li><strong><a href="https://librecube.gitlab.io/standards/spacecan/">SpaceCAN (LibreCube)</a></strong> <code>Link</code> – Simplified redundant CAN bus standard for small spacecraft, derived from ECSS-E-ST-50-15C</li>
+<li><strong><a href="https://ecss.nl/standard/ecss-e-st-70-41c-space-engineering-telemetry-and-telecommand-packet-utilization-15-april-2016/">ECSS-E-ST-70-41C</a></strong> <code>Link</code> – The ECSS Packet Utilization Standard for telemetry and telecommand</li>
+<li><strong><a href="https://gitlab.com/acubesat/obc/ecss-services">AcubeSAT ECSS PUS implementation</a></strong> <code>Link</code> – MIT-licensed C++ implementation of the PUS standard from the AcubeSAT team</li>
+<li><strong><a href="https://ccsds.org/publications/bluebooks/">CCSDS Blue Books</a></strong> <code>Link</code> – Freely available recommended standards for space data systems</li>
+<li><strong><a href="https://ccsds.org/Pubs/132x0b3.pdf">TM Space Data Link Protocol (CCSDS 132.0-B)</a></strong> <code>PDF</code> – Telemetry space data link protocol</li>
+<li><strong><a href="https://ccsds.org/Pubs/232x0b4e1c1.pdf">TC Space Data Link Protocol (CCSDS 232.0-B)</a></strong> <code>PDF</code> – Telecommand space data link protocol</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-flight-software-protocols-and-standards -->
+
+<p>See also: <a href="../comms/">Communications</a>.</p>
+<h2 id="modes-state-machines-and-autonomy">Modes, State Machines, and Autonomy<a class="headerlink" href="#modes-state-machines-and-autonomy" title="Permanent link">&para;</a></h2>
+<h3 id="mission-modes">Mission modes<a class="headerlink" href="#mission-modes" title="Permanent link">&para;</a></h3>
+<p>Most CubeSats have four to eight modes. A representative set:</p>
+<ul>
+<li><strong>Boot / initialization</strong> – minimal, transient, establishing basic health.</li>
+<li><strong>Detumble</strong> – reducing body rates after deployment. See <a href="../gnc/">GNC</a>.</li>
+<li><strong><a href="../../references/glossary/#safe-mode">Safe mode</a></strong> – the fallback: everything non-essential off, sun-pointing or tumbling, battery charging, radio listening, beacon transmitting. Safe mode must be reachable from every other mode, must be entered autonomously, and must be able to sustain itself indefinitely.</li>
+<li><strong>Nominal</strong> – routine operations, housekeeping, attitude control.</li>
+<li><strong>Payload</strong> – payload active, with whatever pointing and power that requires.</li>
+<li><strong>Comms / downlink</strong> – transmitter active, possibly with a slew to point an antenna.</li>
+</ul>
+<h3 id="implementing-modes">Implementing modes<a class="headerlink" href="#implementing-modes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Make the state machine explicit.</strong> A single, readable table of states, permitted transitions and their guard conditions, in one place. Mode logic that emerges from flags scattered across the codebase is the most common source of unreproducible in-flight behavior.</li>
+<li><strong>Guard every transition.</strong> Do not enter payload mode below a battery threshold. Do not slew while the <a href="../../references/glossary/#adcs">ADCS</a> is unconverged.</li>
+<li><strong>Add hysteresis.</strong> A mode boundary at exactly 7.2 V will oscillate. Enter safe mode at 7.0 V and leave it at 7.5 V.</li>
+<li><strong>Telemeter the mode and the reason for the last transition.</strong> "Entered safe mode" is not diagnostic; "entered safe mode due to battery under-voltage at T+4213 s" is.</li>
+<li><strong>Time-limit every non-safe mode.</strong> If payload mode is entered and nothing ends it, a timeout should. This protects against a lost ground link during a risky operation.</li>
+</ul>
+<h3 id="autonomy">Autonomy<a class="headerlink" href="#autonomy" title="Permanent link">&para;</a></h3>
+<p>CubeSat autonomy is mostly a bandwidth-and-contact problem rather than an ambition. With four passes a day, the spacecraft is on its own 97% of the time, so anything that must happen promptly must happen onboard.</p>
+<p>Sensible levels, roughly in order of adoption:</p>
+<ol>
+<li><strong>Autonomous safety</strong> – enter safe mode on fault. Non-negotiable.</li>
+<li><strong>Autonomous housekeeping</strong> – thermal control, battery management, momentum desaturation.</li>
+<li><strong>Scheduled autonomy</strong> – execute a ground-uplinked timeline.</li>
+<li><strong>Conditional autonomy</strong> – take payload data when conditions are met (over a target, in daylight, battery above threshold).</li>
+<li><strong>Onboard decision-making</strong> – data-driven selection of what to keep and downlink. See <a href="../obc/#advanced-and-emerging-computing-concepts">OBC – Advanced and Emerging Computing Concepts</a>.</li>
+</ol>
+<p>The design constraint on all of them is the same: <strong>autonomy must never be able to prevent recovery.</strong> However clever the logic, an independent path back to a commandable state must survive it.</p>
+<h2 id="fault-detection-isolation-and-recovery-fdir">Fault Detection, Isolation, and Recovery (FDIR)<a class="headerlink" href="#fault-detection-isolation-and-recovery-fdir" title="Permanent link">&para;</a></h2>
+<p><a href="../../references/glossary/#fdir">FDIR</a> is the machinery that keeps a spacecraft alive between contacts. It is worth designing deliberately rather than accumulating as a set of ad-hoc checks.</p>
+<h3 id="detection">Detection<a class="headerlink" href="#detection" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><a href="../../references/glossary/#watchdog">Watchdogs</a></strong>, layered – internal, external, and EPS-level. See <a href="../obc/#watchdogs">OBC – Watchdogs</a>.</li>
+<li><strong>Limit checking</strong> on every telemetry point, with defined warning and alarm thresholds.</li>
+<li><strong>Consistency checks</strong> between independent sources – a magnetometer and a sun sensor disagreeing about attitude, a current reading inconsistent with a commanded switch state.</li>
+<li><strong>Heartbeats</strong> from every subsystem, so silence is itself detectable.</li>
+<li><strong>Counters and error rates</strong> rather than single events: one CRC failure is noise, a rising CRC failure rate is a symptom.</li>
+</ul>
+<h3 id="isolation">Isolation<a class="headerlink" href="#isolation" title="Permanent link">&para;</a></h3>
+<p>The point of isolation is to identify the smallest thing that needs action. A power draw anomaly could be the payload, its switch, or the current sensor. Per-channel telemetry is what makes this distinguishable – see <a href="../eps/#eps-monitoring-and-telemetry">EPS – Monitoring and Telemetry</a>.</p>
+<h3 id="recovery">Recovery<a class="headerlink" href="#recovery" title="Permanent link">&para;</a></h3>
+<p>Escalate, and escalate slowly:</p>
+<ol>
+<li><strong>Retry</strong> the operation.</li>
+<li><strong>Reset the subsystem</strong> in software.</li>
+<li><strong>Power-cycle</strong> the subsystem.</li>
+<li><strong>Enter safe mode.</strong></li>
+<li><strong>Reset the OBC.</strong></li>
+<li><strong>Full power cycle</strong> by the EPS watchdog.</li>
+</ol>
+<p>Three rules that matter more than the ladder itself:</p>
+<ul>
+<li><strong>Every recovery action must be counted, rate-limited and telemetered.</strong> A recovery that fires continuously is worse than the fault.</li>
+<li><strong>Recovery must be reversible or timed out.</strong> A subsystem disabled by FDIR should be re-enabled after a period, not left off forever because nobody uplinked a command.</li>
+<li><strong>Prefer degraded operation to shutdown.</strong> A spacecraft running on two of three magnetorquers, or with a failed payload but a healthy bus, is still a mission.</li>
+</ul>
+<h3 id="design-for-partial-failure">Design for partial failure<a class="headerlink" href="#design-for-partial-failure" title="Permanent link">&para;</a></h3>
+<p>Assume every sensor will eventually give bad data, every actuator will eventually fail, and every subsystem will eventually stop responding. For each, ask: does the spacecraft still charge its battery, keep warm, and listen for commands? If yes, the failure is survivable. If no, that is where redundancy or a fallback belongs.</p>
+<h2 id="timing-scheduling-and-timekeeping">Timing, Scheduling, and Timekeeping<a class="headerlink" href="#timing-scheduling-and-timekeeping" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Task scheduling.</strong> Assign priorities deliberately: control loops highest, housekeeping middling, payload processing lowest. Size stacks with margin and measure high-water marks – stack overflow in an RTOS produces corruption that looks like anything but a stack overflow.</li>
+<li><strong>Time sources, drift and RTC backup</strong> are hardware questions, covered under <a href="../obc/#timing-and-timekeeping">OBC – Timing and Timekeeping</a>; the software has to cope with whatever they deliver.</li>
+<li><strong>Timestamp everything</strong>, and carry both wall-clock time and a monotonic uptime/boot counter. Wall-clock time can be wrong or lost after a reset; the monotonic counter always lets you order events.</li>
+<li><strong>Handle time discontinuities explicitly.</strong> When the clock is corrected, time can jump backwards. Any code computing elapsed time by subtracting timestamps needs to cope with that, or it will occasionally compute a negative interval and behave bizarrely.</li>
+<li><strong>Correct for drift in software</strong> from the temperature characterization the OBC page describes, because even a compensated crystal drifts enough over a day to degrade attitude determination and Doppler correction if left alone.</li>
+</ul>
+<h2 id="software-testing-and-validation">Software Testing and Validation<a class="headerlink" href="#software-testing-and-validation" title="Permanent link">&para;</a></h2>
+<p>Flight software is the one subsystem you can test essentially for free and essentially without limit. Very few CubeSat teams exploit that fully.</p>
+<h3 id="the-test-pyramid">The test pyramid<a class="headerlink" href="#the-test-pyramid" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Unit tests</strong> on host, covering logic in isolation – mode transitions, command validation, packet encoding, limit checking. Fast, numerous, run on every commit.</li>
+<li><strong>Integration tests</strong> on host with simulated hardware, covering subsystem interaction and protocol handling.</li>
+<li><strong>On-target tests</strong> on the flight processor, catching everything the host cannot: timing, memory constraints, compiler differences, actual driver behavior.</li>
+<li><strong><a href="../../references/glossary/#flatsat">Flatsat</a> tests</strong> with all the hardware connected. The closest thing to flight, and where interface assumptions go to die.</li>
+<li><strong><a href="../../references/glossary/#hil">HIL</a> tests</strong> with simulated orbital dynamics and sensor data, which is the only practical way to exercise a full mission timeline. See <a href="../ait/#hardware-in-the-loop-hil-testing">AIT</a>.</li>
+</ul>
+<h3 id="what-to-test-that-teams-usually-dont">What to test that teams usually don't<a class="headerlink" href="#what-to-test-that-teams-usually-dont" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Fault paths.</strong> Inject the faults: hold a bus low, corrupt a packet, return garbage from a sensor, cut power mid-write. FDIR that has never been triggered on the ground is a hypothesis.</li>
+<li><strong>Long-duration runs.</strong> Leave a flatsat running for a week. Memory leaks, counter overflows, log rotation bugs and slow drift only appear over time.</li>
+<li><strong>Boundary and rollover conditions.</strong> Time rollovers, counter wraps, storage full, command buffer full.</li>
+<li><strong>The first-boot sequence</strong>, from a cold, deeply discharged start, including the deployment retry logic and the inhibit timers. It runs once, unattended, and you only get one attempt.</li>
+<li><strong>The update procedure</strong>, end to end, through the flight comms path – not over a bench cable.</li>
+<li><strong>Regression.</strong> Every bug found in flight or on the flatsat should become a test, so it cannot come back.</li>
+</ul>
+<h3 id="software-testing-methodologies">Software testing methodologies<a class="headerlink" href="#software-testing-methodologies" title="Permanent link">&para;</a></h3>
+<!-- CSR-RESOURCES:START dev-flight-software-testing-methodologies -->
+<ul>
+<li><strong><a href="https://martinfowler.com/articles/practical-test-pyramid.html">The Practical Test Pyramid</a></strong> <code>Link</code> – Overview of the software test pyramid</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-flight-software-testing-methodologies -->
+
+<p>See also: <a href="../ait/">Assembly, Integration and Testing (AIT)</a>.</p>
+<h2 id="flight-software-and-hardware-interaction">Flight Software and Hardware Interaction<a class="headerlink" href="#flight-software-and-hardware-interaction" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Drivers and HAL.</strong> Keep every register access behind an interface. This is what makes host-based testing possible, and it also makes a late hardware change survivable.</li>
+<li><strong>Power and inhibit awareness.</strong> Software must know which loads are enabled, must not command a device on a powered-down rail, and must respect <a href="../inhibits-hdrm/">inhibit</a> state – including the RF silence period after deployment, which is a launch provider requirement and not a preference.</li>
+<li><strong><a href="../gnc/">ADCS</a> coupling.</strong> Control loops need deterministic timing and consistent sensor timestamps. Sensor data with unknown latency produces control instability that is very hard to diagnose from telemetry.</li>
+<li><strong>Thermal and EPS feedback.</strong> Heater control loops, load shedding on low battery, and duty-cycling to manage dissipation all live in software but are governed by physics defined elsewhere. See <a href="../thermal/">Thermal</a> and <a href="../eps/">EPS</a>.</li>
+<li><strong>Never trust a peripheral to respond.</strong> Every hardware transaction needs a timeout and a defined failure behavior. A blocking read from a hung I²C device will hang the spacecraft.</li>
+</ul>
+<h2 id="documentation-and-maintainability">Documentation and Maintainability<a class="headerlink" href="#documentation-and-maintainability" title="Permanent link">&para;</a></h2>
+<p>University teams turn over on the same timescale as a CubeSat project – see <a href="../systems-engineering/#organizational-pitfalls">Systems Engineering – Organizational pitfalls</a> – so <strong>bus factor is a design constraint, not a soft concern.</strong></p>
+<ul>
+<li><strong>Document interfaces, not implementations.</strong> <a href="../../references/glossary/#icd">ICDs</a> between subsystems, telemetry and command dictionaries, and the mode state machine are the artifacts that outlive their authors. Code comments explaining <em>why</em> age far better than ones explaining <em>what</em>.</li>
+<li><strong>Keep a machine-readable command and telemetry dictionary</strong> – a single source of truth generating both flight and ground code. This eliminates an entire class of desynchronization bugs and makes ground tooling nearly free.</li>
+<li><strong>Configuration over code.</strong> Thresholds, limits and timings in a parameter table that can be updated in flight, rather than compiled-in constants. Changing a safe-mode threshold should not require a software upload. The <a href="https://github.com/spaceinventor/libparam">libparam</a> approach from Space Inventor is one worked example.</li>
+<li><strong>Version control everything</strong>, including ground scripts, test procedures and configuration. Tag what actually flew.</li>
+<li><strong>Write the operations handbook while you build</strong>, not the week before launch. Nominal procedures, contingency procedures, and what each telemetry point means – the person on console at 3 a.m. may not be the person who wrote the code.</li>
+</ul>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<h3 id="open-source-flight-software-projects">Open-source Flight Software Projects<a class="headerlink" href="#open-source-flight-software-projects" title="Permanent link">&para;</a></h3>
+<!-- CSR-RESOURCES:START dev-flight-software-open-source-projects -->
+<ul>
+<li><strong><a href="https://etd.gsfc.nasa.gov/capabilities/core-flight-system">NASA Core Flight System (cFS)</a></strong> <code>Link</code> – Layered, flight-proven framework (Core Flight Executive, OSAL, PSP) used on 40+ NASA missions including Roman Space Telescope and Lunar Gateway; runs on Linux, RTEMS, VxWorks and QNX</li>
+<li><strong><a href="https://github.com/cfs-tools/cfs-basecamp">cFS Basecamp</a></strong> <code>Link</code> – Lightweight environment for learning cFS and assembling app-based solutions, with a Python GUI, an app-store-style repository of plug-in cFS apps and integrated tutorials. From the Open STEMware Foundation. A smaller starting point than OpenSatKit – it does not bundle COSMOS or the 42 simulator (<a href="https://digitalcommons.usu.edu/smallsat/2023/all2023/46/">SmallSat Conference paper</a>)</li>
+<li><strong><a href="https://librecube.gitlab.io/standards/overview/">LibreCube Software</a></strong> <code>Link</code> – Open CubeSat components built around space communication standards</li>
+<li><strong><a href="https://github.com/OpenSatKit/OpenSatKit">OpenSatKit</a></strong> <code>Link</code> – Development, education and operations platform wrapping cFS together with Ball Aerospace's COSMOS command-and-control system and Eric Stoneking's 42 spacecraft simulator</li>
+<li><strong><a href="https://github.com/pycubed/software">PyCubed</a></strong> <code>Link</code> – A fully open-source CubeSat avionics and software stack in Python/MicroPython</li>
+<li><strong><a href="https://github.com/oresat/oresat-c3-software">OreSat</a></strong> <code>Link</code> – Modular open-source flight software stack developed by students at Portland State University</li>
+<li><strong><a href="https://github.com/spaceinventor/">Space Inventor stack</a></strong> <code>Link</code> – MIT-licensed libcsp, csh and libparam</li>
+<li><strong><a href="https://codeberg.org/buildacubesat-project/bac-software">Build a CubeSat – Rocinante</a></strong> <code>Link</code> – Onboard software stack spanning the flight segment: Zephyr with custom firmware on small nodes (STM32F405-class MCUs), F Prime on Zephyr on medium nodes, F Prime on Yocto on large nodes (SBCs, FPGAs), all bridged by CSP over CAN. Open source (MIT), in development</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-flight-software-open-source-projects -->
+
+<h3 id="rtos-and-embedded-platforms">RTOS and Embedded Platforms<a class="headerlink" href="#rtos-and-embedded-platforms" title="Permanent link">&para;</a></h3>
+<!-- CSR-RESOURCES:START dev-flight-software-rtos -->
+<ul>
+<li><strong><a href="https://www.freertos.org/">FreeRTOS</a></strong> <code>Link</code> – Lightweight, widely used real-time OS for microcontrollers</li>
+<li><strong><a href="https://zephyrproject.org/">Zephyr Project</a></strong> <code>Link</code> – Scalable, secure RTOS with a growing presence in aerospace</li>
+<li><strong><a href="https://www.rtems.org/">RTEMS</a></strong> <code>Link</code> – Real-time OS used in space flight and other high-reliability embedded domains; one of the operating systems supported by NASA's cFS</li>
+<li><strong><a href="https://www.riot-os.org/">RIOT OS</a></strong> <code>Link</code> – Real-time OS for low-power, resource-constrained devices</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-flight-software-rtos -->
+
+<h3 id="commercial-platforms">Commercial Platforms<a class="headerlink" href="#commercial-platforms" title="Permanent link">&para;</a></h3>
+<!-- CSR-RESOURCES:START dev-flight-software-commercial -->
+<ul>
+<li><strong><a href="https://rocketlabcorp.com/space-systems/space-software/">Rocket Lab MAX</a></strong> <code>Link</code> – Commercial flight software platform</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-flight-software-commercial -->
+
+<hr />
+<p>👉 <strong>Please consider <a href="../../contributing/">contributing</a>!</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:libcsp">
+<p><a href="https://libcsp.github.io/libcsp/">LibCSP – The Cubesat Space Protocol</a>, official documentation. Describes CSP as a small C protocol stack following the TCP/IP model, with a lightweight header carrying transport and network-layer information, connection-oriented and connectionless operation, ICMP-like ping and buffer status, a QoS router, zero-copy buffers and a thread-safe socket API. MIT licensed; runs on FreeRTOS, Zephyr and Linux over CAN, UDP, USART and ZMQ.&#160;<a class="footnote-backref" href="#fnref:libcsp" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:spacecan">
+<p>LibreCube, <a href="https://librecube.gitlab.io/standards/spacecan/">SpaceCAN standard</a>. A deliberately simplified derivative of ECSS-E-ST-50-15C, defining a nominal and redundant bus pair with one controller and up to 127 responder nodes, using controller heartbeat monitoring for cold redundancy. The rationale given is explicit: the full ECSS CANbus standard is "deemed too complex in terms of implementation and usage" for small spacecraft.&#160;<a class="footnote-backref" href="#fnref:spacecan" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:power-of-ten">
+<p>Gerard J. Holzmann (NASA/JPL Laboratory for Reliable Software), <a href="https://spinroot.com/gerard/pdf/P10.pdf">"The Power of 10: Rules for Developing Safety-Critical Code"</a>, <em>IEEE Computer</em>, vol. 39, no. 6, June 2006. Free PDF. Ten rules intended to be checkable by static analysis: simple control flow, fixed loop bounds, no dynamic memory allocation after initialization, functions short enough to print on one page, a minimum assertion density, smallest possible data scope, checked return values, restricted preprocessor use, restricted pointer use, and compilation with all warnings enabled from day one.&#160;<a class="footnote-backref" href="#fnref:power-of-ten" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:fcc-telecommand">
+<p><a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211">47 CFR § 97.211 – Space telecommand station</a>. Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." Paragraph (c) lists the authorized telecommand segments, including 144–146 MHz, 435–438 MHz, 1260–1270 MHz and 2400–2450 MHz. This is the US rule; other administrations treat telecommand separately from the general prohibition on obscured amateur communications, but the details differ and should be checked against your own license conditions.&#160;<a class="footnote-backref" href="#fnref:fcc-telecommand" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 17:12:37 UTC"><span class="timeago" datetime="2026-09-03T17:12:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 17:12:37 UTC">2026-09-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

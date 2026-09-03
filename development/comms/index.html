@@ -1,0 +1,2804 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/development/comms/">
+      
+      
+        <link rel="prev" href="../flight-software/">
+      
+      
+        <link rel="next" href="../ground-segment/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Communications - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#communications" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Communications
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#radio-frequency-communications-rf-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radio Frequency Communications (RF) Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequency Bands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequency Bands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amateur-satellite-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amateur-satellite service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-amateur-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-amateur bands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-data-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Data Rates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link Budget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Link Budget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A worked example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doppler-oscillators-and-acquisition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doppler, Oscillators and Acquisition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulation-coding-and-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modulation, Coding and Protocols
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flight-segment-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flight Segment Hardware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flight Segment Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transceivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transceivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antennas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antennas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-duty-cycle-and-heat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power, duty cycle and heat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-silence-and-inhibits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF silence and inhibits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ground-segment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ground Segment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-via-satellite-constellations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication via Satellite Constellations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication via Satellite Constellations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-data-rate-relay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Low-data-rate relay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-to-device-and-broadband-constellations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct-to-device and broadband constellations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optical-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optical Communications
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inhibits-hdrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#radio-frequency-communications-rf-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Radio Frequency Communications (RF) Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequency Bands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Frequency Bands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amateur-satellite-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amateur-satellite service
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-amateur-bands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Non-amateur bands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-data-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Data Rates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#link-budget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link Budget
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Link Budget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A worked example
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#doppler-oscillators-and-acquisition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doppler, Oscillators and Acquisition
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulation-coding-and-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modulation, Coding and Protocols
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flight-segment-hardware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flight Segment Hardware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Flight Segment Hardware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transceivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transceivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#antennas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Antennas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-duty-cycle-and-heat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Power, duty cycle and heat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rf-silence-and-inhibits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RF silence and inhibits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ground-segment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ground Segment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-via-satellite-constellations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication via Satellite Constellations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication via Satellite Constellations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#low-data-rate-relay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Low-data-rate relay
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#direct-to-device-and-broadband-constellations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct-to-device and broadband constellations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optical-communications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optical Communications
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/development/comms.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="communications">Communications<a class="headerlink" href="#communications" title="Permanent link">&para;</a></h1>
+<p>This page covers the radio link between a CubeSat and its operators: bands and their regulatory constraints, link budgets, modulation and coding, and the flight-side hardware that implements them. Ground station design lives on the <a href="../ground-segment/">Ground Segment</a> page; this page stops at the antenna.</p>
+<p>The communications subsystem is unusual in that its hardest constraints are legal rather than technical. Which band you may use, what you may send over it, and whether you may encrypt it are decided by your license and your <a href="../../references/glossary/#iaru">IARU</a> coordination, not by your design. Settle that first – see <a href="../launch/#frequency-licensing">Qualification and Launch – Frequency licensing</a> – because it determines the transceiver you buy.</p>
+<h2 id="radio-frequency-communications-rf-overview">Radio Frequency Communications (RF) Overview<a class="headerlink" href="#radio-frequency-communications-rf-overview" title="Permanent link">&para;</a></h2>
+<p><strong>Telemetry, Tracking, and Command (<a href="../../references/glossary/#ttc">TT&amp;C</a>)</strong> is the fundamental link between a spacecraft and its ground segment:</p>
+<ul>
+<li><strong>Telemetry</strong> – downlinked data about the spacecraft's health, status and environment (temperature, voltage, mode, position).</li>
+<li><strong>Tracking</strong> – ground-based determination of the satellite's orbit and signal, often using <a href="../../references/glossary/#doppler-shift">Doppler shift</a> and time-of-flight data.</li>
+<li><strong>Command</strong> – uplinked instructions that control the spacecraft's behavior: mode changes, resets, payload activation.</li>
+</ul>
+<p>TT&amp;C is normally implemented as a robust, low-data-rate link in UHF or VHF, so that it keeps working when the spacecraft is tumbling, power-starved or partially failed. It operates independently of any high-rate payload downlink and remains active for the whole mission. A mission that loses its payload downlink is disappointing; one that loses TT&amp;C is over.</p>
+<p>A special case is the <strong><a href="../../references/glossary/#beacon">beacon</a></strong>: a low-rate signal, transmitted periodically and continuously during commissioning, carrying basic telemetry such as battery voltage, temperature, timestamp and spacecraft ID. Beacons confirm the satellite is alive and aid identification and tracking. The <strong><a href="../../references/glossary/#satnogs">SatNOGS</a></strong> network has become the de facto standard for receiving and sharing beacon data in open-source and academic missions, giving small teams global coverage they could never build themselves. Publishing your beacon format before launch is one of the highest-value, lowest-cost things a CubeSat team can do.</p>
+<p>Beacons are most commonly found in the UHF amateur segment around 437 MHz, using simple modulation such as <a href="../../references/glossary/#afsk">AFSK</a>, <a href="../../references/glossary/#bpsk">BPSK</a> or <a href="../../references/glossary/#gmsk">GMSK</a>, and often conform to <a href="../../references/glossary/#ax25">AX.25</a> for compatibility with existing amateur ground stations.</p>
+<h2 id="frequency-bands">Frequency Bands<a class="headerlink" href="#frequency-bands" title="Permanent link">&para;</a></h2>
+<h3 id="amateur-satellite-service">Amateur-satellite service<a class="headerlink" href="#amateur-satellite-service" title="Permanent link">&para;</a></h3>
+<p>Used by most university and research missions, under IARU coordination. Two things are easy to get wrong here. First, <strong>the amateur-satellite allocation is narrower than the amateur allocation</strong> – the fact that your handheld transmits on 145.2 MHz does not mean a satellite may. Second, <strong>the IARU band plan is what binds you in practice</strong>, because coordination is granted against it.<sup id="fnref:iaru-spectrum"><a class="footnote-ref" href="#fn:iaru-spectrum">1</a></sup></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Band</th>
+<th style="text-align: left;">Segment available to satellites</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">VHF (2 m)</td>
+<td style="text-align: left;"><strong>145.800–146.000 MHz</strong>, plus 144.000–144.025 MHz</td>
+<td style="text-align: left;">Both directions. The rest of 144–146 MHz is not available for satellite use in practice.</td>
+</tr>
+<tr>
+<td style="text-align: left;">UHF (70 cm)</td>
+<td style="text-align: left;"><strong>435–438 MHz</strong></td>
+<td style="text-align: left;">Both directions – uplink and downlink are separate channels inside the same segment, not separate bands. By far the most used CubeSat segment.</td>
+</tr>
+<tr>
+<td style="text-align: left;">L-band (23 cm)</td>
+<td style="text-align: left;"><strong>1260–1270 MHz</strong></td>
+<td style="text-align: left;"><strong>Earth-to-space only</strong> under ITU footnote 5.282. There is no amateur-satellite downlink at 23 cm.</td>
+</tr>
+<tr>
+<td style="text-align: left;">S-band (13 cm)</td>
+<td style="text-align: left;"><strong>2400–2450 MHz</strong></td>
+<td style="text-align: left;">Both directions. A workable option for higher-rate amateur missions, and often overlooked.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">What the amateur service costs you</p>
+<p>Amateur-satellite operation is free of spectrum fees and comes with a global network of people who will listen for you – but the rules constrain the mission, not just the radio. There is <strong>no commercial use</strong> of the link, and obscuring the meaning of your transmissions is <strong>generally prohibited</strong>, so assume your telemetry is readable by anyone with a receiver. Telecommand is the exception worth knowing: several administrations treat it separately from ordinary amateur traffic, and in the US a space telecommand station "may transmit special codes intended to obscure the meaning of telecommand messages".<sup id="fnref:fcc-telecommand"><a class="footnote-ref" href="#fn:fcc-telecommand">4</a></sup> Either way, <strong>authentication matters more than encryption here</strong> – signing commands so they cannot be forged is legal everywhere and addresses the actual threat. Design your command handling around this from the start – see <a href="../flight-software/#commands">Flight Software – Commands</a>. If your mission has a commercial purpose, the amateur route is closed to you and you are in the next section.</p>
+</div>
+<h3 id="non-amateur-bands">Non-amateur bands<a class="headerlink" href="#non-amateur-bands" title="Permanent link">&para;</a></h3>
+<p>These require a spectrum authorization from your national regulator, which files with the <a href="../../references/glossary/#itu">ITU</a> on your behalf. Slower, more expensive, and with a risk of not getting what you asked for – start at least 18 months out.</p>
+<ul>
+<li><strong>S-band, 2025–2110 MHz up / 2200–2290 MHz down</strong> – the space operation and space research allocations, and the conventional home for higher-rate TT&amp;C. A typical COTS CubeSat S-band transceiver works across exactly this pair.<sup id="fnref2:endurosat-sband"><a class="footnote-ref" href="#fn:endurosat-sband">3</a></sup></li>
+<li><strong>X-band, 8025–8400 MHz down</strong> – the Earth exploration-satellite allocation, and where data-intensive imaging missions downlink.</li>
+<li><strong>Ka-band, 26–40 GHz</strong> – rare on CubeSats because of the pointing precision and power required, but demonstrated: NASA's ISARA reflectarray mission exceeded 100 Mbps.<sup id="fnref2:nasa-soa-comms"><a class="footnote-ref" href="#fn:nasa-soa-comms">2</a></sup></li>
+</ul>
+<!-- CSR-RESOURCES:START dev-comms-bands-and-coordination -->
+<ul>
+<li><strong><a href="https://www.iaru.org/wp-content/uploads/2020/01/Amateur-Services-Spectrum-2020_.pdf">Amateur and Amateur-Satellite Service Spectrum (IARU)</a></strong> <code>PDF</code> – The allocations and the ITU footnotes that govern them, including 5.282 and the 1260–1270 MHz Earth-to-space restriction</li>
+<li><strong><a href="https://www.iaru.org/reference/satellites/">IARU Satellite Frequency Coordination</a></strong> <code>Link</code> – The coordination process, the current request form, and the panel's meeting schedule. Requests are submitted through your national member society</li>
+<li><strong><a href="https://www.nasa.gov/smallsat-institute/sst-soa/soa-communications/">NASA State of the Art – Communications</a></strong> <code>Link</code> – Annually revised survey of small spacecraft RF and optical communications, including COTS transceiver classes and demonstrated data rates</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-comms-bands-and-coordination -->
+
+<h2 id="expected-data-rates">Expected Data Rates<a class="headerlink" href="#expected-data-rates" title="Permanent link">&para;</a></h2>
+<p>Achievable rates vary widely with band, modulation, available power, antenna gain, ground station capability and regulatory constraints. As orders of magnitude:</p>
+<ul>
+<li><strong>VHF / UHF</strong> – TT&amp;C and beacons. Commonly <strong>300 bps to 19.2 kbps</strong>, with 9600 bps GMSK the workhorse. Reliability and <a href="../../references/glossary/#link-margin">link margin</a> are prioritized over throughput.</li>
+<li><strong>S-band</strong> – higher-rate telemetry and modest payload data. Typically <strong>100 kbps to a few Mbps</strong>; COTS CubeSat units often sit in the 5–125 kbps range, with megabit-class links requiring better antennas and pointing.<sup id="fnref:endurosat-sband"><a class="footnote-ref" href="#fn:endurosat-sband">3</a></sup></li>
+<li><strong>X-band</strong> – data-intensive payloads. <strong>Tens to hundreds of Mbps</strong> are possible, but require precise attitude control, high-gain antennas, significant power and professional ground stations.</li>
+</ul>
+<p>Usable throughput is always well below the physical-layer rate once packetization, forward error correction, duty cycle and pass duration are accounted for. The number that matters is <strong>bits per day</strong>, not bits per second: four 8-minute passes at 9600 bps is about 2.3 MB per day before overhead, and that figure – not the link rate – is what your payload data volume has to fit inside. See <a href="../flight-software/#telemetry">Flight Software – Telemetry</a> and <a href="../payload/#data-reduction-and-compression">Payload – Data reduction and compression</a>.</p>
+<h2 id="link-budget">Link Budget<a class="headerlink" href="#link-budget" title="Permanent link">&para;</a></h2>
+<p>A <strong><a href="../../references/glossary/#link-budget">link budget</a></strong> accounts for every gain and loss between transmitter and receiver, and tells you whether the link closes with margin. It is the single most important design tool in CubeSat communications, and it couples directly to the power budget, the antenna design and the pointing requirement.</p>
+<p>A basic budget includes transmit power, transmit antenna gain, free-space path loss, atmospheric and polarization losses, receive antenna gain, receiver noise figure and bandwidth, and the <a href="../../references/glossary/#snr">signal-to-noise ratio</a> required by your modulation and coding. The result is a <strong>link margin</strong> in dB.</p>
+<p>Budgets are calculated for the worst case – maximum slant range at low elevation – and iterated alongside antenna, power and ADCS design.</p>
+<h3 id="a-worked-example">A worked example<a class="headerlink" href="#a-worked-example" title="Permanent link">&para;</a></h3>
+<p>A conventional UHF downlink, to show the shape of the arithmetic:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Term</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Transmit power</td>
+<td style="text-align: left;">+30.0 dBm</td>
+<td style="text-align: left;">1 W</td>
+</tr>
+<tr>
+<td style="text-align: left;">Feeder and matching loss</td>
+<td style="text-align: left;">−1.0 dB</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Satellite antenna gain</td>
+<td style="text-align: left;">0.0 dBi</td>
+<td style="text-align: left;">Deployed monopole, no pointing assumed</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EIRP</strong></td>
+<td style="text-align: left;"><strong>+29.0 dBm</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Free-space path loss</td>
+<td style="text-align: left;">−145.3 dB</td>
+<td style="text-align: left;">437 MHz at 1000 km slant range</td>
+</tr>
+<tr>
+<td style="text-align: left;">Polarization mismatch</td>
+<td style="text-align: left;">−3.0 dB</td>
+<td style="text-align: left;">Linear satellite antenna, circular ground antenna</td>
+</tr>
+<tr>
+<td style="text-align: left;">Atmospheric and implementation loss</td>
+<td style="text-align: left;">−1.0 dB</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Ground antenna gain</td>
+<td style="text-align: left;">+14.0 dBi</td>
+<td style="text-align: left;">Crossed Yagi</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Received power</strong></td>
+<td style="text-align: left;"><strong>−106.3 dBm</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Noise density</td>
+<td style="text-align: left;">−171.0 dBm/Hz</td>
+<td style="text-align: left;">3 dB system noise figure, LNA at the antenna</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>C/N₀</strong></td>
+<td style="text-align: left;"><strong>64.7 dB-Hz</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Data rate</td>
+<td style="text-align: left;">9600 bps</td>
+<td style="text-align: left;">−39.8 dB</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>E_b/N₀ available</strong></td>
+<td style="text-align: left;"><strong>24.9 dB</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">E_b/N₀ required</td>
+<td style="text-align: left;">9.6 dB</td>
+<td style="text-align: left;">GMSK, 10⁻⁵ BER, uncoded</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Margin</strong></td>
+<td style="text-align: left;"><strong>+15.3 dB</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Two things to take from it. First, free-space path loss dominates everything else, and it grows as the square of both range and frequency – moving the same link to 2.25 GHz costs another 14 dB before anything else changes. Second, the comfortable-looking margin evaporates at the horizon: at 2000 km slant range you lose 6 dB of it, plus more to atmospheric loss at low elevation. Recompute at your worst-case geometry, not at zenith.</p>
+<p>Note that the above budget is illustrative and computed from the stated assumptions rather than taken from a flown mission. The required Eb/N0 figure is the textbook uncoded value; actual receivers have implementation loss, and coding gain moves it the other way. Use the Jan King spreadsheet for actual numbers.</p>
+<!-- CSR-RESOURCES:START dev-comms-link-budget -->
+<ul>
+<li><strong><a href="https://iaru.amsat-uk.org/spreadsheet.htm">Jan King Link Budget Calculators</a></strong> <code>Link</code> – The standard amateur satellite link budget spreadsheets, and the best starting point for a first calculation</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-comms-link-budget -->
+
+<h2 id="doppler-oscillators-and-acquisition">Doppler, Oscillators and Acquisition<a class="headerlink" href="#doppler-oscillators-and-acquisition" title="Permanent link">&para;</a></h2>
+<p>A LEO satellite closes and opens range at up to roughly 7 km/s relative to a ground station, which shifts the carrier by about 2.3 parts in 100,000:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Band</th>
+<th style="text-align: left;">Approximate Doppler shift across a pass</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">145 MHz</td>
+<td style="text-align: left;">±3.4 kHz</td>
+</tr>
+<tr>
+<td style="text-align: left;">437 MHz</td>
+<td style="text-align: left;">±10 kHz</td>
+</tr>
+<tr>
+<td style="text-align: left;">2.25 GHz</td>
+<td style="text-align: left;">±53 kHz</td>
+</tr>
+<tr>
+<td style="text-align: left;">8.2 GHz</td>
+<td style="text-align: left;">±190 kHz</td>
+</tr>
+</tbody>
+</table>
+<p>The shift is largest at acquisition, sweeps through zero at closest approach, and is fastest exactly when you most want lock. Three consequences for the flight side:</p>
+<ul>
+<li><strong>Your receiver needs capture range to match.</strong> A narrowband receiver that cannot search ±10 kHz will not hear an uplink at the start of a pass, which is when you most need it.</li>
+<li><strong>Oscillator stability is comparable to Doppler.</strong> A 10 ppm TCXO at 437 MHz is ±4.4 kHz of frequency uncertainty on its own, and it drifts with temperature across an orbit. The ground station can correct for predicted Doppler; it cannot correct for an unknown offset in your radio.</li>
+<li><strong>The ground station corrects, the satellite usually does not.</strong> Standard practice is to pre-compensate the uplink and post-correct the downlink on the ground, from a <a href="../../references/glossary/#tle">TLE</a> and SGP4 propagation. That works only if your TLE identification is right – see <a href="../ground-segment/#tracking-and-pass-prediction">Ground Segment – Tracking and Pass Prediction</a>.</li>
+</ul>
+<h2 id="modulation-coding-and-protocols">Modulation, Coding and Protocols<a class="headerlink" href="#modulation-coding-and-protocols" title="Permanent link">&para;</a></h2>
+<p><strong>Modulation.</strong> AFSK at 1200 bps is the simplest and the most widely receivable, at the cost of throughput. BPSK and GMSK at 9600 bps are the practical workhorses. Higher-order schemes buy rate at the cost of required signal-to-noise ratio, which your link budget has to pay for.</p>
+<p><strong>Coding.</strong> <a href="../../references/glossary/#fec">Forward error correction</a> buys several dB of effective margin for a modest overhead, and is close to free on modern radios. Convolutional coding with Reed-Solomon, or an LDPC scheme where the hardware supports it, are the common choices. Coding gain is usually cheaper than transmit power, which costs you battery, and cheaper than antenna gain, which costs you pointing.</p>
+<p><strong>Framing.</strong> Two families, and the choice has consequences beyond the wire format:</p>
+<ul>
+<li><strong>AX.25</strong> is the amateur standard. Every amateur ground station and most SatNOGS decoders already speak it, which turns strangers into a tracking network. It is inefficient and has no built-in error correction, so it is usually wrapped in an FEC layer.</li>
+<li><strong>CCSDS</strong> is what the professional world uses – proper space data link protocols, framing and coding, and interoperability with agency ground stations. Heavier to implement, and the right choice for missions with a non-amateur link. The Blue Books are free; see <a href="../../references/standards/#communication-protocols-and-data-formats">Standards &amp; Protocols</a>.</li>
+</ul>
+<p>Onboard, <a href="../../references/glossary/#csp">CSP</a> (the Cubesat Space Protocol) is the de facto network layer between subsystems, and it can extend over the radio link so that the ground addresses subsystems the same way flight software does. See <a href="../flight-software/#inter-subsystem-communication-protocols">Flight Software – Inter-Subsystem Communication Protocols</a>.</p>
+<h2 id="flight-segment-hardware">Flight Segment Hardware<a class="headerlink" href="#flight-segment-hardware" title="Permanent link">&para;</a></h2>
+<h3 id="transceivers">Transceivers<a class="headerlink" href="#transceivers" title="Permanent link">&para;</a></h3>
+<p>The realistic options, in ascending order of effort:</p>
+<ul>
+<li><strong>COTS CubeSat transceivers</strong> – a module in a standard stack format, with a driver, a datasheet and flight heritage. The default for a first mission, and the choice that lets you spend your effort elsewhere. EnduroSat, GomSpace, ISISPACE, AAC Clyde and NanoAvionics all sell UHF and S-band units; <a href="https://satsearch.co/">satsearch</a> and the <a href="https://www.cubesatshop.com/">CubeSatShop</a> are the places to compare them.</li>
+<li><strong>Open-source hardware</strong> – the Libre Space Foundation's SatNOGS-COMMS is an open communications subsystem developed alongside the SatNOGS ground network, and is the most credible open option currently available.</li>
+<li><strong><a href="../../references/glossary/#sdr">SDR</a>-based, built in-house</strong> – maximum flexibility and a research contribution, but you are now responsible for the PA, the filtering, the EMC behavior and the radiation tolerance of the whole chain. Reasonable for a process-oriented mission, expensive for a result-oriented one.</li>
+</ul>
+<p>Whatever you choose, check three things early: the actual RF output power at the connector rather than at the PA, the current draw during transmit (see below), and whether the unit's default configuration is legal in the band you have coordinated.</p>
+<!-- CSR-RESOURCES:START dev-comms-transceivers -->
+<ul>
+<li><strong><a href="https://www.libre.space/projects/satnogs-comms/">SatNOGS-COMMS (Libre Space Foundation)</a></strong> <code>Link</code> – Open-source communications subsystem for CubeSats, developed alongside the SatNOGS ground station network</li>
+<li><strong><a href="https://www.endurosat.com/products/uhf-transceiver-ii/">EnduroSat UHF Transceiver II</a></strong> <code>Link</code> – Widely used COTS UHF transceiver for CubeSats</li>
+<li><strong><a href="https://www.endurosat.com/products/s-band-transceiver/">EnduroSat S-Band Transceiver</a></strong> <code>Link</code> – Full-duplex S-band unit, 2025–2110 MHz up and 2200–2290 MHz down, 5–125 kbps</li>
+<li><strong><a href="https://gomspace.com/product/nanocom-ax100/">GomSpace NanoCom AX100</a></strong> <code>Link</code> – Long-established UHF transceiver with extensive flight heritage</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-comms-transceivers -->
+
+<h3 id="antennas">Antennas<a class="headerlink" href="#antennas" title="Permanent link">&para;</a></h3>
+<p>Nearly every CubeSat UHF or VHF antenna is a deployable: tape-spring monopoles, dipoles and turnstiles, stowed under a burn-wire or similar restraint and released after the mandatory delay. That makes the antenna a mechanism as much as an RF component, with all the qualification that implies – see <a href="../structure/#deployable-structures-and-mechanisms">Structure – Deployable Structures and Mechanisms</a> and <a href="../inhibits-hdrm/">Inhibits and HDRM</a>.</p>
+<p>Two design points that recur. A tumbling spacecraft has no fixed antenna orientation, so a near-omnidirectional pattern and an honest 0 dBi assumption in the link budget are worth more than a higher-gain pattern you cannot point. And a linearly polarized satellite antenna against a circularly polarized ground antenna costs a fixed 3 dB, which is cheaper to accept in the budget than to engineer away – see <a href="../ground-segment/#polarization">Ground Segment – Polarization</a>.</p>
+<p>Higher bands change the picture: patch antennas at S-band and reflectarrays at X- and Ka-band offer gain worth having, and immediately impose a pointing requirement on <a href="../gnc/">GNC</a>.</p>
+<!-- CSR-RESOURCES:START dev-comms-antenna-design -->
+<ul>
+<li><strong><a href="https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf">Antennas for CubeSat Communication (Miroslav Veljovic, EPFL doctoral thesis, 2020)</a></strong> <code>PDF</code> – Book-length treatment of CubeSat antenna design and the integration constraints that shape it; thesis no. 7489, DOI 10.5075/epfl-thesis-7489. Open access</li>
+<li><strong><a href="https://github.com/ICDT-Inatel-Cubesat-Design-Team/S-Band-Antenna">S-Band RHCP Patch Antenna – GitHub repository</a></strong> <code>Link</code> – Open-source S-band patch antenna repository</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-comms-antenna-design -->
+
+<h3 id="power-duty-cycle-and-heat">Power, duty cycle and heat<a class="headerlink" href="#power-duty-cycle-and-heat" title="Permanent link">&para;</a></h3>
+<p>The transmitter is usually what breaks the power budget. A 1 W RF output at 30–40% PA efficiency draws 3 W or more from the bus, which for a 1U is often more than the orbit-average generation. The resolution is duty cycle: transmit during passes, beacon sparsely between them, and size the battery for the burst rather than the average. Model it explicitly – see <a href="../eps/#power-requirements-and-budgets">EPS – Power Requirements and Budgets</a>.</p>
+<p>The same inefficiency appears as heat, concentrated in one component. PA dissipation is a recognized CubeSat thermal problem, particularly during long transmit windows; see <a href="../thermal/">Thermal Management</a>.</p>
+<h3 id="rf-silence-and-inhibits">RF silence and inhibits<a class="headerlink" href="#rf-silence-and-inhibits" title="Permanent link">&para;</a></h3>
+<p>The CDS requires that no RF signal is generated or transmitted earlier than <strong>45 minutes after deployment</strong>, and launch providers enforce their own, sometimes stricter, version of this. That is a flight software and hardware requirement, not a procedural one: the transmitter must be inhibited by design and the timer must be demonstrable to your provider. See <a href="../inhibits-hdrm/#timers-and-delayed-activation">Inhibits and HDRM – Timers and Delayed Activation</a> and <a href="../structure/#what-the-cds-actually-requires">Structure – What the CDS actually requires</a>.</p>
+<h2 id="ground-segment">Ground Segment<a class="headerlink" href="#ground-segment" title="Permanent link">&para;</a></h2>
+<p>Ground station architecture, antennas and rotators, tracking and pass prediction, decoding and automation are covered in full on the <a href="../ground-segment/">Ground Segment</a> page. The interface between the two is the link budget above: the ground station's gain and noise figure are terms in it, and improving them is often far cheaper than improving anything on the spacecraft.</p>
+<h2 id="communication-via-satellite-constellations">Communication via Satellite Constellations<a class="headerlink" href="#communication-via-satellite-constellations" title="Permanent link">&para;</a></h2>
+<p>Some missions use an existing commercial constellation as a relay rather than talking directly to their own ground station. The CubeSat communicates with a constellation satellite, which forwards the data to the provider's infrastructure.</p>
+<h3 id="low-data-rate-relay">Low-data-rate relay<a class="headerlink" href="#low-data-rate-relay" title="Permanent link">&para;</a></h3>
+<p>LEO relay constellations such as <strong>Iridium</strong> are used by some CubeSats for housekeeping telemetry, basic commanding and mission monitoring, typically via compact modem modules originally built for terrestrial and maritime use.</p>
+<ul>
+<li>Near-global coverage and frequent contact opportunities</li>
+<li>Very low data rates – bytes to a few kilobytes per message</li>
+<li>Simple antennas and relaxed pointing requirements</li>
+<li>Commercial service contracts, with per-message or per-byte costs</li>
+</ul>
+<p>Not suitable for payload data, but attractive as a secondary or backup channel, or for missions that value availability over throughput. One caveat worth resolving early: these modules and their airtime plans are sold for terrestrial use, and orbital use is a separate question of both the provider's service terms and your own licensing. Confirm it in writing before designing around it.</p>
+<h3 id="direct-to-device-and-broadband-constellations">Direct-to-device and broadband constellations<a class="headerlink" href="#direct-to-device-and-broadband-constellations" title="Permanent link">&para;</a></h3>
+<p>Large broadband and direct-to-cell constellations are beginning to explore space-to-space connectivity beyond the traditional ground station model, which would in principle offer near-continuous connectivity, less dependence on custom ground stations, and higher rates than existing relay services.</p>
+<p>In practice these options remain limited by regulatory constraints, service availability, hardware compatibility, power requirements and commercial access models. Treat them as forward-looking rather than as an operational baseline.</p>
+<h2 id="optical-communications">Optical Communications<a class="headerlink" href="#optical-communications" title="Permanent link">&para;</a></h2>
+<p>Optical (laser) communications transmit data on a tightly focused beam instead of a radio carrier, offering very high data rates for the size and power, narrow beamwidths that reduce interference and interception, and no spectrum allocation to coordinate.</p>
+<p>That last point is often overstated. Optical links avoid ITU frequency coordination and IARU coordination, but they do not avoid regulation: the mission still needs national authorization, and directed-energy transmission brings its own approvals, including coordination to protect aircraft and other spacecraft from the beam.</p>
+<p>The engineering costs are substantial: extremely tight pointing and stability requirements that feed straight back into <a href="../gnc/">GNC</a>, sensitivity to cloud cover and atmospheric conditions, complex acquisition and tracking, and very few compatible ground stations. NASA's state-of-the-art survey treats free-space optical as a compelling alternative for high-rate links while noting it remains at low maturity for small spacecraft.<sup id="fnref:nasa-soa-comms"><a class="footnote-ref" href="#fn:nasa-soa-comms">2</a></sup></p>
+<p>Still uncommon on CubeSats, but an active area of demonstration, and increasingly relevant as ADCS performance, onboard processing and ground infrastructure improve.</p>
+<!-- CSR-RESOURCES:START dev-comms-optical -->
+<ul>
+<li><strong><a href="https://www.nasa.gov/smallsat-institute/sst-soa/soa-communications/">NASA State of the Art – Communications</a></strong> <code>Link</code> – Includes a dedicated treatment of free-space optical communications for small spacecraft, with maturity assessments</li>
+<li><strong><a href="https://www.reddit.com/r/lasercom/comments/1godxou/lasercom_terminal_open_source_modelsimulation_sw/">Lasercom terminal open-source model and simulation software</a></strong> <code>Link</code> – Community thread collecting open-source starting points for laser communication terminal development</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-comms-optical -->
+
+<hr />
+<p>👉 <strong>Please consider <a href="../../contributing/">contributing</a>!</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:iaru-spectrum">
+<p>International Amateur Radio Union, <a href="https://www.iaru.org/wp-content/uploads/2020/01/Amateur-Services-Spectrum-2020_.pdf"><em>Amateur and Amateur-Satellite Service Spectrum</em></a> (revised January 2020). Free PDF. Source for the amateur-satellite allocations and the ITU Radio Regulations footnotes governing them, including No. 5.282 and its restriction of amateur-satellite operation in 1260–1270 MHz to the Earth-to-space direction. Practical satellite segments in the 2 m band – 145.800–146.000 MHz and 144.000–144.025 MHz – follow the IARU band plan rather than the ITU allocation, which covers the whole of 144–146 MHz.&#160;<a class="footnote-backref" href="#fnref:iaru-spectrum" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nasa-soa-comms">
+<p>NASA Small Spacecraft Systems Virtual Institute, <a href="https://www.nasa.gov/smallsat-institute/sst-soa/soa-communications/"><em>State-of-the-Art of Small Spacecraft Technology</em>, Chapter 9: Communications</a> (revision dated May 2026). Source for the ISARA Ka-band demonstration exceeding 100 Mbps, the MarCO X-band relay, COTS transceiver classes, and the maturity assessment of free-space optical communications for small spacecraft.&#160;<a class="footnote-backref" href="#fnref:nasa-soa-comms" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-soa-comms" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:endurosat-sband">
+<p>EnduroSat, <a href="https://www.endurosat.com/products/s-band-transceiver/"><em>S-Band Transceiver</em></a> product documentation. Cited as a representative COTS CubeSat S-band unit: 2025–2110 MHz receive, 2200–2290 MHz transmit, configurable 5–125 kbps, 24–33 dBm output. Named as an example rather than a recommendation.&#160;<a class="footnote-backref" href="#fnref:endurosat-sband" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:endurosat-sband" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:fcc-telecommand">
+<p><a href="https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211">47 CFR § 97.211 – Space telecommand station</a>. Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." This is an explicit exception to the general prohibition in §97.113(a)(4) on messages encoded to obscure their meaning. Other administrations treat telecommand separately to varying degrees; check your own license conditions rather than generalizing from this one.&#160;<a class="footnote-backref" href="#fnref:fcc-telecommand" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 17:12:37 UTC"><span class="timeago" datetime="2026-09-03T17:12:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 17:12:37 UTC">2026-09-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

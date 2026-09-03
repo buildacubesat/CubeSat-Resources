@@ -1,0 +1,2760 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/development/inhibits-hdrm/">
+      
+      
+        <link rel="prev" href="../payload/">
+      
+      
+        <link rel="next" href="../ait/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Inhibits, Hold Down and Release Mechanisms (HDRM) - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inhibits-hold-down-and-release-mechanisms-hdrm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inhibits, Hold Down and Release Mechanisms (HDRM)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-and-safety-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose and Safety Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Purpose and Safety Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hazards-being-controlled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The hazards being controlled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-reviews-and-licensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship to reviews and licensing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inhibit-types-and-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhibit Types and Architectures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inhibit Types and Architectures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-counts-as-an-inhibit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What counts as an inhibit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-many-are-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How many are required
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inhibit-interaction-with-the-electrical-power-system-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhibit Interaction with the Electrical Power System (EPS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-before-flight-rbf-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove-Before-Flight (RBF) Pins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-switches-and-separation-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Switches and Separation Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timers-and-delayed-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timers and Delayed Activation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hold-down-and-release-mechanisms-hdrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hold Down and Release Mechanisms (HDRM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hold Down and Release Mechanisms (HDRM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#burn-wirebased-hdrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burn Wire–Based HDRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shape-memory-alloy-smabased-hdrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shape Memory Alloy (SMA)–Based HDRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundancy-and-fault-tolerance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redundancy and Fault Tolerance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification and Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Compliance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose-and-safety-context" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose and Safety Context
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Purpose and Safety Context">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-hazards-being-controlled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The hazards being controlled
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-phases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission phases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relationship-to-reviews-and-licensing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship to reviews and licensing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inhibit-types-and-architectures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhibit Types and Architectures
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inhibit Types and Architectures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-counts-as-an-inhibit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What counts as an inhibit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-many-are-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How many are required
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inhibit-interaction-with-the-electrical-power-system-eps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inhibit Interaction with the Electrical Power System (EPS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove-before-flight-rbf-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove-Before-Flight (RBF) Pins
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment-switches-and-separation-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Switches and Separation Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timers-and-delayed-activation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timers and Delayed Activation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hold-down-and-release-mechanisms-hdrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hold Down and Release Mechanisms (HDRM)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hold Down and Release Mechanisms (HDRM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#burn-wirebased-hdrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Burn Wire–Based HDRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shape-memory-alloy-smabased-hdrm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Shape Memory Alloy (SMA)–Based HDRM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-mechanisms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other mechanisms
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redundancy-and-fault-tolerance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redundancy and Fault Tolerance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification and Testing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Compliance
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/development/inhibits-hdrm.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="inhibits-hold-down-and-release-mechanisms-hdrm">Inhibits, Hold Down and Release Mechanisms (HDRM)<a class="headerlink" href="#inhibits-hold-down-and-release-mechanisms-hdrm" title="Permanent link">&para;</a></h1>
+<p>This page covers launch safety hardware: what the CubeSat Design Specification and launch providers require of inhibits, deployment switches, remove-before-flight pins and timers, how those interact with the power system, the hold-down and release mechanisms that keep deployables stowed, and the evidence a safety review expects.</p>
+<p>This is the part of a CubeSat that exists entirely for other people's benefit. Inhibits do nothing for your mission – their only job is to guarantee that your spacecraft cannot do anything hazardous while it is inside someone else's rocket, next to someone else's payload, and sometimes inside a crewed vehicle. They are also, for the same reason, the part of your design most likely to be examined line by line in a safety review.</p>
+<h2 id="purpose-and-safety-context">Purpose and Safety Context<a class="headerlink" href="#purpose-and-safety-context" title="Permanent link">&para;</a></h2>
+<h3 id="the-hazards-being-controlled">The hazards being controlled<a class="headerlink" href="#the-hazards-being-controlled" title="Permanent link">&para;</a></h3>
+<p>A CubeSat inside a <a href="../../references/glossary/#deployer">deployer</a> is a sealed box containing stored electrical energy, a radio transmitter, and spring-loaded mechanisms. Four things must not happen before deployment:</p>
+<ul>
+<li><strong>Inadvertent RF transmission</strong>, which could interfere with launch vehicle telemetry and range safety systems at exactly the moment when nobody can afford interference.</li>
+<li><strong>Inadvertent deployment</strong>, where an antenna or solar panel releasing inside the deployer jams it – destroying your mission and potentially the co-passengers in the same pod.</li>
+<li><strong>Inadvertent propulsion activation</strong>, if you carry propulsion at all. The <a href="../../references/glossary/#cds">CDS</a> treats this as its own hazard class with its own inhibit count and its own governing standard (§2.1.3, §2.1.4).<sup id="fnref7:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup> See <a href="../propulsion/#safety-and-launch-requirements">Propulsion – Safety and Launch Requirements</a>.</li>
+<li><strong>Uncontrolled energy release</strong> – a battery fault, thermal runaway, or unexpected current draw inside a sealed volume.</li>
+</ul>
+<h3 id="mission-phases">Mission phases<a class="headerlink" href="#mission-phases" title="Permanent link">&para;</a></h3>
+<p>The inhibit architecture divides the mission's early life into distinct states:</p>
+<ol>
+<li><strong>Ground handling and transport</strong> – the <a href="../../references/glossary/#rbf-pin">RBF pin</a> is inserted and the spacecraft is completely dead.</li>
+<li><strong>Integration into the deployer</strong> – RBF removed (if the deployer has no access port), <a href="../../references/glossary/#deployment-switch">deployment switches</a> held actuated by the deployer walls. The spacecraft remains off.</li>
+<li><strong>Launch and ascent</strong> – unchanged. The CubeSat is a passive mass.</li>
+<li><strong>Ejection</strong> – the deployment switches release, power reaches the spacecraft, and the timers start.</li>
+<li><strong>Post-deployment quiet period</strong> – powered and booting, but not transmitting and not deploying anything.</li>
+<li><strong>Commissioning</strong> – after the mandated delays, RF and deployables are enabled.</li>
+</ol>
+<h3 id="relationship-to-reviews-and-licensing">Relationship to reviews and licensing<a class="headerlink" href="#relationship-to-reviews-and-licensing" title="Permanent link">&para;</a></h3>
+<p>Inhibit design is reviewed by your launch provider as part of the safety data package, and the evidence you supply – diagrams, test results, photographs – is what gets accepted or rejected. It also intersects with your frequency license, since regulators care about when you start transmitting. See <a href="../launch/#regulatory-requirements">Qualification and Launch</a>.</p>
+<!-- CSR-RESOURCES:START dev-inhibits-hdrm-requirements -->
+<ul>
+<li><strong><a href="https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf">CubeSat Design Specification Rev. 14.1</a></strong> <code>PDF</code> – The document behind almost every requirement on this page. Sections 2.3 and 2.4 cover inhibits, deployment switches, RBF pins and the quiet periods</li>
+<li><strong><a href="https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf">NASA CubeSat 101</a></strong> <code>PDF</code> – First-time developer guide from the CubeSat Launch Initiative, with a plain-language treatment of electrical inhibits and burn wire constraint mechanisms</li>
+<li><strong><a href="https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/Nanoracks-CubeSat-Deployer-NRCSD-IDD.pdf">NanoRacks CubeSat Deployer (NRCSD) Interface Definition Document</a></strong> <code>PDF</code> – An openly published deployer interface document, useful as a worked example of how a provider layers its own inhibit and timer requirements on top of the CDS</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-inhibits-hdrm-requirements -->
+
+<h2 id="inhibit-types-and-architectures">Inhibit Types and Architectures<a class="headerlink" href="#inhibit-types-and-architectures" title="Permanent link">&para;</a></h2>
+<h3 id="what-counts-as-an-inhibit">What counts as an inhibit<a class="headerlink" href="#what-counts-as-an-inhibit" title="Permanent link">&para;</a></h3>
+<p>The <a href="../../references/glossary/#cds">CDS</a> is precise about this, and the precision matters:</p>
+<blockquote>
+<p>"An inhibit is a physical device between a power source and a hazard." (§2.3.7.1)</p>
+</blockquote>
+<p>And equally important:</p>
+<blockquote>
+<p>"A timer is not considered an independent inhibit." (§2.3.7.2)</p>
+</blockquote>
+<p>This second point catches many first-time teams. Software delays and timers are required by the specification for the post-deployment quiet period, but they do <strong>not</strong> count toward the inhibit count. An inhibit must be a physical interruption in the power path.</p>
+<h3 id="how-many-are-required">How many are required<a class="headerlink" href="#how-many-are-required" title="Permanent link">&para;</a></h3>
+<p>CDS Rev. 14.1 requires:<sup id="fnref:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup></p>
+<ul>
+<li><strong>At least three independent RF inhibits</strong> to prevent inadvertent transmission (§2.3.7).</li>
+<li><strong>At least three independent inhibits</strong> to prevent inadvertent release of any deployable structure such as antennas or solar panels (§2.3.8).</li>
+<li><strong>At least three inhibits to activation</strong> on any propulsion system (§2.1.4), which must additionally be designed, integrated and tested in accordance with AFSPCMAN 91-710 Volume 3 (§2.1.3).</li>
+</ul>
+<p>Independence is the operative word: three switches in series driven by the same mechanism are one inhibit, not three. Each must be capable of failing independently of the others.</p>
+<p><strong>You will meet the figure two in older material, and it is not an error – it is an earlier revision.</strong> CDS Rev. 13 §3.3.9 offered a choice: either "one RF inhibit and RF power output of no greater than 1.5W at the transmitting antenna's RF input" (§3.3.9.1) or "two independent RF inhibits" (§3.3.9.2), while noting even then that three was "highly recommended and can reduce required documentation and analysis".<sup id="fnref:cds-rev13"><a class="footnote-ref" href="#fn:cds-rev13">2</a></sup> Rev. 13 set no inhibit count for deployables at all – only propulsion carried a hard three (§3.1.5). Rev. 14 raised RF to a flat three and added the deployables requirement.</p>
+<p>The older logic survives in Rev. 14.1 as a note printed directly under the requirement: "Some launch vehicle providers will only require one or two independent inhibits depending on the CubeSat's RF power output. However, the use of three independent inhibits is highly recommended and can reduce required documentation and analyses" (§2.3.7.3).<sup id="fnref2:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup> What sits underneath all of these numbers is hazard severity, which the NanoRacks deployer interface document states plainly: three inhibits is "based on the worst-case assumption that the CubeSat contains a potential catastrophic hazard that exists in the event of an inadvertent power-up", and the design "shall incorporate an appropriate number of inhibits dictated by the hazard potential of the payload".<sup id="fnref:nrcsd"><a class="footnote-ref" href="#fn:nrcsd">3</a></sup></p>
+<p>So the count is argued rather than fixed – but it is argued with your provider, against a documented hazard analysis, and the argument is very much easier if you designed for three. Your provider may also require more. As always, <strong>the payload user guide takes precedence over the CDS</strong> – see <a href="../structure/#the-launch-provider-always-wins">Structure – The launch provider always wins</a>.</p>
+<h3 id="architectural-patterns">Architectural patterns<a class="headerlink" href="#architectural-patterns" title="Permanent link">&para;</a></h3>
+<p>The conventional CubeSat implementation uses three physically distinct devices in the power path:</p>
+<ul>
+<li><strong>Deployment switch A</strong> – released by the deployer wall or door.</li>
+<li><strong>Deployment switch B</strong> – a second, independently located switch.</li>
+<li><strong>RBF pin</strong> – removed before flight, and a third independent break while present.</li>
+</ul>
+<p>A latching relay can stand in for one of these. A timer cannot stand in for any of them (§2.3.7.2), and neither can anything that merely commands an inhibit – the NanoRacks wording is blunt: "A control for an inhibit (electrical or software) cannot be counted as an inhibit or power interrupt device."<sup id="fnref2:nrcsd"><a class="footnote-ref" href="#fn:nrcsd">3</a></sup> What matters to a reviewer is that you can draw the power path, show three physical breaks in it, and demonstrate that no single failure closes more than one.</p>
+<div class="admonition warning">
+<p class="admonition-title">Your deployer may not count the RBF pin</p>
+<p>The three-device pattern above is conventional, not universal. The NanoRacks CubeSat Deployer IDD requires "a minimum of three (3) independent inhibit switches actuated by physical deployment switches" (4.2.1-3),<sup id="fnref4:nrcsd"><a class="footnote-ref" href="#fn:nrcsd">3</a></sup> and those three are in addition to the RBF pin: the pin covers ground handling, the switches cover the deployer, and a design that leans on the pin as its third break does not meet the requirement. Read your own deployer's interface document for its count before committing to an architecture.</p>
+</div>
+<p>Design principles:</p>
+<ul>
+<li><strong>Normally-open is the safe default.</strong> The hazard is disabled unless something actively enables it. A normally-closed inhibit that must be actively held open fails dangerous.</li>
+<li><strong>Inhibit the source, not the sink.</strong> Break the power path high in the tree, not at the last device before the antenna.</li>
+<li><strong>Separate the deployable and RF inhibit chains</strong> where practical, so a fault in one does not compromise the other.</li>
+<li><strong>Keep it dumb.</strong> Inhibits should be verifiable with a multimeter, not by reading code.</li>
+</ul>
+<h3 id="inhibit-interaction-with-the-electrical-power-system-eps">Inhibit Interaction with the Electrical Power System (EPS)<a class="headerlink" href="#inhibit-interaction-with-the-electrical-power-system-eps" title="Permanent link">&para;</a></h3>
+<p>Inhibits are, physically, part of the power architecture, which means the <a href="../eps/">EPS</a> and inhibit designs have to be developed together.<sup id="fnref3:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup></p>
+<ul>
+<li><strong>The CDS requires the power system to be off throughout launch</strong>: "the CubeSat power system shall be at a power off state from the time of delivery to the LV through on-orbit deployment" (§2.3.1). The powered functions in scope are command and data handling, RF communication, attitude determination and control, and deployable mechanism actuation (§2.3.1.1).</li>
+<li><strong>The deployment switch must electrically disconnect the power system from the powered functions</strong> when actuated (§2.3.2.1) – not merely signal software that it is time to stay quiet.</li>
+<li><strong>There are exactly two carve-outs, and both are narrow.</strong> Battery protection circuitry may remain powered (§2.3.1.2, per §2.3.6). A real-time clock may keep running (§2.3.3) provided it is isolated from the main power system, runs below 320 kHz, and is current-limited to less than 10 mA (§2.3.3.1–2.3.3.3). The RTC allowance is worth knowing because it changed: Rev. 13 required the deployment switch to disconnect real-time clocks along with everything else.<sup id="fnref2:cds-rev13"><a class="footnote-ref" href="#fn:cds-rev13">2</a></sup> A compliant RTC is also the cleanest way to make a quiet-period timer survive a reset – see <a href="#timers-and-delayed-activation">Timers and Delayed Activation</a>.</li>
+<li><strong>Access port geometry is specified, and it constrains your late-flow options.</strong> The RBF pin and all umbilical connectors must sit within the designated access port locations where the dispenser has them (§2.3.4); where it has none, the RBF must be removed before insertion (§2.3.4.1). Decide early, because those connectors are also how you top up the battery late in the flow.</li>
+<li><strong>Battery self-discharge</strong> over what may be months of storage and launch delay is a planning problem in its own right, and one the CDS does not address at all. Confirm the pack will still be above its minimum voltage at deployment.</li>
+<li><strong>Controlled energization on release.</strong> When the switches open, everything comes up at once, on a cold battery, in the worst condition of the mission. See <a href="../eps/#startup-and-brownout-behavior">EPS – Startup and brownout behavior</a>.</li>
+<li><strong>Battery circuit protection</strong> is separately required by the CDS (§2.3.6) to prevent unbalanced cell conditions. See <a href="../eps/#battery-management-systems-bms">EPS – BMS</a>.</li>
+</ul>
+<h3 id="remove-before-flight-rbf-pins">Remove-Before-Flight (RBF) Pins<a class="headerlink" href="#remove-before-flight-rbf-pins" title="Permanent link">&para;</a></h3>
+<p>The RBF pin is a physical object inserted into the spacecraft that breaks the power path, with a large brightly colored streamer attached so that nobody can possibly forget it is there.</p>
+<p>The CDS requirements are specific:<sup id="fnref4:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup></p>
+<ul>
+<li>"The CubeSat shall include an RBF pin, which cuts <strong>all</strong> power to the satellite once it is inserted into the satellite." (§2.3.5) – all power, not most of it.</li>
+<li>It "shall be removed from the CubeSat before integration into the dispenser, if the dispenser does not have access ports." (§2.3.5.1)</li>
+<li>It "shall protrude no more than 6.5 mm from the CubeSat rail surface when it is fully inserted into the satellite." (§2.3.5.2)</li>
+</ul>
+<p>Practical implementation notes:</p>
+<ul>
+<li>The usual mechanism is an insulating blade that separates two spring contacts. Simple, inspectable, and with no failure mode more subtle than "bent".</li>
+<li><strong>Position it in an accessible face</strong> consistent with your deployer's access port geometry. Retrofitting an RBF port into a finished structure is painful – see <a href="../structure/#mounting-and-mechanical-interfaces">Structure – Mounting</a>.</li>
+<li><strong>Human factors are the actual risk.</strong> The pin gets removed at a busy moment, by someone who may not be from your team, often under time pressure. Make it impossible to reinsert backwards, impossible to leave half-inserted without it being obvious, and make the streamer big.</li>
+<li><strong>Verify continuity, don't assume it.</strong> A pin can be present and not making contact; a pin can be absent and the contacts stuck closed. Measure.</li>
+<li>Repeated insertion wears the contacts. Track the cycle count and inspect before flight.</li>
+</ul>
+<h3 id="deployment-switches-and-separation-detection">Deployment Switches and Separation Detection<a class="headerlink" href="#deployment-switches-and-separation-detection" title="Permanent link">&para;</a></h3>
+<p>Deployment switches are how the spacecraft knows it has left the deployer.</p>
+<p>CDS requirements:<sup id="fnref5:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup></p>
+<ul>
+<li>"The CubeSat shall have, at a minimum, one deployment switch, which is actuated while integrated in the dispenser." (§2.3.2)</li>
+<li>"The deployment switch shall be in the actuated state at all times while integrated in the dispenser." (§2.3.2.2)</li>
+<li>In the actuated state it should be at or below the level of any external surface that interfaces with the dispenser or a neighboring CubeSat (§2.3.2.3).</li>
+<li>Critically: "If the CubeSat deployment switch toggles from the actuated state and back, the satellite shall reset to a pre-launch state, including reset of transmission and deployable timers." (§2.3.2.4)</li>
+</ul>
+<p>That last requirement is the interesting one. It exists because a switch can bounce or momentarily open during vibration, and the specification refuses to allow a transient to start your quiet-period timers early. <strong>Your implementation must reset the timers, not just note the event</strong> – and it must do so in a way that survives whatever state the software was in.</p>
+<p>Implementation notes:</p>
+<ul>
+<li><strong>Two switches, independently located</strong> – commonly on separate rails or on a rail and the deployer door face – so a single mechanical failure does not release the inhibit.</li>
+<li><strong>Debounce in hardware where the signal gates power</strong>, and in software where it feeds logic. Contact bounce during ejection happens.</li>
+<li><strong>The separation signal is also useful telemetry.</strong> Record the time of separation and the switch states; it is the T-zero for everything that follows and one of the few pieces of ground-truth data you get about deployment.</li>
+<li>Test the switches after vibration, not only before. Their whole job is to survive that environment and still work.</li>
+</ul>
+<h3 id="timers-and-delayed-activation">Timers and Delayed Activation<a class="headerlink" href="#timers-and-delayed-activation" title="Permanent link">&para;</a></h3>
+<p>The CDS mandates two quiet periods, and they are measured from different events:<sup id="fnref6:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup></p>
+<ul>
+<li><strong>Deployables</strong>: "All deployables such as booms, antennas, and solar panels shall wait to deploy a minimum of 30 minutes after the CubeSat's deployment switch(es) are activated during dispenser ejection." (§2.4.4)</li>
+<li><strong>RF</strong>: "CubeSats shall not generate or transmit a signal earlier than 45 minutes after on-orbit deployment." (§2.4.5)</li>
+</ul>
+<p>The spacecraft may power on immediately after deployment (§2.4.5.1) – the restriction is on transmitting and deploying, not on being alive. Use that time: boot, assess health, start charging, begin detumbling.</p>
+<p>Implementation:</p>
+<ul>
+<li><strong>Hardware timers are preferred</strong> for the RF inhibit release, because a hardware timer cannot be defeated by a software fault, a reset loop, or a corrupted image. A dedicated timer IC that must expire before the transmitter's power path can close is easy to demonstrate to a reviewer.</li>
+<li><strong>Software timers must survive resets.</strong> If the OBC reboots at T+20 minutes and the timer restarts from zero, you have not violated the requirement – you have merely delayed yourself. If it reboots and <em>loses</em> the fact that it has not yet waited, you have violated it. Store elapsed time in non-volatile memory, or run the count on a CDS-compliant RTC, and treat the requirement conservatively.</li>
+<li><strong>Watchdog interaction</strong> is the subtle case. A watchdog reset during the quiet period must not clear the inhibit state. Think through the interaction explicitly. See <a href="../obc/#watchdogs">OBC – Watchdogs</a>.</li>
+<li><strong>Add margin.</strong> Waiting 35 and 50 minutes rather than exactly 30 and 45 costs nothing and removes any argument about clock accuracy.</li>
+<li><strong>Check your provider's numbers, and expect a different shape rather than simply a longer one.</strong> The NanoRacks deployer, for instance, applies a single 30-minute hold to everything: the CubeSat "shall not operate any system (including RF transmitters, deployment mechanisms or otherwise energize the main power system) for a minimum of 30 minutes where hazard potential exists", implemented by a timer that must itself carry "appropriate fault tolerance".<sup id="fnref3:nrcsd"><a class="footnote-ref" href="#fn:nrcsd">3</a></sup> That is not the CDS's 30-and-45 split, and a design that satisfies one does not automatically document cleanly against the other.</li>
+</ul>
+<h2 id="hold-down-and-release-mechanisms-hdrm">Hold Down and Release Mechanisms (HDRM)<a class="headerlink" href="#hold-down-and-release-mechanisms-hdrm" title="Permanent link">&para;</a></h2>
+<p>An HDRM holds a deployable stowed against launch loads and releases it on command. From the structural side it must carry preload; from the electrical side it must not fire early; from the reliability side it is a single-use, single-point-of-failure device on which the mission may depend.</p>
+<p>The context worth keeping in mind: NASA's state-of-the-art survey attributes <strong>more than 10% of reported small satellite failures to mechanisms</strong>, and recommends "design simplicity, margin, supplier selection, and testing" as the mitigations.<sup id="fnref:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">5</a></sup> See <a href="../structure/#deployable-structures-and-mechanisms">Structure – Deployable Structures and Mechanisms</a>.</p>
+<h3 id="functional-requirements">Functional requirements<a class="headerlink" href="#functional-requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Preload</strong>: enough to prevent any relative motion under launch vibration. A deployable that rattles will fret, generate debris, and may fail its own hinge.</li>
+<li><strong>Release reliability</strong>: it must actuate on command, in vacuum, at whatever temperature it happens to be.</li>
+<li><strong>Non-actuation reliability</strong>: equally important – it must <em>not</em> actuate before commanded, including during vibration and thermal cycling. This is the property behind NASA's CubeSat 101 recommendation to "use two separate burn wires", whose stated purpose is to "reduce the likelihood of a deployable coming loose prematurely".<sup id="fnref2:cubesat101"><a class="footnote-ref" href="#fn:cubesat101">4</a></sup></li>
+<li><strong>Contained release</strong>: no fragments, no debris. This rules out several mechanisms that would otherwise be attractive.</li>
+<li><strong>Ground resettability</strong> is a practical requirement rather than a flight one, but it matters enormously: a mechanism you can only test once is a mechanism you have effectively not tested.</li>
+</ul>
+<h3 id="burn-wirebased-hdrm">Burn Wire–Based HDRM<a class="headerlink" href="#burn-wirebased-hdrm" title="Permanent link">&para;</a></h3>
+<p>The classic CubeSat mechanism, and still the most common: a synthetic line under tension restrains the deployable; a resistive element heats and melts or severs the line; springs do the rest.</p>
+<ul>
+<li><strong>Principle.</strong> A nichrome wire or resistor is pressed against a loop of Dyneema, Vectran or similar. Current through the heater raises it above the line's melting point and the line parts.</li>
+<li><strong>Power.</strong> Typically a few watts for a few seconds – modest energy, but a significant <em>peak</em> draw at a moment when the battery may be cold and partly discharged. Budget it explicitly and consider requiring a state-of-charge threshold before actuation. See <a href="../eps/#power-requirements-and-budgets">EPS</a>.</li>
+<li><strong>Vacuum changes the thermal behavior completely.</strong> With no convection, the heater runs much hotter for the same power, and burn times measured in air are not valid. <strong>Always characterize burn wire release in vacuum.</strong></li>
+<li><strong>Redundancy – be clear which kind you are buying.</strong> Two separate restraint lines improve <em>retention</em>, which is what CubeSat 101 is recommending,<sup id="fnref:cubesat101"><a class="footnote-ref" href="#fn:cubesat101">4</a></sup> but they do not improve <em>release</em>: both must part before the deployable moves, so unless either line alone frees it, doubling the lines makes release less likely rather than more. Release redundancy comes from the drive side – two independent heaters on independent power channels acting on the same line, so that neither a heater failure nor a switch failure prevents actuation. Say in the safety data package which property each pair is there to provide.</li>
+<li><strong>Failure modes</strong>: line not fully severed and snagging; heater open-circuit; line creeping under preload and going slack over months of storage; melted line residue contaminating a nearby optical surface; heater damaging adjacent structure.</li>
+<li><strong>Verification.</strong> Test many times, after vibration, at temperature extremes, in vacuum. This is a cheap mechanism to test to statistical confidence, so do it.</li>
+</ul>
+<p>Off-the-shelf burn-wire modules exist – CubeSource's BurnWing is one – that package the heater, its redundancy and the protection circuitry, so that your qualification effort goes into the restraint and the release geometry rather than the electronics.</p>
+<h3 id="shape-memory-alloy-smabased-hdrm">Shape Memory Alloy (SMA)–Based HDRM<a class="headerlink" href="#shape-memory-alloy-smabased-hdrm" title="Permanent link">&para;</a></h3>
+<p><a href="../../references/glossary/#sma">SMA</a> devices use a nickel-titanium alloy that changes crystal phase when heated, producing a strong, repeatable stroke that can release a pin, a nut or a clamp.</p>
+<ul>
+<li><strong>Advantages</strong>: clean, contained release with no debris; high and repeatable actuation force; many devices are <strong>resettable on the ground</strong>, which transforms your ability to test; and there is no melting line to leave residue.</li>
+<li><strong>Disadvantages</strong>: higher cost than a burn wire, and often – but not always – a larger power draw. NASA's survey lists Ensign-Bickford's TiNi Frangibolt at 7 g and 15 W at 9 V, and their ML50 microlatch at 10 g and 2 W at 7 V in the same table.<sup id="fnref2:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">5</a></sup> Size the budget from the specific device, not from the technology.</li>
+<li><strong>Timing and repeatability</strong> depend on the starting temperature, since the actuator works by reaching a transition temperature. A cold spacecraft takes longer to actuate; make sure your timeout accommodates the cold case.</li>
+<li><strong>Suppliers</strong> in this space include DCUBED (shape-memory release nuts and pin pullers, marketed as resettable), Ensign-Bickford, and others listed in NASA's survey.</li>
+</ul>
+<!-- CSR-RESOURCES:START dev-inhibits-hdrm-release-mechanisms -->
+<ul>
+<li><strong><a href="https://www.dcubed.space/">DCUBED release actuators</a></strong> <code>Link</code> – Shape-memory nano release nuts and pin pullers for CubeSat deployables, advertised as resettable</li>
+<li><strong><a href="https://www.cubesource.space/product-page/burnwing-flight">CubeSource BurnWing</a></strong> <code>Link</code> – Compact burn-wire release module with redundant burn resistors rated for 50+ cycles each, 5 V or 12 V input, ESD, reverse-polarity and over-temperature protection, usable standalone or integrated into a deployable; delivered with an engineering model for testing. Commercial</li>
+<li><strong><a href="https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/">NASA State of the Art – Structures, Materials and Mechanisms</a></strong> <code>Link</code> – Survey chapter covering release mechanisms and actuators, with mass and power figures and a failure-rate discussion</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-inhibits-hdrm-release-mechanisms -->
+
+<h3 id="other-mechanisms">Other mechanisms<a class="headerlink" href="#other-mechanisms" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Pyrotechnic devices</strong> are standard on larger spacecraft but are generally avoided on CubeSats: they introduce an energetic material into your safety data package, produce shock, and are single-use.</li>
+<li><strong>Thermal actuators</strong> – paraffin and fusible-link devices – melt or expand a material to release a preloaded pin. They avoid both the burn wire's tensioned line and the pyrotechnic's shock, at the cost of slower and more temperature-dependent actuation.</li>
+<li><strong>Motor-driven mechanisms</strong> appear occasionally, offering controlled and resettable actuation at the cost of mass and complexity.</li>
+</ul>
+<h3 id="redundancy-and-fault-tolerance">Redundancy and Fault Tolerance<a class="headerlink" href="#redundancy-and-fault-tolerance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Dual actuation paths.</strong> Two heaters, two switches, ideally two power channels. The most common failure in practice is not the mechanism itself but the path that drives it.</li>
+<li><strong>Electrical and mechanical redundancy are different things.</strong> Two heaters on the same line address a heater failure but not a switch failure. Walk the whole chain.</li>
+<li><strong>Verify independence explicitly</strong> – this is exactly what a safety reviewer will ask you to demonstrate, and "they're on separate boards" is not a demonstration.</li>
+<li><strong>Design a degraded mode.</strong> If a solar panel fails to deploy, can the mission continue at reduced power? If an antenna fails to deploy, is the stowed pattern good enough for a beacon? Answering these questions in design is much better than answering them in operations. See <a href="../flight-software/#fault-detection-isolation-and-recovery-fdir">Flight Software – FDIR</a>.</li>
+<li><strong>Retry logic.</strong> Allow multiple actuation attempts with rest intervals – a burn wire that did not part in 4 seconds may part in 8, and a second attempt after the battery has recovered is often successful. Bound the retries so a stuck mechanism cannot drain the battery.</li>
+</ul>
+<h2 id="verification-and-testing">Verification and Testing<a class="headerlink" href="#verification-and-testing" title="Permanent link">&para;</a></h2>
+<p>Verifying inhibits is unusual in that it is mostly about proving a <em>negative</em> – that something cannot happen. Verifying mechanisms is the opposite problem, and the two sit together because the same test campaign has to cover both.</p>
+<ul>
+<li><strong>Continuity and resistance testing.</strong> With the RBF inserted, measure and record open circuit at defined test points. With switches actuated, likewise. Do this at every configuration change and keep the records; this is the evidence your launch provider wants.</li>
+<li><strong>State matrix testing.</strong> Enumerate every combination of RBF in/out and each deployment switch actuated/released, and verify the spacecraft's actual state in each. There are only a handful of combinations and each one should have a documented expected result.</li>
+<li><strong>End-to-end deployment tests</strong> with the flight-like configuration, in vacuum, at temperature extremes, and after vibration.</li>
+<li><strong>Timer verification</strong> through a full ejection simulation: release the switches, then confirm nothing transmits and nothing deploys until the full period has elapsed. Measure with a spectrum analyser rather than trusting the software.</li>
+<li><strong>Test after every change.</strong> Inhibit verification results are only valid for the configuration they were taken in.</li>
+</ul>
+<p>Common mistakes worth avoiding:</p>
+<ul>
+<li>Testing the switch and the timer separately but never together.</li>
+<li>Verifying the inhibit chain with the RBF out and never with it in.</li>
+<li>Using a bench supply that masks the behavior of a discharged battery.</li>
+<li>Deploying in air, in one orientation, once, and calling it verified.</li>
+<li>Forgetting that after a successful deployment test the mechanism is now used – flight mechanisms need a defined number of allowable ground cycles.</li>
+</ul>
+<h2 id="documentation-and-compliance">Documentation and Compliance<a class="headerlink" href="#documentation-and-compliance" title="Permanent link">&para;</a></h2>
+<p>What launch providers typically ask for:</p>
+<ul>
+<li><strong>An inhibit block diagram</strong> showing the power path from every energy source to every hazard, with each inhibit marked and its independence evident at a glance.</li>
+<li><strong>A state table</strong> listing each configuration and the resulting spacecraft state.</li>
+<li><strong>Test evidence</strong>: continuity measurements, deployment test records, RF silence verification, with dates, configurations and signatures.</li>
+<li><strong>Battery documentation</strong> – cell datasheets, pack design, protection circuits, and test results. See <a href="../eps/#safety-and-launch-requirements">EPS – Safety and launch requirements</a>.</li>
+<li><strong>Deployment mechanism description</strong> with actuation method, power, and redundancy.</li>
+<li><strong>A hazard analysis</strong> for anything that drives the inhibit count, since the number of inhibits you owe follows from the severity you claim.</li>
+<li><strong>Photographs</strong> of the as-built hardware, especially the RBF port and deployment switches.</li>
+</ul>
+<p>Common reasons reviews go badly:</p>
+<ul>
+<li><strong>Counting a timer as an inhibit.</strong> Explicitly excluded by the CDS, and reviewers know it.</li>
+<li><strong>Inhibits that are not independent in fact</strong> – a common shared failure point discovered during review.</li>
+<li><strong>Missing or undated test evidence</strong>, or evidence taken on a configuration that has since changed.</li>
+<li><strong>A diagram that does not match the hardware</strong>, which immediately calls the rest of the package into question.</li>
+<li><strong>Designing to the CDS and submitting to a provider whose interface document says something different.</strong> Read theirs first.</li>
+<li><strong>Late submission.</strong> Safety review is on the critical path, and iterations take weeks. Start early.</li>
+</ul>
+<p>The underlying advice is simple: <strong>design the inhibit architecture so that it is easy to explain.</strong> A reviewer who can follow your block diagram in two minutes will approve it. One who cannot will ask questions for a month.</p>
+<hr />
+<p>👉 <strong>Please consider <a href="../../contributing/">contributing</a>!</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:cds-rev14">
+<p>Cal Poly CubeSat Program, <a href="https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf"><em>CubeSat Design Specification Rev. 14.1</em></a> (9 February 2022). Free PDF. Source for every section number quoted on this page: the power-off state and its exceptions (§2.3.1–2.3.3.3), access port and RBF pin requirements (§2.3.4–2.3.5.2), battery circuit protection (§2.3.6), the three-inhibit requirements for RF (§2.3.7) and deployables (§2.3.8) with their notes on what counts as an inhibit (§2.3.7.1–2.3.7.3), the propulsion requirements (§2.1.3, §2.1.4), and the quiet periods (§2.4.4, §2.4.5, §2.4.5.1). The current revision as of this writing; no later revision has been published.&#160;<a class="footnote-backref" href="#fnref:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref5:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref6:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref7:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cds-rev13">
+<p>Cal Poly CubeSat Program, <a href="https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/56e9b62337013b6c063a655a/1458157095454/cds_rev13_final2.pdf"><em>CubeSat Design Specification Rev. 13</em></a>. Free PDF. The source of the widely quoted "two inhibits" figure. §3.3.9 required the CubeSat to meet at least one of §3.3.9.1 (one RF inhibit with RF output no greater than 1.5 W at the transmitting antenna's input) or §3.3.9.2 (two independent RF inhibits), while stating that three independent inhibits was "highly recommended and can reduce required documentation and analysis". Rev. 13 set no inhibit count for deployables; §3.1.5 required at least three for propulsion. §3.3.3 also required the deployment switch to disconnect real time clocks, which Rev. 14.1 relaxed.&#160;<a class="footnote-backref" href="#fnref:cds-rev13" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:cds-rev13" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nrcsd">
+<p>NanoRacks, <a href="https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/Nanoracks-CubeSat-Deployer-NRCSD-IDD.pdf"><em>NanoRacks CubeSat Deployer (NRCSD) Interface Definition Document</em></a>. Free PDF. Cited here as a published example of provider requirements layered on the CDS. Requirement 4.2.1-3 calls for "a minimum of three (3) independent inhibit switches actuated by physical deployment switches", and states that "a control for an inhibit (electrical or software) cannot be counted as an inhibit or power interrupt device". The rationale is given explicitly: three inhibits is "based on the worst-case assumption that the CubeSat contains a potential catastrophic hazard that exists in the event of an inadvertent power-up", and the design "shall incorporate an appropriate number of inhibits dictated by the hazard potential of the payload". Requirement 4.2.1-2 imposes a single minimum 30-minute timer, with appropriate fault tolerance, before operating any system. The three switch-actuated inhibits are required in addition to the RBF pin. Verify the requirement numbering and wording against the revision your mission is actually flown under.&#160;<a class="footnote-backref" href="#fnref:nrcsd" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nrcsd" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:nrcsd" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:nrcsd" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cubesat101">
+<p>NASA CubeSat Launch Initiative, <a href="https://www.nasa.gov/wp-content/uploads/2017/03/nasa_csli_cubesat_101_508.pdf"><em>CubeSat 101: Basic Concepts and Processes for First-Time CubeSat Developers</em></a>. Free PDF. Defines an electrical inhibit as "a physical device that interrupts the 'power path' needed to turn on your CubeSat and/or other potentially hazardous devices", and describes the burn wire constraint method. Its recommendation to "use two separate burn wires" is justified on retention grounds – it "should reduce the likelihood of a deployable coming loose prematurely during testing" – not on release reliability. It does not itself state inhibit counts; for those, the CDS governs.&#160;<a class="footnote-backref" href="#fnref:cubesat101" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:cubesat101" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nasa-soa-structures">
+<p>NASA Small Spacecraft Systems Virtual Institute, <a href="https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/"><em>State of the Art in Small Spacecraft Technology</em>, Chapter 6: Structures, Materials, and Mechanisms</a>. Open access. States that mechanisms "have contributed to over 10% of reported small satellite failures", with design simplicity, margin, supplier selection and testing given as mitigations. Table 6-5 lists representative release actuators, including the Ensign-Bickford TiNi Frangibolt at 0.007 kg and 15 W at 9 VDC and the Ensign-Bickford TiNi ML50 microlatch at 0.010 kg and 2 W at 7 VDC.&#160;<a class="footnote-backref" href="#fnref:nasa-soa-structures" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-soa-structures" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 17:12:37 UTC"><span class="timeago" datetime="2026-09-03T17:12:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 17:12:37 UTC">2026-09-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

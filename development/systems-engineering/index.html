@@ -1,0 +1,3520 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/development/systems-engineering/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../structure/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Systems Engineering - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#systems-engineering" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Systems Engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mission-objectives-and-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission Objectives and Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mission Objectives and Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-objective-to-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From objective to requirement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission success criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-you-do-not-get-to-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements you do not get to write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#science-vs-technology-demonstration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Science vs. technology demonstration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#over-and-under-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Over- and under-specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traceability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traceability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-of-operations-conops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept of Operations (CONOPS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept of Operations (CONOPS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-should-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it should cover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-and-physical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional and physical
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recurring-architectural-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recurring architectural choices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural drivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-and-interface-control-documents-icds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces and Interface Control Documents (ICDs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaces and Interface Control Documents (ICDs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-an-icd-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an ICD covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownership-and-discipline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership and discipline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-interface-failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common interface failure modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgets-and-margins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budgets and Margins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Budgets and Margins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-main-budgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The main budgets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#margin-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Margin philosophy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iterating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-studies-and-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade Studies and Design Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trade Studies and Design Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#doing-one-usefully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doing one usefully
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criteria-worth-including" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteria worth including
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knowing-when-to-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Knowing when to stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-and-risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability and Risk Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reliability and Risk Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-statistics-say" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the statistics say
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-single-points-of-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifying single points of failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mitigations-roughly-in-order-of-value-per-gram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitigations, roughly in order of value per gram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-for-partial-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing for partial failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-risk-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running a risk register
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-change-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration and Change Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration and Change Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practices-proportionate-to-a-cubesat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practices proportionate to a CubeSat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preventing drift
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-and-validation-vv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification and Validation (V&amp;V)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification and Validation (V&amp;V)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-four-verification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The four verification methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking-to-ait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linking to AIT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-is-a-requirement-verified-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When is a requirement verified enough?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mission-phases-and-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission Phases and Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lessons-learned-and-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lessons Learned and Common Pitfalls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lessons Learned and Common Pitfalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typical-failure-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical failure patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineering-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engineering pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizational pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-and-reusing-lessons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capturing and reusing lessons
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inhibits-hdrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mission-objectives-and-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission Objectives and Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mission Objectives and Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#from-objective-to-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From objective to requirement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-success-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission success criteria
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements-you-do-not-get-to-write" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements you do not get to write
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#science-vs-technology-demonstration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Science vs. technology demonstration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#over-and-under-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Over- and under-specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#traceability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Traceability
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#concept-of-operations-conops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concept of Operations (CONOPS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concept of Operations (CONOPS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-it-should-cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it should cover
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#functional-and-physical" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional and physical
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recurring-architectural-choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recurring architectural choices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architectural-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architectural drivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#partitioning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Partitioning
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces-and-interface-control-documents-icds" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interfaces and Interface Control Documents (ICDs)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaces and Interface Control Documents (ICDs)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-an-icd-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What an ICD covers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownership-and-discipline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership and discipline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-interface-failure-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common interface failure modes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budgets-and-margins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budgets and Margins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Budgets and Margins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-main-budgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The main budgets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#margin-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Margin philosophy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iterating
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-studies-and-design-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade Studies and Design Decisions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Trade Studies and Design Decisions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#doing-one-usefully" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doing one usefully
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criteria-worth-including" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteria worth including
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knowing-when-to-stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Knowing when to stop
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reliability-and-risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reliability and Risk Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reliability and Risk Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-the-statistics-say" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What the statistics say
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-single-points-of-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifying single points of failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mitigations-roughly-in-order-of-value-per-gram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mitigations, roughly in order of value per gram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-for-partial-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing for partial failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-a-risk-register" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running a risk register
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-and-change-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration and Change Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration and Change Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-to-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What to control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practices-proportionate-to-a-cubesat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practices proportionate to a CubeSat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-drift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preventing drift
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-and-validation-vv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verification and Validation (V&amp;V)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Verification and Validation (V&amp;V)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-four-verification-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The four verification methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linking-to-ait" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linking to AIT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-is-a-requirement-verified-enough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When is a requirement verified enough?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mission-phases-and-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission Phases and Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lessons-learned-and-common-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lessons Learned and Common Pitfalls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lessons Learned and Common Pitfalls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#typical-failure-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Typical failure patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engineering-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engineering pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#organizational-pitfalls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organizational pitfalls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capturing-and-reusing-lessons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capturing and reusing lessons
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/development/systems-engineering.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="systems-engineering">Systems Engineering<a class="headerlink" href="#systems-engineering" title="Permanent link">&para;</a></h1>
+<p>This page covers requirements, the concept of operations, architecture and interfaces, budgets and margins, trade studies, reliability and risk, configuration management, verification and validation, mission phases, and the pitfalls that recur across CubeSat projects.</p>
+<p>Every CubeSat starts with a sentence – "measure X", "demonstrate Y", "give students flight experience". Systems engineering is the discipline of turning that sentence into something buildable without losing what mattered about it.</p>
+<p>It is what holds the rest of this site together: the requirements that tell each subsystem what it is for, the interfaces where subsystems meet, the budgets that keep the whole thing physically possible, and the evidence that any of it works. On a large program this is a department. On a CubeSat it is usually one person doing it alongside something else, which makes it easy to skip and expensive to have skipped.</p>
+<hr />
+<h2 id="mission-objectives-and-requirements">Mission Objectives and Requirements<a class="headerlink" href="#mission-objectives-and-requirements" title="Permanent link">&para;</a></h2>
+<h3 id="from-objective-to-requirement">From objective to requirement<a class="headerlink" href="#from-objective-to-requirement" title="Permanent link">&para;</a></h3>
+<p>The chain runs: <strong>mission objectives → mission requirements → system requirements → subsystem requirements</strong>. Each level should be traceable up to the one above, so that when a subsystem requirement is challenged you can answer "because the mission needs it", and when a mission objective changes you can find every requirement it touched.</p>
+<p>A workable requirement is:</p>
+<ul>
+<li><strong>Verifiable.</strong> You can state, before you write it, how you will prove it – by test, analysis, inspection or demonstration. "The spacecraft shall be reliable" is not a requirement; "the spacecraft shall survive 8 thermal cycles between −35 °C and +75 °C" is.</li>
+<li><strong>Unambiguous.</strong> One reading only. Avoid "adequate", "sufficient", "as required".</li>
+<li><strong>Necessary.</strong> Traceable to something above it. If nothing above needs it, delete it.</li>
+<li><strong>Achievable.</strong> Within the physics and the budget – and achievability is a claim you should be able to defend with a number rather than an instinct. A 1U with body-mounted cells averages <strong>1–2 W across an orbit</strong>, so a load that needs 8 W is not a requirement a 1U can hold; it is a decision to fly deployables or a bigger bus, and it should be recorded as one. See <a href="../eps/#body-mounted-vs-deployable-arrays">EPS – Body-mounted vs deployable arrays</a>.</li>
+<li><strong>Free of implementation.</strong> A requirement states what, not how. "Shall use a reaction wheel" is a design decision that has been smuggled in as a requirement.</li>
+</ul>
+<p><strong>Shall, should, may.</strong> NASA, ECSS and launch providers all use the same convention, and it is worth adopting even in an informal requirements document. <strong>Shall</strong> is binding and will be verified. <strong>Should</strong> is a goal that is not verified and can be traded away. <strong>May</strong> is permission. Use "shall" only for things you intend to prove, because every "shall" becomes a row in the verification matrix – and a document full of "shall" statements nobody plans to verify teaches the team to stop reading them.</p>
+<h3 id="mission-success-criteria">Mission success criteria<a class="headerlink" href="#mission-success-criteria" title="Permanent link">&para;</a></h3>
+<p>Write down what counts as success, early, and at more than one level:</p>
+<ul>
+<li><strong>Minimum success</strong> – the least outcome that justifies the mission. Often "the spacecraft was commissioned and returned housekeeping telemetry", which for a first flight is a legitimate and honest bar.</li>
+<li><strong>Full success</strong> – the mission objectives met as stated.</li>
+<li><strong>Extended goals</strong> – what you would do with a healthy spacecraft once the primary objectives are complete.</li>
+</ul>
+<p>Two reasons this earns its place. It is what lets a team call a partially working mission a success without dishonesty, and partial is the normal outcome, so it deserves to be planned for rather than argued about afterwards. And it is the yardstick that <a href="#designing-for-partial-failure">designing for partial failure</a> is measured against: you cannot design for graceful degradation without having said which capabilities are worth degrading gracefully.</p>
+<p>Worth knowing that the published statistics use a similarly modest bar – the widely quoted 75% figure <a href="#what-the-statistics-say">below</a> counts a CubeSat as a success if it survived <a href="../../references/glossary/#commissioning">commissioning</a>.</p>
+<h3 id="requirements-you-do-not-get-to-write">Requirements you do not get to write<a class="headerlink" href="#requirements-you-do-not-get-to-write" title="Permanent link">&para;</a></h3>
+<p>Not every requirement comes from your objectives. A substantial fraction is levied from outside, arrives non-negotiable, and lands earlier than teams expect:</p>
+<ul>
+<li><strong>The launch provider.</strong> The <a href="../../references/glossary/#payload-user-guide-pug">payload user guide</a> or deployer manual, and the <a href="../../references/glossary/#icd">ICD</a> you sign against it, govern envelope, mass, center of mass, materials, <a href="../../references/glossary/#inhibit">inhibits</a>, environmental levels and the evidence you must deliver. The <a href="../../references/glossary/#cds">CDS</a> is the common language; the payload user guide is the contract, and where they disagree the payload user guide wins. See <a href="../structure/#the-launch-provider-always-wins">Structure – The launch provider always wins</a>.</li>
+<li><strong>Spectrum and licensing.</strong> <a href="../../references/glossary/#iaru">IARU</a> coordination, an <a href="../../references/glossary/#itu">ITU</a> filing submitted through your national administration, and a transmit license. Lead times run to months and the outcome constrains the <a href="../comms/">comms</a> design from the start. See <a href="../launch/#frequency-licensing">Qualification and Launch – Frequency licensing</a>.</li>
+<li><strong>Debris and disposal.</strong> Orbital lifetime limits, a debris assessment, and <a href="../../references/glossary/#passivation">passivation</a> at end of mission. These bound your orbit choice and can force a deorbit device onto a spacecraft that had not budgeted for one. See <a href="../launch/#space-debris-mitigation">Qualification and Launch – Space debris mitigation</a>.</li>
+<li><strong>Your funder or institution.</strong> Reporting, review gates, export control, and liability or insurance obligations under national space law.</li>
+</ul>
+<p>The practical consequence is that these documents belong in your hands <em>before</em> you baseline requirements. External requirements are the ones most often discovered late, and a requirement discovered at integration costs far more than the same requirement discovered in Phase A.</p>
+<h3 id="science-vs-technology-demonstration">Science vs. technology demonstration<a class="headerlink" href="#science-vs-technology-demonstration" title="Permanent link">&para;</a></h3>
+<p>The distinction shapes everything downstream. A <strong>science mission</strong> has data quality requirements that cascade into pointing, calibration, stability and downlink – and a partial success may be scientifically worthless. A <strong>technology demonstration</strong> aims to raise a <a href="../../references/glossary/#trl">TRL</a>, and a component that fails informatively is still a result. Educational missions add a third dimension: the team's learning is an objective in its own right, which legitimately justifies building things you could have bought.</p>
+<p>Being explicit about which you are doing prevents a lot of misallocated effort. See <a href="../payload/#mission-categories">Payload – Mission categories</a>.</p>
+<h3 id="over-and-under-specification">Over- and under-specification<a class="headerlink" href="#over-and-under-specification" title="Permanent link">&para;</a></h3>
+<p>Both failure modes are common, and both are expensive.</p>
+<p><strong>Over-specification</strong> is the more insidious. A pointing requirement of 0.1° when 1° would do can double the ADCS cost, add mass and power, and introduce a subsystem the team cannot debug. The most valuable question in requirements review is: <em>what actually breaks if this number were three times looser?</em> If the answer is "nothing", loosen it. See <a href="../gnc/#turning-objectives-into-requirements">GNC – Turning objectives into requirements</a> for the classic case.</p>
+<p><strong>Under-specification</strong> leaves gaps that get filled by whoever gets there first. If nobody specifies the thermal environment the payload must survive, the payload team will assume something, the thermal team will assume something else, and the disagreement surfaces in <a href="../ait/">AIT</a>.</p>
+<h3 id="traceability">Traceability<a class="headerlink" href="#traceability" title="Permanent link">&para;</a></h3>
+<p>A <strong><a href="../../references/glossary/#requirements-traceability">requirements traceability</a> matrix</strong> links every requirement to its parent, to the design element that satisfies it, and to the verification activity that proves it. On a CubeSat this need not be elaborate – a spreadsheet is fine – but it needs to exist, because it is what tells you what a late change breaks, and it becomes the backbone of the <a href="#verification-and-validation-vv">V&amp;V</a> program.</p>
+<h2 id="concept-of-operations-conops">Concept of Operations (CONOPS)<a class="headerlink" href="#concept-of-operations-conops" title="Permanent link">&para;</a></h2>
+<p>The <strong><a href="../../references/glossary/#conops">CONOPS</a></strong> is the narrative of how the mission actually works, end to end. It is the most useful document a CubeSat team can write early, and the most commonly skipped.</p>
+<p>Its value is that it forces concrete questions that requirements documents let you avoid: How many passes a day do we get, and how long are they? What does the spacecraft do between them? Who is at the console during LEOP? How does a payload observation get scheduled, executed, downlinked and processed? What happens if the battery is flat on first contact?</p>
+<p>Some of those answers are already fixed by geometry rather than by choice. A single mid-latitude station sees a typical LEO CubeSat for roughly four to six usable passes a day – see <a href="../ground-segment/#the-options">Ground Segment – The options</a> – and that number, not the link rate, is usually what caps the mission.</p>
+<h3 id="what-it-should-cover">What it should cover<a class="headerlink" href="#what-it-should-cover" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Mission phases</strong>: launch, deployment, <a href="../../references/glossary/#leop">LEOP</a>, <a href="../../references/glossary/#commissioning">commissioning</a>, nominal operations, extended mission, disposal – with what happens in each and what "done" looks like.</li>
+<li><strong>A nominal day</strong>, in detail: orbits, eclipse cycles, ground station passes, payload operations, housekeeping. Walking through a single realistic day surfaces more design problems than any other exercise.</li>
+<li><strong>Operational scenarios</strong> for each mission mode, showing how the spacecraft, ground segment and operators interact.</li>
+<li><strong>Off-nominal scenarios</strong>: <a href="../../references/glossary/#safe-mode">safe mode</a> entry and recovery, missed passes, a failed deployment, a subsystem lost. These become the contingency procedures.</li>
+<li><strong>The operations team</strong> – who, how many, when, and with what training.</li>
+</ul>
+<p>The CONOPS also feeds directly into <a href="#verification-and-validation-vv">validation</a>: it defines what the system is <em>for</em>, which is what validation checks. And it is the natural input to <a href="../ait/#mission-simulation">AIT – Mission Simulation</a>, where the day-in-the-life test is essentially the CONOPS executed against real hardware.</p>
+<h2 id="system-architecture">System Architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h2>
+<h3 id="functional-and-physical">Functional and physical<a class="headerlink" href="#functional-and-physical" title="Permanent link">&para;</a></h3>
+<p><strong>Functional architecture</strong> describes what the system must do – generate power, store energy, determine attitude, downlink data – independent of how. <strong>Physical architecture</strong> assigns those functions to hardware. Keeping them separate for a while is a discipline: it prevents the team from converging on a familiar block diagram before understanding what the mission needs, and it makes the <a href="#trade-studies-and-design-decisions">trade studies</a> explicit.</p>
+<h3 id="recurring-architectural-choices">Recurring architectural choices<a class="headerlink" href="#recurring-architectural-choices" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Centralized vs. distributed computing.</strong> See <a href="../obc/#centralized-vs-distributed">OBC – Centralized vs. distributed</a>.</li>
+<li><strong>Buy vs. build, per subsystem.</strong> Most CubeSats are hybrids – a bought structure and EPS with in-house avionics is a common pattern, and a defensible one. See <a href="../gnc/#integrated-adcs-units-buy-or-build">GNC – Integrated ADCS Units</a>.</li>
+<li><strong>Regulated vs. unregulated power distribution.</strong> See <a href="../eps/#bus-architecture">EPS – Bus architecture</a>.</li>
+<li><strong>Passive vs. active attitude control</strong>, which cascades into power, mass and complexity more than almost any other decision. See <a href="../gnc/#passive-stabilization-methods">GNC – Passive Stabilization</a>.</li>
+<li><strong>Form factor.</strong> Chosen late by teams who regret it and early by teams who don't. It follows from payload volume, power need (and therefore panel area) and mass – and it is very hard to change once the structure is procured.</li>
+</ul>
+<h3 id="architectural-drivers">Architectural drivers<a class="headerlink" href="#architectural-drivers" title="Permanent link">&para;</a></h3>
+<p>Some constraints propagate through everything and are worth identifying explicitly and early:</p>
+<ul>
+<li><strong>Orbit</strong> drives illumination, eclipse, thermal cases, radiation, contact opportunities and lifetime.</li>
+<li><strong>Payload</strong> drives pointing, power, data volume and thermal.</li>
+<li><strong>Downlink capacity</strong> caps what the mission can return regardless of what it collects.</li>
+<li><strong>Regulatory and provider constraints</strong> arrive from outside and are not negotiable on your schedule. See <a href="#requirements-you-do-not-get-to-write">Requirements you do not get to write</a>.</li>
+<li><strong>Team size and skills</strong> is an architectural driver that formal methods rarely acknowledge. A four-person team should not architect a system that needs eight people to build.</li>
+</ul>
+<h3 id="partitioning">Partitioning<a class="headerlink" href="#partitioning" title="Permanent link">&para;</a></h3>
+<p>Draw subsystem boundaries where the interfaces are simplest, then assign clear ownership. Every boundary needs a named owner on each side, and every boundary needs an <a href="#interfaces-and-interface-control-documents-icds">ICD</a>. The most common CubeSat architectural failure is not a bad partition but an unowned one – a function that everybody assumed somebody else had.</p>
+<h2 id="interfaces-and-interface-control-documents-icds">Interfaces and Interface Control Documents (ICDs)<a class="headerlink" href="#interfaces-and-interface-control-documents-icds" title="Permanent link">&para;</a></h2>
+<p>Interfaces are where CubeSats fail. Individual subsystems, built by people who understand them, usually work. The problems surface when two of them meet.</p>
+<h3 id="what-an-icd-covers">What an ICD covers<a class="headerlink" href="#what-an-icd-covers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Mechanical</strong>: mounting points, envelope, mass properties, alignment, thermal interface.</li>
+<li><strong>Electrical</strong>: voltages, nominal and peak current, inrush, sequencing, connector and pin-out, grounding.</li>
+<li><strong>Data</strong>: physical bus, protocol, addressing, message formats, timing and rates.</li>
+<li><strong>Functional</strong>: command and telemetry dictionaries, modes, error behavior.</li>
+<li><strong>Environmental</strong>: temperature limits, vibration levels, cleanliness.</li>
+</ul>
+<h3 id="ownership-and-discipline">Ownership and discipline<a class="headerlink" href="#ownership-and-discipline" title="Permanent link">&para;</a></h3>
+<p>An <a href="../../references/glossary/#icd">ICD</a> is a <strong>contract between two owners</strong>, and it works only if both sides are named and both sides agree to changes. Some practices that make the difference:</p>
+<ul>
+<li><strong>One document per interface</strong>, not one giant document. Smaller documents get read.</li>
+<li><strong>Version everything</strong>, and treat a change as a change requiring both parties' agreement – not a silent edit.</li>
+<li><strong>Write ICDs even for internal interfaces.</strong> Two boards built by the same three people still benefit, because the ICD outlives the memory of why something was done.</li>
+<li><strong>Define error behavior explicitly.</strong> What happens if the other side does not respond? Returns garbage? Draws too much current? Undefined error behavior is where interfaces actually break.</li>
+<li><strong>Machine-readable where possible.</strong> A command and telemetry dictionary that generates both flight and ground code eliminates a whole class of desynchronization bugs. See <a href="../flight-software/#documentation-and-maintainability">Flight Software – Documentation</a>.</li>
+</ul>
+<h3 id="common-interface-failure-modes">Common interface failure modes<a class="headerlink" href="#common-interface-failure-modes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>I²C address collisions between COTS boards. See <a href="../obc/#interfaces-and-buses">OBC – Interfaces and Buses</a>.</li>
+<li>Assumed power sequencing that nobody wrote down.</li>
+<li>Endianness and struct-packing mismatches between flight and ground software.</li>
+<li>Mechanical interference discovered at integration because two CAD models were never merged.</li>
+<li>Grounding assumptions that differ between subsystems, producing intermittent faults that only appear in <a href="../../references/glossary/#tvac">TVAC</a>.</li>
+<li>Firmware updated on one side of an interface without the other side being told.</li>
+</ul>
+<h2 id="budgets-and-margins">Budgets and Margins<a class="headerlink" href="#budgets-and-margins" title="Permanent link">&para;</a></h2>
+<p>Budgets are how systems engineering keeps a CubeSat realistic. Each one tracks a finite resource – mass, power, data rate, link margin, thermal capacity – against the demands placed on it by every subsystem. They start as rough allocations at concept stage and tighten as the design matures, real components are selected, and test data replaces datasheet promises.</p>
+<h3 id="the-main-budgets">The main budgets<a class="headerlink" href="#the-main-budgets" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Mass budget</strong>: per-component mass summed against the form-factor allocation. <a href="../../references/glossary/#cds">CDS</a> Rev. 14.1 caps mass at <strong>2 kg per U</strong> – 2.00 kg for a 1U through 24.00 kg for a 12U (§2.2.10, Table 1).<sup id="fnref:cds-rev14"><a class="footnote-ref" href="#fn:cds-rev14">1</a></sup> Older material still quotes Rev. 13's figure of 1.33 kg/U, which was the community norm for years and is still repeated by some deployer documentation.<sup id="fnref:cds-rev13"><a class="footnote-ref" href="#fn:cds-rev13">2</a></sup> Neither is necessarily the number you design to: your launch provider's payload user guide takes precedence over the spec, and is often more restrictive. The mass budget is the simplest to maintain and the one most often neglected until it's too late. See the <a href="../tools/#mass-budget-template">Mass Budget Template</a> under Tools.</li>
+<li><strong>Power budget</strong>: <a href="../../references/glossary/#orbit">orbit</a>-average consumption vs. generation, broken down by mission mode. See <a href="../eps/#power-requirements-and-budgets">EPS – Power Requirements and Budgets</a> for methodology and <a href="../tools/#power-budget-templates">Tools</a> for templates.</li>
+<li><strong><a href="../../references/glossary/#link-budget">Link budget</a></strong>: gain and loss accounting between transmitter and receiver, producing a <a href="../../references/glossary/#link-margin">link margin</a> in dB. See <a href="../comms/#link-budget">Comms – Link Budget</a>.</li>
+<li><strong>Data budget</strong>: data generated per orbit vs. downlink capacity given pass duration, ground station availability, and link rate. Tightly coupled to the link budget – you can't plan your downlink schedule without knowing the link rate, and you can't know the link rate without closing the link budget first.</li>
+<li><strong>Thermal budget</strong>: heat generated by electronics and absorbed from the environment vs. radiated heat at hot and cold cases. See <a href="../thermal/">Thermal</a>.</li>
+<li><strong>Pointing budget</strong>: the error terms between where the payload needs to point and where it actually points – sensor noise, estimation error, control error, mounting and alignment error, thermal distortion – combined into a single number and compared against the requirement. Missions with a pointing requirement should build one, because it is what reveals when the requirement is being set by a 1° misalignment nobody measured rather than by the control loop. See <a href="../gnc/#adcs-integration-considerations">GNC – ADCS Integration Considerations</a>.</li>
+<li><strong>Volume budget</strong>: less rigorous than the others, but useful for tracking how much room is left after structure, harnessing, and mechanical clearances are accounted for. Especially easy to underestimate on dense 1U or 1.5U designs.</li>
+</ul>
+<p>Missions carrying propulsion add a <strong><a href="../../references/glossary/#delta-v">delta-v</a> budget</strong>, allocated across orbit raising, phasing, collision avoidance and controlled deorbit. Most CubeSats have no propulsion and therefore no such budget. See <a href="../propulsion/#delta-v-the-currency">Propulsion – Delta-v: The Currency</a>.</p>
+<h3 id="margin-philosophy">Margin philosophy<a class="headerlink" href="#margin-philosophy" title="Permanent link">&para;</a></h3>
+<p>Margins exist because early estimates are wrong. The shape of a margin plan is always the same – wide early, tight at delivery – but the numbers are program-specific, and, less obviously, <strong>resource-specific</strong>. A single curve applied to everything is the most common way to get this wrong.</p>
+<p>NASA's Goddard sets its required margins per resource rather than as one number. Mass must stay above <strong>15%</strong> before and at the system requirements review, above <strong>10% at <a href="../../references/glossary/#pdr">PDR</a></strong>, above <strong>5% at <a href="../../references/glossary/#cdr">CDR</a></strong> and above 2% at the systems integration review, reaching zero in Phase D. Power, measured against <strong>end-of-life</strong> capacity, must stay above <strong>15% at PDR</strong> and above <strong>10% at CDR</strong>, and above 5% thereafter. Propellant is held to 3σ, and RF link margin above 3 dB, tightening to 1 dB from Phase C.<sup id="fnref:gsfc-1000"><a class="footnote-ref" href="#fn:gsfc-1000">3</a></sup> Mass margin is spent faster than power margin for a good reason: mass converges as parts are weighed, while generation keeps degrading for the whole mission.</p>
+<p>CubeSat practice runs above those figures, and defensibly so. <strong>30% at PDR, 20% at CDR, 10% at flight</strong> is a reasonable curve for a team with a short schedule, little <a href="../../references/glossary/#flight-heritage">flight heritage</a>, and datasheet numbers standing in for test data.<sup id="fnref:nasa-margins"><a class="footnote-ref" href="#fn:nasa-margins">4</a></sup> Treat it as a starting point that your own measurements replace, not as a rule.</p>
+<p>A few principles that age well whichever numbers you start from:</p>
+<ul>
+<li><strong>Hold margin against the right baseline.</strong> Mass margin belongs against your deployer's limit, not the CDS's. Power margin belongs against end-of-life generation, not beginning-of-life – sizing arrays for BOL efficiency is one of the most common ways a CubeSat power budget fails in year two.</li>
+<li><strong>Don't disguise growth as margin use</strong>: if a subsystem grows by 100 g, that's 100 g of growth – not 100 g of margin "spent." Track the two separately so growth trends remain visible. A budget where margin only ever shrinks, and never grows back when a component is swapped for something lighter, is not being managed – it's being consumed.</li>
+<li><strong>Per-subsystem margins are not additive</strong>: 20% margin on every line item is not the same as 20% margin on the total. Decide whether margin lives at the subsystem or system level, and stick to it.</li>
+<li><strong>Reserves are different from margins</strong>: reserves are unallocated budget held by the systems lead for emerging needs. Margins are buffers within an existing allocation. Mixing them up makes both useless – a subsystem that raids system reserve to cover its own growth has broken the accounting.</li>
+</ul>
+<h3 id="iterating">Iterating<a class="headerlink" href="#iterating" title="Permanent link">&para;</a></h3>
+<p>Budgets are living documents. Update them after every major design decision, every test that produces measured numbers, and every time a vendor delivers a component with different specs than the datasheet advertised. A budget that hasn't moved in months is either a finished design or, more often, an abandoned one.</p>
+<p>For ready-to-use templates, see <a href="../tools/#calculators-and-reference-tools">Calculators and Reference Tools</a>.</p>
+<h2 id="trade-studies-and-design-decisions">Trade Studies and Design Decisions<a class="headerlink" href="#trade-studies-and-design-decisions" title="Permanent link">&para;</a></h2>
+<p>A <strong><a href="../../references/glossary/#trade-study">trade study</a></strong> is a structured comparison of options against weighted criteria. Its value is less the numerical answer than the record of <em>why</em> a decision was made – which is what lets a team six months (or three years) later understand a design rather than reverse-engineer it.</p>
+<h3 id="doing-one-usefully">Doing one usefully<a class="headerlink" href="#doing-one-usefully" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>State the question precisely</strong>, including what is fixed and what is open.</li>
+<li><strong>Generate distinct options</strong> – at least three, including "do nothing" or "buy it" where those are options.</li>
+<li><strong>Choose criteria before scoring</strong>, and weight them before you know how the options score. Weighting after the fact is how a trade study becomes a justification.</li>
+<li><strong>Score honestly</strong>, including uncertainty. A criterion where the options differ by 5% with 30% uncertainty is not discriminating.</li>
+<li><strong>Sanity-check the answer.</strong> If it feels wrong, either your intuition or your weighting is wrong, and finding out which is the useful part.</li>
+<li><strong>Record it</strong> – options, criteria, scores, decision, rationale – in a page or two.</li>
+</ol>
+<h3 id="criteria-worth-including">Criteria worth including<a class="headerlink" href="#criteria-worth-including" title="Permanent link">&para;</a></h3>
+<p>Cost, mass, power, volume, performance, risk, <a href="../../references/glossary/#trl">TRL</a> and <a href="../../references/glossary/#flight-heritage">flight heritage</a> are standard. Two that CubeSat teams routinely omit and should not:</p>
+<ul>
+<li><strong>Team capability and effort.</strong> An option requiring skills the team does not have is more expensive than its price suggests.</li>
+<li><strong>Schedule and procurement risk.</strong> A part with a nine-month lead time may be the wrong choice regardless of how well it scores otherwise.</li>
+</ul>
+<h3 id="knowing-when-to-stop">Knowing when to stop<a class="headerlink" href="#knowing-when-to-stop" title="Permanent link">&para;</a></h3>
+<p>Most CubeSat decisions do not deserve a formal trade study. The judgment call is whether the decision is <strong>hard to reverse</strong> (structure, form factor, bus architecture, ADCS approach) or <strong>cheap to change</strong> (a connector, a sensor part number). Spend the effort on the former.</p>
+<p>For the rest, "good enough" is a legitimate engineering conclusion, and an early decision that is 80% right usually beats a perfect decision made three months later – because everything downstream was blocked in the meantime.</p>
+<h2 id="reliability-and-risk-management">Reliability and Risk Management<a class="headerlink" href="#reliability-and-risk-management" title="Permanent link">&para;</a></h2>
+<h3 id="what-the-statistics-say">What the statistics say<a class="headerlink" href="#what-the-statistics-say" title="Permanent link">&para;</a></h3>
+<p>CubeSat reliability is measurable, and the numbers are sobering but improving. A statistical overview of the first thousand CubeSats put the success rate at <strong>about 75%</strong>, excluding launch failures, and found that <strong>around 20% of all failures occurred during launch or the deployment phase</strong>.<sup id="fnref:villela"><a class="footnote-ref" href="#fn:villela">5</a></sup></p>
+<p>The definition behind that 75% is worth knowing, because it is more modest than it sounds: a CubeSat counted as a success if it "survived its early operational stages (deployed and commissioned)" – in the authors' words, if "it did not die as an infant". A spacecraft that failed six months in is inside the 75%. The same paper reports that success rates have risen over time and that its data <em>suggest</em> infant mortality is decreasing, which is a softer claim than the headline number and worth reading as such.</p>
+<p>The pattern behind those figures is consistent with what teams report anecdotally: a large share of CubeSat failures happen very early, and they are dominated not by exotic space effects but by things that could have been caught on the ground – power system faults, software that cannot recover, interfaces that were never tested together, and deployables that did not deploy.</p>
+<h3 id="identifying-single-points-of-failure">Identifying single points of failure<a class="headerlink" href="#identifying-single-points-of-failure" title="Permanent link">&para;</a></h3>
+<p>A <strong><a href="../../references/glossary/#spof">single point of failure</a> (SPOF)</strong> is any element whose failure ends the mission. On a CubeSat there will be many, and the useful exercise is not eliminating them but knowing where they are.</p>
+<p>Walk each subsystem and ask what a total failure does. The mission-ending ones cluster predictably:</p>
+<ul>
+<li>The battery, the EPS, and the power path.</li>
+<li>The OBC, if nothing else can command a recovery.</li>
+<li>The radio, and the antenna deployment that makes it useful.</li>
+<li>The deployment switches and inhibit chain.</li>
+<li>The bus linking OBC to EPS. See <a href="../obc/#the-bus-reliability-problem">OBC – The bus reliability problem</a>.</li>
+</ul>
+<h3 id="mitigations-roughly-in-order-of-value-per-gram">Mitigations, roughly in order of value per gram<a class="headerlink" href="#mitigations-roughly-in-order-of-value-per-gram" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Simplicity.</strong> The most effective reliability measure available. Every removed component and every removed mode is a removed failure mode.</li>
+<li><strong>Test coverage</strong>, especially of fault paths. See <a href="../ait/">AIT</a> and <a href="../flight-software/#software-testing-and-validation">Flight Software – Software Testing</a>.</li>
+<li><strong>Autonomous recovery.</strong> A spacecraft that resets and comes back is far more valuable than one that requires ground intervention it cannot request. See <a href="../flight-software/#fault-detection-isolation-and-recovery-fdir">Flight Software – FDIR</a>.</li>
+<li><strong>Functional redundancy</strong> – another element able to do the job in degraded form.</li>
+<li><strong>Hardware redundancy</strong> – duplication, which costs mass, power and the switching mechanism.</li>
+</ol>
+<p>The CubeSat position is that <strong>redundancy is usually the wrong answer and better testing is usually the right one.</strong> Mass and volume are too scarce for meaningful duplication, and the observed failure modes are largely ones testing would have caught.</p>
+<h3 id="designing-for-partial-failure">Designing for partial failure<a class="headerlink" href="#designing-for-partial-failure" title="Permanent link">&para;</a></h3>
+<p>Ask, for each subsystem, what a <em>degraded</em> mission looks like. A spacecraft that loses one solar panel deployment, one reaction wheel, or its payload but keeps a healthy bus is still returning something. Designing so that failures degrade rather than terminate is cheaper than redundancy and often more effective – and the <a href="#mission-success-criteria">success criteria</a> you wrote at the start are what tell you which degraded outcomes still count.</p>
+<h3 id="running-a-risk-register">Running a risk register<a class="headerlink" href="#running-a-risk-register" title="Permanent link">&para;</a></h3>
+<p>Keep a simple list: the risk, its likelihood, its consequence, the mitigation, and who owns it. Review it at every milestone. The value is not the scoring – CubeSat risk scoring is largely guesswork – but the discipline of periodically asking "what worries us, and what are we doing about it?" A risk that has been on the list unchanged for six months is either not real or not being managed.</p>
+<h2 id="configuration-and-change-management">Configuration and Change Management<a class="headerlink" href="#configuration-and-change-management" title="Permanent link">&para;</a></h2>
+<p>Configuration management answers one question: <strong>what, exactly, is this spacecraft?</strong> It sounds bureaucratic until the first time a test result cannot be interpreted because nobody knows which firmware was loaded.</p>
+<h3 id="what-to-control">What to control<a class="headerlink" href="#what-to-control" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Hardware</strong>: board revisions, serial numbers, which unit is installed where, modification status.</li>
+<li><strong>Software and firmware</strong>: version, build, and which hardware it is running on. Tag what flies.</li>
+<li><strong>Documentation</strong>: requirements, ICDs, procedures, drawings – all versioned.</li>
+<li><strong>Configuration data</strong>: parameter tables, calibration values, thresholds. These change more often than code and are tracked less often.</li>
+</ul>
+<h3 id="practices-proportionate-to-a-cubesat">Practices proportionate to a CubeSat<a class="headerlink" href="#practices-proportionate-to-a-cubesat" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Everything in version control</strong>, including documents, ground scripts and test procedures. A repository is cheaper than a process.</li>
+<li><strong>Baseline at milestones.</strong> Freeze a coherent set at <a href="../../references/glossary/#pdr">PDR</a>, <a href="../../references/glossary/#cdr">CDR</a> and delivery, and record what changed between them.</li>
+<li><strong>An as-built record</strong> for the flight article: what is installed, which revision, what torque, which firmware.</li>
+<li><strong>A change log with rationale.</strong> The <em>why</em> is what future readers need.</li>
+<li><strong>Impact assessment before a change</strong>, using the traceability matrix: what requirements does this touch, and what test evidence does it invalidate?</li>
+</ul>
+<h3 id="preventing-drift">Preventing drift<a class="headerlink" href="#preventing-drift" title="Permanent link">&para;</a></h3>
+<p>Configuration drift is what happens when the <a href="../../references/glossary/#flatsat">flatsat</a>, the flight model and the documentation slowly stop describing the same thing. It is nearly universal on CubeSat projects and it is what makes test results untrustworthy. The countermeasures are unglamorous: periodic audits comparing as-built against as-documented, one person nominally responsible, and a culture where an undocumented change is treated as a defect.</p>
+<h2 id="verification-and-validation-vv">Verification and Validation (V&amp;V)<a class="headerlink" href="#verification-and-validation-vv" title="Permanent link">&para;</a></h2>
+<p>The distinction matters and is easily blurred. NASA's Systems Engineering Handbook puts it cleanly: <strong>verification</strong> demonstrates "proof of compliance with requirements – that the product can meet each 'shall' statement", while <strong>validation</strong> shows "that the product accomplishes the intended purpose in the intended environment" and meets stakeholder expectations, relating back to the <a href="#concept-of-operations-conops">CONOPS</a>.<sup id="fnref:nasa-se-handbook"><a class="footnote-ref" href="#fn:nasa-se-handbook">7</a></sup></p>
+<p>Informally: verification asks <em>did we build the thing right?</em>; validation asks <em>did we build the right thing?</em> A spacecraft can pass every verification and still fail validation, if the requirements were wrong.</p>
+<h3 id="the-four-verification-methods">The four verification methods<a class="headerlink" href="#the-four-verification-methods" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Analysis</strong> – mathematical or simulation-based demonstration. Used where testing is impractical, such as on-orbit thermal behavior or structural margins.</li>
+<li><strong>Demonstration</strong> – show the function operating, without detailed measurement. Appropriate for operational and procedural requirements.</li>
+<li><strong>Inspection</strong> – visual or dimensional examination. Appropriate for mass, dimensions, workmanship, markings.</li>
+<li><strong>Test</strong> – operate the item and measure. The strongest evidence, and the most expensive.</li>
+</ul>
+<p>Assign a method to every requirement <em>when you write it</em>. A requirement whose verification method cannot be identified is a requirement that needs rewriting.</p>
+<h3 id="linking-to-ait">Linking to AIT<a class="headerlink" href="#linking-to-ait" title="Permanent link">&para;</a></h3>
+<p>The verification matrix – requirement, method, activity, evidence, status – is what turns the <a href="../ait/">AIT</a> campaign from a series of tests into a compliance argument. Each test procedure should state which requirements it verifies, and each result should close them out. Done properly, the evidence package assembles itself as a byproduct of doing the work.</p>
+<h3 id="when-is-a-requirement-verified-enough">When is a requirement verified enough?<a class="headerlink" href="#when-is-a-requirement-verified-enough" title="Permanent link">&para;</a></h3>
+<p>The pragmatic answer: when the evidence would convince a competent skeptic who did not build it. A single successful run of a mechanism is not verification; a hundred runs across temperature and after vibration is. Analysis alone is weak where testing was feasible. And <strong>verification evidence is only valid for the configuration it was taken in</strong> – after a change, know what you invalidated.</p>
+<h2 id="mission-phases-and-operations">Mission Phases and Operations<a class="headerlink" href="#mission-phases-and-operations" title="Permanent link">&para;</a></h2>
+<p>Formal programs use a phase structure, and while a CubeSat team need not adopt the full apparatus, the underlying sequence is useful because it tells you what should be settled by when. NASA runs Pre-Phase A through Phase F.<sup id="fnref2:nasa-se-handbook"><a class="footnote-ref" href="#fn:nasa-se-handbook">7</a></sup> ECSS divides the life cycle into seven phases – Phase 0 (mission analysis and needs identification), A (feasibility), B (preliminary definition), C (detailed definition), D (qualification and production), E (utilization) and F (disposal) – which map onto the NASA sequence closely enough that mixed teams rarely have trouble.<sup id="fnref:ecss-m-st-10"><a class="footnote-ref" href="#fn:ecss-m-st-10">8</a></sup></p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Purpose</th>
+<th>CubeSat reality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-Phase A</td>
+<td>Concept studies, feasibility</td>
+<td>"Could we do this?" – often a semester</td>
+</tr>
+<tr>
+<td>Phase A</td>
+<td>Mission architecture, <a href="../../references/glossary/#baseline">baseline</a> requirements</td>
+<td>Requirements, CONOPS, initial budgets</td>
+</tr>
+<tr>
+<td>Phase B</td>
+<td>Preliminary design, technology development</td>
+<td>Ends at <a href="../../references/glossary/#pdr">PDR</a>; 30% margins</td>
+</tr>
+<tr>
+<td>Phase C</td>
+<td>Detailed design, fabrication</td>
+<td>Ends at <a href="../../references/glossary/#cdr">CDR</a>; 20% margins</td>
+</tr>
+<tr>
+<td>Phase D</td>
+<td>Assembly, integration, test, launch</td>
+<td><a href="../ait/">AIT</a>; the phase that always overruns</td>
+</tr>
+<tr>
+<td>Phase E</td>
+<td>Mission operations</td>
+<td><a href="../../references/glossary/#leop">LEOP</a>, commissioning, nominal ops</td>
+</tr>
+<tr>
+<td>Phase F</td>
+<td>Decommissioning and closeout</td>
+<td>Passivation, disposal, data archiving, publication</td>
+</tr>
+</tbody>
+</table>
+<p>Two observations specific to CubeSats. First, <strong>the phases overlap heavily</strong> – a small team cannot serialize design, build and test, and pretending otherwise produces a fictional schedule. Second, <strong>Phase F is routinely forgotten</strong>, and it is where the mission's lasting value is realized: archived data, published results, and lessons written down while the team still exists. See <a href="../launch/#end-of-life">Qualification and Launch – End of Life</a>.</p>
+<p><strong>Reviews</strong> punctuate the phases, and each asks a different question. Few CubeSat teams hold all of them formally; the point is to know which question is going unasked.</p>
+<ul>
+<li><strong><a href="../../references/glossary/#pdr">PDR</a></strong>, ending Phase B – is the design likely to meet the requirements, and are the requirements themselves right? The last cheap moment to change the architecture.</li>
+<li><strong><a href="../../references/glossary/#cdr">CDR</a></strong>, ending Phase C – is the detailed design complete and buildable, and is the verification program defined?</li>
+<li><strong>Test readiness review</strong>, before each major environmental campaign – is the article in the configuration you intend to test, is the procedure written and reviewed, and are the pass/fail criteria agreed before the data exists rather than negotiated afterwards?</li>
+<li><strong>Pre-ship review</strong>, before delivery – is the evidence package the launch provider expects actually complete? See <a href="../ait/#sequencing">AIT – Sequencing</a> and <a href="../launch/#documentation-checklist">Qualification and Launch – Documentation checklist</a>.</li>
+</ul>
+<p>All of them are dramatically more valuable with <strong>external reviewers</strong>. Someone who did not build it will ask the question the team stopped asking a year ago.</p>
+<!-- CSR-RESOURCES:START dev-systems-engineering-standards -->
+<ul>
+<li><strong><a href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf">NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)</a></strong> <code>PDF</code> – Requirements, the four verification methods, validation, and the Pre-Phase A to Phase F life cycle. Written for far larger programs, but the concepts scale down cleanly. Free PDF</li>
+<li><strong><a href="https://ecss.nl/standard/ecss-m-st-10c-rev-1-project-planning-and-implementation/">ECSS-M-ST-10C Rev.1 – Project planning and implementation</a></strong> <code>Link</code> – The European equivalent, and the source of the Phase 0 to Phase F structure. Free, registration required</li>
+<li><strong><a href="https://ecss.nl/wp-content/uploads/2017/02/ECSS-E-ST-10C-Rev.1(15February2017).pdf">ECSS-E-ST-10C Rev.1 – System engineering general requirements</a></strong> <code>PDF</code> – The engineering-branch companion: requirements engineering, analysis, design, verification and system engineering integration and control. Free PDF</li>
+<li><strong><a href="https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf">GSFC-STD-1000 Rev H</a></strong> <code>PDF</code> – Goddard's design rules, including the technical resource margin table that sets separate mass, power, propellant and link margins per phase. Free PDF</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-systems-engineering-standards -->
+
+<h2 id="lessons-learned-and-common-pitfalls">Lessons Learned and Common Pitfalls<a class="headerlink" href="#lessons-learned-and-common-pitfalls" title="Permanent link">&para;</a></h2>
+<h3 id="typical-failure-patterns">Typical failure patterns<a class="headerlink" href="#typical-failure-patterns" title="Permanent link">&para;</a></h3>
+<p>Drawn from the statistics above and from the recurring themes across this site:</p>
+<ul>
+<li><strong>Power system faults and unrecoverable software</strong> account for a large share of early failures. The spacecraft either cannot maintain a positive energy balance or cannot get itself back to a commandable state.</li>
+<li><strong>Failure during launch or deployment</strong> accounts for roughly a fifth of all failures.<sup id="fnref2:villela"><a class="footnote-ref" href="#fn:villela">5</a></sup></li>
+<li><strong>Mechanisms</strong> are disproportionately represented – over 10% of reported small satellite failures, per NASA's survey.<sup id="fnref:nasa-soa-structures"><a class="footnote-ref" href="#fn:nasa-soa-structures">6</a></sup> See <a href="../structure/#deployable-structures-and-mechanisms">Structure – Deployables</a>.</li>
+<li><strong>Bus lockups</strong>, particularly I²C, with documented catastrophic cases. See <a href="../obc/#the-bus-reliability-problem">OBC</a>.</li>
+<li><strong>Never acquiring signal at all</strong>, which is often a ground segment problem rather than a spacecraft one – wrong <a href="../../references/glossary/#tle">TLE</a>, uncorrected uplink Doppler, an untested decoder.</li>
+</ul>
+<h3 id="engineering-pitfalls">Engineering pitfalls<a class="headerlink" href="#engineering-pitfalls" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Power: assuming nominal attitude before the ADCS is proven, sizing arrays for beginning-of-life efficiency, and testing only with a charged battery and a bench supply – the detail is under <a href="../eps/#common-pitfalls">EPS – Common pitfalls</a>.</li>
+<li>Software that can disable its own recovery path.</li>
+<li>Deployables tested once, in air, in one orientation, before vibration.</li>
+<li>Ground segment finished after launch.</li>
+<li>Interfaces verified on paper but never with both subsystems connected.</li>
+</ul>
+<h3 id="organizational-pitfalls">Organizational pitfalls<a class="headerlink" href="#organizational-pitfalls" title="Permanent link">&para;</a></h3>
+<p>These are as damaging as the technical ones and get discussed far less.</p>
+<ul>
+<li><strong>Bus factor.</strong> University teams turn over completely in two to four years, comparable to the development timeline. Undocumented knowledge simply evaporates. Documentation is a reliability measure.</li>
+<li><strong>Unowned interfaces.</strong> Every interface needs a named owner on each side. The gaps between subsystems are where projects fail.</li>
+<li><strong>Optimistic scheduling.</strong> Every CubeSat project takes longer than planned. Build float, especially into <a href="../ait/">AIT</a> and the regulatory path.</li>
+<li><strong>Requirements that were never written down</strong>, so each subsystem designed to a different assumption.</li>
+<li><strong>Scope growth</strong>, particularly the extra payload added because there was room. Each addition costs more than it appears.</li>
+<li><strong>Not capturing anomalies.</strong> The problem nobody wrote down is the one that recurs in orbit with no context.</li>
+</ul>
+<h3 id="capturing-and-reusing-lessons">Capturing and reusing lessons<a class="headerlink" href="#capturing-and-reusing-lessons" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Keep a non-conformance and anomaly log from day one</strong>, and record dispositions.</li>
+<li><strong>Hold retrospectives at milestones</strong>, not only at the end.</li>
+<li><strong>Write and publish a lessons-learned paper.</strong> These are among the most valuable documents in the CubeSat literature and among the rarest, because teams disperse before writing them. The mission examples in <a href="../../references/missions/">CubeSat Missions</a> show what open documentation looks like when teams do follow through.</li>
+<li><strong>Read other people's.</strong> Nearly every failure described on this page has already happened to somebody who wrote about it.</li>
+</ul>
+<hr />
+<p>👉 <strong>Please consider <a href="../../contributing/">contributing</a>!</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:cds-rev14">
+<p>Cal Poly CubeSat Program, <a href="https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/62193b7fc9e72e0053f00910/1645820809779/CDS+REV14_1+2022-02-09.pdf"><em>CubeSat Design Specification Rev. 14.1</em></a> (9 February 2022). Free PDF. Section 2.2.10 and Table 1 set the mass limits: 2.00 kg for a 1U, 3.00 kg for a 1.5U, 4.00 kg for a 2U, 6.00 kg for a 3U, 12.00 kg for a 6U and 24.00 kg for a 12U. Rev. 14 raised the long-standing 1.33 kg/U figure to 2 kg/U and reframed many requirements as guidelines rather than hard constraints. Always confirm the applicable limit with your launch provider; ISS deployers and rideshare providers maintain their own mass budgets and may be more restrictive.&#160;<a class="footnote-backref" href="#fnref:cds-rev14" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cds-rev13">
+<p>Cal Poly CubeSat Program, <a href="https://static1.squarespace.com/static/5418c831e4b0fa4ecac1bacd/t/56e9b62337013b6c063a655a/1458157095454/cds_rev13_final2.pdf"><em>CubeSat Design Specification Rev. 13</em></a>. Free PDF. Section 3.2.10 states that "the maximum mass of a 1U CubeSat shall be 1.33 kg", with §3.2.11 to §3.2.13 setting 2.00 kg, 2.66 kg and 4.00 kg for 1.5U, 2U and 3U respectively. Each carries a note that "larger masses may be evaluated on a mission to mission basis", so even Rev. 13's limits were negotiable with the provider. This was the widely adopted figure for most of the CubeSat community and remains the number many deployers still quote.&#160;<a class="footnote-backref" href="#fnref:cds-rev13" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:gsfc-1000">
+<p>NASA Goddard Space Flight Center, <a href="https://standards.nasa.gov/sites/default/files/standards/GSFC/H/0/GSFC-STD-1000RevH_Approved.pdf"><em>GSFC-STD-1000 Rev H – Rules for the Design, Development, Verification, and Operation of Flight Systems</em></a> (approved 15 March 2023). Free PDF, approved for public release. Rule 1.06 and Table 1.06-1 set required technical resource margins separately for each resource and phase: mass above 15% through the system requirements review, above 10% at PDR, above 5% at CDR and above 2% at the systems integration review, reaching zero from Phase D; power, with respect to end-of-life capacity, above 25%, 20%, 15%, 10% and 5% from Pre-Phase A through Phase D; propellant to 3σ; and RF link margin above 3 dB through Phase B, tightening to above 1 dB from Phase C. Mass margin is defined as (allowable − predicted) / basic × 100, following AIAA S-120A-2015.&#160;<a class="footnote-backref" href="#fnref:gsfc-1000" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nasa-margins">
+<p>The 30/20/10 curve is a CubeSat convention rather than a published requirement. Its closest formal analog is the NASA NTRS paper by David A. Di Pietro, <a href="https://ntrs.nasa.gov/api/citations/20150018331/downloads/20150018331.pdf">"Techniques for Conducting Effective Concept Design and Design-to-Cost Trade Studies"</a> (2015), which describes project managers holding 25% margins for power and dry mass at the start of Phase B, with targets of ≥20% at end of Phase B and ≥15% at end of Phase C. Free PDF. NASA's binding requirements are lower than both and are set per resource rather than as a single curve: GSFC-STD-1000 Rev H requires mass margin above 10% at PDR and above 5% at CDR, and power margin above 15% at PDR and above 10% at CDR. CubeSat teams carry more early margin than any of these to compensate for short schedules, little flight heritage, and datasheet figures standing in for test data.&#160;<a class="footnote-backref" href="#fnref:nasa-margins" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:villela">
+<p>Thyrso Villela et al., <a href="https://onlinelibrary.wiley.com/doi/10.1155/2019/5063145">"Towards the Thousandth CubeSat: A Statistical Overview"</a>, <em>International Journal of Aerospace Engineering</em>, 2019, Article ID 5063145, DOI 10.1155/2019/5063145. Open access. Estimates the CubeSat success rate at about 75% excluding launch failures, where a mission counts as a success if "it survived its early operational stages (deployed and commissioned)" – in the authors' phrasing, if "it did not die as an infant". Finds that around 20% of all failures occur during launch or the deployment phase, reports that overall success rates are increasing over time, and states that its data "suggest that CubeSat infant mortality is decreasing".&#160;<a class="footnote-backref" href="#fnref:villela" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:villela" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nasa-soa-structures">
+<p>NASA Small Spacecraft Systems Virtual Institute, <a href="https://www.nasa.gov/smallsat-institute/sst-soa/structures-materials-and-mechanisms/"><em>State of the Art in Small Spacecraft Technology</em>, Chapter 6: Structures, Materials, and Mechanisms</a>. Open access. States that mechanisms "have contributed to over 10% of reported small satellite failures", with design simplicity, margin, supplier selection and testing given as the mitigations.&#160;<a class="footnote-backref" href="#fnref:nasa-soa-structures" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nasa-se-handbook">
+<p>NASA, <a href="https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf"><em>NASA Systems Engineering Handbook</em>, NASA/SP-2016-6105 Rev 2</a>. Free PDF. The standard reference on the discipline: defines verification as "proof of compliance with requirements – that the product can meet each 'shall' statement" and validation as showing "that the product accomplishes the intended purpose in the intended environment", lists analysis, demonstration, inspection and test as the verification methods, and sets out the Pre-Phase A to Phase F project life cycle. Comprehensive and aimed at much larger programs than a CubeSat, but the concepts scale down cleanly.&#160;<a class="footnote-backref" href="#fnref:nasa-se-handbook" title="Jump back to footnote 7 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-se-handbook" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ecss-m-st-10">
+<p>ECSS, <a href="https://ecss.nl/standard/ecss-m-st-10c-rev-1-project-planning-and-implementation/"><em>ECSS-M-ST-10C Rev.1 – Space project management: Project planning and implementation</em></a> (6 March 2009). Free, registration required. Clause 4.4.1 divides the life cycle of space projects into seven phases: Phase 0 (mission analysis/needs identification), Phase A (feasibility), Phase B (preliminary definition), Phase C (detailed definition), Phase D (qualification and production), Phase E (utilization) and Phase F (disposal).&#160;<a class="footnote-backref" href="#fnref:ecss-m-st-10" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 17:12:37 UTC"><span class="timeago" datetime="2026-09-03T17:12:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 17:12:37 UTC">2026-09-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>

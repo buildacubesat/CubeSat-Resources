@@ -1,0 +1,2700 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/development/ait/">
+      
+      
+        <link rel="prev" href="../inhibits-hdrm/">
+      
+      
+        <link rel="next" href="../launch/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Assembly, Integration, and Testing (AIT) - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#assembly-integration-and-testing-ait" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Assembly, Integration, and Testing (AIT)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../references/" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systems-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flight-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inhibits-hdrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planning-the-ait-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning the AIT Campaign
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning the AIT Campaign">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model philosophy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequencing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ground-support-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ground support equipment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assembly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mechanical-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mechanical Assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-assembly-and-harnessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electrical Assembly and Harnessing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subsystem-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsystem Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatsat-and-integration-test-setups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flatsat and Integration Test Setups
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation and Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulation and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-philosophy-qualification-acceptance-and-protoflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test philosophy: qualification, acceptance and protoflight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environmental-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environmental Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#facilities-and-test-laboratories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facilities and Test Laboratories
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-and-integration-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional and Integration Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-in-the-loop-hil-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware-in-the-Loop (HIL) Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-testing-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Testing and Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-configuration-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Configuration Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../references/websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planning-the-ait-campaign" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning the AIT Campaign
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning the AIT Campaign">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#model-philosophy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Model philosophy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sequencing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ground-support-equipment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ground support equipment
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assembly
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mechanical-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mechanical Assembly
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#electrical-assembly-and-harnessing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Electrical Assembly and Harnessing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subsystem-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsystem Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flatsat-and-integration-test-setups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flatsat and Integration Test Setups
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation-and-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation and Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Simulation and Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-philosophy-qualification-acceptance-and-protoflight" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test philosophy: qualification, acceptance and protoflight
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#environmental-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environmental Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environmental Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#facilities-and-test-laboratories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facilities and Test Laboratories
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functional-and-integration-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functional and Integration Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-in-the-loop-hil-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware-in-the-Loop (HIL) Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#software-testing-and-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Software Testing and Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mission-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mission Simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-and-configuration-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation and Configuration Control
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/development/ait.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="assembly-integration-and-testing-ait">Assembly, Integration, and Testing (AIT)<a class="headerlink" href="#assembly-integration-and-testing-ait" title="Permanent link">&para;</a></h1>
+<p>Assembly, Integration, and Testing (AIT) is the work of turning a set of subsystems into a spacecraft and proving that it meets its mission and launch requirements – mechanical assembly, electrical integration, incremental bring-up, functional verification, simulation and environmental testing.</p>
+<p>AIT is where a design becomes a spacecraft, and where the assumptions made over the preceding two years get tested against reality. It is also, on nearly every CubeSat program, the phase that takes longer than planned – partly because problems surface here that were created much earlier, and partly because teams underestimate how much of AIT is documentation, procedure and rework rather than assembly.</p>
+<h2 id="planning-the-ait-campaign">Planning the AIT Campaign<a class="headerlink" href="#planning-the-ait-campaign" title="Permanent link">&para;</a></h2>
+<h3 id="model-philosophy">Model philosophy<a class="headerlink" href="#model-philosophy" title="Permanent link">&para;</a></h3>
+<p>How many spacecraft you build determines much of what follows:</p>
+<ul>
+<li><strong>Flight model only</strong> – build one, test it as a <a href="../../references/glossary/#protoflight">protoflight</a> article. Cheapest, fastest, and the norm for CubeSats. The tradeoff is that your flight hardware absorbs the fatigue of environmental testing, and there is no spare if something breaks.</li>
+<li><strong>Engineering model + flight model</strong> – a functionally equivalent, non-flight article for development, software work, procedure rehearsal and destructive testing. This is the single best investment a CubeSat team can make if the budget stretches: it means software development is not blocked by hardware availability, and it means every procedure has been rehearsed before it touches flight hardware.</li>
+<li><strong>Structural/thermal model</strong> – a mass-and-geometry representative article for early environmental testing. Sometimes worth it for a first-of-kind structure.</li>
+<li><strong><a href="../../references/glossary/#flatsat">Flatsat</a></strong> – not really a model, but the workhorse. See below.</li>
+</ul>
+<h3 id="sequencing">Sequencing<a class="headerlink" href="#sequencing" title="Permanent link">&para;</a></h3>
+<p>The general principle is <strong>build up incrementally and functionally test at every step</strong>, so that when something breaks you know which step broke it. A representative flow:</p>
+<ol>
+<li>Incoming inspection and standalone functional test of every board.</li>
+<li>Flatsat integration and full system bring-up.</li>
+<li>Software development and testing on the flatsat.</li>
+<li>Mechanical assembly of the flight article.</li>
+<li>Integrated functional test.</li>
+<li>Test Readiness Review.</li>
+<li>Environmental test campaign, with functional tests before and after each exposure.</li>
+<li>Final functional test, mass properties measurement, fit check.</li>
+<li>Pre-ship review against the delivery documentation package.</li>
+<li>Delivery and launch site operations.</li>
+</ol>
+<p><strong>Reserve time.</strong> Every CubeSat program discovers problems during AIT, and the schedule between "hardware complete" and "delivery" is where they must be absorbed. A campaign planned with no float will slip.</p>
+<p><strong>Hold the gates.</strong> Two reviews belong to AIT specifically, and both are worth holding even informally. A <strong>Test Readiness Review</strong> asks whether the article is in the configuration you intend to test, whether the procedure is written and reviewed, whether the facility and fixtures are ready, and whether the pass/fail criteria are agreed <em>before</em> the data exists rather than negotiated afterwards. A <strong>pre-ship review</strong> asks whether the evidence package your launch provider expects is actually complete – see <a href="../launch/#documentation-checklist">Qualification and Launch – Documentation checklist</a>. As with <a href="../../references/glossary/#pdr">PDR</a> and <a href="../../references/glossary/#cdr">CDR</a>, both are far more useful with someone from outside the team in the room. See <a href="../systems-engineering/#mission-phases-and-operations">Systems Engineering – Mission Phases and Operations</a>.</p>
+<h3 id="ground-support-equipment">Ground support equipment<a class="headerlink" href="#ground-support-equipment" title="Permanent link">&para;</a></h3>
+<p>Easy to underestimate, and it needs designing:</p>
+<ul>
+<li><strong><a href="../../references/glossary/#egse">EGSE</a></strong> (electrical GSE) – power supplies, umbilicals, breakout boards, an RF loopback path, a test console, and the software to drive it all. Ideally the same command-and-telemetry software you will use for operations, so that operations software is exercised throughout AIT rather than written at the end.</li>
+<li><strong>MGSE</strong> (mechanical GSE) – handling fixtures, vibration adapters, protective covers for rails and optics, a test pod for fit checks, lifting and rotation aids.</li>
+<li><strong>Simulators</strong> – stand-ins for subsystems not yet available, and for the space environment during <a href="#hardware-in-the-loop-hil-testing">HIL</a> testing.</li>
+</ul>
+<h2 id="assembly">Assembly<a class="headerlink" href="#assembly" title="Permanent link">&para;</a></h2>
+<p>Two rules govern everything below: assume you will take it apart again, and record what you did.</p>
+<h3 id="mechanical-assembly">Mechanical Assembly<a class="headerlink" href="#mechanical-assembly" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Plan the assembly sequence before you start</strong> – ideally during design, as a CAD exercise. The question that catches teams out is not "can this be assembled?" but "can it be <em>dis</em>assembled to reach the board that just failed?" Every CubeSat gets taken apart more times than anyone expects.</li>
+<li><strong>Access planning.</strong> Confirm that the <a href="../../references/glossary/#rbf-pin">RBF pin</a>, charge port, debug connector and any late-access item remain reachable in the fully assembled configuration. See <a href="../structure/#mounting-and-mechanical-interfaces">Structure – Mounting</a>.</li>
+<li><strong>Fastener control.</strong> Use a calibrated torque driver, record the torque applied to every fastener, and use the same values on reassembly. Track which fasteners have been cycled – threads in aluminum do not last forever. See <a href="../structure/#fasteners-and-assembly">Structure – Fasteners and Assembly</a>.</li>
+<li><strong>Handle deployables as the hazard they are.</strong> A stowed antenna or panel under preload can release unexpectedly and injure someone or damage the spacecraft. Use safety restraints during handling, and treat "deployable armed" as a controlled state in the procedure.</li>
+<li><strong>Cleanliness.</strong> Gloves for everything that flies, deburr and clean parts before they enter the integration area, and control foreign object debris – count fasteners in and out. See <a href="../structure/#cleanliness-handling-and-contamination">Structure – Cleanliness</a>.</li>
+<li><strong>Document as you go.</strong> Photograph each stage. Record part serial numbers and where they went. Note anything unexpected, however trivial it seems at the time. When something fails four months later, this record is what lets you work out what changed.</li>
+</ul>
+<h3 id="electrical-assembly-and-harnessing">Electrical Assembly and Harnessing<a class="headerlink" href="#electrical-assembly-and-harnessing" title="Permanent link">&para;</a></h3>
+<p>Harnessing is where a surprising share of CubeSat integration problems originate, and it is the least glamorous work in the program.</p>
+<ul>
+<li><strong>ESD discipline from the moment the first board leaves its bag.</strong> Mat, wrist strap, verified ground, and no exceptions for "just a quick check" – latent ESD damage passes every test you run and then fails in orbit. See <a href="../tools/#esd-control">Tools – ESD control</a>.</li>
+<li><strong>Design the harness, don't grow it.</strong> Produce a wiring diagram and a connector schedule before cutting wire. A harness that accreted during integration is impossible to verify and impossible to rebuild identically.</li>
+<li><strong>Label both ends of every wire and every connector.</strong> Use a scheme that survives handling and thermal cycling.</li>
+<li><strong>Strain relief and routing.</strong> Secure harness at regular intervals, keep service loops at anything that moves, respect minimum bend radii, and keep power and sensitive signal lines apart. Anything crossing a hinge needs particular attention – see <a href="../structure/#deployable-structures-and-mechanisms">Structure – Deployables</a>.</li>
+<li><strong>Connector selection and retention.</strong> Use connectors with positive locking. Vibration undoes friction-fit connectors, and an intermittent connector is among the hardest faults to diagnose.</li>
+<li><strong>Crimp properly.</strong> Use the correct tool for the contact, and inspect crimps – a bad crimp passes a continuity check and fails after vibration.</li>
+<li><strong>Verify before mating.</strong> Continuity and isolation checks on every harness before it is connected to hardware, and a pin-out check against the diagram. A miswired power connector destroys boards.</li>
+<li><strong>Vent trapped volumes</strong> and avoid materials with poor <a href="../../references/glossary/#outgassing">outgassing</a> properties – check tapes, sleeving and cable ties against the NASA database. See <a href="../structure/#materials-and-manufacturing">Structure – Materials</a>.</li>
+</ul>
+<h2 id="integration">Integration<a class="headerlink" href="#integration" title="Permanent link">&para;</a></h2>
+<p>Integration is iterative by nature: add one thing, test, and keep each step small enough that a failure points at a cause.</p>
+<h3 id="subsystem-integration">Subsystem Integration<a class="headerlink" href="#subsystem-integration" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Incoming inspection first.</strong> Every board – bought or built – gets a visual inspection and a standalone functional test before it joins the system. Finding a dead board on arrival is cheap; finding it after integration is not.</li>
+<li><strong>Power-first bring-up.</strong> Bring up the <a href="../eps/">EPS</a> alone, verify every rail and every switched channel with a scope and a dummy load before connecting anything that can be damaged. Verify current limits actually limit.</li>
+<li><strong>Then compute, then one subsystem at a time.</strong> Add the <a href="../obc/">OBC</a>, confirm it boots and communicates, then add subsystems one at a time with a functional test after each. Resist the temptation to connect everything at once – the debugging cost scales badly.</li>
+<li><strong>Watch the shared resources.</strong> Power budget, bus loading, and I²C address allocation are the three that bite. Address collisions between COTS boards that each assumed exclusive use of the bus are a recurring CubeSat problem. See <a href="../obc/#interfaces-and-buses">OBC – Interfaces and Buses</a>.</li>
+<li><strong>Isolate interface issues systematically.</strong> When two subsystems misbehave together but work alone, the fault is in the interface – electrical loading, timing, protocol mismatch, or grounding. Instrument the interface rather than guessing.</li>
+<li><strong>Configuration control from the first integration.</strong> Record which hardware revision, which firmware version and which configuration is installed. A test result is only meaningful if you know what you tested.</li>
+</ul>
+<h3 id="flatsat-and-integration-test-setups">Flatsat and Integration Test Setups<a class="headerlink" href="#flatsat-and-integration-test-setups" title="Permanent link">&para;</a></h3>
+<p>A <strong>flatsat</strong> is the whole avionics set laid out on a bench, wired as flown but fully accessible. It is the most valuable piece of equipment a CubeSat team owns.</p>
+<ul>
+<li><strong>What it enables:</strong> parallel software development, probing every signal, injecting faults, reprogramming without disassembly, and rehearsing procedures – all without touching flight hardware.</li>
+<li><strong>Keep it representative.</strong> A flatsat that has drifted from the flight configuration produces test results that do not transfer. Track its configuration as carefully as the flight article's.</li>
+<li><strong>Flight-spare or engineering-grade?</strong> A flatsat built from engineering-grade parts is cheaper and can be treated roughly; one built from flight spares is more representative and more precious. Many teams end up with both.</li>
+<li><strong>Breakout boards and test harnesses</strong> that expose every bus and rail on accessible headers are worth building properly – they will be used for years.</li>
+<li><strong>Safe testing of flight hardware outside the structure</strong> requires discipline: ESD control, current-limited supplies, and a written setup so it is reproducible.</li>
+<li><strong>Transitioning to the integrated spacecraft</strong> always reveals differences: harness lengths change, grounding changes, thermal behavior changes completely, and RF self-interference appears that a spread-out flatsat never showed. Plan for a debugging period after first integration.</li>
+</ul>
+<h2 id="simulation-and-testing">Simulation and Testing<a class="headerlink" href="#simulation-and-testing" title="Permanent link">&para;</a></h2>
+<p>Testing proves two different things – that the design has margin, and that this particular article was built correctly – and the distinction shapes the whole campaign.</p>
+<h3 id="test-philosophy-qualification-acceptance-and-protoflight">Test philosophy: qualification, acceptance and protoflight<a class="headerlink" href="#test-philosophy-qualification-acceptance-and-protoflight" title="Permanent link">&para;</a></h3>
+<p>Three approaches, distinguished by what they are trying to prove:</p>
+<ul>
+<li><strong><a href="../../references/glossary/#qualification-testing">Qualification testing</a></strong> demonstrates that the <em>design</em> has margin, by testing at levels above the expected environment. ECSS defines it as providing evidence that the item "performs in accordance with its specifications in the intended environments with the specified qualification margins", conducted on a dedicated qualification model.<sup id="fnref2:ecss-testing"><a class="footnote-ref" href="#fn:ecss-testing">1</a></sup> Typical margins: maximum expected random vibration spectrum <strong>+3 dB for 2 minutes</strong> per axis.</li>
+<li><strong><a href="../../references/glossary/#acceptance-testing">Acceptance testing</a></strong> demonstrates that a <em>specific flight article</em> is free of workmanship defects, at expected levels: <strong>+0 dB for 1 minute</strong> per axis.<sup id="fnref3:ecss-testing"><a class="footnote-ref" href="#fn:ecss-testing">1</a></sup></li>
+<li><strong>Protoflight testing</strong> combines the two on a single article – <strong>qualification levels for acceptance durations</strong>. This is what almost every CubeSat does, because building a second complete spacecraft purely to break it is rarely affordable. The tradeoff is that the flight article accumulates fatigue life during testing.</li>
+</ul>
+<h3 id="environmental-testing">Environmental Testing<a class="headerlink" href="#environmental-testing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Vibration</strong> – random vibration is the driving mechanical case. NASA's <a href="../../references/glossary/#gevs">GEVS</a> gives a component qualification level of 14.1 <a href="../../references/glossary/#grms">Grms</a> for 2 minutes per axis, with acceptance 3 dB lower (~10 Grms), and real launcher levels are often gentler still. See <a href="../structure/#structural-analysis-and-fem">Structure – Structural Analysis</a>.</li>
+<li><strong>Notching and force limiting</strong> – a shaker is enormously stiffer than the structure your CubeSat actually flies on, so at the article's resonances a conventional base-drive test develops interface forces that could never occur in flight. NASA's handbook on the subject exists precisely to "alleviate overtesting associated with the unrealistically high base reaction forces that occur at the test item resonances", and the remedy is <strong>notching</strong>: reducing the input acceleration at those frequencies against a force or response limit.<sup id="fnref:force-limiting"><a class="footnote-ref" href="#fn:force-limiting">2</a></sup> Your test house will normally propose a notch. Understand the one you agree to and record its justification, because the error runs both ways – an unnotched test can damage flight hardware, and an over-notched one may not be accepted as qualification evidence. The predicted responses that justify a notch come from your structural model, which is one of the things that model is for.</li>
+<li><strong>Shock</strong> – from stage separation and deployer actuation. Often covered by analysis or similarity at CubeSat scale.</li>
+<li><strong><a href="../../references/glossary/#tvac">Thermal vacuum</a></strong> – the essential test, since removing convection changes thermal behavior fundamentally. See <a href="../thermal/#thermal-testing-and-validation">Thermal – Testing and Validation</a>.</li>
+<li><strong>EMC</strong> – self-compatibility matters more than external compliance on a CubeSat: your switching converters and your receiver are centimeters apart.</li>
+<li><strong>Deployment testing</strong> – every deployable, many times, after vibration, in vacuum, at temperature extremes. See <a href="../inhibits-hdrm/#verification-and-testing">Inhibits and HDRM</a>.</li>
+<li><strong>Residual magnetic dipole</strong> – magnetic cleanliness is a whole-spacecraft property, not a board-level one, so it can only be verified once integrated. If your mission uses magnetorquers or relies on a magnetometer, measure the assembled spacecraft's residual dipole in a Helmholtz cage before delivery, because an unexpected dipole shows up in orbit as an attitude disturbance you cannot remove. See <a href="../gnc/#adcs-integration-considerations">GNC – ADCS Integration Considerations</a>.</li>
+<li><strong>Mass properties and fit check</strong> – measured mass, center of mass, and a physical fit check in a test pod. Providers want measured values rather than CAD estimates: mass on a calibrated balance, and center of mass by a knife-edge or multi-point balance method, repeated about each axis. Locating a center of mass to the millimeter at 1U scale is fiddly, so design the fixture and rehearse the measurement rather than improvising it during delivery week. See <a href="../structure/#mass-properties-and-center-of-mass">Structure – Mass Properties</a>.</li>
+</ul>
+<p><strong>Standards disagree, and knowing that is useful.</strong> A comparison of five widely used standards found thermal-vacuum qualification requirements ranging from 3 to 13 cycles, temperature margins of 5 °C or 10 °C, and dwell times from 1 hour to 24 hours – GSFC-STD-7000 specifying 4 qualification cycles with 10 °C margins and 24-hour dwells, ECSS-E-ST-10-03C 4 cycles with 5 °C margins, and NASA LSP-REQ-317.01 8 cycles with 10 °C margins and 1-hour dwells.<sup id="fnref:ices-tvac"><a class="footnote-ref" href="#fn:ices-tvac">3</a></sup> The authors' conclusion is the right one: <strong>derive a tailored specification from your own mission's analysis rather than applying a generic one</strong>. In practice, though, your launch provider's requirement is the one you must meet.</p>
+<p><strong>Test sequence</strong> follows a "test like you fly" logic: an initial functional test, mechanical environments, thermal environments, electrical/RF, then a final functional test – with reduced functional tests before and after each environmental block and after transportation, so that intermittent failures can be localized to a specific exposure.<sup id="fnref:ecss-testing"><a class="footnote-ref" href="#fn:ecss-testing">1</a></sup></p>
+<!-- CSR-RESOURCES:START dev-ait-testing-standards -->
+<ul>
+<li><strong><a href="https://ecss.nl/wp-content/uploads/2022/05/ECSS-E-ST-10-03-Rev.1(31May2022).pdf">ECSS-E-ST-10-03C Rev.1 – Testing</a></strong> <code>PDF</code> – Freely available ECSS testing standard defining qualification, acceptance and protoflight approaches, test types and test sequence</li>
+<li><strong><a href="https://standards.nasa.gov/standard/gsfc/gsfc-std-7000">NASA GEVS (GSFC-STD-7000)</a></strong> <code>Link</code> – General Environmental Verification Standard, the default environmental envelope for many CubeSat campaigns</li>
+<li><strong><a href="https://experiorlabs.com/wp-content/uploads/2019/10/NASA-HDBK-7004C-Force-Limited-Vibration-Testing.pdf">NASA-HDBK-7004C – Force Limited Vibration Testing</a></strong> <code>PDF</code> – The reference on why unnotched base-drive vibration testing overtests at resonance, and how force limits and notches are derived</li>
+<li><strong><a href="https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf">Method for CubeSat Thermal-Vacuum Cycling Test Specification</a></strong> <code>PDF</code> – ICES 2017 paper comparing thermal-vacuum requirements across five standards and proposing a tailoring method</li>
+<li><strong><a href="https://www.iso.org/standard/86540.html">ISO 19683:2026 – Design qualification and acceptance tests of small spacecraft and units</a></strong> <code>Link</code> – International standard specifically covering small spacecraft qualification and acceptance testing. Paywalled</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-ait-testing-standards -->
+
+<h4 id="facilities-and-test-laboratories">Facilities and Test Laboratories<a class="headerlink" href="#facilities-and-test-laboratories" title="Permanent link">&para;</a></h4>
+<p>Environmental test facilities are expensive, and few CubeSat teams own them. The realistic options are a university lab, a national metrology or space agency facility, a commercial test house, or a program such as ESA's Fly Your Satellite! that provides access as part of its support. Book early – facility lead times are frequently the long pole in a CubeSat schedule.</p>
+<!-- CSR-RESOURCES:START dev-ait-test-facilities -->
+<ul>
+<li><strong><a href="https://www.esa.int/Education/Educational_Satellites/CubeSat_Support_Facility">ESA CubeSat Support Facility</a></strong> <code>Link</code> – ESA AIT training and test facility</li>
+<li><strong><a href="https://www.esa.int/Education/Educational_Satellites/Fly_Your_Satellite!_Test_Opportunities">ESA Fly Your Satellite! Test Opportunities</a></strong> <code>Link</code> – Program offering European university teams access to ESA test facilities</li>
+</ul>
+<!-- CSR-RESOURCES:END dev-ait-test-facilities -->
+
+<p><strong>DIY alternatives</strong> have a role, though not as a substitute for qualification. A shaker table built from a loudspeaker will not reproduce a launch spectrum, but it will find loose fasteners. A vacuum chamber without thermal control still catches <a href="../../references/glossary/#outgassing">outgassing</a> and corona problems. A <a href="../gnc/#testing-and-validation">Helmholtz cage</a> is buildable by a student team. Use DIY testing to find problems early and cheaply, and formal facilities to prove compliance.</p>
+<h3 id="functional-and-integration-testing">Functional and Integration Testing<a class="headerlink" href="#functional-and-integration-testing" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Define what a functional test <em>is</em>, and write it down.</strong> A <strong>full functional test (FFT)</strong> exercises every function and every mode; a <strong>reduced functional test (RFT)</strong> is a shorter check run before and after each environmental exposure. Both should be scripted procedures with recorded pass/fail criteria, not a person prodding at a console.</li>
+<li><strong>Automate them.</strong> A functional test that takes a day by hand will be skipped under schedule pressure; one that runs in twenty minutes from a script will be run every time. This is one of the highest-return investments in a CubeSat program.</li>
+<li><strong>Baseline early and compare.</strong> Keep the results of every functional test. A parameter drifting slowly across a campaign is a warning you can only see if you kept the earlier data.</li>
+<li><strong>Regression testing.</strong> Every hardware or software change invalidates prior results to some degree. Decide deliberately what needs re-running, and record that decision.</li>
+<li><strong>Test at every level</strong> – subsystem alone, flatsat, integrated spacecraft – because each level finds different faults.</li>
+</ul>
+<h3 id="hardware-in-the-loop-hil-testing">Hardware-in-the-Loop (HIL) Testing<a class="headerlink" href="#hardware-in-the-loop-hil-testing" title="Permanent link">&para;</a></h3>
+<p><a href="../../references/glossary/#hil">HIL</a> testing connects real flight hardware to a simulated environment, and is the only practical way to exercise the spacecraft across a realistic mission timeline.</p>
+<ul>
+<li><strong>What gets simulated:</strong> orbit and attitude dynamics, sensor outputs (magnetic field, sun vector, GNSS, star field), actuator responses, illumination and eclipse, ground station visibility.</li>
+<li><strong>What stays real:</strong> the flight computer, the flight software, and as much of the avionics as practical.</li>
+<li><strong>Why it matters:</strong> mode logic, <a href="../../references/glossary/#fdir">FDIR</a> behavior, <a href="../gnc/">ADCS</a> control loops and power management are all <em>sequence-dependent</em> and only reveal their problems over many orbits. No amount of static functional testing substitutes.</li>
+<li><strong>Fault injection</strong> is where HIL earns its keep: simulate a failed sun sensor, a saturated wheel, a dropped bus transaction, a brownout at a specific moment. These are the cases that decide whether the mission survives, and they are the ones that never occur during nominal testing.</li>
+<li><strong>Timing and latency</strong> in the simulation loop must be representative, or the control loops you validate are not the ones you fly.</li>
+</ul>
+<p>Open-source building blocks exist – orbit propagators, <a href="../thermal/#tools">SATMO</a>-style thermal models, and the 42 spacecraft simulator bundled with <a href="../flight-software/#open-source-flight-software-projects">OpenSatKit</a> – so a useful HIL rig is well within reach of a student team.</p>
+<h3 id="software-testing-and-validation">Software Testing and Validation<a class="headerlink" href="#software-testing-and-validation" title="Permanent link">&para;</a></h3>
+<p>Covered in depth under <a href="../flight-software/#software-testing-and-validation">Flight Software – Software Testing and Validation</a>. The AIT-specific points:</p>
+<ul>
+<li><strong>On-target testing</strong> catches what host-based testing cannot: timing, memory limits, compiler behavior, actual driver interaction.</li>
+<li><strong>Watchdog and real-time behavior</strong> must be verified on the flight processor under realistic load, not in a simulator.</li>
+<li><strong>FDIR verification</strong> requires deliberate fault injection at system level, with the real hardware responding.</li>
+<li><strong>Test the software you will fly.</strong> The final environmental campaign should run the flight software build, not a test build with extra logging. If you must change it afterwards, re-run the functional tests.</li>
+</ul>
+<h3 id="mission-simulation">Mission Simulation<a class="headerlink" href="#mission-simulation" title="Permanent link">&para;</a></h3>
+<p>The final rehearsal, and the step most often cut for time.</p>
+<ul>
+<li><strong>Day-in-the-life (<a href="../../references/glossary/#ditl">DITL</a>) testing</strong> runs the spacecraft through a realistic 24-hour timeline – eclipse cycles, pass windows, payload operations, housekeeping – with the real ground segment on the other end. It routinely finds problems that no other test does, because it is the first time everything runs together at realistic timescales.</li>
+<li><strong>End-to-end data flow.</strong> Payload data from acquisition, through storage, downlink, decoding, archiving and analysis, using the flight chain. See <a href="../payload/#testing-and-verification">Payload – Testing and Verification</a>.</li>
+<li><strong>Simulated passes and RF loopback.</strong> Verify the full RF chain with attenuated live signals, including Doppler if your ground software corrects for it. See <a href="../ground-segment/#testing-and-validation">Ground Segment – Testing and Validation</a>.</li>
+<li><strong>Contingency rehearsals.</strong> Practice the procedures you hope not to need: recovery from safe mode, a software update, a failed deployment. Operators should have executed each at least once before launch.</li>
+<li><strong>Train the operators.</strong> The people on console during <a href="../../references/glossary/#leop">LEOP</a> should have run the mission simulation. Commissioning is a bad time to read a procedure for the first time.</li>
+</ul>
+<h2 id="documentation-and-configuration-control">Documentation and Configuration Control<a class="headerlink" href="#documentation-and-configuration-control" title="Permanent link">&para;</a></h2>
+<p>AIT generates the evidence that the spacecraft is what you claim it is, and that evidence is what your launch provider reviews.</p>
+<ul>
+<li><strong>Written, versioned procedures</strong> for every assembly and test operation, with steps, expected results and space to record actuals. Two people: one performing, one recording.</li>
+<li><strong>A <a href="../../references/glossary/#baseline">baseline</a> and as-built configuration record</strong> – hardware revisions, serial numbers, firmware versions, torque values, harness build standard.</li>
+<li><strong>A non-conformance log.</strong> Every anomaly, however minor, gets recorded with its investigation and disposition. The anomaly nobody wrote down is the one that recurs in orbit with no context.</li>
+<li><strong>Test reports</strong> with dates, configuration, setup description, raw data and conclusions.</li>
+<li><strong>Photographs</strong> at every stage, especially of things about to become inaccessible.</li>
+</ul>
+<p>Two habits worth building early: <strong>the test evidence package should assemble itself</strong> as a byproduct of doing the work properly, rather than being reconstructed in a panic before delivery; and <strong>a test result is only valid for the configuration it was taken in</strong> – after any change, know what you invalidated.</p>
+<hr />
+<p>👉 <strong>Please consider <a href="../../contributing/">contributing</a>!</strong></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:ecss-testing">
+<p>European Cooperation for Space Standardization, <a href="https://ecss.nl/wp-content/uploads/2022/05/ECSS-E-ST-10-03-Rev.1(31May2022).pdf"><em>ECSS-E-ST-10-03C Rev.1 – Space engineering: Testing</em></a>, 31 May 2022. Freely downloadable. Defines qualification, acceptance and protoflight testing approaches, the associated margins (random vibration at maximum expected spectrum +3 dB for 2 minutes for qualification, +0 dB for 1 minute for acceptance), the full catalog of environmental test types, and the "test like you fly" test sequence with reduced functional tests bracketing each environmental block.&#160;<a class="footnote-backref" href="#fnref:ecss-testing" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:ecss-testing" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:ecss-testing" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:force-limiting">
+<p>NASA, <a href="https://experiorlabs.com/wp-content/uploads/2019/10/NASA-HDBK-7004C-Force-Limited-Vibration-Testing.pdf"><em>Force Limited Vibration Testing</em>, NASA-HDBK-7004C</a>, revision C, approved 30 November 2012 (linked copy is a mirror; the canonical home is the NASA Technical Standards System). Free PDF. States that force limiting exists to "alleviate overtesting associated with the unrealistically high base reaction forces that occur at the test item resonances in conventional base-drive vibration tests", and that "at the test item resonance frequencies, the force limit usually results in a reduction of the input acceleration (notching)". Explains the impedance mismatch between a shaker and real flight mounting structure that causes the problem.&#160;<a class="footnote-backref" href="#fnref:force-limiting" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ices-tvac">
+<p>Roy Stevenson Soler Chisabas et al., <a href="https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf">"Method for CubeSat Thermal-Vacuum Cycling Test Specification"</a>, <em>47th International Conference on Environmental Systems</em>, ICES-2017-102, Charleston SC, July 2017. Free PDF. Compares thermal-vacuum cycling requirements across GSFC-STD-7000, MIL-HDBK-340A, ECSS-E-ST-10-03C, TR-2004(8583)-1 Rev.A and NASA LSP-REQ-317.01, finding qualification cycle counts from 3 to 13, margins of 5–10 °C and dwell times from 1 to 24 hours, and argues for deriving a tailored specification from mission analysis rather than applying a generic standard.&#160;<a class="footnote-backref" href="#fnref:ices-tvac" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 3, 2026 17:12:37 UTC"><span class="timeago" datetime="2026-09-03T17:12:37+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 3, 2026 17:12:37 UTC">2026-09-03</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>
