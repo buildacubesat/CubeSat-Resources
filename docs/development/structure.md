@@ -49,7 +49,7 @@ Practical consequence: **pick your deployer family before you finalise the exter
 
 ### Buy or build
 
-Most teams should buy. A commercial frame is a solved problem with [flight heritage](../references/glossary.md#flight-heritage), correct rail geometry and anodising already applied, and it removes an entire category of fit-check risk for a cost that is small next to a launch slot. EnduroSat, for instance, advertises "590 + CubeSat structures in orbit" across its product line.
+Most teams should buy. A commercial frame is a solved problem with [flight heritage](../references/glossary.md#flight-heritage), correct rail geometry and anodising already applied, and it removes an entire category of fit-check risk for a cost that is small next to a launch slot. EnduroSat, for instance, advertises "590+ CubeSat structures in orbit" across its product line.
 
 Building in-house makes sense when the payload drives an unusual internal layout, when machining capacity is free (a university shop), or when the learning *is* the mission. It is a reasonable first project: a 1U frame is well within the reach of a competent 3-axis mill, and the tolerances that matter are few and clearly specified.
 
