@@ -80,7 +80,7 @@ Updating software in orbit is possible, valuable, and genuinely dangerous.
 
 ### Brownouts and partial failures
 
-A brownout – supply sagging below the operating threshold but not to zero – is more dangerous than a clean power cycle, because the processor may execute unpredictably on the way down. Assume any non-volatile write can be interrupted: use atomic update patterns (write, verify, then update a pointer), keep redundant copies of critical configuration, and never leave a single half-written record able to prevent boot. See [OBC – Boot, Power, and Reset Management](obc.md#boot-power-and-reset-management).
+A brownout is more dangerous than a clean power cycle because the processor may execute unpredictably on the way down – [OBC – Brownout and reset behaviour](obc.md#brownout-and-reset-behaviour) covers the hardware side. For software the rule is to assume any non-volatile write can be interrupted: use atomic update patterns (write, verify, then update a pointer), keep redundant copies of critical configuration, and never leave a single half-written record able to prevent boot. See [OBC – Boot, Power, and Reset Management](obc.md#boot-power-and-reset-management).
 
 ### Storage and filesystems
 
@@ -115,7 +115,7 @@ Design principles worth adopting early:
 
 - **Downlink budget is the constraint.** At 9600 bps over four 8-minute passes you have on the order of 2.3 MB per day *before* protocol overhead and retries. See [Comms – Expected Data Rates](comms.md#expected-data-rates).
 - **Store far more than you send.** Log at high rate onboard, downlink summaries routinely, and dump full-rate data only when investigating.
-- **Beacon something useful.** A short periodic beacon with the most important values gives you and the [SatNOGS](../references/glossary.md#satnogs) community a health picture even when you have no pass. Many missions have been diagnosed entirely from beacons received by strangers.
+- **Beacon something useful.** A short periodic beacon with the most important values gives you and the [SatNOGS](../references/glossary.md#satnogs) community a health picture even when you have no pass.
 - **Never let telemetry storage fill up and block.** Define ring-buffer behaviour explicitly.
 
 ### Inter-Subsystem Communication Protocols
@@ -226,10 +226,10 @@ Assume every sensor will eventually give bad data, every actuator will eventuall
 ## Timing, Scheduling, and Timekeeping
 
 - **Task scheduling.** Assign priorities deliberately: control loops highest, housekeeping middling, payload processing lowest. Size stacks with margin and measure high-water marks – stack overflow in an RTOS produces corruption that looks like anything but a stack overflow.
-- **Time sources.** An RTC with a temperature-compensated crystal as the baseline, [GNSS](../references/glossary.md#gnss) for absolute accuracy when available, ground uplink as a correction path. See [OBC – Timing and Timekeeping](obc.md#timing-and-timekeeping).
+- **Time sources, drift and RTC backup** are hardware questions, covered under [OBC – Timing and Timekeeping](obc.md#timing-and-timekeeping); the software has to cope with whatever they deliver.
 - **Timestamp everything**, and carry both wall-clock time and a monotonic uptime/boot counter. Wall-clock time can be wrong or lost after a reset; the monotonic counter always lets you order events.
 - **Handle time discontinuities explicitly.** When the clock is corrected, time can jump backwards. Any code computing elapsed time by subtracting timestamps needs to cope with that, or it will occasionally compute a negative interval and behave bizarrely.
-- **Clock drift** of 20 ppm accumulates roughly 1.7 seconds per day, which is enough to degrade attitude determination and to make pass prediction and Doppler correction unreliable.
+- **Correct for drift in software** from the temperature characterisation the OBC page describes, because even a compensated crystal drifts enough over a day to degrade attitude determination and Doppler correction if left alone.
 
 ## Software Testing and Validation
 
@@ -270,7 +270,7 @@ See also: [Assembly, Integration and Testing (AIT)](ait.md).
 
 ## Documentation and Maintainability
 
-CubeSat teams – especially university ones – turn over completely every two to four years, which is comparable to the development timeline. **Bus factor is a design constraint, not a soft concern.**
+University teams turn over on the same timescale as a CubeSat project – see [Systems Engineering – Organisational pitfalls](systems-engineering.md#organisational-pitfalls) – so **bus factor is a design constraint, not a soft concern.**
 
 - **Document interfaces, not implementations.** [ICDs](../references/glossary.md#icd) between subsystems, telemetry and command dictionaries, and the mode state machine are the artefacts that outlive their authors. Code comments explaining *why* age far better than ones explaining *what*.
 - **Keep a machine-readable command and telemetry dictionary** – a single source of truth generating both flight and ground code. This eliminates an entire class of desynchronisation bugs and makes ground tooling nearly free.
