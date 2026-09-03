@@ -90,7 +90,7 @@ A conventional UHF downlink, to show the shape of the arithmetic:
 
 Two things to take from it. First, free-space path loss dominates everything else, and it grows as the square of both range and frequency – moving the same link to 2.25 GHz costs another 14 dB before anything else changes. Second, the comfortable-looking margin evaporates at the horizon: at 2000 km slant range you lose 6 dB of it, plus more to atmospheric loss at low elevation. Recompute at your worst-case geometry, not at zenith.
 
-Note that the above budget is illustrative and computed from the stated assumptions rather than taken from a flown mission. The required Eb/N0 figure is the textbook uncoded value; real receivers have implementation loss, and coding gain moves it the other way. Use the Jan King spreadsheet for actual numbers
+Note that the above budget is illustrative and computed from the stated assumptions rather than taken from a flown mission. The required Eb/N0 figure is the textbook uncoded value; real receivers have implementation loss, and coding gain moves it the other way. Use the Jan King spreadsheet for actual numbers.
 
 <!-- CSR-RESOURCES:START dev-comms-link-budget -->
 - **[Jan King Link Budget Calculators](https://iaru.amsat-uk.org/spreadsheet.htm)** `Link` – The standard amateur satellite link budget spreadsheets, and the best starting point for a first calculation
@@ -154,7 +154,7 @@ Two design points that recur. A tumbling spacecraft has no fixed antenna orienta
 Higher bands change the picture: patch antennas at S-band and reflectarrays at X- and Ka-band offer real gain, and immediately impose a pointing requirement on [GNC](gnc.md).
 
 <!-- CSR-RESOURCES:START dev-comms-antenna-design -->
-- **[Antennas for CubeSat Communication (PhD thesis by Miroslav Veljovic)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – PhD thesis on CubeSat antenna designs
+- **[Antennas for CubeSat Communication (Miroslav Veljovic, EPFL doctoral thesis, 2020)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – Book-length treatment of CubeSat antenna design and the integration constraints that shape it; thesis no. 7489, DOI 10.5075/epfl-thesis-7489. Open access
 - **[S-Band RHCP Patch Antenna – GitHub repository](https://github.com/ICDT-Inatel-Cubesat-Design-Team/S-Band-Antenna)** `Link` – Open-source S-band patch antenna repository
 <!-- CSR-RESOURCES:END dev-comms-antenna-design -->
 
