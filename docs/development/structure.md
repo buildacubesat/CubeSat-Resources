@@ -236,7 +236,6 @@ The mechanism itself is covered in depth under [Inhibits and HDRM](inhibits-hdrm
 - **[DCUBED release actuators](https://www.dcubed.space/)** `Link` – Shape-memory-based nano release nuts and pin pullers for CubeSat deployables
 - **[Oxford Space Systems AstroTube](https://oxford.space/)** `Link` – Deployable boom reaching TRL 9, validated on orbit in November 2016 on the AlSat-Nano 3U mission; AstroTube scales 0.3–3 m and AstroTube Max 0.5–15 m
 <!-- CSR-RESOURCES:END dev-structure-deployment-mechanisms -->
-<!-- NEEDS HUMAN VERIFICATION: DCUBED's site is confirmed live but publishes no mass, power or preload figures publicly, so the entry is descriptive only. -->
 
 NASA's survey additionally lists Beyond Gravity, Comat, DHV Technology, Ensign-Bickford, Sierra Space and Revolv Space as mechanism suppliers, and Composite Technology Development and Redwire as boom suppliers.[^nasa-soa-structures]
 
