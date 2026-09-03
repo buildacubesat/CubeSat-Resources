@@ -59,7 +59,7 @@ Concrete numbers help. AZUR SPACE's widely flown **3G30-Advanced** cell is speci
 Two properties matter as much as efficiency:
 
 - **Temperature coefficients.** Cell voltage falls as the cell heats up. The 3G30-Advanced loses **6.2 mV/°C on Voc** and **6.7 mV/°C on Vmp**, while current rises very slightly.[^azur-3g30] A panel in full sun can easily sit 40–60 °C above its cold-case temperature, so the operating voltage on a hot sunlit pass is materially lower than the datasheet's 28 °C figure. Size your string voltage for the hot case.
-- **Radiation degradation.** The same cell drops to roughly **18.6% efficiency at 1 × 10¹⁶ e/cm² of 1 MeV electron fluence**.[^azur-3g30] Real [LEO](../references/glossary.md#leo) missions see far less than that, but the principle stands: size the array for **[end of life](../references/glossary.md#bol-eol), not beginning of life**. See [Power Requirements and Budgets](#power-requirements-and-budgets) for planning figures.
+- **Radiation degradation.** The same cell drops to roughly **18.6% efficiency at 1 × 10¹⁶ e/cm² of 1 MeV electron fluence**.[^azur-3g30] Actual [LEO](../references/glossary.md#leo) missions see far less than that, but the principle stands: size the array for **[end of life](../references/glossary.md#bol-eol), not beginning of life**. See [Power Requirements and Budgets](#power-requirements-and-budgets) for planning figures.
 
 Emerging options – perovskites (26.7% single-junction in the lab, tandem silicon-perovskite approaching 35%), flexible CIGS thin film (23.64% in the lab) and organic PV (~20%) – are worth watching but are not yet flight baselines for a mission you need to fly.[^nasa-soa-power]
 
@@ -69,7 +69,7 @@ Emerging options – perovskites (26.7% single-junction in the lab, tandem silic
 - **Deployable** arrays fold panels against the body for launch and swing them out on orbit, multiplying collecting area severalfold. Specific power runs **31–140 W/kg**, with flexible roll-out systems such as Redwire's ROSA reaching ~100 W/kg at much larger scale.[^nasa-soa-power] The cost is a hinge, a release mechanism, a stowed-volume allocation and a new single-point failure. See [Structure – Deployable Structures and Mechanisms](structure.md#deployable-structures-and-mechanisms).
 - **Sun-tracking** arrays add a drive mechanism to keep panels normal to the Sun. Rare below 6U – the mass, power and complexity rarely pay back at CubeSat scale.
 
-A useful sanity check before committing: at normal incidence a single 1U panel produces around 2.4 W, so a 1U with body-mounted 30% cells realistically averages **1–2 W across an orbit** once eclipse and incidence angle are accounted for. Two to three watts is achievable only with a genuinely favourable and stable attitude, and a tumbling spacecraft will do considerably worse than 1 W. If your [power budget](#power-requirements-and-budgets) needs 8 W, no amount of MPPT tuning will save it – you need deployables or a bigger bus.
+A useful sanity check before committing: at normal incidence a single 1U panel produces around 2.4 W, so a 1U with body-mounted 30% cells realistically averages **1–2 W across an orbit** once eclipse and incidence angle are accounted for. Two to three watts is achievable only with a favourable and stable attitude, and a tumbling spacecraft will do considerably worse than 1 W. If your [power budget](#power-requirements-and-budgets) needs 8 W, no amount of MPPT tuning will save it – you need deployables or a bigger bus.
 
 ### Illumination, eclipse and incidence angle
 
@@ -131,7 +131,7 @@ Lithium cells have asymmetric temperature limits, and the charge limit is the ti
 The consequences are structural:
 
 - **Charging a lithium cell below 0 °C plates metallic lithium on the anode.** This is permanent, cumulative, and eventually causes an internal short. It is not a performance derate; it is damage.
-- Therefore almost every CubeSat needs **battery heaters** with an interlock that inhibits charging until the pack is above its minimum charge temperature. This is one of the few places where a hardware interlock rather than a software check is genuinely justified.
+- Therefore almost every CubeSat needs **battery heaters** with an interlock that inhibits charging until the pack is above its minimum charge temperature. This is one of the few places where a hardware interlock rather than a software check is justified.
 - Heaters draw power at exactly the moment power is scarcest – cold means eclipse. Budget for it explicitly in the coldest case. See [Thermal](thermal.md#thermal-interaction-with-other-subsystems).
 - Place the battery centrally where thermal swings are smallest, and couple it deliberately rather than by accident. See [Structure – Mounting](structure.md#mounting-and-mechanical-interfaces).
 
@@ -213,7 +213,7 @@ MPPT typically buys 10–30% more energy than a naive fixed operating point, wit
 The most dangerous moment in a CubeSat's electrical life is the first power-up in orbit, on a cold, deeply discharged battery, while tumbling.
 
 - **Cold-start from a dead battery** must work with only solar input and no help from the ground. Verify it on the bench with a solar array simulator and an actually-flat pack, not a charged one.
-- **Brownout loops** are a classic CubeSat killer: the bus comes up, the OBC boots, the boot sequence draws more than the array can supply, the bus collapses, and the cycle repeats indefinitely. Defend against it by sequencing loads, keeping the minimum boot configuration genuinely minimal, and requiring a charge threshold before non-essential loads are enabled.
+- **Brownout loops** are a classic CubeSat killer: the bus comes up, the OBC boots, the boot sequence draws more than the array can supply, the bus collapses, and the cycle repeats indefinitely. Defend against it by sequencing loads, keeping the minimum boot configuration minimal in fact, and requiring a charge threshold before non-essential loads are enabled.
 - **Inrush current** at switch-on – capacitor charging, motor stall currents – can trip protection or collapse the bus. Soft-start on every switched load. See [Power Switching and Protection](#power-switching-and-protection).
 - Give the EPS the authority to hold the OBC off until conditions are safe, and make that behaviour independent of the OBC's own software.
 
@@ -243,7 +243,7 @@ Every switched load needs to be independently controllable and independently pro
 
 - **Load switches** – integrated high-side switches with built-in current limiting, soft-start and fault reporting are widely available and worth using over a discrete MOSFET plus gate drive. The fault flag is the valuable part: it tells you *which* load misbehaved.
 - **Latching current limiters ([LCLs](../references/glossary.md#lcl))** are the standard spacecraft pattern: the channel limits current for a defined period, then latches off and stays off until commanded to reset. This contains a fault without the mission-ending permanence of a fuse.
-- **Fuses** are simple and absolutely reliable, and they are one-shot. Use them where a fault should genuinely end that function's life – battery pack protection, for instance – and not where a transient overcurrent is plausible.
+- **Fuses** are simple and absolutely reliable, and they are one-shot. Use them where a fault should end that function's life – battery pack protection, for instance – and not where a transient overcurrent is plausible.
 - **Polyfuses (PPTC)** self-reset, but their trip characteristics vary strongly with temperature, which is awkward across a −40 to +80 °C range. Know the derating before relying on one.
 - **Inrush management** – soft-start ramps, series resistance during startup, or staged enabling. A large bulk capacitor on a payload looks like a dead short at the instant of switch-on.
 - **Latch-up protection.** [Single-event latch-up](../references/glossary.md#sel) in a CMOS device creates a low-impedance path that will destroy the part unless power is removed. A current limiter that trips and power-cycles the affected channel is the standard mitigation, and it is a strong argument for putting each susceptible device on its own switched channel. See [OBC – Redundancy and Fault Tolerance](obc.md#redundancy-and-fault-tolerance).
@@ -280,7 +280,7 @@ Power telemetry is the highest-value housekeeping data on a CubeSat. It is often
 - **Trending is the point.** A single battery voltage reading tells you very little; the same reading over 200 orbits tells you about capacity fade, illumination changes and load growth.
 - **Charge accounting (coulomb counting)** – integrating battery current over an orbit – gives a far better state-of-charge estimate than voltage alone, particularly for LFP chemistries with flat discharge curves.
 - **Power signatures identify behaviour.** Each subsystem draws a characteristic current profile; a deviation is often the first symptom of a fault, and sometimes the only one.
-- Build a ground-side dashboard early. The [SatNOGS dashboards](../references/missions.md#satnogs-dashboard) collection shows what real missions publish and is a good source of ideas for what to plot.
+- Build a ground-side dashboard early. The [SatNOGS dashboards](../references/missions.md#satnogs-dashboard) collection shows what flown missions publish and is a good source of ideas for what to plot.
 
 ## EPS Integration Considerations
 
@@ -297,7 +297,7 @@ Buying an EPS is the default for good reason: it is a dense, safety-critical, ha
 
 AAC Clyde Space describes the STARBUCK-Nano lineage as the most-flown CubeSat EPS, with heritage back to 2014; it is a reasonable reference point for what a commercial board provides – MPPT charging, 3.3 V, 5 V and 12 V regulated buses, ten configurable [latching current limiters](../references/glossary.md#lcl), and a mass of 86 g for the base variant.
 
-Open-source options are genuinely usable and worth studying even if you buy:
+Open-source options are usable and worth studying even if you buy:
 
 <!-- CSR-RESOURCES:START dev-eps-open-source-eps -->
 - **[PyCubed](https://github.com/pycubed)** `Link` – Open-source PC/104-compatible board integrating power, computing, radio and ADCS, programmable in CircuitPython
@@ -347,10 +347,10 @@ The PyCubed paper is a useful read for the radiation question specifically: the 
 
 [^nasa-soa-power]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 3: Power](https://www.nasa.gov/smallsat-institute/sst-soa/power/) (revision dated May 2026). Open access. Source for multi-junction cell efficiencies (30% nominal, 34% high), specific power figures for body-mounted (36–76 W/kg) and deployable (31–140 W/kg) arrays, and Li-ion energy density ranges (150–270 Wh/kg commercial).
 
-[^azur-3g30]: AZUR SPACE Solar Power GmbH, [*30% Triple-Junction GaAs Solar Cell Assembly, Type: TJ Solar Cell Assembly 3G30A*](https://www.azurspace.com/media/uploads/file_links/file/bdb_00010891-01-00_tj3g30-advanced_4x8.pdf) datasheet. Free PDF. Gives 29.5% BOL efficiency, full IV parameters, temperature coefficients and radiation degradation data against 1 MeV electron fluence. A good example of the level of detail a real space cell datasheet provides.
+[^azur-3g30]: AZUR SPACE Solar Power GmbH, [*30% Triple-Junction GaAs Solar Cell Assembly, Type: TJ Solar Cell Assembly 3G30A*](https://www.azurspace.com/media/uploads/file_links/file/bdb_00010891-01-00_tj3g30-advanced_4x8.pdf) datasheet. Free PDF. Gives 29.5% BOL efficiency, full IV parameters, temperature coefficients and radiation degradation data against 1 MeV electron fluence. A good example of the level of detail a space cell datasheet provides.
 
 [^endurosat-1u]: EnduroSat, [*1U CubeSat Solar Panel X/Y*](https://satsearch.co/products/endurosat-1u-cubesat-solar-panel), via satsearch. Specifies two CESI CTJ30 cells per 1U panel at up to 29.5% efficiency, delivering up to 2.4 W per panel in LEO. Cited as a representative commercial 1U panel to calibrate what fits on a 100 × 100 mm face.
 
 [^satsearch-batteries]: satsearch, ["Satellite batteries - for CubeSats, nanosats, and other form factors"](https://blog.satsearch.co/2021-06-23-satellite-batteries-for-cubesats-nanosats-and-other-form-factors) (June 2021). Open access. Vendor-by-vendor comparison of commercially available CubeSat battery packs with capacities, voltages, masses and operating temperature ranges. Useful for calibrating what is actually purchasable, but now several years old – confirm capacities, masses and temperature limits against the current datasheet before designing against them.
 
-[^pycubed]: Maximillian Holliday et al., ["PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python"](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf), *33rd Annual AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. Free PDF. Documents the integrated power/compute/radio/ADCS board and its total ionising dose test campaign – a rare published example of a CubeSat team justifying COTS part selection with real radiation data.
+[^pycubed]: Maximillian Holliday et al., ["PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python"](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf), *33rd Annual AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. Free PDF. Documents the integrated power/compute/radio/ADCS board and its total ionising dose test campaign – a rare published example of a CubeSat team justifying COTS part selection with measured radiation data.

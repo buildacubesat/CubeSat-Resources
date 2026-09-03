@@ -29,14 +29,14 @@ Used by most university and research missions, under IARU coordination. Two thin
 | VHF (2 m) | **145.800–146.000 MHz**, plus 144.000–144.025 MHz | Both directions. The rest of 144–146 MHz is not available for satellite use in practice. |
 | UHF (70 cm) | **435–438 MHz** | Both directions – uplink and downlink are separate channels inside the same segment, not separate bands. By far the most used CubeSat segment. |
 | L-band (23 cm) | **1260–1270 MHz** | **Earth-to-space only** under ITU footnote 5.282. There is no amateur-satellite downlink at 23 cm. |
-| S-band (13 cm) | **2400–2450 MHz** | Both directions. A real option for higher-rate amateur missions, and often overlooked. |
+| S-band (13 cm) | **2400–2450 MHz** | Both directions. A workable option for higher-rate amateur missions, and often overlooked. |
 
 !!! warning "What the amateur service costs you"
     Amateur-satellite operation is free of spectrum fees and comes with a global network of people who will listen for you – but the rules constrain the mission, not just the radio. There is **no commercial use** of the link, and obscuring the meaning of your transmissions is **generally prohibited**, so assume your telemetry is readable by anyone with a receiver. Telecommand is the exception worth knowing: several administrations treat it separately from ordinary amateur traffic, and in the US a space telecommand station "may transmit special codes intended to obscure the meaning of telecommand messages".[^fcc-telecommand] Either way, **authentication matters more than encryption here** – signing commands so they cannot be forged is legal everywhere and addresses the actual threat. Design your command handling around this from the start – see [Flight Software – Commands](flight-software.md#commands). If your mission has a commercial purpose, the amateur route is closed to you and you are in the next section.
 
 ### Non-amateur bands
 
-These require a spectrum authorisation from your national regulator, which files with the [ITU](../references/glossary.md#itu) on your behalf. Slower, more expensive, and with a genuine risk of not getting what you asked for – start at least 18 months out.
+These require a spectrum authorisation from your national regulator, which files with the [ITU](../references/glossary.md#itu) on your behalf. Slower, more expensive, and with a risk of not getting what you asked for – start at least 18 months out.
 
 - **S-band, 2025–2110 MHz up / 2200–2290 MHz down** – the space operation and space research allocations, and the conventional home for higher-rate TT&C. A typical COTS CubeSat S-band transceiver works across exactly this pair.[^endurosat-sband]
 - **X-band, 8025–8400 MHz down** – the Earth exploration-satellite allocation, and where data-intensive imaging missions downlink.
@@ -90,7 +90,7 @@ A conventional UHF downlink, to show the shape of the arithmetic:
 
 Two things to take from it. First, free-space path loss dominates everything else, and it grows as the square of both range and frequency – moving the same link to 2.25 GHz costs another 14 dB before anything else changes. Second, the comfortable-looking margin evaporates at the horizon: at 2000 km slant range you lose 6 dB of it, plus more to atmospheric loss at low elevation. Recompute at your worst-case geometry, not at zenith.
 
-Note that the above budget is illustrative and computed from the stated assumptions rather than taken from a flown mission. The required Eb/N0 figure is the textbook uncoded value; real receivers have implementation loss, and coding gain moves it the other way. Use the Jan King spreadsheet for actual numbers.
+Note that the above budget is illustrative and computed from the stated assumptions rather than taken from a flown mission. The required Eb/N0 figure is the textbook uncoded value; actual receivers have implementation loss, and coding gain moves it the other way. Use the Jan King spreadsheet for actual numbers.
 
 <!-- CSR-RESOURCES:START dev-comms-link-budget -->
 - **[Jan King Link Budget Calculators](https://iaru.amsat-uk.org/spreadsheet.htm)** `Link` – The standard amateur satellite link budget spreadsheets, and the best starting point for a first calculation
@@ -134,7 +134,7 @@ The realistic options, in ascending order of effort:
 
 - **COTS CubeSat transceivers** – a module in a standard stack format, with a driver, a datasheet and flight heritage. The default for a first mission, and the choice that lets you spend your effort elsewhere. EnduroSat, GomSpace, ISISPACE, AAC Clyde and NanoAvionics all sell UHF and S-band units; [SatSearch](https://satsearch.co/) and the [CubeSat Shop](https://www.cubesatshop.com/) are the places to compare them.
 - **Open-source hardware** – the Libre Space Foundation's SatNOGS-COMMS is an open communications subsystem developed alongside the SatNOGS ground network, and is the most credible open option currently available.
-- **[SDR](../references/glossary.md#sdr)-based, built in-house** – maximum flexibility and a genuine research contribution, but you are now responsible for the PA, the filtering, the EMC behaviour and the radiation tolerance of the whole chain. Reasonable for a process-oriented mission, expensive for a result-oriented one.
+- **[SDR](../references/glossary.md#sdr)-based, built in-house** – maximum flexibility and a research contribution, but you are now responsible for the PA, the filtering, the EMC behaviour and the radiation tolerance of the whole chain. Reasonable for a process-oriented mission, expensive for a result-oriented one.
 
 Whatever you choose, check three things early: the actual RF output power at the connector rather than at the PA, the current draw during transmit (see below), and whether the unit's default configuration is legal in the band you have coordinated.
 
@@ -151,7 +151,7 @@ Nearly every CubeSat UHF or VHF antenna is a deployable: tape-spring monopoles, 
 
 Two design points that recur. A tumbling spacecraft has no fixed antenna orientation, so a near-omnidirectional pattern and an honest 0 dBi assumption in the link budget are worth more than a higher-gain pattern you cannot point. And a linearly polarised satellite antenna against a circularly polarised ground antenna costs a fixed 3 dB, which is cheaper to accept in the budget than to engineer away – see [Ground Segment – Polarisation](ground-segment.md#polarisation).
 
-Higher bands change the picture: patch antennas at S-band and reflectarrays at X- and Ka-band offer real gain, and immediately impose a pointing requirement on [GNC](gnc.md).
+Higher bands change the picture: patch antennas at S-band and reflectarrays at X- and Ka-band offer gain worth having, and immediately impose a pointing requirement on [GNC](gnc.md).
 
 <!-- CSR-RESOURCES:START dev-comms-antenna-design -->
 - **[Antennas for CubeSat Communication (Miroslav Veljovic, EPFL doctoral thesis, 2020)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – Book-length treatment of CubeSat antenna design and the integration constraints that shape it; thesis no. 7489, DOI 10.5075/epfl-thesis-7489. Open access

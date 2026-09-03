@@ -29,7 +29,7 @@ The papers listed here are ones cited across this site's [development](../develo
 ## Avionics and power
 
 <!-- CSR-RESOURCES:START ref-papers-avionics-and-power -->
-- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Maximillian Holliday et al., *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with real total ionising dose test data. Free PDF
+- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Maximillian Holliday et al., *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with measured total ionising dose test data. Free PDF
 - **[Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites](https://www.mdpi.com/2076-3417/15/16/9208)** `Link` – Yermek Amangeldi et al., *Applied Sciences* 15(16), 2025. Open access. On-orbit solar cell degradation rates by cell technology and altitude
 - **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://doi.org/10.1109/ACCESS.2025.3546066)** `Link` – Abdulazez Abagero et al., *IEEE Access* 13, 40076–40089, 2025. Open access (CC BY 4.0). A deep-learning approach to maximum power point tracking for CubeSat solar arrays
 <!-- CSR-RESOURCES:END ref-papers-avionics-and-power -->
@@ -45,7 +45,7 @@ The papers listed here are ones cited across this site's [development](../develo
 <!-- CSR-RESOURCES:START ref-papers-thermal-and-testing -->
 - **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/abs/2512.07896)** `Link` – Alexander Chipps, Daniel Forgette and Kerri Cahoy, AIAA SciTech Forum 2026, DOI 10.2514/6.2026-2269. Describes an open-source six-node MATLAB thermal model validated against Thermal Desktop to within 1.17 °C. The AIAA version is paywalled; the arXiv preprint is open access. Open access preprint
 - **[Method for CubeSat Thermal-Vacuum Cycling Test Specification](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf)** `PDF` – Roy Stevenson Soler Chisabas et al., *47th International Conference on Environmental Systems*, ICES-2017-102, 2017. Compares TVAC requirements across five major standards and proposes a tailoring method. Free PDF
-- **[Introduction to On-Orbit Thermal Environments](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Steven L. Rickman, NASA Engineering and Safety Center, TFAWS 2014. How real albedo and outgoing longwave radiation distributions become hot and cold design cases. Free PDF
+- **[Introduction to On-Orbit Thermal Environments](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Steven L. Rickman, NASA Engineering and Safety Center, TFAWS 2014. How measured albedo and outgoing longwave radiation distributions become hot and cold design cases. Free PDF
 <!-- CSR-RESOURCES:END ref-papers-thermal-and-testing -->
 
 ## Communications and antennas

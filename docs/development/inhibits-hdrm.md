@@ -95,7 +95,7 @@ Inhibits are, physically, part of the power architecture, which means the [EPS](
 - **The deployment switch must electrically disconnect the power system from the powered functions** when actuated (§2.3.2.1) – not merely signal software that it is time to stay quiet.
 - **There are exactly two carve-outs, and both are narrow.** Battery protection circuitry may remain powered (§2.3.1.2, per §2.3.6). A real-time clock may keep running (§2.3.3) provided it is isolated from the main power system, runs below 320 kHz, and is current-limited to less than 10 mA (§2.3.3.1–2.3.3.3). The RTC allowance is worth knowing because it changed: Rev 13 required the deployment switch to disconnect real-time clocks along with everything else.[^cds-rev13] A compliant RTC is also the cleanest way to make a quiet-period timer survive a reset – see [Timers and Delayed Activation](#timers-and-delayed-activation).
 - **Access port geometry is specified, and it constrains your late-flow options.** The RBF pin and all umbilical connectors must sit within the designated access port locations where the dispenser has them (§2.3.4); where it has none, the RBF must be removed before insertion (§2.3.4.1). Decide early, because those connectors are also how you top up the battery late in the flow.
-- **Battery self-discharge** over what may be months of storage and launch delay is a real planning problem, and one the CDS does not address at all. Confirm the pack will still be above its minimum voltage at deployment.
+- **Battery self-discharge** over what may be months of storage and launch delay is a planning problem in its own right, and one the CDS does not address at all. Confirm the pack will still be above its minimum voltage at deployment.
 - **Controlled energisation on release.** When the switches open, everything comes up at once, on a cold battery, in the worst condition of the mission. See [EPS – Startup and brownout behaviour](eps.md#startup-and-brownout-behaviour).
 - **Battery circuit protection** is separately required by the CDS (§2.3.6) to prevent unbalanced cell conditions. See [EPS – BMS](eps.md#battery-management-systems-bms).
 
@@ -128,12 +128,12 @@ CDS requirements:[^cds-rev14]
 - In the actuated state it should be at or below the level of any external surface that interfaces with the dispenser or a neighbouring CubeSat (§2.3.2.3).
 - Critically: "If the CubeSat deployment switch toggles from the actuated state and back, the satellite shall reset to a pre-launch state, including reset of transmission and deployable timers." (§2.3.2.4)
 
-That last requirement is the interesting one. It exists because a switch can bounce or momentarily open during vibration, and the specification refuses to allow a transient to start your quiet-period timers early. **Your implementation must genuinely reset the timers, not just note the event** – and it must do so in a way that survives whatever state the software was in.
+That last requirement is the interesting one. It exists because a switch can bounce or momentarily open during vibration, and the specification refuses to allow a transient to start your quiet-period timers early. **Your implementation must reset the timers, not just note the event** – and it must do so in a way that survives whatever state the software was in.
 
 Implementation notes:
 
 - **Two switches, independently located** – commonly on separate rails or on a rail and the deployer door face – so a single mechanical failure does not release the inhibit.
-- **Debounce in hardware where the signal gates power**, and in software where it feeds logic. Contact bounce during ejection is real.
+- **Debounce in hardware where the signal gates power**, and in software where it feeds logic. Contact bounce during ejection happens.
 - **The separation signal is also useful telemetry.** Record the time of separation and the switch states; it is the T-zero for everything that follows and one of the few pieces of ground-truth data you get about deployment.
 - Test the switches after vibration, not only before. Their whole job is to survive that environment and still work.
 
@@ -156,7 +156,7 @@ Implementation:
 
 ## Hold Down and Release Mechanisms (HDRM)
 
-An HDRM holds a deployable stowed against launch loads and releases it on command. From the structural side it must carry real preload; from the electrical side it must not fire early; from the reliability side it is a single-use, single-point-of-failure device on which the mission may depend.
+An HDRM holds a deployable stowed against launch loads and releases it on command. From the structural side it must carry preload; from the electrical side it must not fire early; from the reliability side it is a single-use, single-point-of-failure device on which the mission may depend.
 
 The context worth keeping in mind: NASA's state-of-the-art survey attributes **more than 10% of reported small satellite failures to mechanisms**, and recommends "design simplicity, margin, supplier selection, and testing" as the mitigations.[^nasa-soa-structures] See [Structure – Deployable Structures and Mechanisms](structure.md#deployable-structures-and-mechanisms).
 
@@ -204,7 +204,7 @@ Off-the-shelf burn-wire modules exist – CubeSource's BurnWing is one – that 
 
 ### Redundancy and Fault Tolerance
 
-- **Dual actuation paths.** Two heaters, two switches, ideally two power channels. The most common real failure is not the mechanism itself but the path that drives it.
+- **Dual actuation paths.** Two heaters, two switches, ideally two power channels. The most common failure in practice is not the mechanism itself but the path that drives it.
 - **Electrical and mechanical redundancy are different things.** Two heaters on the same line address a heater failure but not a switch failure. Walk the whole chain.
 - **Verify independence explicitly** – this is exactly what a safety reviewer will ask you to demonstrate, and "they're on separate boards" is not a demonstration.
 - **Design a degraded mode.** If a solar panel fails to deploy, can the mission continue at reduced power? If an antenna fails to deploy, is the stowed pattern good enough for a beacon? Answering these questions in design is much better than answering them in operations. See [Flight Software – FDIR](flight-software.md#fault-detection-isolation-and-recovery-fdir).
@@ -217,14 +217,14 @@ Verifying inhibits is unusual in that it is mostly about proving a *negative* �
 - **Continuity and resistance testing.** With the RBF inserted, measure and record open circuit at defined test points. With switches actuated, likewise. Do this at every configuration change and keep the records; this is the evidence your launch provider wants.
 - **State matrix testing.** Enumerate every combination of RBF in/out and each deployment switch actuated/released, and verify the spacecraft's actual state in each. There are only a handful of combinations and each one should have a documented expected result.
 - **End-to-end deployment tests** with the flight-like configuration, in vacuum, at temperature extremes, and after vibration.
-- **Timer verification** through a real ejection simulation: release the switches, then confirm nothing transmits and nothing deploys until the full period has elapsed. Measure with a spectrum analyser rather than trusting the software.
+- **Timer verification** through a full ejection simulation: release the switches, then confirm nothing transmits and nothing deploys until the full period has elapsed. Measure with a spectrum analyser rather than trusting the software.
 - **Test after every change.** Inhibit verification results are only valid for the configuration they were taken in.
 
 Common mistakes worth avoiding:
 
 - Testing the switch and the timer separately but never together.
 - Verifying the inhibit chain with the RBF out and never with it in.
-- Using a bench supply that masks the real behaviour of a discharged battery.
+- Using a bench supply that masks the behaviour of a discharged battery.
 - Deploying in air, in one orientation, once, and calling it verified.
 - Forgetting that after a successful deployment test the mechanism is now used – flight mechanisms need a defined number of allowable ground cycles.
 
@@ -243,7 +243,7 @@ What launch providers typically ask for:
 Common reasons reviews go badly:
 
 - **Counting a timer as an inhibit.** Explicitly excluded by the CDS, and reviewers know it.
-- **Inhibits that are not genuinely independent** – a common shared failure point discovered during review.
+- **Inhibits that are not independent in fact** – a common shared failure point discovered during review.
 - **Missing or undated test evidence**, or evidence taken on a configuration that has since changed.
 - **A diagram that does not match the hardware**, which immediately calls the rest of the package into question.
 - **Designing to the CDS and submitting to a provider whose interface document says something different.** Read theirs first.

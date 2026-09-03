@@ -131,14 +131,14 @@ Start looking for a ride early. It aligns you with your provider's requirements,
 - **Dedicated small launchers** – Rocket Lab's Electron, Firefly's Alpha, ISRO's SSLV. More expensive per kilogram, but you choose the orbit and the schedule.
 - **[Orbital transfer vehicles](references/glossary.md#otv)** – when the available rideshare orbit is wrong for your mission.
 - **ISS deployment** – via NASA's CSLI, JAXA's J-SSOD or commercial providers. Deployment is at 51.6° into a 400–420 km orbit, so lifetime is short and disposal compliance easy, but the safety requirements are the strictest of any route.
-- **Free and subsidised programmes** – [NASA CSLI](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative) for US educational and non-profit developers, [ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites) for teams in ESA member states, and [UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html) more widely. Competitive and slow, but genuinely free. Apply early.
+- **Free and subsidised programmes** – [NASA CSLI](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative) for US educational and non-profit developers, [ESA Fly Your Satellite!](https://www.esa.int/Education/Educational_Satellites) for teams in ESA member states, and [UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html) more widely. Competitive and slow, but free. Apply early.
 
 !!! warning "The cheap-launch era may be pausing"
     Since 2020, SpaceX's Transporter and Bandwagon missions have set the price of access to orbit – around USD 350,000 for up to 50 kg, roughly USD 7,000/kg above that.[^rideshare-price] In July 2026 SpaceX was reported to have **stopped taking new commercial rideshare bookings beyond late 2028**, with Falcon 9 capacity redirected to next-generation Starlink and other internal payloads.[^rideshare-freeze] No replacement programme has been announced. Dedicated small launchers currently sell at roughly USD 15,000–25,000/kg, and the announced European and US alternatives are not yet flying at the cadence needed to absorb the demand.
 
     For a team starting now, a 1–2 year development means launching straight into that window. Practical response: talk to brokers earlier than you otherwise would, treat launch cost as a range rather than a number in your funding case, and take the free programmes and ISS routes more seriously than you might have in 2024.
 
-Two things worth internalising before you build a schedule: your real deadline is hardware delivery, not launch day – typically one to six months earlier – and if the CubeSat is not ready, the manifest does not wait. Full detail on what you are actually buying, the working-backwards timeline, deployers, insurance and delivery is on [Qualification and Launch](development/launch.md).
+Two things worth internalising before you build a schedule: your deadline is hardware delivery, not launch day – typically one to six months earlier – and if the CubeSat is not ready, the manifest does not wait. Full detail on what you are actually buying, the working-backwards timeline, deployers, insurance and delivery is on [Qualification and Launch](development/launch.md).
 
 ## Regulatory Approval
 
@@ -158,7 +158,7 @@ The full treatment is on [Qualification and Launch – Regulatory Requirements](
 
 Once deployed you begin commissioning: acquiring the signal, establishing two-way contact, and checking that each subsystem is alive and behaving. Only then does the mission enter its operational phase.
 
-Plan time, money and people for this. Missions run from a few months to several years, and operations need someone available to take passes, including at inconvenient hours during [LEOP](references/glossary.md#leop). Two things pay for themselves before launch: rehearsing the first days with your flatsat and real ground station, and publishing your beacon format so the [SatNOGS](references/glossary.md#satnogs) community can help you find your satellite. Many missions have been first detected by a stranger.
+Plan time, money and people for this. Missions run from a few months to several years, and operations need someone available to take passes, including at inconvenient hours during [LEOP](references/glossary.md#leop). Two things pay for themselves before launch: rehearsing the first days with your flatsat and your ground station, and publishing your beacon format so the [SatNOGS](references/glossary.md#satnogs) community can help you find your satellite. Many missions have been first detected by a stranger.
 
 See [Ground Segment](development/ground-segment.md) and [Preparing for LEOP](development/launch.md#preparing-for-leop).
 

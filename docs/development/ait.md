@@ -136,7 +136,7 @@ Environmental test facilities are expensive, and few CubeSat teams own them. The
 - **[ESA Fly Your Satellite! Test Opportunities](https://www.esa.int/Education/Educational_Satellites/Fly_Your_Satellite!_Test_Opportunities)** `Link` – Programme offering European university teams access to ESA test facilities
 <!-- CSR-RESOURCES:END dev-ait-test-facilities -->
 
-**DIY alternatives** have a real role, though not as a substitute for qualification. A shaker table built from a loudspeaker will not reproduce a launch spectrum, but it will find loose fasteners. A vacuum chamber without thermal control still catches [outgassing](../references/glossary.md#outgassing) and corona problems. A [Helmholtz cage](gnc.md#testing-and-validation) is genuinely buildable by a student team. Use DIY testing to find problems early and cheaply, and formal facilities to prove compliance.
+**DIY alternatives** have a role, though not as a substitute for qualification. A shaker table built from a loudspeaker will not reproduce a launch spectrum, but it will find loose fasteners. A vacuum chamber without thermal control still catches [outgassing](../references/glossary.md#outgassing) and corona problems. A [Helmholtz cage](gnc.md#testing-and-validation) is buildable by a student team. Use DIY testing to find problems early and cheaply, and formal facilities to prove compliance.
 
 ### Functional and Integration Testing
 
@@ -162,7 +162,7 @@ Open-source building blocks exist – orbit propagators, [SATMO](thermal.md#tool
 
 Covered in depth under [Flight Software – Software Testing and Validation](flight-software.md#software-testing-and-validation). The AIT-specific points:
 
-- **On-target testing** catches what host-based testing cannot: timing, memory limits, compiler behaviour, real driver interaction.
+- **On-target testing** catches what host-based testing cannot: timing, memory limits, compiler behaviour, actual driver interaction.
 - **Watchdog and real-time behaviour** must be verified on the flight processor under realistic load, not in a simulator.
 - **FDIR verification** requires deliberate fault injection at system level, with the real hardware responding.
 - **Test the software you will fly.** The final environmental campaign should run the flight software build, not a test build with extra logging. If you must change it afterwards, re-run the functional tests.
@@ -172,8 +172,8 @@ Covered in depth under [Flight Software – Software Testing and Validation](fli
 The final rehearsal, and the step most often cut for time.
 
 - **Day-in-the-life ([DITL](../references/glossary.md#ditl)) testing** runs the spacecraft through a realistic 24-hour timeline – eclipse cycles, pass windows, payload operations, housekeeping – with the real ground segment on the other end. It routinely finds problems that no other test does, because it is the first time everything runs together at realistic timescales.
-- **End-to-end data flow.** Payload data from acquisition, through storage, downlink, decoding, archiving and analysis, using the real chain. See [Payload – Testing and Verification](payload.md#testing-and-verification).
-- **Simulated passes and RF loopback.** Verify the full RF chain with attenuated real signals, including Doppler if your ground software corrects for it. See [Ground Segment – Testing and Validation](ground-segment.md#testing-and-validation).
+- **End-to-end data flow.** Payload data from acquisition, through storage, downlink, decoding, archiving and analysis, using the flight chain. See [Payload – Testing and Verification](payload.md#testing-and-verification).
+- **Simulated passes and RF loopback.** Verify the full RF chain with attenuated live signals, including Doppler if your ground software corrects for it. See [Ground Segment – Testing and Validation](ground-segment.md#testing-and-validation).
 - **Contingency rehearsals.** Practise the procedures you hope not to need: recovery from safe mode, a software update, a failed deployment. Operators should have executed each at least once before launch.
 - **Train the operators.** The people on console during [LEOP](../references/glossary.md#leop) should have run the mission simulation. Commissioning is a bad time to read a procedure for the first time.
 

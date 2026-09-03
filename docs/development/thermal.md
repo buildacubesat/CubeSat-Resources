@@ -13,7 +13,7 @@ In vacuum there is no convection. A spacecraft exchanges heat with its surroundi
 A CubeSat in [LEO](../references/glossary.md#leo) sees three external heat inputs:
 
 - **Direct solar** – the dominant term. The [solar constant](../references/glossary.md#solar-constant) is **1367.5 W/m²** nominal at 1 AU, varying seasonally by about ±3.5% as Earth's distance from the Sun changes. NASA's recommended hot and cold design values sit at the ends of that swing: **1422 W/m² at perihelion** (northern winter) and **1318 W/m² at aphelion**, each 4.0% from nominal.[^gsfc-2301][^tfaws-environments]
-- **[Albedo](../references/glossary.md#albedo)** – sunlight reflected off the Earth. Conventionally modelled as a fraction of the solar constant, with a nominal albedo factor of **0.30** and a recommended analysis range of **0.25 (cold) to 0.35 (hot)**.[^gsfc-2301] Real instantaneous values vary far more widely – from about 0.06 over ocean to 0.50 over cloud and ice – but short excursions matter less than they might, because a CubeSat's thermal time constant smooths them.[^tfaws-environments]
+- **[Albedo](../references/glossary.md#albedo)** – sunlight reflected off the Earth. Conventionally modelled as a fraction of the solar constant, with a nominal albedo factor of **0.30** and a recommended analysis range of **0.25 (cold) to 0.35 (hot)**.[^gsfc-2301] Instantaneous values vary far more widely – from about 0.06 over ocean to 0.50 over cloud and ice – but short excursions matter less than they might, because a CubeSat's thermal time constant smooths them.[^tfaws-environments]
 - **[Earth infrared](../references/glossary.md#earth-ir) (outgoing longwave radiation)** – the planet radiating as a roughly 255 K blackbody, giving about **241 W/m²** nominal, with analysis values typically spanning **214–267 W/m²**.[^gsfc-2301] Unlike albedo, Earth IR does not switch off in eclipse, which makes it the thing keeping your cold case from being much colder.
 
 Internally, every watt the electronics consume becomes heat. On a small spacecraft this is not a rounding error. A 3U at 100 × 100 × 340.5 mm has about **0.16 m²** of external surface in total, so 6 W of internal dissipation is roughly 38 W/m² leaving the spacecraft – and radiation is the only route it has. That is the whole reason a CubeSat runs hot in sunlight and cold in eclipse with very little in between.
@@ -35,7 +35,7 @@ Almost all CubeSat thermal analysis reduces to bounding two scenarios:
 The cold case catches teams out more often than the hot case, because safe mode looks like a good thing until you realise it means the battery is being kept warm by nothing.
 
 <!-- CSR-RESOURCES:START dev-thermal-environment -->
-- **[Introduction to On-Orbit Thermal Environments (TFAWS)](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Steven Rickman (NASA NESC) lecture on orbital thermal environments, with real albedo and outgoing longwave radiation distributions rather than the condensed design values. Free PDF
+- **[Introduction to On-Orbit Thermal Environments (TFAWS)](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Steven Rickman (NASA NESC) lecture on orbital thermal environments, with measured albedo and outgoing longwave radiation distributions rather than the condensed design values. Free PDF
 - **[Earth Orbit Environmental Heating (NASA GD-AP-2301)](https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/2301.pdf)** `PDF` – NASA preferred-practice guideline giving the recommended hot and cold design values for solar flux, albedo and Earth IR, with the combinations tabulated. Free PDF
 - **[Intro to thermal balance for spacecraft by Scott Manley](https://www.youtube.com/watch?v=FlQYU3m1e80)** `Link` – Accessible video introduction to spacecraft thermal balance. Free
 <!-- CSR-RESOURCES:END dev-thermal-environment -->
@@ -100,7 +100,7 @@ A radiator is simply a surface with high ε and low α, with a clear view of dee
 
 ### Active Thermal Control
 
-Active control costs power and adds failure modes, so it is used where passive genuinely cannot cope.
+Active control costs power and adds failure modes, so it is used where passive cannot cope.
 
 #### Heaters
 
@@ -147,7 +147,7 @@ Steady-state solutions tell you where temperatures settle; transient solutions s
 - **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/abs/2512.07896)** `Link` – AIAA SciTech 2026 paper describing SATMO and its validation against Thermal Desktop. Open access preprint
 <!-- CSR-RESOURCES:END dev-thermal-modelling-tools -->
 
-SATMO is worth knowing about specifically because it closes a real gap: it is open source, needs only base MATLAB with no additional toolboxes, and its authors report agreement with Thermal Desktop to **within 1.17 °C** for a 1U CubeSat, validated at Venus, Earth and Mars.[^satmo] For a student team without access to commercial thermal software, that is a defensible analysis path rather than a rough estimate.
+SATMO is worth knowing about specifically because it fills a gap: it is open source, needs only base MATLAB with no additional toolboxes, and its authors report agreement with Thermal Desktop to **within 1.17 °C** for a 1U CubeSat, validated at Venus, Earth and Mars.[^satmo] For a student team without access to commercial thermal software, that is a defensible analysis path rather than a rough estimate.
 
 The commercial standards – ESATAN-TMS, Thermal Desktop (with SINDA/FLUINT), and Systema/Thermica – are what most reviewers expect to see, and several offer academic licensing. Many teams also build their own nodal solver in Python or MATLAB, which is a legitimate approach provided it is validated against a known case.
 
@@ -172,7 +172,7 @@ Thermistors are cheap, small and low-power, so the usual mistake is fitting too 
 - Sample fast enough to resolve an eclipse transient. Once per minute is usually plenty for structure; a fast-pulsing payload may need more.
 - Record min/max between downlinks. Peak temperatures are what violate limits, and they are exactly what averaged telemetry hides.
 - **Trend across orbits and months.** Slow warming over a mission is the classic signature of coating degradation; a step change usually means an attitude or configuration change.
-- Correlate telemetry back to the model. On-orbit data is the final validation of your thermal model and is worth publishing – it is genuinely scarce in the literature.
+- Correlate telemetry back to the model. On-orbit data is the final validation of your thermal model and is worth publishing – it is scarce in the literature.
 
 ## Thermal Interaction with Other Subsystems
 
@@ -206,7 +206,7 @@ The point of correlation is to adjust uncertain model parameters – contact con
 
 - **Testing without vacuum.** Convection in air can carry away several times the heat that radiation does, so an ambient test tells you almost nothing about flight temperatures.
 - **Chamber-induced artefacts.** Support fixtures conduct heat, and a poorly designed one becomes a heat leak that dominates the result. Design the test setup as carefully as the spacecraft.
-- **Not reaching steady state.** Thermal balance requires genuine equilibrium; stopping early gives a number that looks like data but is not.
+- **Not reaching steady state.** Thermal balance requires equilibrium; stopping early gives a number that looks like data but is not.
 - **Insufficient instrumentation.** Add test thermocouples beyond the flight sensors – you cannot correlate what you did not measure.
 - **Testing only the hot case.** The cold case with minimum dissipation is often the harder one and is easier to skip.
 
@@ -215,7 +215,7 @@ The point of correlation is to adjust uncertain model parameters – contact con
 - **Simplicity versus controllability.** A fully passive design has nothing to fail but also nothing to adjust once in orbit. Adding a heater gives you a control handle and a new failure mode. At CubeSat scale, favour passive until analysis proves you cannot.
 - **Mass, power and complexity.** Thermal straps and PCM buy performance with mass; heaters buy it with power; deployable radiators buy it with mechanism risk. Each is a trade against budgets that other subsystems also want.
 - **Worst case versus typical case.** Designing for the absolute worst-case combination of every parameter produces a heavy, over-constrained spacecraft. Designing for the typical case produces one that fails in a particular season. The usual compromise is bounding cases with explicit, stated margin.
-- **Surface allocation is the real fight.** Every square centimetre is contested between solar cells, radiators, antennas and apertures. This is a systems-level decision that should be made explicitly and early, not settled by whoever finalises their CAD first.
+- **Surface allocation is the fight.** Every square centimetre is contested between solar cells, radiators, antennas and apertures. This is a systems-level decision that should be made explicitly and early, not settled by whoever finalises their CAD first.
 - **Late changes cascade.** Changing a coating changes the hot case; adding a payload changes the internal dissipation; moving the battery changes everything. Keep the model current, because a stale thermal model is worse than none – it gives false confidence.
 
 ---
@@ -226,7 +226,7 @@ The point of correlation is to adjust uncertain model parameters – contact con
 
 [^gsfc-2301]: NASA Goddard Space Flight Center, [*Earth Orbit Environmental Heating*, Preferred Reliability Practice GD-AP-2301](https://extapps.ksc.nasa.gov/Reliability/Documents/Preferred_Practices/2301.pdf). Free PDF. Gives recommended design values: solar constant 1367.5 W/m² nominal with ±3.5% seasonal variation, and hot and cold cases of 1422.0 W/m² and 1318.0 W/m² at ±4.0% from nominal; albedo factor 0.30 nominal, 0.25 cold and 0.35 hot; and Earth-emitted IR of 241 W/m² for a 255 K Earth. Table 1 tabulates the nine solar-constant and albedo combinations, giving Earth-emitted energy from 214 W/m² (summer solstice, albedo 0.35) to 267 W/m² (winter solstice, albedo 0.25).
 
-[^tfaws-environments]: Steven L. Rickman, NASA Engineering and Safety Center, [*Introduction to On-Orbit Thermal Environments*](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf), Thermal and Fluids Analysis Workshop, 2014. Free PDF. Useful for showing how much real albedo and outgoing longwave radiation vary with location and averaging period, and how that variation is condensed into hot and cold design cases.
+[^tfaws-environments]: Steven L. Rickman, NASA Engineering and Safety Center, [*Introduction to On-Orbit Thermal Environments*](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf), Thermal and Fluids Analysis Workshop, 2014. Free PDF. Useful for showing how much measured albedo and outgoing longwave radiation vary with location and averaging period, and how that variation is condensed into hot and cold design cases.
 
 [^satmo]: Alexander Chipps, Daniel Forgette and Kerri Cahoy, ["SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions"](https://arxiv.org/abs/2512.07896), AIAA SciTech Forum 2026, DOI 10.2514/6.2026-2269. The AIAA version is paywalled; the arXiv preprint (submitted 4 December 2025) is open access and is what is linked here. Describes an open-source MATLAB thermal model representing the spacecraft as a six-sided box with one face-centred node per surface, validated against Thermal Desktop to within 1.17 °C for a 1U at Venus, Earth and Mars. The tool itself carries analysis options for all major planets plus the Moon and Pluto; those three are the validated set. Code at [github.com/alexchipps/SATMO](https://github.com/alexchipps/SATMO), MIT licence.
 

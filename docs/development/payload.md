@@ -22,7 +22,7 @@ Secondary payloads are worth carrying but need explicit rules. Define upfront ho
 - **Commercial** – Earth observation, IoT relay, RF sensing. Driven by data quality, revisit rate and unit economics rather than novelty.
 - **Educational** – where the learning is the objective, and the payload's job is partly to be instructive to build.
 
-Being honest about which of these you are doing is genuinely useful, because it sets how much rigour a given requirement deserves. A technology demonstrator that spends a year on radiometric calibration has misallocated its effort.
+Being clear about which of these you are doing is useful, because it sets how much rigour a given requirement deserves. A technology demonstrator that spends a year on radiometric calibration has misallocated its effort.
 
 ### Active and passive payloads
 
@@ -94,7 +94,7 @@ The prevailing pattern mirrors the one described under [OBC – Single-Board Com
 
 ### Data reduction and compression
 
-The fundamental asymmetry of a CubeSat mission is that **collection is cheap and downlink is not**. At 9600 bps over four eight-minute passes you have about 2.3 MB per day before overhead. A single 12-bit 2048×2048 image is 6 MB. Put those two numbers together and **one image takes nearly three days to downlink** – which is the real statement of the problem, and it means the interesting question is never "how do we send it all" but "what do we choose not to send".
+The fundamental asymmetry of a CubeSat mission is that **collection is cheap and downlink is not**. At 9600 bps over four eight-minute passes you have about 2.3 MB per day before overhead. A single 12-bit 2048×2048 image is 6 MB. Put those two numbers together and **one image takes nearly three days to downlink** – which is the statement of the problem that matters, and it means the interesting question is never "how do we send it all" but "what do we choose not to send".
 
 There are only four levers:
 
@@ -149,7 +149,7 @@ This is where payload ambitions meet the bus, and it is worth doing the arithmet
 - **Operational modes.** Define them explicitly – off, standby, warm-up, acquiring, processing, downlinking – with the resource profile of each. Payload modes must be integrated into the spacecraft mode structure rather than running in parallel to it. See [Flight Software – Modes](flight-software.md#modes-state-machines-and-autonomy).
 - **Warm-up and settling.** Detectors, oscillators and thermally stabilised optics need time to reach a stable state. That time is part of the power budget for every acquisition, and it is easy to forget.
 - **Coordination with ADCS.** An acquisition typically needs a slew, a settling period, the acquisition itself, and a return to a power-positive attitude. The whole sequence has to fit within available power, momentum and time.
-- **Coordination with comms.** Acquisition and downlink often compete for power and for attitude. Sequencing them across an orbit is a real planning exercise.
+- **Coordination with comms.** Acquisition and downlink often compete for power and for attitude. Sequencing them across an orbit is a planning exercise in its own right.
 - **Autonomy versus ground control.** With a handful of passes a day, most acquisitions are executed from an uplinked timeline. Conditional autonomy – acquire when over a target, in daylight, with battery above a threshold – extends what is possible considerably. Full onboard decision-making is where onboard AI is heading. See [OBC – Advanced and Emerging Computing Concepts](obc.md#advanced-and-emerging-computing-concepts).
 - **Safe states.** The payload must have a defined safe state, must enter it autonomously on fault or on spacecraft [safe mode](../references/glossary.md#safe-mode), and must never be able to prevent the spacecraft from recovering. Every payload operation should be time-limited, so a lost ground link cannot leave the payload running indefinitely.
 
@@ -174,7 +174,7 @@ Ground calibration shifts during launch and drifts in orbit, so plan for on-orbi
 - **Celestial references** – the Moon, bright stars and the deep-space background are stable, well-characterised targets.
 - **Vicarious calibration** – imaging well-instrumented ground sites with known reflectance.
 - **Cross-calibration** against an established instrument observing the same target.
-- **Commissioning campaign.** Budget real time for this. The first weeks in orbit should be spent characterising the instrument as it actually is, not assuming it matches the lab.
+- **Commissioning campaign.** Budget time for this. The first weeks in orbit should be spent characterising the instrument as it actually is, not assuming it matches the lab.
 
 ### Drift and degradation
 
@@ -183,7 +183,7 @@ Detectors accumulate radiation damage, optics darken, gains shift. Repeat calibr
 ## Testing and Verification
 
 - **Functional testing** of the payload standalone, then integrated, then in the full spacecraft. Each step finds different problems.
-- **End-to-end data flow** is the test teams most often skip and most often regret: payload → onboard storage → downlink → ground station → decoder → archive → analysis, with real data through the real chain. Byte-order mismatches, truncation and metadata loss all surface here and nowhere else.
+- **End-to-end data flow** is the test teams most often skip and most often regret: payload → onboard storage → downlink → ground station → decoder → archive → analysis, with actual data through the flight chain. Byte-order mismatches, truncation and metadata loss all surface here and nowhere else.
 - **Environmental testing.** Payloads often need instrument-specific environments beyond the standard campaign – optical alignment verified after vibration, detector performance measured under [TVAC](../references/glossary.md#tvac). Verify performance after environmental exposure, not just survival. See [AIT – Environmental Testing](ait.md#environmental-testing).
 - **Realistic stimulus.** Give the payload something it can actually detect: a target scene for an imager, a radioactive source for a detector, an RF signal for a receiver. "The payload powers on and reports healthy" is not a functional test.
 - **Long-duration operation** at realistic duty cycles, to catch thermal build-up, memory leaks and storage exhaustion.
@@ -212,7 +212,7 @@ Write it early, version it, and treat changes as changes rather than as clarific
 
 - **Archive raw data permanently**, alongside the processing chain. Derived products can always be regenerated; raw data cannot.
 - **Plan for reproducibility** – version-control the processing code and record which version produced which product.
-- **Publish.** Many CubeSat missions produce genuinely useful data that never reaches anyone outside the team, usually because nobody planned for it. Deciding early to publish shapes the metadata and format choices that make publishing possible. The mission examples in [CubeSat Missions](../references/missions.md) show what open publication looks like in practice.
+- **Publish.** Many CubeSat missions produce useful data that never reaches anyone outside the team, usually because nobody planned for it. Deciding early to publish shapes the metadata and format choices that make publishing possible. The mission examples in [CubeSat Missions](../references/missions.md) show what open publication looks like in practice.
 - **Consider the ground segment side of this from the start** – telemetry storage, dashboards and public data access are part of the payload's success. See [Ground Segment – Data Handling and Archiving](ground-segment.md#data-handling-and-archiving).
 
 <!-- CSR-RESOURCES:START dev-payload-standards-and-examples -->

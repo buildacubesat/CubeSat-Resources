@@ -55,7 +55,7 @@ The delivery package, in one place:
 - **Dedicated small launchers** – Rocket Lab's Electron, Firefly's Alpha, ISRO's SSLV and others. Far more expensive per kilogram, but you choose the orbit and the schedule rather than accepting the primary's. Electron is the most widely used small vehicle as of April 2026.[^nasa-soa-launch] Read the capacity figures carefully, because vendors quote different orbits: Rocket Lab publishes **300 kg to LEO** for Electron, and Firefly publishes **1,030 kg to a 300 km LEO but 630 kg to a 500 km SSO** for Alpha.[^launcher-performance] The sun-synchronous figure is the one that matters for most CubeSat missions, and it is typically the smaller one.
 - **[Orbital transfer vehicles](../references/glossary.md#otv)** – D-Orbit's ION (first used in 2020 and flown 21 times as of December 2025), Rocket Lab's Photon, Impulse Space's Mira, Momentus's Vigoride – take you from the rideshare drop-off orbit to something closer to what you wanted.[^nasa-soa-launch] A growing option when the available rideshare orbit is wrong for your mission, including when it is too high to deorbit passively.
 - **ISS deployment** via NASA's CubeSat Launch Initiative, JAXA's J-SSOD, or commercial providers such as Nanoracks. CubeSats deploy at **51.6° inclination into a 400–420 km orbit, one to three months after berthing**.[^nasa-soa-launch] The low altitude means a short orbital lifetime (typically months to about two years), which is convenient for debris compliance and inconvenient for a long mission. Safety requirements are the strictest of any route, because the spacecraft spends time inside a crewed vehicle.
-- **Free and subsidised programmes** – NASA CSLI, ESA's Fly Your Satellite!, UNOOSA/JAXA KiboCUBE. Competitive, slow, and genuinely free. Worth applying to early. See [Getting Started](../getting-started.md).
+- **Free and subsidised programmes** – NASA CSLI, ESA's Fly Your Satellite!, UNOOSA/JAXA KiboCUBE. Competitive, slow, and free. Worth applying to early. See [Getting Started](../getting-started.md).
 
 ### What you are actually buying
 
@@ -71,7 +71,7 @@ Working backwards from launch, a realistic ordering:
 - **18–24 months before:** start conversations with brokers; begin frequency coordination; identify export control implications.
 - **12 months:** contract signed; deployer selected; ICD baselined.
 - **6–12 months:** safety data package and qualification evidence submitted; expect iteration.
-- **1–6 months:** flight hardware delivered. This varies by provider and is the number to confirm early, because it is the real deadline – not launch day.
+- **1–6 months:** flight hardware delivered. This varies by provider and is the number to confirm early, because it is the deadline that counts – not launch day.
 - **Launch:** the spacecraft has been out of your hands for months and you may or may not be present.
 
 **If the CubeSat is not ready, it does not fly.** The manifest does not wait.
@@ -108,7 +108,7 @@ The practical advice: treat third-party liability as a legal question to answer 
 You need authorisation to transmit, and the process depends on which bands you use.
 
 - **Amateur bands (UHF/VHF).** Coordination through the **[IARU](https://www.iaru.org/reference/satellites/)**, requested via your national member society, plus a licence from your national regulator. A team member must hold an appropriate amateur licence and takes personal responsibility for compliance. Amateur service rules constrain what you may do – no commercial use, and restrictions on encryption. The [IARU](../references/glossary.md#iaru) coordination process is free, well documented and generally straightforward, but it takes months.
-- **Non-amateur bands (S-band, X-band).** Filing through your national regulator, who coordinates with the **[ITU](../references/glossary.md#itu)**. Slower, more expensive, and with genuine risk of not obtaining what you asked for. Start at least 18 months out.
+- **Non-amateur bands (S-band, X-band).** Filing through your national regulator, who coordinates with the **[ITU](../references/glossary.md#itu)**. Slower, more expensive, and with a risk of not obtaining what you asked for. Start at least 18 months out.
 - **Remote sensing licences** are separate. If you image the Earth you may need authorisation from a national body – NOAA in the US, and equivalents elsewhere.
 
 A point that is easy to get wrong: **the international filing goes through your national administration in both cases**, amateur included. Advance publication information, then notification and recording with the ITU, is submitted by the administration, not by you and not by the IARU. IARU coordination is a peer process within the amateur satellite service – a prerequisite for using the allocation, and its outcome carries weight with regulators – but it is not a licence and it does not replace the national filing. Teams that treat a successful IARU coordination as "the paperwork is done" discover the gap late, when it is expensive.
@@ -164,7 +164,7 @@ The historically important deployer is the Cal Poly **[P-POD](../references/glos
 - **Final inspection and handover.** Expect a joint inspection covering envelope, mass properties, inhibit state, RBF pin condition and general workmanship.
 - **Battery state at delivery.** The spacecraft may sit for months. Confirm the pack will still be above its minimum voltage at deployment, and find out whether the deployer's access ports allow late charging. See [EPS – Energy Storage](eps.md#energy-storage).
 - **Late access.** Anything you need to do after handover – charging, a final functional check, RBF removal – must be negotiated in advance and documented in the integration procedure.
-- **Shipping.** Transporting flight hardware internationally involves customs, possibly export licences, and a real risk of damage. Use a proper transport case with shock and humidity recording, and consider pre-launch insurance.
+- **Shipping.** Transporting flight hardware internationally involves customs, possibly export licences, and a risk of damage. Use a proper transport case with shock and humidity recording, and consider pre-launch insurance.
 
 ### Preparing for LEOP
 

@@ -2,7 +2,7 @@
 
 Books, handbooks and technical references for CubeSat development: the foundational texts on spacecraft design and systems engineering, subsystem references, and the handful of open-access books worth reading first.
 
-Most of the classics are expensive. Before buying, check your university library, and check the open-access section below – several genuinely good texts cost nothing.
+Most of the classics are expensive. Before buying, check your university library, and check the open-access section below – several good texts cost nothing.
 
 ## CubeSat-specific
 
@@ -28,7 +28,7 @@ Most of the classics are expensive. Before buying, check your university library
 
 ## Open-access books and long-form guides
 
-These cost nothing and are genuinely useful.
+These cost nothing and are worth reading.
 
 <!-- CSR-RESOURCES:START ref-books-open-access -->
 - **[A Guide to CubeSat Mission and Bus Design](https://pressbooks-dev.oer.hawaii.edu/epet302/)** `Link` – Frances Zhu, University of Hawaiʻi. Open textbook (CC BY 4.0) covering mission design, subsystems, power budgeting and ADCS, built around the Artemis CubeSat Kit, with worked examples and companion spreadsheets

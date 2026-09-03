@@ -229,10 +229,10 @@ Performance from NASA's survey: cross-axis accuracy of **2–30 arcseconds** dep
 
 How they work, and where they fail:
 
-- **Lost-in-space identification** matches an observed star pattern against a catalogue with no prior attitude estimate – the hard case, and what distinguishes a real star tracker from a camera. **Tracking mode**, updating from a known prior, is far cheaper computationally.
+- **Lost-in-space identification** matches an observed star pattern against a catalogue with no prior attitude estimate – the hard case, and what distinguishes a star tracker from a camera. **Tracking mode**, updating from a known prior, is far cheaper computationally.
 - **Stray light is the dominant practical constraint.** Sun, Earth albedo and Moon in the field of view all blind the sensor. Baffle design is as important as the optics, and exclusion angles (often 30–40° from the Earth limb and much more from the Sun) directly constrain which attitudes give you a valid solution. Plan attitudes so the star tracker keeps a usable view.
 - **Slew rate limits.** Long exposures smear stars. Most trackers lose lock above a few degrees per second, which means they cannot help you during detumble.
-- **Compute.** Centroiding and pattern matching need real processing – one reason star trackers are usually self-contained units with their own processor.
+- **Compute.** Centroiding and pattern matching need serious processing – one reason star trackers are usually self-contained units with their own processor.
 
 <!-- CSR-RESOURCES:START dev-gnc-star-tracker-resources -->
 - **[UW Husky Satellite Lab Open-source Star Tracker (LOST)](https://github.com/UWCubeSat/lost)** `Link` – Open-source star tracker algorithm implementation and test framework
@@ -250,7 +250,7 @@ NASA's survey summarises the small spacecraft range as **0.00023 to 0.3 Nm** pea
 
 **Configurations.** Three orthogonal wheels give full three-axis control with no redundancy. A **four-wheel pyramid** tolerates any single wheel failure and spreads torque across units, at the cost of a fourth wheel and a control allocation problem. Given that wheel bearings are among the most common ADCS failure modes, the fourth wheel is often worth its mass.
 
-**[Momentum desaturation](../references/glossary.md#momentum-desaturation)** is the fundamental constraint. Continuous disturbance torques accumulate momentum in the wheels; once a wheel reaches maximum speed it can produce no further torque in that direction, and the spacecraft loses control authority about that axis. Momentum must be dumped to the environment – on a CubeSat, using magnetorquers against the Earth's field. **A reaction wheel system without a momentum dumping mechanism will saturate and stop working.** Sizing the magnetorquers to dump momentum faster than the disturbances accumulate is a real design constraint, not a detail.
+**[Momentum desaturation](../references/glossary.md#momentum-desaturation)** is the fundamental constraint. Continuous disturbance torques accumulate momentum in the wheels; once a wheel reaches maximum speed it can produce no further torque in that direction, and the spacecraft loses control authority about that axis. Momentum must be dumped to the environment – on a CubeSat, using magnetorquers against the Earth's field. **A reaction wheel system without a momentum dumping mechanism will saturate and stop working.** Sizing the magnetorquers to dump momentum faster than the disturbances accumulate is a design constraint, not a detail.
 
 **Other practical issues:** wheel imbalance causes jitter that can blur images from the same spacecraft the wheels are pointing; bearing lubricant behaviour is temperature-dependent and bearings wear; and wheels passing through zero speed exhibit friction nonlinearity that makes precise low-rate control difficult (some systems deliberately bias wheels away from zero to avoid it).
 
@@ -374,10 +374,10 @@ Transition rules that repay themselves: enter detumble automatically above a rat
 
 A complete commercial ADCS module is an appealing option and a substantial cost. NASA's survey puts integrated units at **0.002° to 5° pointing capability** at TRL 7–9, with representative systems including Blue Canyon's XACT-15 (0.003°/0.007°, 885 g, integrating star trackers, sun sensors, IMU, magnetometer and GPS), Arcsec's Arcus (0.1°, 715 g) and CubeSpace's CubeADCS (~70 arcsec, 260 g).[^nasa-soa-gnc]
 
-The honest trade:
+The trade:
 
 - **Buy** if pointing is a hard mission requirement, if the team is small, or if schedule matters more than cost. An integrated unit removes the single most common source of CubeSat mission underperformance.
-- **Build** if the mission requirement is loose (coarse sun-pointing and detumble are genuinely achievable in-house), if ADCS *is* the point of the mission, or if the budget makes a commercial unit impossible. Magnetorquers and a B-dot controller are a very reasonable in-house scope; a star-tracker-class three-axis system usually is not.
+- **Build** if the mission requirement is loose (coarse sun-pointing and detumble are achievable in-house), if ADCS *is* the point of the mission, or if the budget makes a commercial unit impossible. Magnetorquers and a B-dot controller are a very reasonable in-house scope; a star-tracker-class three-axis system usually is not.
 - **Hybrid** – commercial sensors with in-house control software – is common and works well, provided the interfaces are properly documented.
 
 Whichever you choose, the integration considerations below still apply. A bought ADCS still has to be aligned, magnetically clean and correctly powered.
@@ -395,9 +395,9 @@ Whichever you choose, the integration considerations below still apply. A bought
 ADCS is the hardest CubeSat subsystem to test on the ground, because you cannot remove gravity and cannot reproduce the orbital magnetic field over a full orbit. The practical approach is to test the parts you can and simulate the rest.
 
 - **Helmholtz cage.** Three orthogonal coil pairs generating a controlled, uniform magnetic field around the spacecraft. This is the core ADCS test facility: it cancels the Earth's field and replays a simulated orbital field profile, which lets you calibrate magnetometers, verify magnetorquer polarity and dipole, and run detumble algorithms against realistic input. Building one is a well-documented student project.
-- **Air bearing tables** float the spacecraft on a thin air film to remove friction about one or three axes, allowing real reaction wheel control tests. Requires careful balancing, and gravity still dominates unless the centre of mass is placed precisely at the pivot.
+- **Air bearing tables** float the spacecraft on a thin air film to remove friction about one or three axes, allowing closed-loop reaction wheel tests. Requires careful balancing, and gravity still dominates unless the centre of mass is placed precisely at the pivot.
 - **Sun simulators** – a collimated light source for sun sensor calibration.
-- **[HIL](../references/glossary.md#hil) simulation** is where most ADCS verification actually happens: real flight software and real processor, driven by simulated sensor data from an orbit and attitude propagator, with actuator commands fed back into the simulation. This is the only practical way to run hundreds of orbits and to test the mode logic, fault responses and edge cases. See [AIT – HIL Testing](ait.md#hardware-in-the-loop-hil-testing).
+- **[HIL](../references/glossary.md#hil) simulation** is where most ADCS verification actually happens: the flight software on the flight processor, driven by simulated sensor data from an orbit and attitude propagator, with actuator commands fed back into the simulation. This is the only practical way to run hundreds of orbits and to test the mode logic, fault responses and edge cases. See [AIT – HIL Testing](ait.md#hardware-in-the-loop-hil-testing).
 - **Polarity checks.** The single most common ADCS bug is a sign error – a magnetorquer wired backwards, a sensor axis inverted, a quaternion convention mismatch. Each one turns a controller into an accelerator. Check every axis of every sensor and actuator physically, on the integrated spacecraft, and write down the result.
 
 ### On-orbit commissioning

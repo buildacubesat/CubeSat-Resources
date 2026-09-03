@@ -18,7 +18,7 @@ The payoff is testability. If the application layer talks only to interfaces, yo
 
 ### Execution models
 
-- **Superloop (bare metal).** A `while(1)` cycling through tasks, with interrupts for time-critical work. Completely deterministic and small enough to hold in your head – a real reliability advantage. It degrades when one task needs to block, since everything else stops with it.
+- **Superloop (bare metal).** A `while(1)` cycling through tasks, with interrupts for time-critical work. Completely deterministic and small enough to hold in your head – a reliability advantage in itself. It degrades when one task needs to block, since everything else stops with it.
 - **Cooperative scheduling.** Tasks voluntarily yield. Retains much of the simplicity of a superloop while allowing more structure. No pre-emption means no surprise race conditions, but a misbehaving task still stalls the system.
 - **Pre-emptive [RTOS](../references/glossary.md#rtos).** Priority-based pre-emption with real-time guarantees. The mainstream choice above modest complexity, at the cost of having to reason about priority inversion, stack sizing per task, and shared-state races.
 - **Event-driven.** Tasks triggered by events from a queue. Maps well onto command handling and fault response, and combines naturally with a state machine design.
@@ -27,15 +27,15 @@ Most CubeSat flight software ends up as a **time-triggered schedule with event h
 
 ### Frameworks vs. writing your own
 
-Writing your own is the norm on small missions and is entirely defensible – the total functionality needed by a 1U technology demonstrator is modest, and full comprehension of your own stack has real value when debugging from 500 km away.
+Writing your own is the norm on small missions and is entirely defensible – the total functionality needed by a 1U technology demonstrator is modest, and full comprehension of your own stack has value when debugging from 500 km away.
 
-Adopting a framework such as NASA's [Core Flight System](#open-source-flight-software-projects) buys architecture, flight heritage across 40+ NASA missions, and a component model that scales. It costs a substantial learning curve and pulls in more machinery than a small CubeSat needs. The honest test is team size and mission duration: a two-person 1U project is usually better served writing something small and comprehensible; a university programme flying successive missions over a decade benefits enormously from a framework it can carry forward.
+Adopting a framework such as NASA's [Core Flight System](#open-source-flight-software-projects) buys architecture, flight heritage across 40+ NASA missions, and a component model that scales. It costs a substantial learning curve and pulls in more machinery than a small CubeSat needs. The test is team size and mission duration: a two-person 1U project is usually better served writing something small and comprehensible; a university programme flying successive missions over a decade benefits enormously from a framework it can carry forward.
 
 ### Language and coding standards
 
 - **C** remains the default: every RTOS and framework targets it, toolchains for space-grade parts assume it, and its behaviour is predictable. It also offers no protection whatsoever, which is why the coding standards below exist.
 - **C++** is used in larger stacks, cFS-adjacent tooling and PUS implementations. Workable with a restricted subset – no exceptions, no RTTI, no dynamic allocation after initialisation – and a liability without one.
-- **MicroPython and CircuitPython** trade determinism and memory headroom for development speed, and have genuine flight heritage on small missions through PyCubed. A reasonable choice for a technology demonstrator where iteration speed matters more than hard real-time behaviour, and a poor one where control loops must close on schedule.
+- **MicroPython and CircuitPython** trade determinism and memory headroom for development speed, and have flight heritage on small missions through PyCubed. A reasonable choice for a technology demonstrator where iteration speed matters more than hard real-time behaviour, and a poor one where control loops must close on schedule.
 - **Rust** is increasingly credible for new work, with memory safety that removes a whole class of the bugs the standards below try to prevent by discipline. The constraint is ecosystem: fewer vendor HALs, fewer eyes on your code within the team, and a smaller pool of people who can maintain it after you graduate.
 
 Two coding standards are worth knowing even if you do not adopt them formally. **MISRA C** is the automotive-derived rule set that most safety-critical embedded work references, and **NASA's Power of Ten** is a much shorter set of rules for safety-critical code – no recursion, fixed loop bounds, no dynamic allocation after initialisation, functions short enough to read whole, check every return value.[^power-of-ten] The full apparatus is disproportionate for a 1U, but the individual rules are not: **no dynamic allocation after startup** and **bounded loops** alone eliminate the two failure modes most likely to strand a spacecraft, and cost nothing to adopt on day one. Whatever you choose, run a static analyser in CI and treat compiler warnings as errors.
@@ -47,7 +47,7 @@ Two coding standards are worth knowing even if you do not adopt them formally. *
 The rule is simple: **there must always be a path back to a known-good state that no in-flight action can destroy.**
 
 - A **[golden image](../references/glossary.md#golden-image)** in write-protected or read-only memory, which always boots to a minimal state capable of receiving commands, charging the battery and accepting a new upload. It is never updated in flight. It does not need to be capable of the mission – only of recovery.
-- A **primary application image**, updatable, holding the real flight software.
+- A **primary application image**, updatable, holding the flight software proper.
 - Ideally a **backup application image**, so a bad update can be rolled back without falling all the way to golden.
 
 Every image should be **checksummed and verified before execution**, not after. A corrupted image that gets executed can do arbitrary damage; a corrupted image that fails a CRC check is merely a failed update.
@@ -63,20 +63,20 @@ This one mechanism converts the classic CubeSat boot loop – the spacecraft res
 The first hours after deployment are the only part of the mission that is entirely unattended and entirely unrepeatable, and the sequence needs to be written down and rehearsed as deliberately as any other procedure.
 
 - **Respect the timers before anything else.** No deployables for 30 minutes and no RF for 45 minutes after release from the deployer, or whatever stricter figure your provider imposes. These are contractual, not preferences, and the timer must survive a reset during the wait – count from persisted state, not from boot. See [Inhibits and HDRM – Timers and Delayed Activation](inhibits-hdrm.md#timers-and-delayed-activation).
-- **Retry antenna deployment, and keep retrying.** Attempting deployment once, failing, and giving up has ended real missions. Design for escalating attempts: repeat the burn with increasing duration, spaced over hours and then days, alternating redundant burn circuits if you have them. Keep the attempt counter and success flag in non-volatile memory so a reset does not restart the sequence from zero or, worse, re-run a successful deployment.
+- **Retry antenna deployment, and keep retrying.** Attempting deployment once, failing, and giving up has ended missions. Design for escalating attempts: repeat the burn with increasing duration, spaced over hours and then days, alternating redundant burn circuits if you have them. Keep the attempt counter and success flag in non-volatile memory so a reset does not restart the sequence from zero or, worse, re-run a successful deployment.
 - **Verify deployment, don't assume it.** A deployment switch, a continuity break in the burn wire, or a change in received signal strength gives you evidence. Telemeter it, because "no signal" and "antenna still stowed" need different responses from the ground.
 - **Charge before you talk.** A spacecraft deployed into eclipse on a partly discharged pack should establish power positive before it starts transmitting. Sequence the first beacon behind a state-of-charge threshold, with a timeout so a faulty sensor cannot suppress it forever.
 - **Beacon early and simply.** The first beacon should require the least possible machinery to produce – ideally it works from the golden image. Everything else about commissioning depends on someone hearing you.
 
 ### In-flight updates
 
-Updating software in orbit is possible, valuable, and genuinely dangerous.
+Updating software in orbit is possible, valuable, and dangerous.
 
 - **Design for it from the start.** Retrofitting an update path onto software that never had one is much harder than building it in.
 - **Uplink in verified chunks**, with per-chunk checksums and the ability to resume. Remember that the uplink is usually far slower than the downlink: a 1200 bps command channel carries about 90 kB across a 10-minute pass, so a 200 kB image is a multi-pass operation that must survive interruption between passes.
 - **Stage, verify, then commit.** Write to inactive storage, verify the whole image, and only then switch the boot pointer.
 - **Always keep a rollback.** Automatic reversion if the new image fails to check in within a timeout is the standard pattern, and it is what makes updating survivable.
-- **Update only when there is a reason.** Every update is a chance to lose the spacecraft. Batch fixes, test exhaustively on a flatsat with the same hardware, and rehearse the full procedure through the real comms path before doing it for real.
+- **Update only when there is a reason.** Every update is a chance to lose the spacecraft. Batch fixes, test exhaustively on a flatsat with the same hardware, and rehearse the full procedure through the real comms path before doing it in flight.
 
 ### Brownouts and partial failures
 
@@ -239,8 +239,8 @@ Flight software is the one subsystem you can test essentially for free and essen
 
 - **Unit tests** on host, covering logic in isolation – mode transitions, command validation, packet encoding, limit checking. Fast, numerous, run on every commit.
 - **Integration tests** on host with simulated hardware, covering subsystem interaction and protocol handling.
-- **On-target tests** on the real processor, catching everything the host cannot: timing, memory constraints, compiler differences, actual driver behaviour.
-- **[Flatsat](../references/glossary.md#flatsat) tests** with all real hardware connected. The closest thing to flight, and where interface assumptions go to die.
+- **On-target tests** on the flight processor, catching everything the host cannot: timing, memory constraints, compiler differences, actual driver behaviour.
+- **[Flatsat](../references/glossary.md#flatsat) tests** with all the hardware connected. The closest thing to flight, and where interface assumptions go to die.
 - **[HIL](../references/glossary.md#hil) tests** with simulated orbital dynamics and sensor data, which is the only practical way to exercise a full mission timeline. See [AIT](ait.md#hardware-in-the-loop-hil-testing).
 
 ### What to test that teams usually don't
@@ -249,7 +249,7 @@ Flight software is the one subsystem you can test essentially for free and essen
 - **Long-duration runs.** Leave a flatsat running for a week. Memory leaks, counter overflows, log rotation bugs and slow drift only appear over time.
 - **Boundary and rollover conditions.** Time rollovers, counter wraps, storage full, command buffer full.
 - **The first-boot sequence**, from a cold, deeply discharged start, including the deployment retry logic and the inhibit timers. It runs once, unattended, and you only get one attempt.
-- **The update procedure**, end to end, through the real comms path – not over a bench cable.
+- **The update procedure**, end to end, through the flight comms path – not over a bench cable.
 - **Regression.** Every bug found in flight or on the flatsat should become a test, so it cannot come back.
 
 ### Software testing methodologies

@@ -74,7 +74,7 @@ An SBC – a Linux-capable applications processor with hundreds of MB of RAM –
 
 **What it costs:**
 
-- **Power.** An SBC running a real workload draws watts, not milliwatts. Set that against what the bus actually generates: a 1U with body-mounted cells averages 1–2 W across an orbit, and a 3U only a few watts more unless it carries deployables – see [EPS – Solar Power Generation](eps.md#solar-power-generation). On most CubeSats an SBC is therefore a duty-cycled load, not a continuous one.
+- **Power.** An SBC running an actual workload draws watts, not milliwatts. Set that against what the bus actually generates: a 1U with body-mounted cells averages 1–2 W across an orbit, and a 3U only a few watts more unless it carries deployables – see [EPS – Solar Power Generation](eps.md#solar-power-generation). On most CubeSats an SBC is therefore a duty-cycled load, not a continuous one.
 - **Boot time.** Linux takes seconds to tens of seconds. After an unexpected reset, that is a long time to be unresponsive.
 - **Non-determinism.** A general-purpose OS makes no hard real-time guarantees, so control loops should not live here.
 - **Filesystem corruption.** Power loss mid-write corrupts filesystems. Use read-only root filesystems, journaling, and treat writable storage as expendable. See [Flight Software – Storage and filesystems](flight-software.md#storage-and-filesystems).
@@ -96,11 +96,11 @@ Mitigation techniques worth knowing:
 - **[EDAC](../references/glossary.md#edac)** on memories detects and corrects single-bit errors and detects double-bit ones.
 - **Memory scrubbing** walks through memory periodically, correcting errors before a second upset in the same word makes them uncorrectable.
 
-The honest counterweight: FPGA development is slow, verification is hard, and the toolchains are unfriendly. For most CubeSats, an FPGA is justified by a specific payload requirement, not by general capability.
+The counterweight: FPGA development is slow, verification is hard, and the toolchains are unfriendly. For most CubeSats, an FPGA is justified by a specific payload requirement, not by general capability.
 
 ## Memory
 
-Choosing memory technology is a real design decision and one that CubeSat teams routinely make by default, which usually means flash for everything. The split NASA draws is between volatile memory for "real-time processing, buffers, and temporary data handling" and non-volatile memory for "telemetry logs, subsystem data, and temporary payload storage".[^nasa-soa-avionics] Within the non-volatile side the technologies are genuinely different animals:
+Choosing memory technology is a design decision in its own right and one that CubeSat teams routinely make by default, which usually means flash for everything. The split NASA draws is between volatile memory for "real-time processing, buffers, and temporary data handling" and non-volatile memory for "telemetry logs, subsystem data, and temporary payload storage".[^nasa-soa-avionics] Within the non-volatile side the technologies are different animals:
 
 - **Flash** – "excels in delivering high-density storage, but has limited write cycles and slower operations".[^nasa-soa-avionics] The right home for payload data, telemetry archives and program images. The wrong home for anything rewritten constantly.
 - **FRAM (ferroelectric RAM)** – "offers smaller capacity, yet boasts rapid write speed, low power, and ultra-high endurance – ideal for frequent data logging or sustaining mission-critical parameters".[^nasa-soa-avionics] That description is almost a specification of what this page asks you to keep in non-volatile memory: the boot counter, the reset-cause record, the inhibit and deployment state, the parameter table.
@@ -113,7 +113,7 @@ Whatever the technology, the radiation and power-loss rules still apply: use err
 
 ## Redundancy and Fault Tolerance
 
-Redundancy at CubeSat scale is a genuine trade, not an automatic good – every redundant element adds mass, power, and the switching mechanism itself becomes a failure point.
+Redundancy at CubeSat scale is a trade, not an automatic good – every redundant element adds mass, power, and the switching mechanism itself becomes a failure point.
 
 - **Cold redundancy**: a second unit, unpowered, switched in on failure. Cheap in power, and the spare is protected from wear and radiation while off. Requires reliable failure detection and switching.
 - **Warm/hot redundancy**: both units powered, one active. Faster failover, but double the power and no protection for the spare.
@@ -194,7 +194,7 @@ See [Flight Software – Timing, Scheduling, and Timekeeping](flight-software.md
 
 ## Software Stack and OS Choices
 
-- **Bare metal** – a main loop plus interrupts, no scheduler. Completely deterministic and fully comprehensible, which is a real reliability advantage. Gets unwieldy as concurrent activities multiply.
+- **Bare metal** – a main loop plus interrupts, no scheduler. Completely deterministic and fully comprehensible, which is a reliability advantage in itself. Gets unwieldy as concurrent activities multiply.
 - **[RTOS](../references/glossary.md#rtos)** – FreeRTOS, Zephyr, RTEMS. Pre-emptive scheduling with priorities and real-time guarantees, at the cost of needing to reason about priority inversion, stack sizing and race conditions. The mainstream CubeSat choice above trivial complexity. RTEMS in particular has substantial spaceflight heritage.
 - **Linux** – only on an SBC, and generally for payload-class work rather than spacecraft control.
 
@@ -216,7 +216,7 @@ Onboard processing has moved from research to demonstrated capability, driven by
 - **PhiSat-2** (6U, Open Cosmos, launched 16 August 2024) carries the model further: multiple AI applications – cloud detection, street-map generation, vessel detection, image compression – installed and operated remotely, with further apps uploaded after launch rather than baked in before it.[^phisat2] That is the interesting part, not the inference itself.
 - **OPS-SAT** (3U, ESA, launched 18 December 2019, end of life 22 May 2024) existed to let experimenters run software on a platform ESA described as "10 times more powerful than any other preceding ESA satellite". It was designed for an S-band uplink of at least 256 kbit/s and for "a complete reload of the entire software in less than 3 passes".[^opssat] It is the clearest demonstration that the barrier to onboard autonomy has been operational caution rather than available compute.
 
-Current limitations are honest ones: power (an inference accelerator running continuously will dominate a CubeSat budget), thermal (see [Thermal](thermal.md)), radiation tolerance of accelerators, and the difficulty of validating a model whose behaviour you cannot exhaustively test. The pragmatic pattern today is **duty-cycled inference on a switchable processor**, with the [spacecraft bus](../references/glossary.md#bus-spacecraft) kept firmly under the control of something simple.
+The current limitations are practical ones: power (an inference accelerator running continuously will dominate a CubeSat budget), thermal (see [Thermal](thermal.md)), radiation tolerance of accelerators, and the difficulty of validating a model whose behaviour you cannot exhaustively test. The pragmatic pattern today is **duty-cycled inference on a switchable processor**, with the [spacecraft bus](../references/glossary.md#bus-spacecraft) kept firmly under the control of something simple.
 
 ## OBC Integration and Testing
 

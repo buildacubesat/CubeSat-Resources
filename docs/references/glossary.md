@@ -239,7 +239,7 @@ The path traced on the Earth's surface directly beneath a spacecraft's orbit. Be
 ## H
 
 ### HAL
-**Hardware Abstraction Layer.** The software layer that isolates all register-level hardware access behind interfaces, so application logic never touches hardware directly. Beyond portability, its real value is testability: application code written against a HAL can be compiled and run on a development machine against simulated hardware, turning bugs that would otherwise surface slowly on a [flatsat](#flatsat) into ones caught by an automated test suite.
+**Hardware Abstraction Layer.** The software layer that isolates all register-level hardware access behind interfaces, so application logic never touches hardware directly. Beyond portability, its value is testability: application code written against a HAL can be compiled and run on a development machine against simulated hardware, turning bugs that would otherwise surface slowly on a [flatsat](#flatsat) into ones caught by an automated test suite.
 
 ### Harness
 The wiring assembly connecting a spacecraft's subsystems – wires, connectors, shielding, strain relief and labelling. A disproportionate source of integration problems, largely because it is often improvised rather than designed. A harness that accreted during integration cannot be verified or rebuilt identically; one that was drawn, documented and built to a schedule can be.

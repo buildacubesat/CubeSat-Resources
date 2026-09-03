@@ -9,7 +9,7 @@ A CubeSat lab does not need everything listed here on day one. The ordering that
 ### Fastener tools
 
 - **Calibrated torque driver.** The single most important tool on this page. CubeSats live on M2.5 and M3 fasteners in aluminium, where the gap between "not tight enough" and "stripped" is small. A driver covering roughly 0.2–2 Nm handles most CubeSat work. Have it calibrated, and record the torque applied to every fastener. See [Structure – Fasteners and Assembly](structure.md#fasteners-and-assembly).
-- **Quality hex and Torx drivers.** Cheap drivers round out socket heads, and a rounded fastener in a nearly finished spacecraft is a genuinely bad afternoon.
+- **Quality hex and Torx drivers.** Cheap drivers round out socket heads, and a rounded fastener in a nearly finished spacecraft is a bad afternoon.
 - **Thread repair kit** – helicoils or thread inserts. Aluminium threads do not survive many cycles, and being able to repair one is much better than replacing a machined part.
 
 ### Wiring and harness tools
@@ -23,7 +23,7 @@ A CubeSat lab does not need everything listed here on day one. The ordering that
 
 - **Temperature-controlled soldering station** with fine tips.
 - **Hot air rework station** for surface-mount work and component removal.
-- **Flux, braid, and a genuinely good extraction fan.** Fume extraction is a safety item, not a comfort one.
+- **Flux, braid, and a good extraction fan.** Fume extraction is a safety item, not a comfort one.
 - A **reflow oven or hotplate** if you assemble your own boards.
 
 ### ESD control
@@ -36,7 +36,7 @@ Nitrile gloves, lint-free wipes, isopropyl alcohol, and covered storage for anyt
 
 ## Inspection and Measurement
 
-- **Digital calipers** (0.01 mm resolution) as the everyday dimensional tool, and a **micrometer** where the tolerance genuinely warrants it. [Rail](../references/glossary.md#rail) dimensions are held to **±0.1 mm**, which calipers can just about resolve and a micrometer resolves comfortably.[^exopod] See [Structure – Tolerancing and Stack-Up](structure.md#tolerancing-and-stack-up).
+- **Digital calipers** (0.01 mm resolution) as the everyday dimensional tool, and a **micrometer** where the tolerance warrants it. [Rail](../references/glossary.md#rail) dimensions are held to **±0.1 mm**, which calipers can just about resolve and a micrometer resolves comfortably.[^exopod] See [Structure – Tolerancing and Stack-Up](structure.md#tolerancing-and-stack-up).
 - **A precision scale.** Mass is a tracked budget item, and per-component measured mass is far more useful than datasheet values. Something reading to 0.1 g covers most CubeSat components; a 0.01 g scale is better for small parts.
 - **Stereo microscope or digital inspection camera** for solder joint inspection, connector examination and general "what actually happened here" work. A USB microscope is inexpensive and transforms board debugging.
 - **Feeler gauges and pin gauges** for clearance and hole checks.
@@ -110,7 +110,7 @@ Using KiCad has a specific advantage for this community beyond cost: **open-hard
 ### Orbital mechanics and mission analysis
 
 <!-- CSR-RESOURCES:START dev-tools-orbital-analysis -->
-- **[NASA GMAT (General Mission Analysis Tool)](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Mission design, optimisation and navigation tool used for real mission operations as well as analysis and teaching. This is the current R2026 catalogue entry; older release entries are still indexed and easy to land on by mistake. Open source
+- **[NASA GMAT (General Mission Analysis Tool)](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Mission design, optimisation and navigation tool used for flight mission operations as well as analysis and teaching. This is the current R2026 catalogue entry; older release entries are still indexed and easy to land on by mistake. Open source
 - **[Basilisk](https://avslab.github.io/basilisk/)** `Link` – Modular astrodynamics simulation framework from the University of Colorado AVS Lab, well suited to spacecraft dynamics and ADCS simulation. Open source
 - **[CelesTrak](https://celestrak.org/)** `Link` – Orbital element sets, SGP4 references and a large body of astrodynamics documentation. Free
 <!-- CSR-RESOURCES:END dev-tools-orbital-analysis -->

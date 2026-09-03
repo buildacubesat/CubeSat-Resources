@@ -15,7 +15,7 @@ The ground segment is the half of the mission that most CubeSat teams under-reso
 
 ### Choosing
 
-The honest decision factors are frequency band, budget, and how much contact time the mission actually needs.
+The decision factors are frequency band, budget, and how much contact time the mission actually needs.
 
 - **Amateur bands (UHF/VHF)** – build your own, and lean on SatNOGS. GSaaS providers largely do not serve these bands.
 - **S-band and above** – a capable station becomes expensive quickly, and GSaaS starts to look economical, especially for a short mission.
@@ -167,8 +167,8 @@ The ground segment must be finished and proven *before* launch, and it usually i
 - **End-to-end RF testing.** Transmit from the spacecraft into an attenuator and a dummy load, receive with the real ground station chain. This validates the whole path, including the parts nobody thought about.
 - **Simulate Doppler** in a loopback test by offsetting the transmit frequency, and confirm the tracking software follows it.
 - **Rehearse passes** with the real timing constraints. Ten minutes is not long, and the first time you discover your procedure takes fifteen should not be in orbit.
-- **Test the automation** against a real spacecraft on the bench, over days, unattended.
-- **Verify the decoder against real modulated signals**, not just against synthetic test vectors.
+- **Test the automation** against a spacecraft on the bench, over days, unattended.
+- **Verify the decoder against modulated signals**, off the air or from a loopback, not just against synthetic test vectors.
 - **Practise contingencies**: no signal at the expected time, a spacecraft in safe mode, a partial frame, an unexpected reset. See [AIT – Mission Simulation](ait.md#mission-simulation).
 
 The most common early-operations failures are mundane: uplink Doppler not corrected, the antenna pointing at the wrong satellite from an ambiguous TLE, a decoder that was never tested against a real signal, and a rotator that ran into its end stops mid-pass.

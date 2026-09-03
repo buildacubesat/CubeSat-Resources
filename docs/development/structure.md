@@ -68,7 +68,7 @@ NASA's state-of-the-art survey lists 2NDSpace, AAC Clyde Space, C3S Electronics,
 
 - **Monolithic / machined-from-solid frames**: a single milled aluminium body, sometimes with removable side panels. Stiff, dimensionally reliable, and easy to analyse, but expensive in machining time and awkward for late access to internal boards.
 - **Skeletonised rail-and-rib frames**: four corner rails tied together by ribs or end plates. The most common commercial pattern. Lighter, cheaper, and the side faces stay open for solar panels and access.
-- **Sheet-metal / folded frames**: cheap and light, but harder to hold tolerance on and generally less stiff. Pumpkin says it pioneered sheet-metal CubeSat structures back in 2000 and still offers both solid-wall and skeletonised versions, so the approach has genuine heritage – but it rewards good tooling.
+- **Sheet-metal / folded frames**: cheap and light, but harder to hold tolerance on and generally less stiff. Pumpkin says it pioneered sheet-metal CubeSat structures back in 2000 and still offers both solid-wall and skeletonised versions, so the approach has heritage – but it rewards good tooling.
 - **Secondary structures**: an internal sub-assembly (a board stack or payload cage) built and tested separately, then dropped into the load-carrying frame. This is what ISISPACE means by "multiple mounting configurations", and it is a good pattern for keeping integration reversible.
 
 For scale: commercial CubeSat primary structures average roughly **0.118 kg for a 1U and 1.84 kg for a 12U**.[^nasa-soa-structures] If your frame is far heavier than that, you are spending [mass budget](systems-engineering.md#budgets-and-margins) that the payload would rather have.
@@ -165,9 +165,9 @@ Every enclosed volume must be able to vent during ascent, or the trapped air wil
 
 The CDS specifies the outside of a CubeSat and says nothing about the inside. In that vacuum, the community converged on a **[PC/104](../references/glossary.md#pc104)**-derived board stack, popularised by the Pumpkin CubeSat Kit: boards roughly **90 × 96 mm** carrying a 104-pin stacking header, mounted on standoffs so that each board's connector mates with the one below.
 
-The advantages are real – it is why almost every COTS CubeSat board you can buy uses it. Boards from different vendors physically stack; the bus is available at every level; and adding a subsystem is mechanically trivial.
+The advantages are why almost every COTS CubeSat board you can buy uses it. Boards from different vendors physically stack; the bus is available at every level; and adding a subsystem is mechanically trivial.
 
-The disadvantages are equally real, and worth knowing before you commit:
+The disadvantages are as concrete, and worth knowing before you commit:
 
 - **The pinout is not standardised.** The connector is common; what each pin carries is not. Two "PC/104 CubeSat" boards from different vendors will mate mechanically and may still be electrically incompatible. Always check pin assignments against each vendor's [ICD](../references/glossary.md#icd).
 - **Access is serial.** Reaching the third board down means removing the two above it. Plan assembly order and debug access together.
@@ -215,13 +215,13 @@ Deployers care because an off-centre mass causes the CubeSat to bind or tumble o
 Practical handling:
 
 - Track centre of mass in CAD from the first layout, not as a check before delivery. Batteries and payloads are dense and are exactly the things that move late in the design.
-- Measure it on the real spacecraft. CAD densities are approximations, harnesses are never where the model says, and adhesives and conformal coating add unmodelled mass.
+- Measure it on the flight spacecraft. CAD densities are approximations, harnesses are never where the model says, and adhesives and conformal coating add unmodelled mass.
 - Moments of inertia matter to [GNC](gnc.md) even where the deployer does not check them; export them from the same CAD model and keep them under version control alongside the mass budget.
 - Balance mass is legitimate but is a last resort – it is mass that does nothing. Prefer relocating something heavy.
 
 ## Deployable Structures and Mechanisms
 
-Deployables are where structural design gets genuinely risky. NASA's survey is blunt about it: **mechanisms account for more than 10% of reported small satellite failures**, and its recommended mitigations are unglamorous – "design simplicity, margin, supplier selection, and testing."[^nasa-soa-structures]
+Deployables are where structural design gets risky. NASA's survey is blunt about it: **mechanisms account for more than 10% of reported small satellite failures**, and its recommended mitigations are unglamorous – "design simplicity, margin, supplier selection, and testing."[^nasa-soa-structures]
 
 ### Common deployables
 
@@ -261,7 +261,7 @@ NASA's survey additionally lists Beyond Gravity, Comat, DHV Technology, Ensign-B
 
 NASA's **[GEVS](../references/glossary.md#gevs)** (GSFC-STD-7000A) provides the generalised levels most CubeSat teams work to in the absence of a specific launcher manifest. Its component-level table specifies a flat **0.16 g²/Hz from 50 to 800 Hz**, rolling off at ±6 dB/octave to 0.026 g²/Hz at 20 Hz and 2000 Hz, giving an overall **14.1 Grms** for qualification. The acceptance level is the same shape at half the spectral density – 3 dB down – for an overall **10.0 Grms**. Qualification is run for **2 minutes in each of three orthogonal axes**.[^gevs]
 
-Real launchers are usually gentler than the GEVS envelope. EnduroSat publishes a Falcon 9-referenced [protoflight](../references/glossary.md#protoflight) level of **7.877 Grms for 1 minute per axis** alongside its 14.1 Grms GEVS batch-qualification campaign – a useful illustration that GEVS is a bounding envelope, not a prediction.[^endurosat-qual] Qualifying to GEVS means you are covered almost anywhere; qualifying to your actual launcher's levels means you are covered where you are actually going.
+Actual launchers are usually gentler than the GEVS envelope. EnduroSat publishes a Falcon 9-referenced [protoflight](../references/glossary.md#protoflight) level of **7.877 Grms for 1 minute per axis** alongside its 14.1 Grms GEVS batch-qualification campaign – a useful illustration that GEVS is a bounding envelope, not a prediction.[^endurosat-qual] Qualifying to GEVS means you are covered almost anywhere; qualifying to your actual launcher's levels means you are covered where you are actually going.
 
 ### Doing the analysis
 
@@ -311,7 +311,7 @@ See [AIT – Mechanical Assembly](ait.md#mechanical-assembly) for the assembly-s
 
 ### Launch
 
-Launch is short, violent, and the only time the structure is genuinely loaded. Everything above – load cases, fasteners, deployable restraint – exists for those few minutes. The verification counterpart is covered under [AIT](ait.md#environmental-testing).
+Launch is short, violent, and the only time the structure is loaded in earnest. Everything above – load cases, fasteners, deployable restraint – exists for those few minutes. The verification counterpart is covered under [AIT](ait.md#environmental-testing).
 
 ### Thermal
 
