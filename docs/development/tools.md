@@ -179,7 +179,7 @@ The general principle: **anything done more than about five times should be auto
 
 ## Documentation and Knowledge Management
 
-University CubeSat teams turn over completely in two to four years, which is comparable to the development timeline. Knowledge management is therefore not administrative overhead – it is the mechanism by which the project survives its own team.
+University CubeSat teams turn over on the same timescale as the project itself – see [Systems Engineering – Organisational pitfalls](systems-engineering.md#organisational-pitfalls) – so knowledge management is not administrative overhead. It is the mechanism by which the project survives its own team.
 
 - **Lab notebooks and build logs.** Dated, specific, and including the things that did not work. "Tried X, it failed because Y" is often more valuable than the record of what eventually worked.
 - **Written procedures** for every repeated operation – assembly steps, test setups, operations. Two people: one performing, one recording.
