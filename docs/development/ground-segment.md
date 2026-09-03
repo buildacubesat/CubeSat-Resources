@@ -115,7 +115,7 @@ Steps 3 and 4 can follow after launch if they have to. Step 1 effectively cannot
 
 ### Decoding software
 
-The single most useful piece of software in this space is **gr-satellites**, a GNU Radio out-of-tree module collecting telemetry decoders for most amateur satellites in orbit. It handles [AX.25](../references/glossary.md#ax25), the GOMspace NanoCom U482C and AX100 modems, CCSDS stack components, the AO-40 protocol used by FUNcube, and many satellite-specific formats – and it can reassemble files such as JPEG images and present telemetry as human-readable values. It is GPL-3.0 licensed.[^gr-satellites]
+The single most useful piece of software in this space is **gr-satellites**, a GNU Radio out-of-tree module collecting telemetry decoders for most amateur satellites in orbit. It handles [AX.25](../references/glossary.md#ax25), the GomSpace NanoCom U482C and AX100 modems, CCSDS stack components, the AO-40 protocol used by FUNcube, and many satellite-specific formats – and it can reassemble files such as JPEG images and present telemetry as human-readable values. It is GPL-3.0 licensed.[^gr-satellites]
 
 **SatDump** is the other broadly useful tool, handling a wide range of satellite data processing pipelines.
 
@@ -225,7 +225,7 @@ The most common early-operations failures are mundane: uplink Doppler not correc
 ### Decoders
 
 <!-- CSR-RESOURCES:START dev-ground-segment-decoders -->
-- **[gr-satellites](https://github.com/daniestevez/gr-satellites)** `Link` – GNU Radio decoders for most amateur satellites in orbit, covering AX.25, GOMspace AX100/U482C, CCSDS and AO-40 protocols, with file reassembly and human-readable telemetry output (GPL-3.0)
+- **[gr-satellites](https://github.com/daniestevez/gr-satellites)** `Link` – GNU Radio decoders for most amateur satellites in orbit, covering AX.25, GomSpace AX100/U482C, CCSDS and AO-40 protocols, with file reassembly and human-readable telemetry output (GPL-3.0)
 - **[SatNOGS DB](https://db.satnogs.org/)** `Link` – Community database of satellite transmitters, telemetry formats and decoded data. Register your satellite and its transmitters here before launch
 - **[SatNOGS Dashboards](https://dashboard.satnogs.org/)** `Link` – Grafana dashboards for current and past missions, and a hosting option for your own
 <!-- CSR-RESOURCES:END dev-ground-segment-decoders -->
@@ -278,6 +278,6 @@ Built on top of Hamlib, and worth knowing about:
 
 [^nasa-soa-ground]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 11: Ground Data Systems and Mission Operations](https://www.nasa.gov/smallsat-institute/sst-soa/ground-data-systems-and-mission-operations/) (revision dated May 2026). Open access. Source for commercial ground network scale (KSAT's 100+ 3.7 m KSATLITE antennas across 15+ sites and 1.5 million passes in 2023, ATLAS's 34 stations and 51 antennas, AWS's 5.4 m apertures), G/T figures by provider and band, achievable direct-to-Earth data rates, and GSaaS commercial models.
 
-[^gr-satellites]: Daniel Estévez, [gr-satellites](https://github.com/daniestevez/gr-satellites). A GNU Radio out-of-tree module collecting telemetry decoders for most amateur satellites in orbit, begun in 2015. Supports AX.25, the GOMspace NanoCom U482C and AX100 modems, CCSDS stack components and the AO-40 protocol used by FUNcube, alongside many satellite-specific formats, with file reassembly and human-readable telemetry output. GPL-3.0 licensed.
+[^gr-satellites]: Daniel Estévez, [gr-satellites](https://github.com/daniestevez/gr-satellites). A GNU Radio out-of-tree module collecting telemetry decoders for most amateur satellites in orbit, begun in 2015. Supports AX.25, the GomSpace NanoCom U482C and AX100 modems, CCSDS stack components and the AO-40 protocol used by FUNcube, alongside many satellite-specific formats, with file reassembly and human-readable telemetry output. GPL-3.0 licensed.
 
 [^fcc-telecommand]: [47 CFR § 97.211 – Space telecommand station](https://www.ecfr.gov/current/title-47/chapter-I/subchapter-D/part-97/subpart-C/section-97.211). Paragraph (b): "A telecommand station may transmit special codes intended to obscure the meaning of telecommand messages to the station in space operation." This is the US rule, and it is an explicit exception to the general prohibition in §97.113(a)(4) on messages encoded to obscure their meaning. Other administrations treat telecommand separately from ordinary amateur traffic to varying degrees; check your own licence conditions rather than generalising from this one.

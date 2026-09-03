@@ -124,7 +124,7 @@ The shift is largest at acquisition, sweeps through zero at closest approach, an
 - **AX.25** is the amateur standard. Every amateur ground station and most SatNOGS decoders already speak it, which turns strangers into a tracking network. It is inefficient and has no built-in error correction, so it is usually wrapped in an FEC layer.
 - **CCSDS** is what the professional world uses – proper space data link protocols, framing and coding, and interoperability with agency ground stations. Heavier to implement, and the right choice for missions with a non-amateur link. The Blue Books are free; see [Standards & Protocols](../references/standards.md#communication-protocols-and-data-formats).
 
-Onboard, [CSP](../references/glossary.md#csp) (the CubeSat Space Protocol) is the de facto network layer between subsystems, and it can extend over the radio link so that the ground addresses subsystems the same way flight software does. See [Flight Software – Inter-Subsystem Communication Protocols](flight-software.md#inter-subsystem-communication-protocols).
+Onboard, [CSP](../references/glossary.md#csp) (the Cubesat Space Protocol) is the de facto network layer between subsystems, and it can extend over the radio link so that the ground addresses subsystems the same way flight software does. See [Flight Software – Inter-Subsystem Communication Protocols](flight-software.md#inter-subsystem-communication-protocols).
 
 ## Flight Segment Hardware
 
@@ -132,7 +132,7 @@ Onboard, [CSP](../references/glossary.md#csp) (the CubeSat Space Protocol) is th
 
 The realistic options, in ascending order of effort:
 
-- **COTS CubeSat transceivers** – a module in a standard stack format, with a driver, a datasheet and flight heritage. The default for a first mission, and the choice that lets you spend your effort elsewhere. EnduroSat, GomSpace, ISISPACE, AAC Clyde and NanoAvionics all sell UHF and S-band units; [SatSearch](https://satsearch.co/) and the [CubeSat Shop](https://www.cubesatshop.com/) are the places to compare them.
+- **COTS CubeSat transceivers** – a module in a standard stack format, with a driver, a datasheet and flight heritage. The default for a first mission, and the choice that lets you spend your effort elsewhere. EnduroSat, GomSpace, ISISPACE, AAC Clyde and NanoAvionics all sell UHF and S-band units; [satsearch](https://satsearch.co/) and the [CubeSatShop](https://www.cubesatshop.com/) are the places to compare them.
 - **Open-source hardware** – the Libre Space Foundation's SatNOGS-COMMS is an open communications subsystem developed alongside the SatNOGS ground network, and is the most credible open option currently available.
 - **[SDR](../references/glossary.md#sdr)-based, built in-house** – maximum flexibility and a research contribution, but you are now responsible for the PA, the filtering, the EMC behaviour and the radiation tolerance of the whole chain. Reasonable for a process-oriented mission, expensive for a result-oriented one.
 

@@ -307,7 +307,7 @@ Practical notes: B-dot is robust and hard to destabilise, which is exactly what 
 
 - **PID control** on each axis is simple, well understood, and adequate for many missions. Tuning is complicated by cross-axis coupling and by wheel dynamics.
 - **Quaternion feedback control** works directly with the attitude error quaternion rather than decomposed angles, avoiding singularities and handling large slews properly. The standard approach for reaction-wheel systems.
-- **LQR and state-space methods** allow explicit trade-off between pointing error and control effort, useful when actuator authority is tight.
+- **LQR and state-space methods** allow explicit tradeoff between pointing error and control effort, useful when actuator authority is tight.
 - **Sliding mode and robust control** handle uncertain inertia and disturbances, which is relevant given that CubeSat inertia tensors are often known poorly.
 - **Magnetic-only control laws** must cope with the underactuation described above. Cross-product control and various periodic/LQR formulations exist; all are slow and none give arbitrary pointing quickly.
 

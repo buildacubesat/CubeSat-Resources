@@ -62,7 +62,7 @@ Building in-house makes sense when the payload drives an unusual internal layout
 - **[Pumpkin Space Systems](https://www.pumpkinspace.com/)** `Link` – Sheet-metal and skeletonised CubeSat structures; originators of the CubeSat Kit and the PC/104-derived stack convention
 <!-- CSR-RESOURCES:END dev-structure-frame-suppliers -->
 
-NASA's state-of-the-art survey lists 2NDSpace, AAC Clyde Space, C3S Electronics, EnduroSat, GomSpace, NanoAvionics, Pumpkin Space Systems and ISISPACE among its representative primary-structure suppliers, while noting that "the list of organizations/companies in this chapter is not all-encompassing and does not constitute an endorsement from NASA."[^nasa-soa-structures] [SatSearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) and [CubeSatShop](https://www.cubesatshop.com/) are the practical places to compare what is currently available.
+NASA's state-of-the-art survey lists 2NDSpace, AAC Clyde Space, C3S Electronics, EnduroSat, GomSpace, NanoAvionics, Pumpkin Space Systems and ISISPACE among its representative primary-structure suppliers, while noting that "the list of organizations/companies in this chapter is not all-encompassing and does not constitute an endorsement from NASA."[^nasa-soa-structures] [satsearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) and [CubeSatShop](https://www.cubesatshop.com/) are the practical places to compare what is currently available.
 
 ### Construction styles
 

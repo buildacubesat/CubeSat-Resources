@@ -94,7 +94,7 @@ The prevailing pattern mirrors the one described under [OBC – Single-Board Com
 
 ### Data reduction and compression
 
-The fundamental asymmetry of a CubeSat mission is that **collection is cheap and downlink is not**. At 9600 bps over four eight-minute passes you have about 2.3 MB per day before overhead. A single 12-bit 2048×2048 image is 6 MB. Put those two numbers together and **one image takes nearly three days to downlink** – which is the statement of the problem that matters, and it means the interesting question is never "how do we send it all" but "what do we choose not to send".
+The fundamental asymmetry of a CubeSat mission is that **collection is cheap and downlink is not**. At 9600 bps over four 8-minute passes you have about 2.3 MB per day before overhead. A single 12-bit 2048×2048 image is 6 MB. Put those two numbers together and **one image takes nearly three days to downlink** – which is the statement of the problem that matters, and it means the interesting question is never "how do we send it all" but "what do we choose not to send".
 
 There are only four levers:
 

@@ -39,7 +39,7 @@ Whatever the CDS says, the document that governs a CubeSat's mechanical and safe
 - **[TC Space Data Link Protocol (CCSDS 232.0-B)](https://ccsds.org/Pubs/232x0b4e1c1.pdf)** `PDF` – Telecommand space data link protocol
 - **[CCSDS 123.0-B-2 – Low-Complexity Lossless and Near-Lossless Multispectral and Hyperspectral Image Compression](https://ccsds.org/Pubs/123x0b2e2c3.pdf)** `PDF` – Image compression standard designed for the exact problem CubeSat imaging payloads face
 - **[ECSS-E-ST-70-41C – Telemetry and telecommand packet utilization (PUS)](https://ecss.nl/standard/ecss-e-st-70-41c-rev-1-dir1-telecommand-and-telemetry-packet-utilization-review-12-december-2024-28-february-2025/)** `Link` – The European service-based standard for spacecraft telemetry and telecommand
-- **[CubeSat Space Protocol (libcsp)](https://libcsp.github.io/libcsp/)** `Link` – The de facto CubeSat onboard networking protocol. Open source (MIT)
+- **[Cubesat Space Protocol (libcsp)](https://libcsp.github.io/libcsp/)** `Link` – The de facto CubeSat onboard networking protocol. Open source (MIT)
 - **[SpaceCAN (LibreCube)](https://librecube.gitlab.io/standards/spacecan/)** `Link` – Simplified redundant CAN bus standard for small spacecraft, derived from ECSS-E-ST-50-15C
 <!-- CSR-RESOURCES:END ref-standards-communication -->
 

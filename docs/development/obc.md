@@ -203,7 +203,7 @@ Whatever you choose, a **hardware abstraction layer** separating drivers from ap
 ### Middleware and open stacks
 
 <!-- CSR-RESOURCES:START dev-obc-open-software-stacks -->
-- **[Space Inventor open-source stack](https://github.com/spaceinventor/)** `Link` – libcsp (CubeSat Space Protocol), csh (command shell) and libparam (parameter system), MIT-licensed
+- **[Space Inventor open-source stack](https://github.com/spaceinventor/)** `Link` – libcsp (Cubesat Space Protocol), csh (command shell) and libparam (parameter system), MIT-licensed
 - **[NASA Core Flight System (cFS)](https://etd.gsfc.nasa.gov/capabilities/core-flight-system)** `Link` – Modular, flight-proven flight software framework
 - **[PyCubed software](https://github.com/pycubed/software)** `Link` – CircuitPython-based avionics stack for the PyCubed board
 <!-- CSR-RESOURCES:END dev-obc-open-software-stacks -->

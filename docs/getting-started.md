@@ -34,7 +34,7 @@ Details on [Structure – Form Factors and the CubeSat Envelope](development/str
 ### Learn systematically
 
 - [KiboCUBE Academy](https://www.unoosa.org/oosa/en/ourwork/access2space4all/KiboCUBE_Academy_Webinars.html) – UNOOSA/JAXA lecture series covering mission design through subsystems to operations. Free, structured, and the closest thing to a full CubeSat course.
-- [A Guide to CubeSat Mission and Bus Design](https://pressbooks-dev.oer.hawaii.edu/epet302/) – University of Hawai'i open textbook with worked examples.
+- [A Guide to CubeSat Mission and Bus Design](https://pressbooks-dev.oer.hawaii.edu/epet302/) – University of Hawaiʻi open textbook with worked examples.
 - More on the [Courses, Events and Educational Kits](references/courses.md) page, including educational kits you can build against.
 
 ### Stay current
@@ -119,7 +119,7 @@ Four decisions are cheap to make at the start and expensive to revisit. Teams th
 
 ## Sourcing and Building
 
-For subsystems and components, start with [SatSearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) (rebranding to SatBase) and the [CubeSat Shop](https://www.cubesatshop.com/); more on the [Websites](references/websites.md#component-sourcing) page.
+For subsystems and components, start with [satsearch](https://satsearch.co/), [SatCatalog](https://www.satcatalog.com/) (rebranding to SatBase) and the [CubeSatShop](https://www.cubesatshop.com/); more on the [Websites](references/websites.md#component-sourcing) page.
 
 On the open-source side there is far more flight-proven material available than most newcomers expect – complete missions with published schematics, software and lessons learned. The [CubeSat Missions](references/missions.md) page collects them, the [educational kits](references/courses.md#educational-kits) are the fastest way to get hardware on a bench, and [Flight Software](development/flight-software.md#open-source-flight-software-projects) lists the frameworks worth building on rather than reinventing. Reading someone else's flown design is the cheapest engineering you will ever do.
 
