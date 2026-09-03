@@ -15,7 +15,7 @@ The papers listed here are ones cited across this site's [development](../develo
 ## Reliability and statistics
 
 <!-- CSR-RESOURCES:START ref-papers-reliability -->
-- **[Towards the Thousandth CubeSat: A Statistical Overview](https://www.hindawi.com/journals/ijae/2019/5063145/)** `Link` – Villela, Costa, Brandão, Bueno and Leonardi, *International Journal of Aerospace Engineering*, 2019. Open access. Estimates overall CubeSat mission success at about 75% excluding launch failures, finds around 20% of failures occur during launch or deployment, and shows both success rates and infant mortality improving over time.
+- **[Towards the Thousandth CubeSat: A Statistical Overview](https://www.hindawi.com/journals/ijae/2019/5063145/)** `Link` – Villela et al., *International Journal of Aerospace Engineering*, 2019. Open access. Estimates overall CubeSat mission success at about 75% excluding launch failures, finds around 20% of failures occur during launch or deployment, and shows both success rates and infant mortality improving over time.
 - **[Survey on the implementation and reliability of CubeSat electrical bus interfaces](https://link.springer.com/article/10.1007/s12567-016-0138-0)** `Link` – Bouwmeester, Langer and Gill, *CEAS Space Journal* 9(2), 2017. Open access. Surveys 104 CubeSats, finds I²C the most implemented data bus and bus lockups a major in-orbit issue, with one confirmed catastrophic failure and two probable cases.
 <!-- CSR-RESOURCES:END ref-papers-reliability -->
 
@@ -29,9 +29,9 @@ The papers listed here are ones cited across this site's [development](../develo
 ## Avionics and power
 
 <!-- CSR-RESOURCES:START ref-papers-avionics-and-power -->
-- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Holliday, Ramirez, Settle, Tatum, Senesky and Manchester, *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with real total ionising dose test data. Free PDF.
+- **[PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf)** `PDF` – Holliday et al., *33rd AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. A rare published example of a CubeSat team justifying COTS part selection with real total ionising dose test data. Free PDF.
 - **[Degradation Modeling and Telemetry-Based Analysis of Solar Cells in LEO for Nano- and Pico-Satellites](https://www.mdpi.com/2076-3417/15/16/9208)** `Link` – Amangeldi et al., *Applied Sciences* 15(16), 2025. Open access. On-orbit solar cell degradation rates by cell technology and altitude.
-- **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://doi.org/10.1109/ACCESS.2025.3546066)** `Link` – Abagero, Abebe, Tullu, Jung and Jung, *IEEE Access* 13, 2025. Open access (CC BY 4.0). A deep-learning approach to maximum power point tracking for CubeSat solar arrays.
+- **[Deep Learning-Based MPPT Approach to Enhance CubeSat Power Generation](https://doi.org/10.1109/ACCESS.2025.3546066)** `Link` – Abagero et al., *IEEE Access* 13, 2025. Open access (CC BY 4.0). A deep-learning approach to maximum power point tracking for CubeSat solar arrays.
 <!-- CSR-RESOURCES:END ref-papers-avionics-and-power -->
 
 ## Software and flight software
@@ -44,7 +44,7 @@ The papers listed here are ones cited across this site's [development](../develo
 
 <!-- CSR-RESOURCES:START ref-papers-thermal-and-testing -->
 - **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/html/2512.07896v1)** `Link` – Chipps, Forgette and Cahoy, *Journal of Spacecraft and Rockets*, 2025. Describes an open-source six-node MATLAB thermal model validated against Thermal Desktop to within 1.17 °C. Open access preprint.
-- **[Method for CubeSat Thermal-Vacuum Cycling Test Specification](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf)** `PDF` – Soler Chisabas, Loureiro, de Oliveira Lino and Cantor, *47th International Conference on Environmental Systems*, ICES-2017-102, 2017. Compares TVAC requirements across five major standards and proposes a tailoring method. Free PDF.
+- **[Method for CubeSat Thermal-Vacuum Cycling Test Specification](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf)** `PDF` – Soler Chisabas et al., *47th International Conference on Environmental Systems*, ICES-2017-102, 2017. Compares TVAC requirements across five major standards and proposes a tailoring method. Free PDF.
 - **[Introduction to On-Orbit Thermal Environments](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Rickman, NASA Engineering and Safety Center, TFAWS 2014. How real albedo and outgoing longwave radiation distributions become hot and cold design cases. Free PDF.
 <!-- CSR-RESOURCES:END ref-papers-thermal-and-testing -->
 

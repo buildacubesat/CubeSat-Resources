@@ -8,13 +8,13 @@ Systems engineering provides the framework for designing, integrating, and opera
 
 ### From objective to requirement
 
-Every CubeSat starts with a sentence — "measure X", "demonstrate Y", "give students flight experience". Systems engineering is the discipline of turning that sentence into something buildable without losing what mattered about it.
+Every CubeSat starts with a sentence – "measure X", "demonstrate Y", "give students flight experience". Systems engineering is the discipline of turning that sentence into something buildable without losing what mattered about it.
 
 The chain runs: **mission objectives → mission requirements → system requirements → subsystem requirements**. Each level should be traceable up to the one above, so that when a subsystem requirement is challenged you can answer "because the mission needs it", and when a mission objective changes you can find every requirement it touched.
 
 A workable requirement is:
 
-- **Verifiable.** You can state, before you write it, how you will prove it — by test, analysis, inspection or demonstration. "The spacecraft shall be reliable" is not a requirement; "the spacecraft shall survive 8 thermal cycles between −35 °C and +75 °C" is.
+- **Verifiable.** You can state, before you write it, how you will prove it – by test, analysis, inspection or demonstration. "The spacecraft shall be reliable" is not a requirement; "the spacecraft shall survive 8 thermal cycles between −35 °C and +75 °C" is.
 - **Unambiguous.** One reading only. Avoid "adequate", "sufficient", "as required".
 - **Necessary.** Traceable to something above it. If nothing above needs it, delete it.
 - **Achievable.** Within the physics and the budget. A 1U cannot carry a 0.005° pointing system.
@@ -22,7 +22,7 @@ A workable requirement is:
 
 ### Science vs. technology demonstration
 
-The distinction shapes everything downstream. A **science mission** has data quality requirements that cascade into pointing, calibration, stability and downlink — and a partial success may be scientifically worthless. A **technology demonstration** aims to raise a [TRL](../references/glossary.md#trl), and a component that fails informatively is still a result. Educational missions add a third dimension: the team's learning is an objective in its own right, which legitimately justifies building things you could have bought.
+The distinction shapes everything downstream. A **science mission** has data quality requirements that cascade into pointing, calibration, stability and downlink – and a partial success may be scientifically worthless. A **technology demonstration** aims to raise a [TRL](../references/glossary.md#trl), and a component that fails informatively is still a result. Educational missions add a third dimension: the team's learning is an objective in its own right, which legitimately justifies building things you could have bought.
 
 Being explicit about which you are doing prevents a lot of misallocated effort. See [Payload – Mission categories](payload.md#mission-categories).
 
@@ -36,7 +36,7 @@ Both failure modes are common, and both are expensive.
 
 ### Traceability
 
-A **[requirements traceability](../references/glossary.md#requirements-traceability) matrix** links every requirement to its parent, to the design element that satisfies it, and to the verification activity that proves it. On a CubeSat this need not be elaborate — a spreadsheet is fine — but it needs to exist, because it is what tells you what a late change breaks, and it becomes the backbone of the [V&V](#verification-and-validation-vv) programme.
+A **[requirements traceability](../references/glossary.md#requirements-traceability) matrix** links every requirement to its parent, to the design element that satisfies it, and to the verification activity that proves it. On a CubeSat this need not be elaborate – a spreadsheet is fine – but it needs to exist, because it is what tells you what a late change breaks, and it becomes the backbone of the [V&V](#verification-and-validation-vv) programme.
 
 ## Concept of Operations (CONOPS)
 
@@ -46,11 +46,11 @@ Its value is that it forces concrete questions that requirements documents let y
 
 ### What it should cover
 
-- **Mission phases**: launch, deployment, [LEOP](../references/glossary.md#leop), commissioning, nominal operations, extended mission, disposal — with what happens in each and what "done" looks like.
+- **Mission phases**: launch, deployment, [LEOP](../references/glossary.md#leop), commissioning, nominal operations, extended mission, disposal – with what happens in each and what "done" looks like.
 - **A nominal day**, in detail: orbits, eclipse cycles, ground station passes, payload operations, housekeeping. Walking through a single realistic day surfaces more design problems than any other exercise.
 - **Operational scenarios** for each mission mode, showing how the spacecraft, ground segment and operators interact.
 - **Off-nominal scenarios**: safe mode entry and recovery, missed passes, a failed deployment, a subsystem lost. These become the contingency procedures.
-- **The operations team** — who, how many, when, and with what training.
+- **The operations team** – who, how many, when, and with what training.
 
 The CONOPS also feeds directly into [validation](#verification-and-validation-vv): it defines what the system is *for*, which is what validation checks. And it is the natural input to [AIT – Mission Simulation](ait.md#mission-simulation), where the day-in-the-life test is essentially the CONOPS executed against real hardware.
 
@@ -58,15 +58,15 @@ The CONOPS also feeds directly into [validation](#verification-and-validation-vv
 
 ### Functional and physical
 
-**Functional architecture** describes what the system must do — generate power, store energy, determine attitude, downlink data — independent of how. **Physical architecture** assigns those functions to hardware. Keeping them separate for a while is a genuine discipline: it prevents the team from converging on a familiar block diagram before understanding what the mission needs, and it makes the [trade studies](#trade-studies-and-design-decisions) explicit.
+**Functional architecture** describes what the system must do – generate power, store energy, determine attitude, downlink data – independent of how. **Physical architecture** assigns those functions to hardware. Keeping them separate for a while is a genuine discipline: it prevents the team from converging on a familiar block diagram before understanding what the mission needs, and it makes the [trade studies](#trade-studies-and-design-decisions) explicit.
 
 ### Recurring architectural choices
 
 - **Centralised vs. distributed computing.** See [OBC – Centralised vs. distributed](obc.md#centralised-vs-distributed).
-- **Buy vs. build, per subsystem.** Most CubeSats are hybrids — a bought structure and EPS with in-house avionics is a common pattern, and a defensible one. See [GNC – Integrated ADCS Units](gnc.md#integrated-adcs-units-buy-or-build).
+- **Buy vs. build, per subsystem.** Most CubeSats are hybrids – a bought structure and EPS with in-house avionics is a common pattern, and a defensible one. See [GNC – Integrated ADCS Units](gnc.md#integrated-adcs-units-buy-or-build).
 - **Regulated vs. unregulated power distribution.** See [EPS – Bus architecture](eps.md#bus-architecture).
 - **Passive vs. active attitude control**, which cascades into power, mass and complexity more than almost any other decision. See [GNC – Passive Stabilization](gnc.md#passive-stabilization-methods).
-- **Form factor.** Chosen late by teams who regret it and early by teams who don't. It follows from payload volume, power need (and therefore panel area) and mass — and it is very hard to change once the structure is procured.
+- **Form factor.** Chosen late by teams who regret it and early by teams who don't. It follows from payload volume, power need (and therefore panel area) and mass – and it is very hard to change once the structure is procured.
 
 ### Architectural drivers
 
@@ -79,7 +79,7 @@ Some constraints propagate through everything and are worth identifying explicit
 
 ### Partitioning
 
-Draw subsystem boundaries where the interfaces are simplest, then assign clear ownership. Every boundary needs a named owner on each side, and every boundary needs an [ICD](#interfaces-and-interface-control-documents-icds). The most common CubeSat architectural failure is not a bad partition but an unowned one — a function that everybody assumed somebody else had.
+Draw subsystem boundaries where the interfaces are simplest, then assign clear ownership. Every boundary needs a named owner on each side, and every boundary needs an [ICD](#interfaces-and-interface-control-documents-icds). The most common CubeSat architectural failure is not a bad partition but an unowned one – a function that everybody assumed somebody else had.
 
 ## Interfaces and Interface Control Documents (ICDs)
 
@@ -98,7 +98,7 @@ Interfaces are where CubeSats fail. Individual subsystems, built by people who u
 An ICD is a **contract between two owners**, and it works only if both sides are named and both sides agree to changes. Some practices that make the difference:
 
 - **One document per interface**, not one giant document. Smaller documents get read.
-- **Version everything**, and treat a change as a change requiring both parties' agreement — not a silent edit.
+- **Version everything**, and treat a change as a change requiring both parties' agreement – not a silent edit.
 - **Write ICDs even for internal interfaces.** Two boards built by the same three people still benefit, because the ICD outlives the memory of why something was done.
 - **Define error behaviour explicitly.** What happens if the other side does not respond? Returns garbage? Draws too much current? Undefined error behaviour is where interfaces actually break.
 - **Machine-readable where possible.** A command and telemetry dictionary that generates both flight and ground code eliminates a whole class of desynchronisation bugs. See [Flight Software – Documentation](flight-software.md#documentation-and-maintainability).
@@ -142,16 +142,16 @@ For ready-to-use templates, see [Calculators and Reference Tools](tools.md#calcu
 
 ## Trade Studies and Design Decisions
 
-A **[trade study](../references/glossary.md#trade-study)** is a structured comparison of options against weighted criteria. Its real value is less the numerical answer than the record of *why* a decision was made — which is what lets a team six months (or three years) later understand a design rather than reverse-engineer it.
+A **[trade study](../references/glossary.md#trade-study)** is a structured comparison of options against weighted criteria. Its real value is less the numerical answer than the record of *why* a decision was made – which is what lets a team six months (or three years) later understand a design rather than reverse-engineer it.
 
 ### Doing one usefully
 
 1. **State the question precisely**, including what is fixed and what is open.
-2. **Generate genuinely different options** — at least three, including "do nothing" or "buy it" where those are real.
+2. **Generate genuinely different options** – at least three, including "do nothing" or "buy it" where those are real.
 3. **Choose criteria before scoring**, and weight them before you know how the options score. Weighting after the fact is how a trade study becomes a justification.
 4. **Score honestly**, including uncertainty. A criterion where the options differ by 5% with 30% uncertainty is not discriminating.
 5. **Sanity-check the answer.** If it feels wrong, either your intuition or your weighting is wrong, and finding out which is the useful part.
-6. **Record it** — options, criteria, scores, decision, rationale — in a page or two.
+6. **Record it** – options, criteria, scores, decision, rationale – in a page or two.
 
 ### Criteria worth including
 
@@ -164,7 +164,7 @@ Cost, mass, power, volume, performance, risk, [TRL](../references/glossary.md#tr
 
 Most CubeSat decisions do not deserve a formal trade study. The judgement call is whether the decision is **hard to reverse** (structure, form factor, bus architecture, ADCS approach) or **cheap to change** (a connector, a sensor part number). Spend the effort on the former.
 
-For the rest, "good enough" is a legitimate engineering conclusion, and an early decision that is 80% right usually beats a perfect decision made three months later — because everything downstream was blocked in the meantime.
+For the rest, "good enough" is a legitimate engineering conclusion, and an early decision that is 80% right usually beats a perfect decision made three months later – because everything downstream was blocked in the meantime.
 
 ## Reliability and Risk Management
 
@@ -172,7 +172,7 @@ For the rest, "good enough" is a legitimate engineering conclusion, and an early
 
 CubeSat reliability is measurable, and the numbers are sobering but improving. A statistical overview of the first thousand CubeSats estimated an **overall mission success rate of about 75%** (excluding launch failures), found that **around 20% of all failures occurred during launch or the deployment phase**, and concluded that both the overall success rate is rising and infant mortality is falling.[^villela]
 
-The pattern behind those numbers is consistent with what teams report anecdotally: a large share of CubeSat failures happen very early, and they are dominated not by exotic space effects but by things that could have been caught on the ground — power system faults, software that cannot recover, interfaces that were never tested together, and deployables that did not deploy.
+The pattern behind those numbers is consistent with what teams report anecdotally: a large share of CubeSat failures happen very early, and they are dominated not by exotic space effects but by things that could have been caught on the ground – power system faults, software that cannot recover, interfaces that were never tested together, and deployables that did not deploy.
 
 ### Identifying single points of failure
 
@@ -191,8 +191,8 @@ Walk each subsystem and ask what a total failure does. The mission-ending ones c
 1. **Simplicity.** The most effective reliability measure available. Every removed component and every removed mode is a removed failure mode.
 2. **Test coverage**, especially of fault paths. See [AIT](ait.md) and [Flight Software – Software Testing](flight-software.md#software-testing-and-validation).
 3. **Autonomous recovery.** A spacecraft that resets and comes back is far more valuable than one that requires ground intervention it cannot request. See [Flight Software – FDIR](flight-software.md#fault-detection-isolation-and-recovery-fdir).
-4. **Functional redundancy** — another element able to do the job in degraded form.
-5. **Hardware redundancy** — genuine duplication, which costs mass, power and the switching mechanism.
+4. **Functional redundancy** – another element able to do the job in degraded form.
+5. **Hardware redundancy** – genuine duplication, which costs mass, power and the switching mechanism.
 
 The honest CubeSat position is that **redundancy is usually the wrong answer and better testing is usually the right one.** Mass and volume are too scarce for meaningful duplication, and the observed failure modes are largely ones testing would have caught.
 
@@ -202,7 +202,7 @@ Ask, for each subsystem, what a *degraded* mission looks like. A spacecraft that
 
 ### Running a risk register
 
-Keep a simple list: the risk, its likelihood, its consequence, the mitigation, and who owns it. Review it at every milestone. The value is not the scoring — CubeSat risk scoring is largely guesswork — but the discipline of periodically asking "what worries us, and what are we doing about it?" A risk that has been on the list unchanged for six months is either not real or not being managed.
+Keep a simple list: the risk, its likelihood, its consequence, the mitigation, and who owns it. Review it at every milestone. The value is not the scoring – CubeSat risk scoring is largely guesswork – but the discipline of periodically asking "what worries us, and what are we doing about it?" A risk that has been on the list unchanged for six months is either not real or not being managed.
 
 ## Configuration and Change Management
 
@@ -212,7 +212,7 @@ Configuration management answers one question: **what, exactly, is this spacecra
 
 - **Hardware**: board revisions, serial numbers, which unit is installed where, modification status.
 - **Software and firmware**: version, build, and which hardware it is running on. Tag what flies.
-- **Documentation**: requirements, ICDs, procedures, drawings — all versioned.
+- **Documentation**: requirements, ICDs, procedures, drawings – all versioned.
 - **Configuration data**: parameter tables, calibration values, thresholds. These change more often than code and are tracked less often.
 
 ### Practices proportionate to a CubeSat
@@ -229,34 +229,34 @@ Configuration drift is what happens when the flatsat, the flight model and the d
 
 ## Verification and Validation (V&V)
 
-The distinction matters and is easily blurred. NASA's Systems Engineering Handbook puts it cleanly: **verification** demonstrates "proof of compliance with requirements — that the product can meet each 'shall' statement", while **validation** shows "that the product accomplishes the intended purpose in the intended environment" and meets stakeholder expectations, relating back to the [CONOPS](#concept-of-operations-conops).[^nasa-se-handbook]
+The distinction matters and is easily blurred. NASA's Systems Engineering Handbook puts it cleanly: **verification** demonstrates "proof of compliance with requirements – that the product can meet each 'shall' statement", while **validation** shows "that the product accomplishes the intended purpose in the intended environment" and meets stakeholder expectations, relating back to the [CONOPS](#concept-of-operations-conops).[^nasa-se-handbook]
 
 Informally: verification asks *did we build the thing right?*; validation asks *did we build the right thing?* A spacecraft can pass every verification and still fail validation, if the requirements were wrong.
 
 ### The four verification methods
 
-- **Test** — operate the item and measure. The strongest evidence, and the most expensive.
-- **Analysis** — mathematical or simulation-based demonstration. Used where testing is impractical, such as on-orbit thermal behaviour or structural margins.
-- **Inspection** — visual or dimensional examination. Appropriate for mass, dimensions, workmanship, markings.
-- **Demonstration** — show the function operating, without detailed measurement. Appropriate for operational and procedural requirements.
+- **Test** – operate the item and measure. The strongest evidence, and the most expensive.
+- **Analysis** – mathematical or simulation-based demonstration. Used where testing is impractical, such as on-orbit thermal behaviour or structural margins.
+- **Inspection** – visual or dimensional examination. Appropriate for mass, dimensions, workmanship, markings.
+- **Demonstration** – show the function operating, without detailed measurement. Appropriate for operational and procedural requirements.
 
 Assign a method to every requirement *when you write it*. A requirement whose verification method cannot be identified is a requirement that needs rewriting.
 
 ### Linking to AIT
 
-The verification matrix — requirement, method, activity, evidence, status — is what turns the [AIT](ait.md) campaign from a series of tests into a compliance argument. Each test procedure should state which requirements it verifies, and each result should close them out. Done properly, the evidence package assembles itself as a byproduct of doing the work.
+The verification matrix – requirement, method, activity, evidence, status – is what turns the [AIT](ait.md) campaign from a series of tests into a compliance argument. Each test procedure should state which requirements it verifies, and each result should close them out. Done properly, the evidence package assembles itself as a byproduct of doing the work.
 
 ### When is a requirement verified enough?
 
-The pragmatic answer: when the evidence would convince a competent sceptic who did not build it. A single successful run of a mechanism is not verification; a hundred runs across temperature and after vibration is. Analysis alone is weak where testing was feasible. And **verification evidence is only valid for the configuration it was taken in** — after a change, know what you invalidated.
+The pragmatic answer: when the evidence would convince a competent sceptic who did not build it. A single successful run of a mechanism is not verification; a hundred runs across temperature and after vibration is. Analysis alone is weak where testing was feasible. And **verification evidence is only valid for the configuration it was taken in** – after a change, know what you invalidated.
 
 ## Mission Phases and Operations
 
-Formal programmes use a phase structure — NASA runs Pre-Phase A through Phase F, ECSS uses Phase 0 through Phase F — and while a CubeSat team need not adopt the full apparatus, the underlying sequence is genuinely useful because it tells you what should be settled by when.[^nasa-se-handbook]
+Formal programmes use a phase structure – NASA runs Pre-Phase A through Phase F, ECSS uses Phase 0 through Phase F – and while a CubeSat team need not adopt the full apparatus, the underlying sequence is genuinely useful because it tells you what should be settled by when.[^nasa-se-handbook]
 
 | Phase | Purpose | CubeSat reality |
 |---|---|---|
-| Pre-Phase A | Concept studies, feasibility | "Could we do this?" — often a semester |
+| Pre-Phase A | Concept studies, feasibility | "Could we do this?" – often a semester |
 | Phase A | Mission architecture, [baseline](../references/glossary.md#baseline) requirements | Requirements, CONOPS, initial budgets |
 | Phase B | Preliminary design, technology development | Ends at [PDR](../references/glossary.md#pdr); 30% margins |
 | Phase C | Detailed design, fabrication | Ends at [CDR](../references/glossary.md#cdr); 20% margins |
@@ -264,7 +264,7 @@ Formal programmes use a phase structure — NASA runs Pre-Phase A through Phase 
 | Phase E | Mission operations | [LEOP](../references/glossary.md#leop), commissioning, nominal ops |
 | Phase F | Decommissioning and closeout | Passivation, disposal, data archiving, publication |
 
-Two observations specific to CubeSats. First, **the phases overlap heavily** — a small team cannot serialise design, build and test, and pretending otherwise produces a fictional schedule. Second, **Phase F is routinely forgotten**, and it is where the mission's lasting value is realised: archived data, published results, and lessons written down while the team still exists. See [Qualification and Launch – End of Life](launch.md#end-of-life).
+Two observations specific to CubeSats. First, **the phases overlap heavily** – a small team cannot serialise design, build and test, and pretending otherwise produces a fictional schedule. Second, **Phase F is routinely forgotten**, and it is where the mission's lasting value is realised: archived data, published results, and lessons written down while the team still exists. See [Qualification and Launch – End of Life](launch.md#end-of-life).
 
 Reviews ([PDR](../references/glossary.md#pdr), [CDR](../references/glossary.md#cdr), and pre-delivery) are worth holding even informally, and are dramatically more valuable with **external reviewers**. Someone who did not build it will ask the question the team stopped asking a year ago.
 
@@ -276,9 +276,9 @@ Drawn from the statistics above and from the recurring themes across this site:
 
 - **Power system faults and unrecoverable software** account for a large share of early failures. The spacecraft either cannot maintain a positive energy balance or cannot get itself back to a commandable state.
 - **Failure during launch or deployment** accounts for roughly a fifth of all failures.[^villela]
-- **Mechanisms** are disproportionately represented — over 10% of reported small satellite failures, per NASA's survey. See [Structure – Deployables](structure.md#deployable-structures-and-mechanisms).
+- **Mechanisms** are disproportionately represented – over 10% of reported small satellite failures, per NASA's survey. See [Structure – Deployables](structure.md#deployable-structures-and-mechanisms).
 - **Bus lockups**, particularly I²C, with documented catastrophic cases. See [OBC](obc.md#the-bus-reliability-problem).
-- **Never acquiring signal at all**, which is often a ground segment problem rather than a spacecraft one — wrong [TLE](../references/glossary.md#tle), uncorrected uplink Doppler, an untested decoder.
+- **Never acquiring signal at all**, which is often a ground segment problem rather than a spacecraft one – wrong [TLE](../references/glossary.md#tle), uncorrected uplink Doppler, an untested decoder.
 
 ### Engineering pitfalls
 
