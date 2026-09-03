@@ -31,7 +31,7 @@ Feel free to reach out, I'm happy to meet other CubeSat enthusiasts: [Contact Fo
 
 <div style="display: flex; align-items: center; white-space: nowrap; gap: 0.5rem; padding: 8px;">
   <div style="font-family: IBM Plex Sans; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px;">
-    <a rel="noopener noreferrer" href="https://aiattribution.github.io/statements/AIA-PAI-SeCeNc-Hin-R-v1.0" data-cy="recommended-attribution-statement-text" target="_blank" style="font-family: IBM Plex Sans; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px;">AIA Primarily AI, Stylistic edits, Content edits, New content, Human-initiated, Reviewed v1.0 </a>
+    <a rel="noopener noreferrer" href="https://aiattribution.github.io/statements/AIA-PAI-SeCeNc-Hin-R-?model=Opus%205%2C%20Fable%205.1-v1.0" data-cy="recommended-attribution-statement-text" target="_blank" style="font-family: IBM Plex Sans; font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0px;">AIA Primarily AI, Stylistic edits, Content edits, New content, Human-initiated, Reviewed, Opus 5, Fable 5.1 v1.0 </a>
   </div>
   <div style="display: flex; gap: 0.5rem;">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +109,7 @@ Feel free to reach out, I'm happy to meet other CubeSat enthusiasts: [Contact Fo
   </div>
 </div>
 
-This work was primarily AI-generated. AI was used to make stylistic edits, such as changes to structure, wording, and clarity. AI was used to make content edits, such as changes to scope, information, and ideas. AI was used to make new content, such as text, images, analysis, and ideas. AI was prompted for its contributions, or AI assistance was enabled. AI-generated content was reviewed and approved. 
+This work was primarily AI-generated. AI was used to make stylistic edits, such as changes to structure, wording, and clarity. AI was used to make content edits, such as changes to scope, information, and ideas. AI was used to make new content, such as text, images, analysis, and ideas. AI was prompted for its contributions, or AI assistance was enabled. AI-generated content was reviewed and approved. The following model(s) or application(s) were used: Opus 5, Fable 5.1.
 
 ---
 
