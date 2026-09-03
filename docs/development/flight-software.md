@@ -113,7 +113,7 @@ A [telecommand](../references/glossary.md#telecommand) is an instruction to do s
 
 Design principles worth adopting early:
 
-- **Downlink budget is the constraint.** At 9600 bps over four 8-minute passes you have on the order of 2 MB per day *before* protocol overhead and retries. See [Comms – Expected Data Rates](comms.md#expected-data-rates).
+- **Downlink budget is the constraint.** At 9600 bps over four 8-minute passes you have on the order of 2.3 MB per day *before* protocol overhead and retries. See [Comms – Expected Data Rates](comms.md#expected-data-rates).
 - **Store far more than you send.** Log at high rate onboard, downlink summaries routinely, and dump full-rate data only when investigating.
 - **Beacon something useful.** A short periodic beacon with the most important values gives you and the [SatNOGS](../references/glossary.md#satnogs) community a health picture even when you have no pass. Many missions have been diagnosed entirely from beacons received by strangers.
 - **Never let telemetry storage fill up and block.** Define ring-buffer behaviour explicitly.

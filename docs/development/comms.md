@@ -56,7 +56,7 @@ Achievable rates vary widely with band, modulation, available power, antenna gai
 - **S-band** – higher-rate telemetry and modest payload data. Typically **100 kbps to a few Mbps**; COTS CubeSat units often sit in the 5–125 kbps range, with megabit-class links requiring better antennas and pointing.[^endurosat-sband]
 - **X-band** – data-intensive payloads. **Tens to hundreds of Mbps** are possible, but require precise attitude control, high-gain antennas, significant power and professional ground stations.
 
-Usable throughput is always well below the physical-layer rate once packetisation, forward error correction, duty cycle and pass duration are accounted for. The number that matters is **bits per day**, not bits per second: four 8-minute passes at 9600 bps is roughly 2 MB per day before overhead, and that figure – not the link rate – is what your payload data volume has to fit inside. See [Flight Software – Telemetry](flight-software.md#telemetry) and [Payload – Data reduction and compression](payload.md#data-reduction-and-compression).
+Usable throughput is always well below the physical-layer rate once packetisation, forward error correction, duty cycle and pass duration are accounted for. The number that matters is **bits per day**, not bits per second: four 8-minute passes at 9600 bps is about 2.3 MB per day before overhead, and that figure – not the link rate – is what your payload data volume has to fit inside. See [Flight Software – Telemetry](flight-software.md#telemetry) and [Payload – Data reduction and compression](payload.md#data-reduction-and-compression).
 
 ## Link Budget
 
