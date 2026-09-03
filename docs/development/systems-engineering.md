@@ -335,9 +335,7 @@ Drawn from the statistics above and from the recurring themes across this site:
 
 ### Engineering pitfalls
 
-- Assuming nominal attitude before the ADCS is proven, and discovering a tumbling spacecraft generates a third of the modelled power.
-- Sizing solar arrays for beginning-of-life efficiency.
-- Testing only with a charged battery and a bench supply, so cold-start and brownout are never exercised.
+- Power: assuming nominal attitude before the ADCS is proven, sizing arrays for beginning-of-life efficiency, and testing only with a charged battery and a bench supply – the detail is under [EPS – Common pitfalls](eps.md#common-pitfalls).
 - Software that can disable its own recovery path.
 - Deployables tested once, in air, in one orientation, before vibration.
 - Ground segment finished after launch.
