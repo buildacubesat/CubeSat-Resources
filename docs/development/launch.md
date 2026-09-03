@@ -94,7 +94,7 @@ Insurance for CubeSats is unusual in that most missions carry none, and that is 
 The UK is a useful worked example of how specific this gets. Under the Outer Space Act 1986 and the Space Industry Act 2018 the standard third-party liability requirement is **€60 million**, and while the insurance requirement "may be waived for low-risk missions", the €60 million indemnity obligation to the government remains either way; operator liability is separately capped in the licence itself.[^uk-caa] Numbers and mechanisms differ substantially elsewhere, so treat this as an illustration of the shape of the obligation rather than a template.
 
 The practical advice: treat third-party liability as a legal question to answer early, treat pre-launch cover as a cheap option worth pricing, and treat in-orbit cover as something most CubeSat missions correctly skip.
-<!-- TODO: Only the UK position has been checked against a primary source. Country-specific pointers for the US, Switzerland, Germany and the other jurisdictions readers of this site are likely to be in would make this section considerably more actionable, but each needs verifying against the relevant national authority rather than inferred from the UK model. -->
+<!-- NEEDS HUMAN VERIFICATION: Only the UK position has been checked against a primary source. Country-specific pointers for the US, Switzerland, Germany and the other jurisdictions readers of this site are likely to be in would make this section considerably more actionable, but each needs verifying against the relevant national authority rather than inferred from the UK model. -->
 
 !!! warning
     Nothing on this site is legal advice. Insurance and liability obligations depend on your national legislation and on the launching state, and both should be checked with someone qualified.
@@ -136,8 +136,8 @@ What this means in practice: **check your orbital lifetime during design, not af
 ### Regulatory resources
 
 <!-- CSR-RESOURCES:START dev-launch-registration-and-frequency-management -->
-- **[Guidance on Space Object Registration and Frequency Management for Small Satellites](https://storage.googleapis.com/cubesat-resources/resources/registration-and-frequency-management/handout-on-small-satellitese.pdf)** `PDF` – Introduction to the two administrative processes every operator has to complete: registering the object with a national authority and securing frequency authorisation
-- **[Handbook on Amateur and Amateur-Satellite Services](https://storage.googleapis.com/cubesat-resources/resources/dev-launch-registration-and-frequency-management/itu-handbook-amateur-amateur-satellite-2026.pdf)** `PDF` – ITU handbook covering the regulatory basis of the amateur and amateur-satellite services
+- **[Guidance on Space Object Registration and Frequency Management for Small and Very Small Satellites (ITU)](https://storage.googleapis.com/cubesat-resources/resources/registration-and-frequency-management/handout-on-small-satellitese.pdf)** `PDF` – ITU handout introducing the two administrative processes every operator has to complete: registering the object with a national authority and securing frequency authorisation. Free PDF
+- **[Handbook on Amateur and Amateur-Satellite Services (ITU-R, 2026 edition)](https://storage.googleapis.com/cubesat-resources/resources/dev-launch-registration-and-frequency-management/itu-handbook-amateur-amateur-satellite-2026.pdf)** `PDF` – ITU-R Handbook R-HDB-52, 2026 edition, covering the regulatory basis of the amateur and amateur-satellite services. Free PDF
 - **[Small Satellites Support (ITU-R)](https://www.itu.int/en/ITU-R/space/support/smallsat/Pages/default.aspx)** `Link` – ITU guidance on small satellite spectrum matters
 - **[IARU Amateur Satellite Frequency Coordination](https://www.iaru.org/on-the-air/satellites/)** `Link` – The coordination process for amateur-band satellite frequencies
 - **[FCC 5-Year Rule for Deorbiting Satellites](https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites-0)** `Link` – FCC Report and Order requiring LEO satellite disposal within five years of mission completion
@@ -172,7 +172,7 @@ The gap between handover and first contact is often two to four months, during w
 - **Confirm your TLE identification strategy.** You will initially be one of many objects from the same deployment. See [Ground Segment – Tracking and Pass Prediction](ground-segment.md#tracking-and-pass-prediction).
 - **Get the ground segment fully automated and tested**, because the days after deployment are when you least want to be debugging a rotator.
 - **Write and rehearse contingency procedures** – no signal, tumbling faster than expected, safe mode on first contact.
-- **Publish your beacon format** so the [SatNOGS](../references/glossary.md#satnogs) community can help. Many missions have been first detected by a stranger.
+- **Publish your beacon format** so the [SatNOGS](../references/glossary.md#satnogs) community can help find you.
 
 ## End of Life
 
