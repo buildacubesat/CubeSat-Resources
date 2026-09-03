@@ -1,6 +1,6 @@
 # Books
 
-This section lists books, handbooks, and technical references relevant to CubeSat development. It includes foundational texts on spacecraft design, subsystem engineering, systems thinking, and space mission planning – as well as practical handbooks focused specifically on small satellites and CubeSats.
+Books, handbooks and technical references for CubeSat development: the foundational texts on spacecraft design and systems engineering, subsystem references, and the handful of open-access books worth reading first.
 
 Most of the classics are expensive. Before buying, check your university library, and check the open-access section below – several genuinely good texts cost nothing.
 
@@ -36,5 +36,7 @@ These cost nothing and are genuinely useful.
 - **[NASA Systems Engineering Handbook (NASA/SP-2016-6105 Rev 2)](https://www.nasa.gov/wp-content/uploads/2018/09/nasa_systems_engineering_handbook_0.pdf)** `PDF` – The reference on requirements, verification, validation and project life cycle. Written for much larger programmes, but the concepts scale down cleanly. Free.
 - **[NASA State of the Art in Small Spacecraft Technology](https://www.nasa.gov/smallsat-institute/sst-soa)** `Link` – Not a book exactly, but a comprehensive, annually updated survey of every smallsat subsystem with current vendor hardware and performance figures. Cited throughout the [development](../development/index.md) pages of this site. Free.
 <!-- CSR-RESOURCES:END ref-books-open-access -->
+
+---
 
 Know a book that belongs here? Please [contribute](../contributing.md).

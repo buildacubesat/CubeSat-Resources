@@ -1,6 +1,6 @@
 # Papers
 
-This section gathers academic papers, technical articles, and conference proceedings related to CubeSats and small satellite systems. Topics range from subsystem design and mission analysis to testing methodologies and flight heritage. Useful for deep dives, citations, or just staying informed on the state of the art.
+Academic papers, technical articles and conference proceedings on CubeSats and small satellite systems – subsystem design, mission analysis, testing and flight results – and where to look for more.
 
 The papers listed here are ones cited across this site's [development](../development/index.md) pages, chosen because they are open access, empirically grounded, or both. Papers supporting only a single specific claim stay as footnotes on the page that uses them.
 
@@ -60,5 +60,7 @@ The papers listed here are ones cited across this site's [development](../develo
 - **[A compact instrument for gamma-ray burst detection on a CubeSat platform I: Design drivers and expected performance](https://arxiv.org/abs/2108.08203)** `Link` – Murphy et al., *Experimental Astronomy* 52(1–2), 59–84, 2021. Companion to paper II below: the science case and sizing behind GMOD, with Monte Carlo estimates giving a sky-average effective area of 10 cm² at 120 keV and 11–14 gamma-ray bursts detected at high significance over a one-year mission. Open access.
 - **[A compact instrument for gamma-ray burst detection on a CubeSat platform II: Detailed design, assembly and validation](https://arxiv.org/abs/2203.03502)** `Link` – Murphy et al., *Experimental Astronomy* 53(3), 961–990, 2022. Detailed design, calibration and validation of a well-documented CubeSat science instrument. Open access.
 <!-- CSR-RESOURCES:END ref-papers-payload -->
+
+---
 
 Found a paper that belongs here? Please [contribute](../contributing.md).

@@ -1,8 +1,8 @@
 # Communities
 
-This section points to online communities, servers, forums, and groups where CubeSat developers, students, and professionals share knowledge, ask questions, and collaborate. Whether you're looking for help, feedback, or like-minded builders, these spaces are great for connecting with others in the field.
+Forums, organisations and programmes where CubeSat developers, students and professionals share knowledge, ask questions and collaborate – the places to go for help, feedback or like-minded builders.
 
-A practical observation: the CubeSat and amateur satellite communities are unusually willing to help. A well-posed question with real data attached – telemetry, a spectrum capture, a schematic – almost always gets a useful answer. Several missions have been recovered because a stranger with a ground station heard a beacon and posted about it.
+The help on offer is concrete: strangers with ground stations have found, and occasionally recovered, missions whose own teams had lost them. Bring specifics when you ask – telemetry, a spectrum capture, a schematic – and the answer is usually specific too.
 
 ## Forums and discussion
 
@@ -29,5 +29,7 @@ A practical observation: the CubeSat and amateur satellite communities are unusu
 - **[NASA CubeSat Launch Initiative](https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative)** `Link` – US launch opportunity programme for educational and non-profit developers
 - **[UNOOSA Access to Space for All / KiboCUBE](https://www.unoosa.org/oosa/en/ourwork/access2space4all/index.html)** `Link` – UN programme providing CubeSat deployment opportunities and open training material to developing countries
 <!-- CSR-RESOURCES:END ref-communities-programmes -->
+
+---
 
 Know a community that belongs here? Please [contribute](../contributing.md).

@@ -1,6 +1,6 @@
 # Websites
 
-This section lists useful and authoritative websites related to CubeSats, small satellite engineering, and the broader space community. It includes project hubs, documentation sites, institutional portals, databases, and curated directories worth bookmarking.
+Websites worth bookmarking: resource collections, development hubs, component marketplaces, standards bodies, tracking and catalogue services, and software.
 
 ## Resource Collections
 
@@ -66,5 +66,7 @@ This section lists useful and authoritative websites related to CubeSats, small 
 - **[NASA GMAT](https://software.nasa.gov/software/GSC-19640-1)** `Link` – Open-source mission design, optimisation and navigation tool (the current R2026 catalogue entry; older release entries are still indexed)
 - **[Basilisk](https://avslab.github.io/basilisk/)** `Link` – Open-source modular astrodynamics simulation framework
 <!-- CSR-RESOURCES:END ref-websites-apps-and-software -->
+
+---
 
 Know a site that belongs here? Please [contribute](../contributing.md).

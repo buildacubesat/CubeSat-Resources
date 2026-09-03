@@ -1,6 +1,6 @@
 # Courses, Events and Educational Kits
 
-This section collects courses and learning opportunities – both online and in-person – related to CubeSats, aerospace engineering, and the broader space sector. Topics range from systems engineering and mission design to space economy, exploration, and policy. It also includes kits, workshops, bootcamps, and recurring events where you can learn from active practitioners.
+Educational kits you can build against, structured courses from mission design to operations, and the recurring conferences and workshops where CubeSat practitioners present their work.
 
 ## Educational Kits
 
@@ -28,5 +28,7 @@ This section collects courses and learning opportunities – both online and in-
 - **[Cal Poly CubeSat Developers Workshop](https://www.cubesat.org/)** `Link` – Long-running workshop run by the originators of the CubeSat standard; the archive of past presentations is a valuable resource in its own right
 - **[ESA Academy training session portfolio](https://www.esa.int/Education/ESA_Academy/Portfolio_of_ESA_Academy_training_sessions)** `Link` – Hands-on training courses for university students from ESA member states, including a recurring CubeSat Hands-On Training Week covering spacecraft systems, testing and operations
 <!-- CSR-RESOURCES:END ref-courses-events -->
+
+---
 
 Know a course, kit or event that belongs here? Please [contribute](../contributing.md).

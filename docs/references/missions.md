@@ -1,6 +1,6 @@
 # CubeSat Missions
 
-This section highlights interesting CubeSat missions and open-source satellite projects. These examples provide insight into real-world designs, mission profiles, challenges, and lessons learned. Some are fully open-source, offering schematics, software, and documentation that can serve as valuable references or starting points for your own work.
+CubeSat missions and open-source satellite projects with public schematics, software, documentation or mission logs. Reading a flown design is the cheapest engineering you will ever do, and several of these teams have published exactly what went wrong.
 
 <!-- CSR-RESOURCES:START ref-missions-open-source -->
 ## Open-Source (partially or fully)
@@ -66,5 +66,7 @@ Collection of current and past Grafana mission dashboards: [SatNOGS Dashboards](
 - [QMR-KWT 2](https://dashboard.satnogs.org/d/efgl2md8iap6oa/qmr-qwt-2?orgId=1&from=now-2d&to=now&timezone=utc&var-suid=67291&var-filter=)
 - [UMKA-1](https://dashboard.satnogs.org/d/ffc0ehd32qfpcc/umka-1?orgId=1&from=2021-01-30T04:28:17.186Z&to=2029-02-01T04:28:17.186Z&timezone=utc&var-suid=57172&var-filter=)
 <!-- CSR-RESOURCES:END ref-missions-satnogs-dashboards -->
+
+---
 
 Any projects or missions missing? Please [contribute](../contributing.md).

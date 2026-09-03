@@ -21,4 +21,6 @@ Newsletters and mailing lists that keep you current on CubeSats, small satellite
 - **[CubeSat Resources monthly update](https://buttondown.com/buildacubesat#subscribe-form)** `Link` – This site's own newsletter, sent from the Build a CubeSat project: one email a month listing what was added or changed here. Free
 <!-- CSR-RESOURCES:END ref-newsletters-cubesat -->
 
+---
+
 Know a newsletter that belongs here? Please [contribute](../contributing.md).

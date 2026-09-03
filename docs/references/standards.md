@@ -1,6 +1,6 @@
 # Standards & Protocols
 
-This section links to official standards, specifications, and communication protocols relevant to CubeSat development. It includes documents from organizations like ECSS, NASA, CCSDS, and CubeSat.org, covering topics such as mechanical dimensions, electrical interfaces, telemetry formats, and testing requirements.
+The standards, specifications and protocols a CubeSat is designed and tested against: the CubeSat Design Specification and the deployer manuals that outrank it, environmental and materials standards, CCSDS and ECSS protocols, and the regulatory documents.
 
 A practical note: some of these are free, some are paywalled, and the ones that matter most to a CubeSat team – the CDS, GEVS, the ECSS testing standard and the CCSDS Blue Books – are all freely available. Remember that whatever these say, **your launch provider's payload user guide takes precedence**.
 
@@ -59,5 +59,7 @@ Whatever the CDS says, the document that governs a CubeSat's mechanical and safe
 - **[IARU Amateur Satellite Frequency Coordination](https://www.iaru.org/on-the-air/satellites/)** `Link` – The coordination process for amateur-band satellite frequencies
 - **[FCC 5-Year Rule for Deorbiting Satellites](https://www.fcc.gov/document/fcc-adopts-new-5-year-rule-deorbiting-satellites-0)** `Link` – FCC Report and Order requiring LEO satellite disposal within five years of mission completion
 <!-- CSR-RESOURCES:END ref-standards-regulatory -->
+
+---
 
 Know a standard that belongs here? Please [contribute](../contributing.md).

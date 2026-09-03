@@ -1,6 +1,6 @@
 # Videos
 
-This section features recommended videos, talks, channel series, and technical walkthroughs relevant to CubeSat development. Content ranges from tutorials and teardown videos to conference presentations and mission documentaries – useful for both learning and inspiration.
+Recorded lecture series, channels worth subscribing to, and single videos that explain one topic well – from full CubeSat courses to a twelve-minute explanation of a reaction wheel.
 
 ## Lecture series
 
@@ -29,5 +29,7 @@ This section features recommended videos, talks, channel series, and technical w
 - **[Two Line Element Set Explained](https://www.youtube.com/watch?v=_C-GQy0qTY0)** `Link` – Field-by-field walkthrough of the TLE format
 - **[Classical Orbital Elements](https://www.youtube.com/watch?v=AReKBoiph6g)** `Link` – Introduction to the six classical orbital elements
 <!-- CSR-RESOURCES:END ref-videos-topic-explainers -->
+
+---
 
 Know a video or channel that belongs here? Please [contribute](../contributing.md).
