@@ -42,7 +42,9 @@ For most CubeSats, a microcontroller is the right answer. Low power, determinist
 - **TI MSP430** has strong heritage in early CubeSats, chosen for very low power. Still seen, though increasingly displaced.
 - **Radiation-hardened MCUs** exist – Vorago's Arm-based rad-hard families, Microchip's SAMRH71, Frontgrade/Cobham's LEON-based devices – and buy you predictable behaviour rather than statistical hope. NASA puts the trade plainly: "COTS components typically offer superior performance, energy efficiency, and affordability compared to their rad-hard alternatives; however COTS devices tend to be highly susceptible to radiation."[^nasa-soa-avionics] The cost of going rad-hard is money, lead time, lower performance for the same generation, and smaller ecosystems.
 
-Note: No cost multiple is quoted here because none could be sourced. NASA's avionics survey gives no cost comparison, and vendor pricing for these parts is generally quote-only. For scale, that survey's state-of-the-art table (Table 8-4) lists complete avionics products at 20 krad, 30 krad and, for the Aitech SP0-S, 100 krad TID, but those are board-level figures and not the device ratings of the specific MCUs named above. Datasheet numbers for the Vorago, SAMRH71 and Frontgrade parts would need to come from the vendors directly.
+For scale, NASA's state-of-the-art table (Table 8-4) lists complete avionics products rated at 20 krad, 30 krad and, for the Aitech SP0-S, 100 krad TID – board-level figures rather than the device ratings of the MCUs named above.[^nasa-soa-avionics]
+
+<!-- NEEDS HUMAN VERIFICATION: no cost multiple for rad-hard versus COTS MCUs is quoted because none could be sourced – the NASA avionics survey gives no cost comparison and vendor pricing is quote-only. Device-level TID ratings for the Vorago, SAMRH71 and Frontgrade parts would need the vendors' datasheets; a local copy of any of them would let a figure stand here. -->
 
 ### COTS with screening: the CubeSat default
 
@@ -139,16 +141,18 @@ The most important case is the **first boot in orbit**: cold, tumbling, and on a
 
 ### Bootloaders and safe boot
 
-- **A bootloader that can be updated is a bootloader that can be bricked.** The standard answer is an immutable **golden image** in write-protected memory that always boots to a minimal state capable of receiving commands, plus a separate updatable application image.
-- **Boot counting.** Increment a counter in non-volatile memory on each boot, and reset it once the system has been stable for a while. If it exceeds a threshold, fall back to the golden image. This turns a boot loop from a mission-ender into a recoverable event. Put that counter somewhere built for constant rewriting – see [Memory](#memory).
-- **Minimal safe boot path** should bring up only what is needed to charge the battery, keep warm, and listen for commands.
+The software side – an immutable **golden image**, boot counting with automatic fallback, and a minimal safe boot path – is covered under [Flight Software – Boot, Reset, and Update Strategy](flight-software.md#boot-reset-and-update-strategy). The hardware's job is to make that design possible:
+
+- **Write-protect the golden image in hardware** where the part allows it – a flash region locked by a fuse or a boot-protection bit, not by a software flag that the same software can clear.
+- **Give the boot counter a home built for constant rewriting.** A counter incremented on every reset belongs in FRAM or MRAM, not in the same flash as the application – see [Memory](#memory).
+- **Keep a path to the debug port.** A bricked flight computer is recoverable on the bench only if JTAG/SWD is still reachable after the spacecraft is closed up – see [OBC Integration and Testing](#obc-integration-and-testing).
 
 ### Brownout and reset behaviour
 
 Brownouts – where supply voltage sags below the operating threshold but not to zero – are more dangerous than clean power cycles, because a processor can execute unpredictably on the way down and corrupt non-volatile memory as it goes.
 
-- Use brownout detection to force a clean reset before the processor misbehaves.
-- Treat every write to non-volatile memory as potentially interrupted: use atomic update patterns, checksums, and redundant copies.
+- Use brownout detection to force a clean reset before the processor misbehaves, and set its threshold above the level at which the non-volatile memory stops writing reliably.
+- The software patterns that survive an interrupted write – atomic updates, checksums, redundant copies – are under [Flight Software – Brownouts and partial failures](flight-software.md#brownouts-and-partial-failures).
 - **Distinguish reset causes** – power-on, brownout, watchdog, software, external – and telemeter them. It is often the only diagnostic you get.
 
 ## Interfaces and Buses
@@ -232,7 +236,7 @@ Current limitations are honest ones: power (an inference accelerator running con
 
 👉 **Please consider [contributing](../contributing.md)!**
 
-[^nasa-soa-avionics]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 8: Small Spacecraft Avionics](https://www.nasa.gov/wp-content/uploads/2026/05/8-smallsat-avionics-2026-final.pdf) (May 2026 edition, NASA/TP−20260003140; the chapter was formerly titled Command and Data Handling and was rewritten for this edition). Open access. Source for the TID and single-event-effect definitions, the COTS-versus-rad-hard trade and the "COTS first with rad-hardened supporting electronics" default, the memory technology comparison in Table 8-1 (flash density versus write endurance, FRAM endurance and write speed, MRAM and phase-change endurance and retention), the mitigation strategies list, and the state-of-the-art avionics products in Table 8-4 including their TID ratings and AI accelerator hardware.
+[^nasa-soa-avionics]: NASA Small Spacecraft Systems Virtual Institute, [*State of the Art in Small Spacecraft Technology*, Chapter 8: Small Spacecraft Avionics](https://www.nasa.gov/wp-content/uploads/2026/05/8-smallsat-avionics-2026-final.pdf) (May 2026 edition, NASA/TP-20260003140; the chapter was formerly titled Command and Data Handling and was rewritten for this edition). Open access. Source for the TID and single-event-effect definitions, the COTS-versus-rad-hard trade and the "COTS first with rad-hardened supporting electronics" default, the memory technology comparison in Table 8-1 (flash density versus write endurance, FRAM endurance and write speed, MRAM and phase-change endurance and retention), the mitigation strategies list, and the state-of-the-art avionics products in Table 8-4 including their TID ratings and AI accelerator hardware.
 
 [^pycubed]: Maximillian Holliday et al., ["PyCubed: An Open-Source, Radiation-Tested CubeSat Platform Programmable Entirely in Python"](https://rexlab.ri.cmu.edu/papers/PyCubed-SmallSat.pdf), *33rd Annual AIAA/USU Conference on Small Satellites*, SSC19-WKIII-04, 2019. Establishes a conservative 10 krad(Si) TID threshold for KickSat-2 at 300 km and reports per-part results, including the IRLML5103 and IRLML2803 MOSFETs within spec beyond 35 krad and flash memory issues in the ATSAMD51 from around 16 krad with power and logic functional beyond 35 krad. Testing used a Shepherd Mark 1 gamma irradiator at 662 keV photon energy per MIL-STD-883 method 1019.8 – worth noting, since "radiation tested" means little without the source and method.
 
