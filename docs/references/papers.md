@@ -43,7 +43,7 @@ The papers listed here are ones cited across this site's [development](../develo
 ## Thermal, structures and testing
 
 <!-- CSR-RESOURCES:START ref-papers-thermal-and-testing -->
-- **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/html/2512.07896v1)** `Link` – Chipps, Forgette and Cahoy, *Journal of Spacecraft and Rockets*, 2025. Describes an open-source six-node MATLAB thermal model validated against Thermal Desktop to within 1.17 °C. Open access preprint.
+- **[SATMO: a Multi-Planet Thermal Analysis Tool for CubeSat Missions](https://arxiv.org/abs/2512.07896)** `Link` – Chipps, Forgette and Cahoy, AIAA SciTech Forum 2026, DOI 10.2514/6.2026-2269. Describes an open-source six-node MATLAB thermal model validated against Thermal Desktop to within 1.17 °C. The AIAA version is paywalled; the arXiv preprint is open access. Open access preprint
 - **[Method for CubeSat Thermal-Vacuum Cycling Test Specification](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/ICES_2017_102.pdf)** `PDF` – Soler Chisabas et al., *47th International Conference on Environmental Systems*, ICES-2017-102, 2017. Compares TVAC requirements across five major standards and proposes a tailoring method. Free PDF.
 - **[Introduction to On-Orbit Thermal Environments](https://tfaws.nasa.gov/wp-content/uploads/On-Orbit_Thermal_Environments_TFAWS_2014.pdf)** `PDF` – Rickman, NASA Engineering and Safety Center, TFAWS 2014. How real albedo and outgoing longwave radiation distributions become hot and cold design cases. Free PDF.
 <!-- CSR-RESOURCES:END ref-papers-thermal-and-testing -->
@@ -51,7 +51,7 @@ The papers listed here are ones cited across this site's [development](../develo
 ## Communications and antennas
 
 <!-- CSR-RESOURCES:START ref-papers-comms -->
-- **[Antennas for CubeSat Communication](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – Veljovic, EPFL doctoral thesis. Book-length treatment of CubeSat antenna design and the integration constraints that shape it. Free PDF.
+- **[Antennas for CubeSat Communication](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – Miroslav Veljovic, EPFL doctoral thesis no. 7489, 2020, DOI 10.5075/epfl-thesis-7489 ([Infoscience record](https://infoscience.epfl.ch/entities/publication/1897a20d-643d-4c6b-a198-9728504c5c55)). Book-length treatment of CubeSat antenna design and the integration constraints that shape it. Open access
 <!-- CSR-RESOURCES:END ref-papers-comms -->
 
 ## Payload and instruments
