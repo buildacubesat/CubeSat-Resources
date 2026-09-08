@@ -30,6 +30,9 @@ The highest and lowest points of an orbit relative to the body being orbited –
 ### AX.25
 A data link layer protocol derived from the amateur X.25 standard, widely used in CubeSat UHF/VHF communications and compatible with amateur ground station networks such as [SatNOGS](#satnogs).
 
+### Axial ratio
+A measure of an antenna's polarization purity: the ratio of the major to the minor axis of the polarization ellipse traced out by the radiated field, in dB. 0 dB is perfect circular polarization and infinity is pure linear; everything real sits between. Practical crossed-dipole and turnstile antennas hold 1–3 dB near boresight and degrade steeply off-axis, which is why the [polarization loss](#polarization-loss) a pass actually suffers is worse than the nominal figure once the spacecraft is tumbling and the ground antenna is working at a low [elevation angle](#elevation-angle).
+
 ---
 
 ## B
@@ -45,6 +48,9 @@ A short, low-rate, periodic transmission carrying basic health data – battery 
 
 ### Beta angle
 The angle between the orbital plane and the vector from the Earth to the Sun. It determines what fraction of each orbit the spacecraft spends in eclipse. At high beta angles (close to ±90°) the spacecraft can be in continuous sunlight; near 0° it experiences the longest eclipses. Beta angle changes seasonally and is a key input to both power and thermal analysis.
+
+### Bit error rate (BER)
+The fraction of received bits that are wrong, quoted as a power of ten – 10⁻⁵ is a common target for an uncoded telemetry downlink, 10⁻⁶ or better once [FEC](#fec) is applied. Its relationship to [Eb/N0](#ebn0) is very steep near threshold, so a decibel or two of [link margin](#link-margin) moves BER by orders of magnitude, which is why margin is budgeted rather than trimmed to zero. For packetized links the more useful number is the packet error rate: at a BER of 10⁻⁵ a 2000-bit frame is lost about 2% of the time.
 
 ### BMS
 **Battery Management System.** Electronics that monitor and protect a battery pack, including cell voltage balancing, temperature monitoring, and over-voltage / over-current / under-voltage cutoffs. Often integrated with or closely coupled to the EPS.
@@ -139,6 +145,9 @@ The fraction of time a component is actively operating. Central to CubeSat desig
 ### Earth IR
 Also **outgoing longwave radiation (OLR)**. The infrared energy radiated by the Earth itself, which a spacecraft in orbit intercepts as a heat input. Modeled as a roughly 255 K blackbody giving about 241 W/m², with thermal analysis values typically spanning 214–267 W/m². Unlike [albedo](#albedo), Earth IR continues during eclipse, and is therefore what keeps the cold case from being colder than it is.
 
+### Eb/N0
+**Energy per bit to noise power spectral density ratio**, in dB. The normalized figure of merit for a digital link, and the quantity modulation and coding performance is quoted against, because unlike [SNR](#snr) it is independent of bandwidth and data rate. The two relate as Eb/N0 = SNR × (bandwidth / data rate), so halving the data rate buys 3 dB. Uncoded [BPSK](#bpsk) needs roughly 9.6 dB for a [bit error rate](#bit-error-rate-ber) of 10⁻⁵; coding gain lowers that requirement and [implementation loss](#implementation-loss) raises it. See [Comms – Link Budget](../development/comms.md#link-budget).
+
 ### ECEF
 **Earth-Centered, Earth-Fixed frame.** A coordinate frame centered at Earth's center of mass that rotates with the Earth. Convenient for describing ground station locations but not inertial – spacecraft state vectors are usually expressed in ECI, not ECEF.
 
@@ -153,6 +162,12 @@ The proportion of an orbit spent in Earth's shadow and therefore receiving no so
 
 ### EGSE
 **Electrical Ground Support Equipment.** The bench-side hardware and software used to power, command and monitor a spacecraft during assembly and test: supplies, umbilicals, breakout boards, RF loopback paths and the test console. Best built around the same command-and-telemetry software that will be used for flight operations, so the operations tooling is exercised throughout the [AIT](../development/ait.md) campaign rather than written at the end.
+
+### EIRP
+**Effective Isotropically Radiated Power**, in dBW or dBm. Transmitter power plus antenna gain minus feedline and connector losses – the whole transmit side of a [link budget](#link-budget) collapsed into one number, expressed as the power an isotropic radiator would need to produce the same field in the direction of interest. It is also the quantity spectrum regulators and [IARU](#iaru) coordination actually constrain. A 1 W (30 dBm) CubeSat UHF transmitter into a near-omnidirectional antenna is around 30 dBm EIRP; a ground station running 50 W into a 15 dBi Yagi is around 62 dBm before feedline loss.
+
+### Elevation angle
+The angle between the local horizon and the spacecraft as seen from the ground station – 0° at the horizon, 90° directly overhead. It sets [slant range](#slant-range) and therefore [free-space path loss](#free-space-path-loss), governs how much atmosphere and how much terrain, building and tree line the signal has to cross, and decides whether a [pass](#pass) is usable at all. Stations normally define a minimum usable elevation, commonly 5–10°, and count only the time above it. High-elevation passes are short and strong; low ones are long, weak and noisy.
 
 ### Emissivity (ε)
 The efficiency with which a surface radiates heat in the infrared, relative to a perfect blackbody (ε = 1). High emissivity is what makes a radiator work. Paired with [absorptivity](#absorptivity) as the α/ε ratio that governs equilibrium temperature. Note that α is measured in the solar spectrum and ε in the infrared, which is why a surface can be highly reflective to sunlight and highly emissive in the IR at the same time.
@@ -193,6 +208,12 @@ A spacecraft's full electronics set laid out flat on a bench, wired as flown but
 
 ### Flight heritage
 Evidence that a component or design has already operated successfully in space. Heritage reduces perceived risk and is a major factor in [COTS](#cots) component selection, but it is specific: heritage applies to a particular configuration, in a particular orbit, for a particular duration. A part with heritage in [LEO](#leo) for six months tells you little about a three-year mission at a different altitude.
+
+### Free-space path loss
+Also **FSPL**. The fall-off in power density with distance from an isotropic radiator, (4πd/λ)² – strictly a spreading term rather than a loss, since nothing absorbs the energy. In dB it is 92.45 + 20 log₁₀(d in km) + 20 log₁₀(f in GHz), which at 437 MHz gives about 139 dB directly overhead at 500 km and about 145 dB at a 1000 km [slant range](#slant-range). Almost always the largest single term in a [link budget](#link-budget). It grows with frequency at fixed antenna *gain*, so moving to S-band or X-band pays only when real aperture comes with it.
+
+### FSK
+**Frequency Shift Keying.** Modulation that encodes data by switching the carrier between discrete frequencies – in its binary form the direct digital relative of [AFSK](#afsk). Its constant envelope lets a power amplifier run at saturation, where it is most efficient, which matters on a spacecraft where DC power is the scarce resource. The price is sensitivity: coherent binary FSK needs about 3 dB more [Eb/N0](#ebn0) than [BPSK](#bpsk) for the same [bit error rate](#bit-error-rate-ber), and non-coherent detection about 4 dB. Gaussian-filtered variants, including [GMSK](#gmsk), give back some spectral efficiency.
 
 ---
 
@@ -269,6 +290,9 @@ Imaging in hundreds of contiguous, narrow spectral bands, producing a full spect
 ### ICD
 **Interface Control Document.** A document that defines the interface between two subsystems or between the spacecraft and an external system (e.g. the launch vehicle). Specifies mechanical, electrical, and data connections, pin-outs, signal levels, protocols, and environmental boundaries. ICDs are the contracts between subsystem teams.
 
+### Implementation loss
+The gap between a modem's theoretical performance and what it actually achieves – imperfect filtering, timing and carrier recovery, quantization, phase noise and amplifier non-linearity, each costing a fraction of a dB. Conventionally budgeted as 1–3 dB added to the required [Eb/N0](#ebn0). Worth carrying explicitly, because a [link budget](#link-budget) built on textbook uncoded thresholds and one built on a datasheet's measured sensitivity are not the same calculation: coding gain and implementation loss move the answer in opposite directions, and omitting both is not the same as letting them cancel.
+
 ### IMU
 **Inertial Measurement Unit.** A sensor package combining accelerometers and gyroscopes to measure linear acceleration and angular velocity. Used in ADCS for short-term attitude propagation. IMUs drift over time and are typically fused with absolute sensors (magnetometers, sun sensors, star trackers) for long-term accuracy.
 
@@ -280,6 +304,13 @@ A physical device interrupting the power path between an energy source and a haz
 
 ### ITU
 **International Telecommunication Union.** The UN specialized agency that coordinates spectrum use globally. Frequency assignments for space missions require ITU notification and coordination, typically handled at the national level through regulators such as the FCC (US) or Ofcom (UK).
+
+---
+
+## J
+
+### J2
+The dominant term in the spherical harmonic expansion of Earth's gravity field, about 1.0826 × 10⁻³, produced by the equatorial bulge. It is the reason orbits are not closed ellipses: J2 makes the [RAAN](#raan) precess and the argument of perigee rotate, at rates set by altitude and [inclination](#inclination). A 500 km orbit at 51.6° sees its node regress roughly 5° per day; near 97.4° the precession instead runs prograde at 0.9856° per day and matches the Earth's motion about the Sun, which is the definition of a [sun-synchronous orbit](#sso). J2 is built into [SGP4](#sgp4), so anyone propagating a [TLE](#tle) is already using it.
 
 ---
 
@@ -309,6 +340,9 @@ The difference (in dB) between the received signal level and the minimum signal 
 
 ### LNA
 **Low-Noise Amplifier.** The first amplifier in a receive chain, whose noise figure dominates the noise performance of the whole system. Mounting it at the antenna, ahead of the feedline, is the single highest-value improvement to a marginal ground station: feedline loss before the LNA adds directly to system noise figure, while the same loss after it is nearly irrelevant.
+
+### LoRa
+A proprietary chirp spread spectrum modulation from Semtech, ubiquitous terrestrially in sub-GHz ISM bands and flown on a number of CubeSats and [PocketQubes](#pocketqube). Its appeal is cost and sensitivity: a COTS transceiver module costs a few euros and receives down to roughly −136 dBm at the highest [spreading factor](#spreading-factor), closing a link that would otherwise demand far more antenna. The costs are a very low data rate, a closed specification that sits awkwardly with amateur-service rules on documented emissions, and shrinking [Doppler](#doppler-shift) tolerance as the channel bandwidth narrows.
 
 ### LVLH
 **Local Vertical, Local Horizontal frame.** An orbital reference frame centered on the spacecraft, with one axis pointing toward Earth's center (local vertical) and another along the velocity vector (local horizontal). Commonly used to define attitude modes such as nadir-pointing or velocity-pointing.
@@ -344,6 +378,9 @@ A satellite with a mass between roughly 1 and 10 kg. Most CubeSats from 1U to 6U
 
 ### Nodal model
 Also **lumped-parameter model**. The standard method of spacecraft thermal analysis: the spacecraft is divided into a number of isothermal nodes, each with a thermal capacitance, linked by conductive and radiative couplings and driven by environmental and internal heat loads. Model fidelity ranges from a single node (useful for a first feasibility estimate) through 6–20 nodes (typical for a CubeSat) to hundreds for gradient-critical payloads. See [Thermal – Thermal Modeling and Simulation](../development/thermal.md#thermal-modeling-and-simulation).
+
+### Noise figure
+**NF**, in dB. How much a component or chain degrades the [SNR](#snr) passing through it, referenced to a 290 K source: NF = 10 log₁₀(1 + Te/290), with Te the equivalent noise temperature. 1 dB corresponds to 75 K, 0.5 dB to 35 K, 3 dB to 289 K. Friis' formula makes the first stage dominant, and every dB of loss ahead of it – feedline, relays, filters – adds directly to the total, which is the argument for mounting the [LNA](#lna) at the antenna. See [system noise temperature](#system-noise-temperature).
 
 ---
 
@@ -395,6 +432,9 @@ A satellite form factor smaller than a CubeSat, based on a 5 cm cube (1P) rather
 ### Pointing accuracy / pointing knowledge
 Two distinct requirements that are frequently conflated. **Pointing accuracy** (or control) is how precisely the spacecraft actually points at the time. **Pointing knowledge** is how precisely you can determine, afterwards, where it was pointing – which can be reconstructed on the ground from recorded sensor data. Knowledge is much cheaper than accuracy: an imaging mission that georeferences its images in post-processing may need tight knowledge but only loose control. Specifying accuracy where knowledge would do is a common way to make an ADCS needlessly expensive.
 
+### Polarization loss
+The mismatch between the polarization a transmitting antenna radiates and the one a receiving antenna accepts. Circular to linear costs a nominal 3 dB whatever the orientation, which is at least a predictable price. Linear to linear is worse in practice: the loss goes as 20 log₁₀(cos θ) in the relative angle, so a tumbling spacecraft produces deep fades, and Faraday rotation in the ionosphere turns the plane unpredictably at VHF and UHF in any case. Circular polarization at the ground station, ideally with switchable handedness, is the standard answer; how close it gets to the ideal is bounded by [axial ratio](#axial-ratio). See [Ground Segment](../development/ground-segment.md#polarization).
+
 ### P-POD
 **Poly-Picosatellite Orbital Deployer.** The original CubeSat [deployer](#deployer), developed at California Polytechnic State University alongside the [CDS](#cds). It holds up to 3U of CubeSats and ejects them with a spring. Largely superseded by newer commercial deployers, but its interface conventions – rails, deployment switches, the 3U tube – shaped the standard that everything since has followed.
 
@@ -407,6 +447,9 @@ A test philosophy in which the actual flight hardware is tested at qualification
 ---
 
 ## Q
+
+### QPSK
+**Quadrature Phase Shift Keying.** Modulation using four carrier phase states, carrying two bits per symbol and so reaching twice the spectral efficiency of [BPSK](#bpsk) at the same theoretical [Eb/N0](#ebn0) – the bit stream is simply split across two orthogonal carriers. The price is paid in hardware: tighter amplifier linearity, and carrier recovery that has to resolve a four-way phase ambiguity. Offset QPSK (OQPSK) removes the 180° transitions and the envelope excursions that come with them, and is the usual choice where the amplifier runs near saturation. Common on CubeSat S-band and X-band downlinks.
 
 ### Qualification testing
 Environmental testing performed to demonstrate that a *design* has margin, by testing at levels above those expected in service – typically maximum expected random vibration spectrum +3 dB for two minutes per axis, and a larger number of thermal cycles. Conducted on a dedicated qualification model, unless a [protoflight](#protoflight) approach is used. Contrast [acceptance testing](#acceptance-testing).
@@ -479,6 +522,9 @@ Periodically reading through memory (or an SRAM-based FPGA's configuration) and 
 ### SGP4
 **Simplified General Perturbations model 4.** The analytical orbit propagator that [TLEs](#tle) are designed to be used with. TLE element values are fitted to SGP4's specific internal assumptions, so feeding them into a general-purpose Keplerian propagator produces plausible-looking but wrong results. SGP4 outputs coordinates in the TEME frame rather than J2000, another common source of quiet errors.
 
+### Slant range
+The straight-line distance from ground station to spacecraft, and what [free-space path loss](#free-space-path-loss) and [Doppler shift](#doppler-shift) actually depend on – not altitude, which the two coincide with only at the zenith. For a 500 km orbit the slant range runs from 500 km overhead to about 2570 km at the horizon: a factor of five, or some 14 dB of extra path loss, and roughly 1700 km at 10° [elevation](#elevation-angle). A link budget is normally closed at the minimum usable elevation rather than at the zenith.
+
 ### Slew
 A commanded reorientation of the spacecraft from one attitude to another. Slew rate – how fast the spacecraft can turn – determines how much of a ground station pass or imaging opportunity can actually be used, and is set by available actuator torque against the spacecraft's moment of inertia.
 
@@ -497,6 +543,9 @@ The efficiency of a propulsion system, in seconds: the impulse delivered per uni
 ### SPOF
 **Single Point of Failure.** Any element whose failure alone ends the mission. CubeSats have many – the battery, the EPS, the OBC, the radio, the antenna deployment, the bus linking OBC to EPS – and the useful exercise is not eliminating them, which mass and volume rarely permit, but knowing where they are and ensuring each is as simple, well-tested and recoverable as possible.
 
+### Spreading factor
+In direct-sequence spread spectrum generally, the number of chips transmitted per data bit, which sets the processing gain. In [LoRa](#lora) specifically, a parameter from SF7 to SF12 setting how many chips carry each symbol. Each step up doubles the chip count and the symbol duration, roughly halves the data rate and buys about 2.5 dB of sensitivity – at 125 kHz bandwidth, SF7 gives around 5.5 kbps and SF12 around 300 bps. A high spreading factor is what makes a marginal link close, at the cost of throughput and of tolerance to [Doppler shift](#doppler-shift).
+
 ### SSO
 **Sun-Synchronous Orbit.** A near-polar orbit whose plane precesses at the same rate as the Earth orbits the Sun, so that the local solar time of each pass stays constant. Valuable for imaging missions because lighting conditions are repeatable, and in the **dawn–dusk** variant it keeps the spacecraft in near-continuous sunlight – which transforms the [power budget](../development/eps.md#power-requirements-and-budgets) while making the thermal hot case harder.
 
@@ -508,6 +557,9 @@ An attitude sensor that images the star field and matches the observed pattern a
 
 ### Sun sensor
 An attitude sensor measuring the direction to the Sun, and the cheapest useful attitude sensor available. Ranges from cosine detectors (a bare photodiode, 2–5° accuracy – often just a solar panel's current) through quadrant detectors (0.2–0.5°) to digital sun cameras (0.1° down to 0.01°). Needs several units for full sky coverage, can be confused by Earth albedo, and is useless in eclipse.
+
+### System noise temperature
+**Tsys**, in kelvin. The total noise a receiving system delivers, referred to a common reference plane – usually the antenna port – and the denominator of the [G/T](#gt) figure of merit. It sums antenna noise (galactic background, atmosphere, and warm Earth picked up by sidelobes) with feedline loss and receiver [noise figure](#noise-figure). The practical consequence at amateur UHF is that external noise dominates: a few hundred kelvin is normal for a ground station, so swapping a 1 dB [LNA](#lna) for a 0.5 dB one buys much less than the datasheet difference suggests. Siting and sidelobe control usually matter more.
 
 ---
 
