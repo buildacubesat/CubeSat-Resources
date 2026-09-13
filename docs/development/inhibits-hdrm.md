@@ -179,7 +179,7 @@ The classic CubeSat mechanism, and still the most common: a synthetic line under
 - **Failure modes**: line not fully severed and snagging; heater open-circuit; line creeping under preload and going slack over months of storage; melted line residue contaminating a nearby optical surface; heater damaging adjacent structure.
 - **Verification.** Test many times, after vibration, at temperature extremes, in vacuum. This is a cheap mechanism to test to statistical confidence, so do it.
 
-Off-the-shelf burn-wire modules exist – CubeSource's BurnWing is one – that package the heater, its redundancy and the protection circuitry, so that your qualification effort goes into the restraint and the release geometry rather than the electronics.
+Off-the-shelf burn-wire modules exist – [CubeSource's BurnWing](https://www.cubesource.space/product-page/burnwing-flight) is an affordable option with flight heritage – that package the heater, its redundancy and the protection circuitry, so that your qualification effort goes into the restraint and the release geometry rather than the electronics.
 
 ### Shape Memory Alloy (SMA)–Based HDRM
 
