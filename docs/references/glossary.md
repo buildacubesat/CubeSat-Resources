@@ -24,6 +24,9 @@ Environmental testing performed on each flight article to demonstrate that it is
 ### Albedo
 Sunlight reflected from a planet's surface and atmosphere back into space, and one of the three environmental heat inputs to a spacecraft in orbit. Modeled as a fraction of the [solar constant](#solar-constant); spacecraft thermal analysis conventionally uses an albedo factor of 0.30 nominal, 0.25 cold case and 0.35 hot case, though instantaneous values range from roughly 0.06 over ocean to 0.50 over cloud and ice. See [Thermal](../development/thermal.md#thermal-environment-in-orbit).
 
+### AM0
+**Air Mass Zero.** The solar spectrum outside the atmosphere, and the condition space solar cells are rated against – as opposed to AM1.5, the spectrum after passing through one and a half atmosphere thicknesses, which terrestrial cells are rated against. The two are not interchangeable, and the same cell quotes a lower efficiency at AM0: the extraterrestrial spectrum carries ultraviolet the cell converts poorly, over a larger total irradiance. Cell datasheets conventionally normalize AM0 to 1367 W/m², a few W/m² above the measured [solar constant](#solar-constant). See [EPS – Cell technologies and efficiencies](../development/eps.md#cell-technologies-and-efficiencies).
+
 ### Apogee / Perigee
 The highest and lowest points of an orbit relative to the body being orbited – apogee farthest from Earth, perigee closest. In a circular orbit the two coincide. For CubeSats the relevant consequence is usually orbital lifetime: perigee altitude governs how much atmospheric drag the spacecraft experiences and therefore how quickly the orbit decays.
 
@@ -123,11 +126,14 @@ Deliberately operating a component below its maximum rated voltage, current, pow
 ### Detumbling
 Reducing the spacecraft's body rotation rates after deployment, when it typically emerges from the [deployer](#deployer) tumbling at a few degrees per second. Nothing else works until this is done: solar generation is poor, star trackers cannot lock, and communications are intermittent. Almost always performed by a [B-dot](#b-dot) controller driving magnetorquers, autonomously and without ground intervention.
 
+### Diffraction limit
+The finest detail an optical system can form at all, set by the aperture diameter and not by the detector. The Rayleigh criterion puts the angular resolution at **θ ≈ 1.22 λ/D** for wavelength λ and aperture D, which projected from orbit becomes a ground distance. It is routinely confused with [GSD](#ground-sample-distance-gsd), which is a sampling interval: an instrument is either pixel-limited, with pixels coarser than the optics can resolve, or diffraction-limited, with the optics blurring across several pixels. The **Q sampling factor**, Q = λ·N ÷ pixel pitch for [f-number](#f-number) N, expresses the balance in one number – below about 1 the detector limits, above about 2 the optics do. Knowing which binds tells you whether to spend on focal length or on aperture. See [Payload – Imaging](../development/payload.md#imaging).
+
 ### DITL
 **Day-In-The-Life testing.** A full rehearsal in which the integrated spacecraft is run through a realistic 24-hour operational timeline – eclipse cycles, ground station passes, payload operations, housekeeping – with the real ground segment on the other end. Routinely finds problems no other test does, because it is the first time every element runs together at realistic timescales. See [AIT – Mission Simulation](../development/ait.md#mission-simulation).
 
 ### DoD (battery)
-**Depth of Discharge.** The fraction of a battery's total capacity that has been discharged relative to its fully charged state. Cycling a lithium battery to high DoD (e.g. >80%) significantly reduces its cycle life. CubeSat designs typically target a maximum DoD of 20–30% to keep the battery healthy across thousands of orbits.
+**Depth of Discharge.** The fraction of a battery's total capacity that has been discharged relative to its fully charged state. Cycling a lithium battery to high DoD (e.g. >80%) significantly reduces its cycle life. CubeSat designs typically target a maximum DoD of 20–30% to keep the battery healthy across thousands of orbits. Its complement is [state of charge](#state-of-charge-soc).
 
 ### Doppler shift
 The change in received frequency caused by relative motion between spacecraft and ground station. A LEO satellite closes and opens range fast enough to shift a 437 MHz carrier by roughly ±10 kHz across a pass, sweeping through zero at closest approach – where the rate of change is greatest, precisely when the signal is strongest. Correction is required on the downlink and, just as importantly, **pre-compensation is required on the uplink**; forgetting the latter is a classic reason a spacecraft that is being heard perfectly will not accept commands.
@@ -200,6 +206,9 @@ The reference instant at which a set of orbital elements or a state vector is va
 ### FEC
 **Forward Error Correction.** Adding structured redundancy to transmitted data so the receiver can detect and correct errors without asking for a retransmission – essential when the round trip is a satellite pass. Convolutional, Reed-Solomon, LDPC and turbo codes are common, often concatenated. The resulting coding gain of several dB is frequently the difference between a link that closes and one that does not.
 
+### Field of view (FOV)
+The angular extent an instrument sees, following from the sensor dimension d and the focal length f as **FOV = 2·arctan(d/2f)**. Projected at the orbit altitude it gives the [swath](#swath); the same quantity for a single pixel is the instantaneous field of view (IFOV), whose ground projection is the [GSD](#ground-sample-distance-gsd). External field of view is also a systems-level resource rather than a payload property: the instrument, the antennas, the radiators, the solar cells and the [star tracker](#star-tracker) all need unobstructed sky, and the allocation is worth settling early. See [Payload – Mechanical Integration](../development/payload.md#mechanical-integration).
+
 ### Finite element analysis (FEA)
 A numerical method for predicting how a structure responds to loads, by subdividing it into many small elements and solving the resulting system of equations. Used on CubeSats mainly for modal analysis (finding natural frequencies) and for demonstrating positive [margin of safety](#margin-of-safety) under launch loads. Also referred to as FEM (finite element method/modeling). See [Structure – Structural Analysis and FEM](../development/structure.md#structural-analysis-and-fem).
 
@@ -208,6 +217,9 @@ A spacecraft's full electronics set laid out flat on a bench, wired as flown but
 
 ### Flight heritage
 Evidence that a component or design has already operated successfully in space. Heritage reduces perceived risk and is a major factor in [COTS](#cots) component selection, but it is specific: heritage applies to a particular configuration, in a particular orbit, for a particular duration. A part with heritage in [LEO](#leo) for six months tells you little about a three-year mission at a different altitude.
+
+### f-number
+The ratio of a lens's focal length to its aperture diameter, written f/2.8 or N = f/D. It governs how much light the optics collect – irradiance at the focal plane goes as 1/N² – and, with the wavelength and the pixel pitch, where the instrument sits against its [diffraction limit](#diffraction-limit). A fast (low) f-number shortens the exposure needed for a given scene and so reduces [image smear](#image-smear), which is why it matters more on a spacecraft crossing the ground at 7 km/s than it does on a tripod.
 
 ### Free-space path loss
 Also **FSPL**. The fall-off in power density with distance from an isotropic radiator, (4πd/λ)² – strictly a spreading term rather than a loss, since nothing absorbs the energy. In dB it is 92.45 + 20 log₁₀(d in km) + 20 log₁₀(f in GHz), which at 437 MHz gives about 139 dB directly overhead at 500 km and about 145 dB at a 1000 km [slant range](#slant-range). Almost always the largest single term in a [link budget](#link-budget). It grows with frequency at fixed antenna *gain*, so moving to S-band or X-band pays only when real aperture comes with it.
@@ -246,8 +258,11 @@ A low-toxicity chemical propellant – ionic-liquid monopropellants such as LMP-
 ### Grms
 **Root-mean-square acceleration**, in units of g. A single number summarizing the overall energy of a [random vibration](#random-vibration) environment, obtained by integrating the acceleration power spectral density across the test frequency band and taking the square root. Useful for comparing environments at a glance, but it says nothing about *where* in frequency the energy sits – two very different PSDs can share a Grms value.
 
+### Ground sample distance (GSD)
+The ground footprint of a single pixel, and the usual headline number for an imaging payload. At nadir it is **GSD = p·h/f**, for pixel pitch p, altitude h and focal length f – set by the detector and the focal length, *not* by the aperture, which is the most common error in CubeSat imager specifications. GSD is a sampling interval rather than a resolution: what can actually be distinguished depends also on the [diffraction limit](#diffraction-limit), on [image smear](#image-smear) and on scene contrast, and is generally two GSD or more. It degrades away from nadir as the footprint stretches; see [off-nadir](#nadir). See [Payload – Imaging](../development/payload.md#imaging).
+
 ### Ground track
-The path traced on the Earth's surface directly beneath a spacecraft's orbit. Because the Earth rotates underneath, successive orbits shift westward, which is what determines revisit times over a target and how often a given ground station gets a pass.
+The path traced on the Earth's surface directly beneath a spacecraft's orbit; the point immediately below the spacecraft is the **sub-satellite point**. Because the Earth rotates underneath, successive orbits shift westward, which is what determines **revisit time** – how long a target waits between opportunities – and how often a given ground station gets a pass. Revisit also depends on how far to either side of the track the spacecraft can see: a wide [swath](#swath) or a tolerance for [off-nadir](#nadir) viewing shortens it considerably.
 
 ### GSaaS
 **Ground-Station-as-a-Service.** Commercial ground network capacity sold per pass or per minute, rather than built and operated by the mission. Providers include KSAT, ATLAS, Leaf Space, SSC and AWS Ground Station. Attractive for missions needing S-band or above, where building comparable capability is expensive, and for short missions where capital cost cannot be amortized. Generally does not serve amateur UHF/VHF bands. See [Ground Segment](../development/ground-segment.md#ground-station-architectures).
@@ -289,6 +304,9 @@ Imaging in hundreds of contiguous, narrow spectral bands, producing a full spect
 
 ### ICD
 **Interface Control Document.** A document that defines the interface between two subsystems or between the spacecraft and an external system (e.g. the launch vehicle). Specifies mechanical, electrical, and data connections, pin-outs, signal levels, protocols, and environmental boundaries. ICDs are the contracts between subsystem teams.
+
+### Image smear
+Blur produced by relative motion between instrument and scene during an exposure. Two sources matter in orbit: the **ground track motion**, about 7 km/s at [LEO](#leo) altitudes and therefore roughly 7 m of ground travel per millisecond of exposure, and the spacecraft's own **attitude rate**, which multiplies by the slant range. Holding smear under one [GSD](#ground-sample-distance-gsd) is the usual design rule, and it caps the exposure – which is how an imaging payload ends up driving both the [f-number](#f-number) and the ADCS stability requirement. See [Payload – Imaging](../development/payload.md#imaging).
 
 ### Implementation loss
 The gap between a modem's theoretical performance and what it actually achieves – imperfect filtering, timing and carrier recovery, quantization, phase noise and amplifier non-linearity, each costing a fraction of a dB. Conventionally budgeted as 1–3 dB added to the required [Eb/N0](#ebn0). Worth carrying explicitly, because a [link budget](#link-budget) built on textbook uncoded thresholds and one built on a datasheet's measured sensitivity are not the same calculation: coding gain and implementation loss move the answer in opposite directions, and omitting both is not the same as letting them cancel.
@@ -341,6 +359,9 @@ The difference (in dB) between the received signal level and the minimum signal 
 ### LNA
 **Low-Noise Amplifier.** The first amplifier in a receive chain, whose noise figure dominates the noise performance of the whole system. Mounting it at the antenna, ahead of the feedline, is the single highest-value improvement to a marginal ground station: feedline loss before the LNA adds directly to system noise figure, while the same loss after it is nearly irrelevant.
 
+### Local time of descending node (LTDN)
+The mean solar time at the point where a satellite crosses the equator heading south, and the parameter that fixes the illumination of a [sun-synchronous orbit](#sso). It follows from the [RAAN](#raan) at launch and is then held by the orbit's precession. A 10:30 LTDN is a common Earth observation choice, giving moderate shadows for terrain interpretation; a 06:00 or 18:00 dawn–dusk orbit maximizes sunlight on the array and minimizes eclipse. Missions that quote the ascending crossing instead use the local time of the ascending node (LTAN); the two differ by twelve hours.
+
 ### LoRa
 A proprietary chirp spread spectrum modulation from Semtech, ubiquitous terrestrially in sub-GHz ISM bands and flown on a number of CubeSats and [PocketQubes](#pocketqube). Its appeal is cost and sensitivity: a COTS transceiver module costs a few euros and receives down to roughly −136 dBm at the highest [spreading factor](#spreading-factor), closing a link that would otherwise demand far more antenna. The costs are a very low data rate, a closed specification that sits awkwardly with amateur-service rules on documented emissions, and shrinking [Doppler](#doppler-shift) tolerance as the channel bandwidth narrows.
 
@@ -371,7 +392,7 @@ Also **momentum dumping**. The process of removing accumulated angular momentum 
 ## N
 
 ### Nadir
-The direction from a spacecraft straight down toward the center of the body it orbits – for a CubeSat, the center of the Earth. **Nadir-pointing** holds a chosen body axis along this direction, which is the standard attitude for Earth observation payloads and downward-facing antennas. The opposite direction is **zenith**.
+The direction from a spacecraft straight down toward the center of the body it orbits – for a CubeSat, the center of the Earth. **Nadir-pointing** holds a chosen body axis along this direction, which is the standard attitude for Earth observation payloads and downward-facing antennas. The opposite direction is **zenith**. An instrument's **off-nadir angle** is how far its boresight is tilted away from nadir: tilting reaches targets the [ground track](#ground-track) does not pass over and shortens revisit, at the cost of a longer slant path, a coarser and distorted [GSD](#ground-sample-distance-gsd), and an oblique view that is harder to georeference.
 
 ### Nanosatellite
 A satellite with a mass between roughly 1 and 10 kg. Most CubeSats from 1U to 6U fall in this class. Neighboring classes are picosatellites (0.1–1 kg, including [PocketQubes](#pocketqube)), microsatellites (10–100 kg) and minisatellites (100–500 kg), though the boundaries are conventions rather than standards.
@@ -491,6 +512,9 @@ The practice of linking every requirement to the parent objective it derives fro
 ### Rideshare
 Flying as a secondary payload alongside a primary mission, sharing the cost of a launch. The dominant route to orbit for CubeSats, and the origin of most of their constraints: the primary's orbit is the orbit you get, and a set of "do no harm" requirements – restricting transmitters, deployments and hazardous materials – is imposed to protect the primary payload. See [Qualification and Launch](../development/launch.md#launch-procurement).
 
+### Rolling shutter / global shutter
+Two ways a sensor reads out a frame. A **global shutter** exposes every pixel over the same interval. A **rolling shutter** exposes row after row, so the bottom of the frame is captured milliseconds after the top – and on a spacecraft moving under the scene, that skews the image geometrically by the ground distance covered during readout. Rolling-shutter parts are cheaper and dominate COTS camera modules, and are usable where readout is fast and the geometry is corrected on the ground; a global shutter earns its cost where the imagery has to be metrically accurate. See [Payload – Imaging](../development/payload.md#imaging).
+
 ### RTOS
 **Real-Time Operating System.** A small operating system providing pre-emptive task scheduling with priorities and bounded, predictable response times – the property a general-purpose OS does not guarantee. FreeRTOS, Zephyr and RTEMS are the common choices in CubeSat flight software, with RTEMS carrying the most spaceflight heritage. See [Flight Software](../development/flight-software.md).
 
@@ -535,7 +559,7 @@ A commanded reorientation of the spacecraft from one attitude to another. Slew r
 **Signal-to-Noise Ratio.** The ratio of signal power to noise power at a receiver input, usually expressed in dB. A key figure in link budget analysis – the received SNR must exceed the minimum required for the chosen modulation and coding scheme.
 
 ### Solar constant
-The solar radiant flux at 1 AU, averaging about 1367 W/m². It varies seasonally by roughly ±3.5% with Earth's orbital distance – approximately 1422 W/m² at perihelion and 1318 W/m² at aphelion – and these bounds are used as the hot and cold case values in thermal analysis.
+The solar radiant flux at 1 AU, **about 1361 W/m²** by current measurement. Older engineering references and most thermal-analysis practice work from 1367–1367.5 W/m², and space solar cell datasheets normalize [AM0](#am0) to 1367 W/m²; the difference is under half a percent and sits well inside the seasonal swing, which is roughly ±3.5% with Earth's orbital distance. The ends of that swing – approximately 1422 W/m² at perihelion and 1318 W/m² at aphelion – are the recommended hot and cold case values in thermal analysis. See [Thermal – Thermal Environment in Orbit](../development/thermal.md#thermal-environment-in-orbit).
 
 ### Specific impulse (Isp)
 The efficiency of a propulsion system, in seconds: the impulse delivered per unit weight of propellant, or equivalently exhaust velocity divided by g₀. It sets the exchange rate between [delta-v](#delta-v) and propellant mass through the rocket equation. Cold gas sits around 40–110 s, chemical monopropellants 150–310 s, electric propulsion from a few hundred to several thousand seconds – but electric systems buy that Isp with electrical power, which is the binding constraint on a CubeSat. See [Propulsion – Delta-v: The Currency](../development/propulsion.md#delta-v-the-currency).
@@ -547,7 +571,7 @@ The efficiency of a propulsion system, in seconds: the impulse delivered per uni
 In direct-sequence spread spectrum generally, the number of chips transmitted per data bit, which sets the processing gain. In [LoRa](#lora) specifically, a parameter from SF7 to SF12 setting how many chips carry each symbol. Each step up doubles the chip count and the symbol duration, roughly halves the data rate and buys about 2.5 dB of sensitivity – at 125 kHz bandwidth, SF7 gives around 5.5 kbps and SF12 around 300 bps. A high spreading factor is what makes a marginal link close, at the cost of throughput and of tolerance to [Doppler shift](#doppler-shift).
 
 ### SSO
-**Sun-Synchronous Orbit.** A near-polar orbit whose plane precesses at the same rate as the Earth orbits the Sun, so that the local solar time of each pass stays constant. Valuable for imaging missions because lighting conditions are repeatable, and in the **dawn–dusk** variant it keeps the spacecraft in near-continuous sunlight – which transforms the [power budget](../development/eps.md#power-requirements-and-budgets) while making the thermal hot case harder.
+**Sun-Synchronous Orbit.** A near-polar orbit whose plane precesses at the same rate as the Earth orbits the Sun, so that the local solar time of each pass stays constant – the parameter a mission actually specifies being the [local time of descending node](#local-time-of-descending-node-ltdn). Valuable for imaging missions because lighting conditions are repeatable, and in the **dawn–dusk** variant it keeps the spacecraft in near-continuous sunlight – which transforms the [power budget](../development/eps.md#power-requirements-and-budgets) while making the thermal hot case harder.
 
 ### Standoff
 A threaded spacer that separates and supports stacked circuit boards inside a spacecraft, carrying both the mechanical load and, frequently, the electrical ground path between boards. Standoff material is a deliberate thermal design choice: metal standoffs couple a board to the structure as a heat sink, polymer ones isolate it. Where the structure is hard anodized and therefore non-conductive, the ground return must be designed explicitly rather than assumed through the standoffs.
@@ -555,8 +579,14 @@ A threaded spacer that separates and supports stacked circuit boards inside a sp
 ### Star tracker
 An attitude sensor that images the star field and matches the observed pattern against an onboard catalog to determine absolute orientation, typically to a few arcseconds. The most accurate attitude sensor available, and the most demanding: it needs real onboard compute, careful baffle design against stray light from the Sun, Earth and Moon, and it loses lock above a few degrees per second of body rate – so it cannot help during [detumbling](#detumbling).
 
+### State of charge (SoC)
+The energy remaining in a battery as a fraction of its full capacity, and the complement of [DoD](#dod-battery). Onboard it is usually estimated by coulomb counting – integrating current in and out – because a lithium cell's voltage is nearly flat across the middle of its range and so a poor indicator on its own; the count drifts and wants re-anchoring at a full charge. SoC thresholds are the usual trigger for entering and leaving [safe mode](#safe-mode), and they need hysteresis so the spacecraft does not oscillate at the boundary. See [EPS – Coupling with other subsystems](../development/eps.md#coupling-with-other-subsystems).
+
 ### Sun sensor
 An attitude sensor measuring the direction to the Sun, and the cheapest useful attitude sensor available. Ranges from cosine detectors (a bare photodiode, 2–5° accuracy – often just a solar panel's current) through quadrant detectors (0.2–0.5°) to digital sun cameras (0.1° down to 0.01°). Needs several units for full sky coverage, can be confused by Earth albedo, and is useless in eclipse.
+
+### Swath
+The width of the strip on the ground an imager covers in one pass, set by the across-track [field of view](#field-of-view-fov) and the altitude. For a fixed sensor it trades directly against [GSD](#ground-sample-distance-gsd): the focal length that buys fine detail narrows the strip. Swath is what turns resolution into coverage, because a narrow swath needs the [ground track](#ground-track) to fall much closer to a target before it is in view at all, and so lengthens revisit.
 
 ### System noise temperature
 **Tsys**, in kelvin. The total noise a receiving system delivers, referred to a common reference plane – usually the antenna port – and the denominator of the [G/T](#gt) figure of merit. It sums antenna noise (galactic background, atmosphere, and warm Earth picked up by sidelobes) with feedline loss and receiver [noise figure](#noise-figure). The practical consequence at amateur UHF is that external noise dominates: a few hundred kelvin is normal for a ground station, so swapping a 1 dB [LNA](#lna) for a 0.5 dB one buys much less than the datasheet difference suggests. Siting and sidelobe control usually matter more.
@@ -607,6 +637,9 @@ The standard size increment in the CubeSat form factor system. 1U is defined as 
 
 ### UHF / VHF
 **Ultra-High Frequency / Very High Frequency.** Radio frequency bands commonly used in CubeSat communications. VHF covers 30–300 MHz (uplinks often around 145–146 MHz); UHF covers 300 MHz–3 GHz (downlinks often around 437 MHz). Both bands are popular with amateur missions due to favorable propagation, lower required transmit power, and the availability of the [SatNOGS](#satnogs) network.
+
+### Under-voltage lockout (UVLO)
+A protection that disconnects the load when a cell falls below a set voltage, preventing the deep discharge that can leave a lithium cell unsafe to recharge. Implemented per cell, in hardware, with hysteresis – and with automatic recovery, because a spacecraft that locks out and then waits for a ground command cannot be commanded. It is also the protection that [passivation](#passivation) has to override deliberately at end of mission. See [EPS – Protections](../development/eps.md#protections).
 
 ---
 
