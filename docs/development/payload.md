@@ -36,12 +36,18 @@ By far the most common CubeSat payload, and the one that most strongly stresses 
 
 Two different limits set what an imager can resolve, and they are routinely confused:
 
-- **Ground sample distance** – the ground footprint of one pixel – is set by **pixel pitch, focal length and altitude**, not by aperture: GSD ≈ pixel pitch × altitude ÷ focal length.
-- **The diffraction limit** – the finest detail the optics can form at all – is set by **aperture**, through the Rayleigh criterion θ ≈ 1.22 λ/D.
+- **[Ground sample distance](../references/glossary.md#ground-sample-distance-gsd)** – the ground footprint of one pixel – is set by **pixel pitch, focal length and altitude**, not by aperture: GSD ≈ pixel pitch × altitude ÷ focal length.
+- **The [diffraction limit](../references/glossary.md#diffraction-limit)** – the finest detail the optics can form at all – is set by **aperture**, through the Rayleigh criterion θ ≈ 1.22 λ/D.
 
 For a representative 3U imager – 5.5 µm pixels, 100 mm focal length, 500 km altitude – the GSD is about **27.5 m**, while a 90 mm aperture is diffraction-limited to about **3.7 m** at visible wavelengths.[^gsd] The instrument is pixel-limited by roughly a factor of seven, so the way to improve it is more focal length or smaller pixels, not a bigger front element. Knowing which limit binds tells you which parameter to spend on.
 
 Aperture becomes the binding constraint only when you want high resolution, and there the physics is unforgiving: sub-meter imaging from 500 km needs an aperture of roughly **340 mm**, larger than a 1U's entire cross-section.[^gsd] A 1U cannot produce sub-meter imagery regardless of how good the sensor is – not because of the sensor, but because the front of the spacecraft is too small.
+
+Three further parameters decide whether an imager works in practice, and all three are cheaper to fix on paper than after integration:
+
+- **[Swath](../references/glossary.md#swath)** – the width of ground covered in one pass, the sensor's across-track dimension scaled by altitude over focal length. It trades directly against GSD for a given sensor: the same focal length that buys fine detail narrows the strip. The representative instrument above, on a 4000-pixel across-track sensor, covers about **110 km**.[^gsd]
+- **[Image smear](../references/glossary.md#image-smear)** – the ground passes beneath the spacecraft at roughly 7 km/s, or about 7 m per millisecond of exposure. Holding smear under one GSD therefore caps the exposure at about **4 ms** for the instrument above, before the spacecraft's own attitude rate is counted at all.[^gsd] Slow optics force a longer exposure, which is why the [f-number](../references/glossary.md#f-number) is a mission parameter rather than a lens-shopping detail, and why wheel jitter and residual body rate land on the payload's requirements.
+- **[Rolling shutter](../references/glossary.md#rolling-shutter-global-shutter)** – most COTS sensors read out row by row, capturing the bottom of the frame milliseconds after the top and skewing the geometry by the ground distance covered during readout. Workable with a fast readout and a ground-side correction; a global shutter is worth its cost where the imagery must be metrically accurate.
 
 The instrument classes:
 
@@ -122,7 +128,7 @@ See also: [Onboard Computing](obc.md).
 - **Thermal coupling is a choice made at the mounting interface.** Decide whether the payload should be tied to the structure as a heat sink or isolated from it for stability, and implement that choice with the standoff and interface material selection. See [Thermal](thermal.md#conduction-paths-and-thermal-coupling).
 - **Access.** Payloads often need late access – a lens cap removed, a calibration source fitted, a desiccant changed, a final functional check. Plan the assembly order so the payload can be reached, or at least removed and refitted, without dismantling the spacecraft.
 - **Contamination.** Optical payloads are ruined by [outgassing](../references/glossary.md#outgassing) deposits and particulates from elsewhere on the spacecraft. If you have optics, the whole spacecraft's material selection becomes a payload requirement. See [Structure – Cleanliness](structure.md#cleanliness-handling-and-contamination).
-- **Apertures and field of view.** An instrument needs an unobstructed view, and so does everything else – solar cells, antennas, radiators, star trackers. External surface allocation is a systems-level fight that should be settled early and explicitly.
+- **Apertures and [field of view](../references/glossary.md#field-of-view-fov).** An instrument needs an unobstructed view, and so does everything else – solar cells, antennas, radiators, star trackers. External surface allocation is a systems-level fight that should be settled early and explicitly.
 
 ## Electrical and Data Interfaces
 
@@ -226,7 +232,7 @@ Write it early, version it, and treat changes as changes rather than as clarific
 
 👉 **Please consider [contributing](../contributing.md)!**
 
-[^gsd]: Worked from first principles rather than cited, so the assumptions are visible. Ground sample distance at nadir is GSD = p·h/f, for pixel pitch p, altitude h and focal length f: 5.5 µm × 500 km ÷ 100 mm = 27.5 m. The diffraction limit uses the Rayleigh criterion θ = 1.22 λ/D projected to the ground, θ·h: at λ = 550 nm and D = 90 mm from 500 km, 1.22 × 550 nm ÷ 90 mm × 500 km = 3.7 m. Inverting the same expression for a 1 m ground resolution at 500 km gives D = 1.22 × 550 nm × 500 km ÷ 1 m = 336 mm (268 mm from 400 km, 403 mm from 600 km). Real instruments do worse than the diffraction limit, so these aperture figures are floors, not targets.
+[^gsd]: Worked from first principles rather than cited, so the assumptions are visible. Ground sample distance at nadir is GSD = p·h/f, for pixel pitch p, altitude h and focal length f: 5.5 µm × 500 km ÷ 100 mm = 27.5 m. The diffraction limit uses the Rayleigh criterion θ = 1.22 λ/D projected to the ground, θ·h: at λ = 550 nm and D = 90 mm from 500 km, 1.22 × 550 nm ÷ 90 mm × 500 km = 3.7 m. Inverting the same expression for a 1 m ground resolution at 500 km gives D = 1.22 × 550 nm × 500 km ÷ 1 m = 336 mm (268 mm from 400 km, 403 mm from 600 km). Real instruments do worse than the diffraction limit, so these aperture figures are floors, not targets. Swath is the same expression applied to the whole sensor: 4000 × 5.5 µm = 22 mm across-track, × 500 km ÷ 100 mm = 110 km, equivalently 4000 × 27.5 m. Ground speed is the sub-satellite point's, v·R⊕/r, which at 500 km is 7.62 km/s × 6371 ÷ 6871 = 7.06 km/s, or 7.06 m/ms; one GSD of 27.5 m ÷ 7.06 m/ms = 3.9 ms.
 
 [^eirsat-gmod]: David Murphy et al., ["A compact instrument for gamma-ray burst detection on a CubeSat platform II: Detailed design, assembly and validation"](https://arxiv.org/abs/2203.03502), *Experimental Astronomy* 53(3), 961–990, 2022, [doi:10.1007/s10686-022-09842-z](https://doi.org/10.1007/s10686-022-09842-z) (preprint arXiv:2203.03502). Open access. Describes EIRSAT-1's GMOD instrument: a 25 × 25 × 40 mm cerium bromide scintillator read out by a 4×4 tiled silicon photomultiplier array, achieving 5.4% energy resolution at 662 keV, with electrical and mechanical interfaces deliberately made compatible with off-the-shelf CubeSat systems.
 
