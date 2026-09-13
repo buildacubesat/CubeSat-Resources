@@ -52,7 +52,7 @@ Solar cells are the only meaningful source of energy for almost every CubeSat. E
 
 ### Cell technologies and efficiencies
 
-Space solar cells are not terrestrial solar cells. The flight standard is the **[triple-junction](../references/glossary.md#triple-junction-solar-cell) (TJ) III–V cell**, which stacks three semiconductor junctions with different bandgaps so each captures a different part of the spectrum. NASA's state-of-the-art survey puts multi-junction cells at a "nominal efficiency of 30% and a high of 34%", against roughly 20% for single-junction silicon.[^nasa-soa-power]
+Space solar cells are not terrestrial solar cells. The flight standard is the **[triple-junction](../references/glossary.md#triple-junction-solar-cell) (TJ) III–V cell**, which stacks three semiconductor junctions with different bandgaps so each captures a different part of the spectrum. NASA's state-of-the-art survey puts multi-junction cells at a "nominal efficiency of 30% and a high of 34%", against roughly 20% for single-junction silicon.[^nasa-soa-power] Those efficiencies are quoted against the [AM0](../references/glossary.md#am0) spectrum – sunlight as it arrives outside the atmosphere – not the AM1.5 spectrum terrestrial cells are rated at, and the same cell reads a few points lower at AM0. A terrestrial datasheet number does not transfer.
 
 Concrete numbers help. AZUR SPACE's widely flown **3G30-Advanced** cell is specified at **29.5% BOL efficiency** with Voc 2700 mV, Isc 520 mA and Vmp 2411 mV over a 30.18 cm² cell measuring 40 × 80 mm, weighing ≤86 mg/cm² (about 2.6 g per cell).[^azur-3g30] Current-generation parts push further – AZUR's 4G32-Advanced at 31.5%, Rocket Lab's Z4J at 31.3%, Boeing-Spectrolab's XTE-SF at 32.2%.[^nasa-soa-power]
 
@@ -142,7 +142,7 @@ Batteries are the one CubeSat component that can hurt people, and launch provide
 - Expect to supply cell datasheets, pack design details, protection circuit descriptions and test evidence as part of your safety data package.
 - Missions deploying from the ISS face the most stringent requirements, since the pack sits inside a crewed vehicle before deployment.
 - Design for **containment of a single-cell failure**: fusing between parallel cells, adequate spacing, and no path for a thermal runaway to propagate.
-- Deep discharge is also a hazard: a lithium cell taken below its minimum voltage can be damaged such that recharging it is unsafe. Under-voltage lockout is a protection requirement, not a nicety.
+- Deep discharge is also a hazard: a lithium cell taken below its minimum voltage can be damaged such that recharging it is unsafe. [Under-voltage lockout](../references/glossary.md#under-voltage-lockout-uvlo) is a protection requirement, not a nicety.
 - **Plan for months of storage.** Flight hardware is typically delivered one to six months before launch and then sits inside the deployer, untouched. Confirm the pack will still be above its minimum deployment voltage after that interval at the expected storage temperature, and establish early whether the deployer allows late access for charging. See [Qualification and Launch – Fit checks and delivery](launch.md#fit-checks-and-delivery).
 
 ### End-of-life passivation
@@ -161,7 +161,7 @@ The [BMS](../references/glossary.md#bms) is the set of functions that keeps the 
 
 ### Cell balancing
 
-Series cells drift apart in state of charge over thousands of cycles. Without balancing, the weakest cell hits its voltage limits first and dictates the usable capacity of the whole pack – and eventually gets over-charged or over-discharged while the pack as a whole looks healthy.
+Series cells drift apart in [state of charge](../references/glossary.md#state-of-charge-soc) over thousands of cycles. Without balancing, the weakest cell hits its voltage limits first and dictates the usable capacity of the whole pack – and eventually gets over-charged or over-discharged while the pack as a whole looks healthy.
 
 - **Passive balancing** bleeds charge from the higher cells through a resistor until they match. Simple, cheap, universally used at CubeSat scale, and wastes a small amount of energy as heat.
 - **Active balancing** transfers charge from stronger to weaker cells. More efficient, more complex, rarely justified on a 2S pack.
