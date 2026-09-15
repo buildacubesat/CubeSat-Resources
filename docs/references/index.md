@@ -1,6 +1,6 @@
 # References Overview
 
-External material worth your time – the glossary this site links into, the standards that bind a CubeSat, and the books, papers, missions, courses, communities, videos, websites and newsletters that teach the rest.
+External material worth your time – the glossary this site links into, the standards that bind a CubeSat, the launch providers who will fly it, and the books, papers, missions, courses, communities, videos, websites and newsletters that teach the rest.
 
 [**Books**](books.md)  
 Foundational texts, technical handbooks, and references for CubeSat design and space systems.
@@ -13,6 +13,9 @@ Online and in-person learning opportunities, recurring events, and kits you can 
 
 [**Glossary**](glossary.md)  
 Key terms, acronyms, and concepts used throughout this site, and the target of the term links on every page.
+
+[**Launch Providers**](launch-providers.md)  
+Who will fly your CubeSat – brokers, rideshare programs, dedicated launchers and free programs, with how to approach each of them.
 
 [**Missions**](missions.md)  
 Selected CubeSat and PocketQube projects and open-source missions with public documentation or hardware.
