@@ -40,7 +40,7 @@ Build the automated path early. A ground segment that only works with a person d
 ### Antenna choice
 
 - **Omnidirectional / low-gain** – turnstile, Lindenblad, QFH, or a simple dipole. No tracking hardware, no pointing, always receiving. Gain is low, so this works for strong beacons and for missions with generous [link margin](../references/glossary.md#link-margin). An excellent starting point: a fixed antenna and an SDR will hear plenty of CubeSats.
-- **Directional / high-gain** – Yagi, cross-Yagi, helical, or a dish. Much more gain, and therefore much more link margin, but requires a rotator and accurate tracking. Cross-Yagis with a phasing harness give switchable circular polarization, which is what you want for a tumbling spacecraft.
+- **Directional / high-gain** – Yagi, cross-Yagi, helical, or a dish. Much more gain, and therefore much more link margin, but requires a [rotator](../references/glossary.md#rotator) and accurate tracking. Cross-Yagis with a phasing harness give switchable circular polarization, which is what you want for a tumbling spacecraft.
 - **Dishes** – necessary at S-band and above, where the wavelength makes reasonable gain achievable in a manageable aperture.
 
 ### Polarization
@@ -87,6 +87,8 @@ The flight side of the same problem – receiver capture range and oscillator st
 
 **Hamlib** is the de facto standard interface layer, providing `rotctl`/`rotctld` for rotators and `rigctl`/`rigctld` for radios. Almost every tracking program speaks it, which means mixing a tracker from one project with a rotator from another generally works.
 
+How accurately it has to track is set by the antenna's [beamwidth](../references/glossary.md#beamwidth-hpbw): holding the residual error to about a quarter of the half-power width keeps pointing loss under a decibel, which a wide Yagi grants for free and a dish does not.
+
 Practical points: check that rotator slew rate can keep up with a high-elevation pass (angular rate peaks near zenith and can exceed some rotators' capability); handle the **azimuth wrap** problem, where a pass crossing the 0°/360° boundary sends an unprepared rotator the long way round mid-pass; and set software end stops before you discover the mechanical ones.
 
 ## Telemetry Reception and Decoding
@@ -124,7 +126,7 @@ The single most useful piece of software in this space is **gr-satellites**, a G
 ### Error correction and partial data
 
 - **Forward error correction** – convolutional, Reed-Solomon, LDPC, or the concatenated schemes CCSDS specifies – buys several dB of coding gain, which is often the difference between a closing and a non-closing link.
-- **Design for partial reception.** Short, independently decodable frames mean a corrupted frame costs you one frame, not the whole pass. Long frames with a single CRC are all-or-nothing.
+- **Design for partial reception.** Short, independently decodable frames mean a corrupted frame costs you one frame, not the whole pass. Long frames with a single CRC are all-or-nothing, and the [frame error rate](../references/glossary.md#frame-error-rate-fer) grows with length: at a bit error rate of 10⁻⁵ a 2000-bit frame is lost about 2% of the time and an 8000-bit frame about 8%.
 - **Keep the bad frames.** Store raw IQ or at least raw demodulated bits. A frame that fails CRC today may be recoverable tomorrow when you understand the format better, and raw recordings are the only way to debug a decoder problem after the fact.
 - **Multiple receptions of the same beacon** from different stations can sometimes be combined to recover a frame none of them got cleanly.
 
@@ -195,10 +197,10 @@ The most common early-operations failures are mundane: uplink Doppler not correc
 
 **Component classes worth knowing about:**
 
-- **SDR receivers** (RTL-SDR, Airspy, LimeSDR, HackRF, Adalm-Pluto, USRP) – from very low-cost monitoring to full-duplex RF work. The RTL-SDR v3 is the SatNOGS reference radio and is entirely adequate to start with.
+- **SDR receivers** (RTL-SDR, Airspy, LimeSDR, HackRF, Adalm-Pluto, USRP) – from very low-cost monitoring to [full-duplex](../references/glossary.md#duplex-half-full) RF work. The RTL-SDR v3 is the SatNOGS reference radio and is entirely adequate to start with.
 - **Low-noise amplifiers (LNA)** – mast-mounted LNAs are critical for UHF/VHF CubeSat downlinks with modest antennas.
 - **Band-pass and SAW filters** – reduce out-of-band interference, especially important in urban RF environments.
-- **Timing sources** (GPSDO, GNSS receivers) – accurate frequency and time references for Doppler correction and coherent reception.
+- **Timing sources** (GPSDO, GNSS receivers) – accurate frequency and time references for Doppler correction and [coherent reception](../references/glossary.md#coherent-non-coherent-detection).
 - **Single-board computers** (Raspberry Pi, x86 mini PCs) – common platforms for headless Linux ground stations and remote SDR stacks.
 
 <!-- CSR-RESOURCES:START dev-ground-segment-rotators -->
