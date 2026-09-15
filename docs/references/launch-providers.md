@@ -37,7 +37,7 @@ The shape of the process is consistent across providers even where the commercia
 6. **A fit check**, usually in a test pod first and often in the flight deployer before delivery.
 7. **Delivery**, one to six months before launch depending on the provider and the route.
 
-<!-- NEEDS HUMAN VERIFICATION: The commercial terms of this process – deposit size, milestone payment structure, what a customer-side slip costs, and whether a booked slot can be moved to a later mission – are published by none of the providers surveyed and could not be sourced. They vary by provider and by contract. A first-hand account from someone who has signed one of these contracts would make this subsection considerably more useful than the procedural outline above. -->
+<!-- TO DO: The commercial terms of this process – deposit size, milestone payment structure, what a customer-side slip costs, and whether a booked slot can be moved to a later mission – are published by none of the providers surveyed and could not be sourced. They vary by provider and by contract. A first-hand account from someone who has signed one of these contracts would make this subsection considerably more useful than the procedural outline above. -->
 
 ### The things that catch teams out
 
