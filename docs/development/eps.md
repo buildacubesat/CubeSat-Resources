@@ -82,7 +82,7 @@ Generated power scales with the cosine of the angle between the panel normal and
 
 ### Panel electrical design
 
-- **Strings.** Cells are wired in series to build a useful voltage. With Vmp ≈ 2.4 V per TJ cell, a two-cell string gives ~4.8 V and a three-cell string ~7.2 V – enough to charge a 2-cell lithium pack through a boost or MPPT stage. String length is chosen against the *hot* Vmp, not the nominal.
+- **[Strings](../references/glossary.md#solar-string).** Cells are wired in series to build a useful voltage. With Vmp ≈ 2.4 V per TJ cell, a two-cell string gives ~4.8 V and a three-cell string ~7.2 V – enough to charge a 2-cell lithium pack through a boost or MPPT stage. String length is chosen against the *hot* Vmp, not the nominal.
 - **Blocking diodes** prevent current flowing backwards from the battery into a shadowed or failed string. They cost 0.3–0.7 V of forward drop, which is significant on a 5 V string; Schottky parts or ideal-diode controllers reduce the penalty.
 - **Bypass diodes** across cells or sub-strings let current route around a shadowed cell instead of reverse-biasing it. Without them, one shadowed cell in a series string can throttle the whole string and dissipate power as heat in the shadowed cell.
 - **Harnessing.** Panel wiring runs across hinges on deployables and around the structure on body-mounted panels. Route it with service loops and strain relief, and keep it away from magnetometers – panel current loops generate magnetic dipoles that your [ADCS](gnc.md#magnetometers) will see.
@@ -203,7 +203,7 @@ MPPT typically buys 10–30% more energy than a naive fixed operating point, wit
 ### Converters
 
 - **Buck (step-down)** converters generate the 3.3 V and 5 V rails from the battery bus. Efficient, well understood, and the workhorse of any CubeSat EPS.
-- **Boost (step-up)** converters are needed when a short solar string must charge a higher-voltage pack.
+- **Boost (step-up)** converters are needed when a short solar string must charge a higher-voltage pack. Size the headroom against the pack's [float voltage](../references/glossary.md#float-voltage-and-charge-termination) – series count times the per-cell float, not the nominal pack voltage – or the charger never reaches termination and the pack sits permanently part-charged while its telemetry looks unremarkable.
 - **Buck-boost** handles the case where input voltage crosses the output voltage – common with an unregulated lithium bus that swings from 8.4 V down to 6.0 V across a discharge.
 
 **Efficiency versus noise is the core tradeoff.** Switching converters run at 85–95% efficiency but inject switching noise onto the bus and radiate it. That noise lands directly on your receiver's noise floor and on your analog sensors. Mitigations: keep switching frequencies away from sensitive bands, filter aggressively at the point of load, use separate quiet rails for RF and analog sections, and pay attention to layout and return paths. Linear regulators are wasteful but quiet, and are still the right answer for a low-current, noise-critical sensor rail.
@@ -213,7 +213,7 @@ MPPT typically buys 10–30% more energy than a naive fixed operating point, wit
 The most dangerous moment in a CubeSat's electrical life is the first power-up in orbit, on a cold, deeply discharged battery, while tumbling.
 
 - **Cold-start from a dead battery** must work with only solar input and no help from the ground. Verify it on the bench with a solar array simulator and an actually-flat pack, not a charged one.
-- **Brownout loops** are a classic CubeSat killer: the bus comes up, the OBC boots, the boot sequence draws more than the array can supply, the bus collapses, and the cycle repeats indefinitely. Defend against it by sequencing loads, keeping the minimum boot configuration minimal in fact, and requiring a charge threshold before non-essential loads are enabled.
+- **Brownout loops** are a classic CubeSat killer: the bus comes up, the OBC boots, the boot sequence draws more than the array can supply, the bus collapses, and the cycle repeats indefinitely. Defend against it by [shedding loads](../references/glossary.md#load-shedding) in a defined order, keeping the minimum boot configuration minimal in fact, and requiring a charge threshold before non-essential loads are enabled.
 - **Inrush current** at switch-on – capacitor charging, motor stall currents – can trip protection or collapse the bus. Soft-start on every switched load. See [Power Switching and Protection](#power-switching-and-protection).
 - Give the EPS the authority to hold the OBC off until conditions are safe, and make that behavior independent of the OBC's own software.
 
