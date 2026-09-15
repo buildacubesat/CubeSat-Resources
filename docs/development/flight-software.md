@@ -132,7 +132,7 @@ Whatever you choose, **fault isolation is the property that matters**: one subsy
 ### Data Serialization and Message Formats
 
 - **Custom binary structs** are compact and fast, and are what most CubeSats use. The risk is versioning: the moment ground software and flight software disagree about a struct layout, your telemetry becomes silently wrong rather than obviously broken. Never rely on compiler struct packing across platforms – serialize field by field, explicitly.
-- **[CCSDS](../references/glossary.md#ccsds) Space Packet Protocol** is the international standard for spacecraft packet structure, with a defined primary header carrying an application process identifier, sequence flags and length. Adopting it costs a little overhead and buys interoperability with existing ground tooling and, potentially, third-party ground stations.
+- **[CCSDS](../references/glossary.md#ccsds) Space Packet Protocol** is the international standard for spacecraft packet structure, with a defined primary header carrying an application process identifier, sequence flags and length. Adopting it costs a little overhead – the primary header is part of the [framing overhead](../references/glossary.md#framing-overhead) a data budget has to carry – and buys interoperability with existing ground tooling and, potentially, third-party ground stations.
 - **[PUS](../references/glossary.md#pus) (ECSS-E-ST-70-41C)** layers a full service model on top: standardized services for telecommand verification, housekeeping, event reporting, on-board scheduling, parameter management and more. It is the European operational standard, and it is comprehensive to the point of being heavy for a 1U – but PUS is designed to be *tailored*, and adopting a handful of its services is a legitimate middle path that gives you a well-thought-out design instead of an invented one.
 - **Self-describing formats** (CBOR, MessagePack, Protocol Buffers) trade a few bytes for forward and backward compatibility. Worth considering for payload data and configuration; usually too heavy for high-rate housekeeping.
 
@@ -160,6 +160,7 @@ Most CubeSats have four to eight modes. A representative set:
 - **Boot / initialization** – minimal, transient, establishing basic health.
 - **Detumble** – reducing body rates after deployment. See [GNC](gnc.md).
 - **[Safe mode](../references/glossary.md#safe-mode)** – the fallback: everything non-essential off, sun-pointing or tumbling, battery charging, radio listening, beacon transmitting. Safe mode must be reachable from every other mode, must be entered autonomously, and must be able to sustain itself indefinitely.
+- **[Degraded](../references/glossary.md#degraded-mode)** – a planned reduced state for a resource that is known to be short, rather than a response to a fault: lower duty cycles, a slower beacon cadence, payload off. It differs from safe mode in how it is left – when the resource recovers, not when a fault is understood – and it is the case a power budget has to close in as well as the nominal one.
 - **Nominal** – routine operations, housekeeping, attitude control.
 - **Payload** – payload active, with whatever pointing and power that requires.
 - **Comms / downlink** – transmitter active, possibly with a slew to point an antenna.
@@ -265,7 +266,7 @@ See also: [Assembly, Integration and Testing (AIT)](ait.md).
 - **Drivers and HAL.** Keep every register access behind an interface. This is what makes host-based testing possible, and it also makes a late hardware change survivable.
 - **Power and inhibit awareness.** Software must know which loads are enabled, must not command a device on a powered-down rail, and must respect [inhibit](inhibits-hdrm.md) state – including the RF silence period after deployment, which is a launch provider requirement and not a preference.
 - **[ADCS](gnc.md) coupling.** Control loops need deterministic timing and consistent sensor timestamps. Sensor data with unknown latency produces control instability that is very hard to diagnose from telemetry.
-- **Thermal and EPS feedback.** Heater control loops, load shedding on low battery, and duty-cycling to manage dissipation all live in software but are governed by physics defined elsewhere. See [Thermal](thermal.md) and [EPS](eps.md).
+- **Thermal and EPS feedback.** Heater control loops, [load shedding](../references/glossary.md#load-shedding) on low battery, and duty-cycling to manage dissipation all live in software but are governed by physics defined elsewhere. See [Thermal](thermal.md) and [EPS](eps.md).
 - **Never trust a peripheral to respond.** Every hardware transaction needs a timeout and a defined failure behavior. A blocking read from a hung I²C device will hang the spacecraft.
 
 ## Documentation and Maintainability
