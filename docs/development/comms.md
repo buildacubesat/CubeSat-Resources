@@ -56,13 +56,13 @@ Achievable rates vary widely with band, modulation, available power, antenna gai
 - **S-band** – higher-rate telemetry and modest payload data. Typically **100 kbps to a few Mbps**; COTS CubeSat units often sit in the 5–125 kbps range, with megabit-class links requiring better antennas and pointing.[^endurosat-sband]
 - **X-band** – data-intensive payloads. **Tens to hundreds of Mbps** are possible, but require precise attitude control, high-gain antennas, significant power and professional ground stations.
 
-Usable throughput is always well below the physical-layer rate once packetization, forward error correction, duty cycle and pass duration are accounted for. The number that matters is **bits per day**, not bits per second: four 8-minute passes at 9600 bps is about 2.3 MB per day before overhead, and that figure – not the link rate – is what your payload data volume has to fit inside. See [Flight Software – Telemetry](flight-software.md#telemetry) and [Payload – Data reduction and compression](payload.md#data-reduction-and-compression).
+Usable throughput is always well below the physical-layer rate once framing, forward error correction, duty cycle and pass duration are accounted for, and the first two are separate reductions that both apply: the [code rate](../references/glossary.md#code-rate) turns the channel rate into an information rate, and [framing overhead](../references/glossary.md#framing-overhead) – preamble, headers, checksums, idle – takes its share of what is left. The number that matters is **bits per day**, not bits per second: four 8-minute passes at 9600 bps is about 2.3 MB per day before overhead, and that figure – not the link rate – is what your payload data volume has to fit inside. See [Flight Software – Telemetry](flight-software.md#telemetry) and [Payload – Data reduction and compression](payload.md#data-reduction-and-compression).
 
 ## Link Budget
 
 A **[link budget](../references/glossary.md#link-budget)** accounts for every gain and loss between transmitter and receiver, and tells you whether the link closes with margin. It is the single most important design tool in CubeSat communications, and it couples directly to the power budget, the antenna design and the pointing requirement.
 
-A basic budget includes transmit power, transmit antenna gain, free-space path loss, atmospheric and polarization losses, receive antenna gain, receiver noise figure and bandwidth, and the [signal-to-noise ratio](../references/glossary.md#snr) required by your modulation and coding. The result is a **link margin** in dB.
+A basic budget includes transmit power, transmit antenna gain, free-space path loss, atmospheric and polarization losses, receive antenna gain, receiver noise figure and bandwidth, and the [signal-to-noise ratio](../references/glossary.md#snr) required by your modulation and coding. Everything up to the receiver collapses into [C/N₀](../references/glossary.md#cn0), which depends on nothing about the waveform, so a change of modulation or data rate is worked forward from there rather than from the top of the budget. The result is a **link margin** in dB.
 
 Budgets are calculated for the worst case – maximum slant range at low elevation – and iterated alongside antenna, power and ADCS design.
 
@@ -115,7 +115,7 @@ The shift is largest at acquisition, sweeps through zero at closest approach, an
 
 ## Modulation, Coding and Protocols
 
-**Modulation.** AFSK at 1200 bps is the simplest and the most widely receivable, at the cost of throughput. BPSK and GMSK at 9600 bps are the practical workhorses. Higher-order schemes buy rate at the cost of required signal-to-noise ratio, which your link budget has to pay for.
+**Modulation.** AFSK at 1200 bps is the simplest and the most widely receivable, at the cost of throughput. BPSK and GMSK at 9600 bps are the practical workhorses. Higher-order schemes buy rate at the cost of required signal-to-noise ratio, which your link budget has to pay for. Name the demodulator as well as the modulation: the same nominal scheme costs about 4 dB more through a [non-coherent](../references/glossary.md#coherent-non-coherent-detection) frequency discriminator than through a coherent receiver, and an FSK link is not specified until its [modulation index](../references/glossary.md#modulation-index-h) is – h = 1 is the wideband default, h = 0.5 is minimum shift keying and the basis of GMSK.
 
 **Coding.** [Forward error correction](../references/glossary.md#fec) buys several dB of effective margin for a modest overhead, and is close to free on modern radios. Convolutional coding with Reed-Solomon, or an LDPC scheme where the hardware supports it, are the common choices. Coding gain is usually cheaper than transmit power, which costs you battery, and cheaper than antenna gain, which costs you pointing.
 
@@ -136,7 +136,7 @@ The realistic options, in ascending order of effort:
 - **Open-source hardware** – the Libre Space Foundation's SatNOGS-COMMS is an open communications subsystem developed alongside the SatNOGS ground network, and is the most credible open option currently available.
 - **[SDR](../references/glossary.md#sdr)-based, built in-house** – maximum flexibility and a research contribution, but you are now responsible for the PA, the filtering, the EMC behavior and the radiation tolerance of the whole chain. Reasonable for a process-oriented mission, expensive for a result-oriented one.
 
-Whatever you choose, check three things early: the actual RF output power at the connector rather than at the PA, the current draw during transmit (see below), and whether the unit's default configuration is legal in the band you have coordinated.
+Whatever you choose, check four things early: the actual RF output power at the connector rather than at the PA, the current draw during transmit (see below), whether the unit is half or [full duplex](../references/glossary.md#duplex-half-full) – almost every CubeSat transceiver is half duplex, which is why command sessions are turn-based and every command protocol needs a timeout rather than an abort – and whether the unit's default configuration is legal in the band you have coordinated.
 
 <!-- CSR-RESOURCES:START dev-comms-transceivers -->
 - **[SatNOGS-COMMS (Libre Space Foundation)](https://www.libre.space/projects/satnogs-comms/)** `Link` – Open-source communications subsystem for CubeSats, developed alongside the SatNOGS ground station network
@@ -160,7 +160,7 @@ Higher bands change the picture: patch antennas at S-band and reflectarrays at X
 
 ### Power, duty cycle and heat
 
-The transmitter is usually what breaks the power budget. A 1 W RF output at 30–40% PA efficiency draws 3 W or more from the bus, which for a 1U is often more than the orbit-average generation. The resolution is duty cycle: transmit during passes, beacon sparsely between them, and size the battery for the burst rather than the average. Model it explicitly – see [EPS – Power Requirements and Budgets](eps.md#power-requirements-and-budgets).
+The transmitter is usually what breaks the power budget. A 1 W RF output at 30–40% PA efficiency draws 3 W or more from the bus, which for a 1U is often more than the orbit-average generation. The resolution is duty cycle: transmit during passes, beacon sparsely between them, and size the battery for the burst rather than the average. For a packet radio the quantity to budget is [time on air](../references/glossary.md#time-on-air) rather than transmitter on-time – preamble, header and CRC are a large fraction of a short packet, and a LoRa beacon at a high spreading factor can hold the channel for seconds. Model it explicitly – see [EPS – Power Requirements and Budgets](eps.md#power-requirements-and-budgets).
 
 The same inefficiency appears as heat, concentrated in one component. PA dissipation is a recognized CubeSat thermal problem, particularly during long transmit windows; see [Thermal Management](thermal.md).
 
@@ -195,7 +195,7 @@ In practice these options remain limited by regulatory constraints, service avai
 
 ## Optical Communications
 
-Optical (laser) communications transmit data on a tightly focused beam instead of a radio carrier, offering very high data rates for the size and power, narrow beamwidths that reduce interference and interception, and no spectrum allocation to coordinate.
+Optical (laser) communications transmit data on a tightly focused beam instead of a radio carrier, offering very high data rates for the size and power, narrow [beamwidths](../references/glossary.md#beamwidth-hpbw) that reduce interference and interception, and no spectrum allocation to coordinate.
 
 That last point is often overstated. Optical links avoid ITU frequency coordination and IARU coordination, but they do not avoid regulation: the mission still needs national authorization, and directed-energy transmission brings its own approvals, including coordination to protect aircraft and other spacecraft from the beam.
 
