@@ -36,7 +36,7 @@ By far the most common CubeSat payload, and the one that most strongly stresses 
 
 Two different limits set what an imager can resolve, and they are routinely confused:
 
-- **[Ground sample distance](../references/glossary.md#ground-sample-distance-gsd)** – the ground footprint of one pixel – is set by **pixel pitch, focal length and altitude**, not by aperture: GSD ≈ pixel pitch × altitude ÷ focal length.
+- **[Ground sample distance](../references/glossary.md#ground-sample-distance-gsd)** – the ground footprint of one pixel – is set by **[pixel pitch](../references/glossary.md#pixel-pitch), focal length and altitude**, not by aperture: GSD ≈ pixel pitch × altitude ÷ focal length.
 - **The [diffraction limit](../references/glossary.md#diffraction-limit)** – the finest detail the optics can form at all – is set by **aperture**, through the Rayleigh criterion θ ≈ 1.22 λ/D.
 
 For a representative 3U imager – 5.5 µm pixels, 100 mm focal length, 500 km altitude – the GSD is about **27.5 m**, while a 90 mm aperture is diffraction-limited to about **3.7 m** at visible wavelengths.[^gsd] The instrument is pixel-limited by roughly a factor of seven, so the way to improve it is more focal length or smaller pixels, not a bigger front element. Knowing which limit binds tells you which parameter to spend on.
@@ -51,7 +51,7 @@ Three further parameters decide whether an imager works in practice, and all thr
 
 The instrument classes:
 
-- **Visible-light cameras** – from a COTS image sensor with a small lens up to diffraction-limited telescopes.
+- **Visible-light cameras** – from a COTS image sensor with a small lens up to diffraction-limited telescopes. Most COTS sensors carry a [Bayer](../references/glossary.md#bayer-filter-panchromatic) color mosaic, which trades effective resolution and signal for color; a panchromatic sensor gives the sharpest image the optics allow and no spectral information.
 - **Multispectral** – a handful of discrete bands chosen for a specific application (vegetation indices, water quality, fire detection). Modest data volumes, well-understood processing.
 - **[Hyperspectral](../references/glossary.md#hyperspectral-imaging)** – hundreds of contiguous narrow bands, producing a spectrum per pixel. Scientifically rich and a data-volume problem: a single hyperspectral scene can exceed an entire day's [downlink](../references/glossary.md#downlink-uplink) capacity, which is exactly why onboard processing has become interesting. See [Data reduction](#data-reduction-and-compression).
 - **Thermal infrared** – often requires a cooled detector, which brings a [cryocooler](thermal.md#other-active-techniques) and a large power and thermal problem with it.
@@ -156,7 +156,7 @@ This is where payload ambitions meet the bus, and it is worth doing the arithmet
 - **Warm-up and settling.** Detectors, oscillators and thermally stabilized optics need time to reach a stable state. That time is part of the power budget for every acquisition, and it is easy to forget.
 - **Coordination with ADCS.** An acquisition typically needs a slew, a settling period, the acquisition itself, and a return to a power-positive attitude. The whole sequence has to fit within available power, momentum and time.
 - **Coordination with comms.** Acquisition and downlink often compete for power and for attitude. Sequencing them across an orbit is a planning exercise in its own right.
-- **Autonomy versus ground control.** With a handful of passes a day, most acquisitions are executed from an uplinked timeline. Conditional autonomy – acquire when over a target, in daylight, with battery above a threshold – extends what is possible considerably. Full onboard decision-making is where onboard AI is heading. See [OBC – Advanced and Emerging Computing Concepts](obc.md#advanced-and-emerging-computing-concepts).
+- **Autonomy versus ground control.** With a handful of passes a day, most acquisitions are executed from an uplinked timeline. Conditional autonomy – acquire on a lit [access](../references/glossary.md#access-imaging) to a target, with battery above a threshold – extends what is possible considerably. Full onboard decision-making is where onboard AI is heading. See [OBC – Advanced and Emerging Computing Concepts](obc.md#advanced-and-emerging-computing-concepts).
 - **Safe states.** The payload must have a defined safe state, must enter it autonomously on fault or on spacecraft [safe mode](../references/glossary.md#safe-mode), and must never be able to prevent the spacecraft from recovering. Every payload operation should be time-limited, so a lost ground link cannot leave the payload running indefinitely.
 
 ## Calibration and Validation
@@ -167,7 +167,7 @@ Uncalibrated data is not a measurement; it is a number. For science payloads thi
 
 - **[Radiometric calibration](../references/glossary.md#radiometric-calibration)** relates raw detector counts to physical units, using reference sources – integrating spheres for imagers, radioactive sources for detectors (as with GMOD's characterization against known lines[^eirsat-gmod]), blackbodies for thermal instruments.
 - **Spectral calibration** establishes which wavelength each channel actually responds to.
-- **Geometric calibration** relates pixel position to look direction, and the instrument frame to the spacecraft body frame – without which pointing knowledge cannot be turned into georeferenced data.
+- **Geometric calibration** relates pixel position to look direction, and the instrument frame to the spacecraft body frame – without which pointing knowledge cannot be turned into georeferenced data. It is one of the four terms in the mission's [geolocation accuracy](../references/glossary.md#geolocation-accuracy), alongside pointing knowledge, orbit determination and timing.
 - **Dark, bias and flat-field characterization**, ideally across the operating temperature range, since every one of these varies with temperature.
 
 Calibrate in flight-like conditions where you can. A calibration taken at 20 °C in air may not describe an instrument at −10 °C in vacuum.
