@@ -15,11 +15,13 @@ A practical note: some of these are free, some are paywalled, and the ones that 
 
 ## Deployer manuals and payload user guides
 
-Whatever the CDS says, the document that governs a CubeSat's mechanical and safety design is the deployer manual or payload user guide of the provider it flies with. Two are openly published and make good worked examples of the class:
+Whatever the CDS says, the document that governs a CubeSat's mechanical and safety design is the deployer manual or payload user guide of the provider it flies with. Four are openly published and make good worked examples of the class. Read at least one before freezing a structure, and note that a manual can be more permissive as well as more restrictive: the XCD guides allow 6.50 kg in a 3U and 13.00 kg in a 6U, above the 2 kg per U the [CDS](glossary.md#cds) specifies.[^xcd-guide]
 
 <!-- CSR-RESOURCES:START ref-standards-deployer-manuals -->
 - **[Exolaunch EXOpod Nova User Manual, Rev. 1.2](https://exolaunch.com/documents/EXOpod_Nova_User_Manual_June_2024.pdf)** `PDF` – Deployer manual covering 1U–16U, with mass and center-of-mass allowances, rail dimensions and protrusion limits; states that where it conflicts with the CDS, the manual takes priority. Free PDF
 - **[NanoRacks CubeSat Deployer (NRCSD) Interface Definition Document](https://s3vi.ndc.nasa.gov/ssri-kb/static/resources/Nanoracks-CubeSat-Deployer-NRCSD-IDD.pdf)** `PDF` – ISS deployer interface document, and a worked example of a provider layering its own inhibit and timer requirements on top of the CDS. Free PDF
+- **[XTERRA XCD-3U/6U Hybrid User's Guide, Rev. 1.3.3](https://www.xterra.space/_files/ugd/e66575_0a86422b84984e24be0a5bcb6030cd92.pdf)** `PDF` – The most detailed openly published CubeSat dispenser manual of the three: per-format mass and length allowances, rail and access panel requirements, center-of-gravity offset limits by axis, activation switch placement and minimum travel, preload approach, deployment velocity against payload mass, tip-off, and the electrical interface. Carries a full revision history back to January 2023. Free PDF
+- **[XTERRA XCD-12U/16U Hybrid User's Guide, Rev. 1.2.2](https://www.xterra.space/_files/ugd/e66575_eb1c86f8b441485e8cb994fcd05d640c.pdf)** `PDF` – The same document family for the larger form factors, covering satellites from 227 mm to 454 mm in length. Free PDF
 <!-- CSR-RESOURCES:END ref-standards-deployer-manuals -->
 
 ## Testing and environmental verification
@@ -63,3 +65,5 @@ Whatever the CDS says, the document that governs a CubeSat's mechanical and safe
 ---
 
 Know a standard that belongs here? Please [contribute](../contributing.md).
+
+[^xcd-guide]: XTERRA, *XCD-3U/6U Hybrid User's Guide*, document XTD-100084 Revision 1.3.3, 21 January 2026. Free PDF. Section 4.1 gives maximum satellite masses of 2.17 kg for 1U, 6.50 kg for 3U and 13.00 kg for 6U, against maximum lengths of 113.5 mm, 227 mm and 366 mm rail end to rail end – roughly 2.17 kg per U, above the 2 kg per U of CDS 14.1. Section 4.4 gives center-of-gravity offset limits of ±20 mm on all axes for 1U, ±20/±20/±70 mm for 3U and ±20/±45/±70 mm for 6U. Section 4.5 asks for at least 0.75 mm of activation travel on Z-axis switches and at least 1.5 mm on X or Y axis switches. Section 5.1 gives empty dispenser masses of 7.25 kg in the 3U configuration and 6.50 kg in the 6U. Section 5.11 gives deployment velocities of roughly 0.8–1.15 m/s depending on payload mass, with tip-off typically at or below 5 deg/s.
