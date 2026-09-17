@@ -110,6 +110,9 @@ The spontaneous bonding of two clean metal surfaces pressed together in vacuum. 
 ### Commissioning
 The phase immediately after [LEOP](#leop) in which each subsystem is switched on, checked out and calibrated in turn before the mission enters routine operations. Deliberately incremental: sensors verified before actuators are enabled, each actuator's polarity confirmed individually, payload characterized against its ground calibration. Rushing commissioning is how teams turn a recoverable anomaly into a lost mission.
 
+### Conformal coating
+A thin polymer film applied over a populated board to protect it from moisture, contamination and handling damage, and to make it harder for a [tin whisker](#tin-whisker) to bridge two conductors. Acrylics and urethanes are the common choices; silicones tolerate wider temperature swings. Three cautions for spaceflight. It has to be a low-[outgassing](#outgassing) formulation or it becomes a contamination source in its own right. It has to go onto a clean board, because a coating applied over flux residue seals that residue in for the life of the mission. And it makes [rework](#rework) considerably harder, so mask connectors, test points and anything else you may need to reach. See [Tools – Solder paste and flux](../development/tools.md#solder-paste-and-flux).
+
 ### CONOPS
 **Concept of Operations.** A document or narrative describing how a mission is intended to work end-to-end, across all phases from launch to end-of-life. Covers nominal and off-nominal scenarios, how the ground segment interacts with the spacecraft, and what the operators will do and when.
 
@@ -217,8 +220,14 @@ The reference instant at which a set of orbital elements or a state vector is va
 ### EPS
 **Electrical Power System.** The subsystem responsible for generating (solar panels), storing (batteries), conditioning, and distributing electrical power to all other subsystems. See [EPS](../development/eps.md).
 
+### ESD
+**Electrostatic discharge.** The transfer of charge between two objects at different potentials, and the most common way to destroy a semiconductor on a workbench. What makes it insidious is that most of the damage is latent rather than immediate: the part passes every test, flies, and fails weeks later with nothing to diagnose. Control is a system rather than a purchase – a grounded work surface and wrist strap whose resistances fall inside a defined band, ESD-safe tools and packaging, humidity within a range, and insulators kept away from exposed parts. "ESD-safe" on a product listing means nothing without the numbers behind it. See [Tools – ESD control](../development/tools.md#esd-control).
+
 ### ESPA ring
 **EELV Secondary Payload Adapter.** A ring-shaped structural adapter mounted between a launch vehicle's upper stage and its primary payload, carrying secondary payloads on ports around its circumference – six 38 cm ports each supporting up to 257 kg in the standard configuration, with larger ESPA Grande variants. The standard way spacecraft above CubeSat scale fly as secondary payloads; CubeSat dispensers are often themselves mounted on an ESPA port.
+### Eutectic
+An alloy composition that melts and freezes at a single temperature instead of across a range. **Sn63Pb37** is the tin-lead eutectic at 183 °C, and the reason it remains the default for hand soldering is that it has no plastic range: the joint is liquid or solid and nothing in between, so one disturbed while cooling looks visibly wrong rather than quietly weak. Near-eutectic and lead-free alloys pass through a pasty phase on the way down, which hides exactly that defect. See [Tools – Solder alloy and tin whiskers](../development/tools.md#solder-alloy-and-tin-whiskers).
+
 
 ---
 
@@ -247,6 +256,9 @@ Evidence that a component or design has already operated successfully in space. 
 
 ### Float voltage and charge termination
 How a lithium charge cycle ends. Constant-current charging raises the cell voltage until it reaches the **float** or constant-voltage setpoint – around 4.20 V per cell for most lithium-ion chemistries, 3.60 V for LFP – after which the charger holds that voltage and the current tapers, the charge terminating when it falls below a set threshold. Two consequences on a spacecraft: the charger needs input headroom above the float voltage times the series count, or it never reaches termination and the pack sits permanently part-charged while looking healthy; and floating deliberately below the maximum, 4.10 V rather than 4.20 V, costs a few percent of capacity and buys substantially more cycle life – usually the better trade across thousands of orbits. See [EPS – Converters](../development/eps.md#converters).
+
+### Flux (soldering)
+The chemistry that strips oxide from the surfaces being joined and keeps them clean while the solder wets them – without it, solder beads up instead of flowing. IPC J-STD-004 classifies it in four characters: base chemistry (**RO** rosin, **RE** resin, **OR** organic, **IN** inorganic), activity (**L**, **M** or **H**) and halide content (**0** or **1**), so ROL0 is a low-activity halide-free rosin. The space addendum to J-STD-001 narrows the field to rosin and resin bases at L0 or L1, which excludes the water-soluble and organic-acid chemistries. Distinct from the radiometric and thermal senses of the word used elsewhere on this site; see [solar constant](#solar-constant). See [Tools – Solder paste and flux](../development/tools.md#solder-paste-and-flux).
 
 ### f-number
 The ratio of a lens's focal length to its aperture diameter, written f/2.8 or N = f/D. It governs how much light the optics collect – irradiance at the focal plane goes as 1/N² – and, with the wavelength and the pixel pitch, where the instrument sits against its [diffraction limit](#diffraction-limit). A fast (low) f-number shortens the exposure needed for a given scene and so reduces [image smear](#image-smear), which is why it matters more on a spacecraft crossing the ground at 7 km/s than it does on a tripod. It also sets the [depth of field](#depth-of-field), which matters only for a camera looking at the spacecraft rather than at the Earth.
@@ -557,8 +569,17 @@ A broadband, statistically described vibration environment – the dominant stru
 ### Reaction wheel
 A spinning flywheel used as an attitude actuator. By accelerating or decelerating the wheel, angular momentum is exchanged with the spacecraft body, producing a controlled torque without expelling propellant. Reaction wheels can become saturated (spin at their maximum rate) and must be periodically desaturated using magnetorquers or thrusters.
 
+### Red plague
+Galvanic corrosion of silver-plated copper conductors. Moisture reaching the copper through a break in the plating drives a reaction that consumes the copper and leaves a reddish-brown cuprous oxide, and it travels along the conductor under the insulation – so by the time it shows at a termination, the damage runs further than it looks. It is why the space addendum to J-STD-001 requires a red plague control plan, and why NASA prohibits aqueous cleaning of silver-plated copper: water is the one thing the reaction needs. See [Standards – Workmanship](standards.md#workmanship).
+
+### Reflow
+Soldering by melting [solder paste](#solder-paste) that has already been deposited, rather than by feeding wire into a joint. The board is taken through a temperature profile – preheat, soak, a peak above the alloy's melting point, then a controlled cool – in an oven, on a hotplate or under hot air. The profile belongs to the paste and the board rather than to a generic curve: the paste datasheet gives the peak temperature and the time above liquidus, and a board with more thermal mass than the datasheet's reference needs a slower ramp to reach them. See [Tools – Solder paste and flux](../development/tools.md#solder-paste-and-flux).
+
 ### Requirements traceability
 The practice of linking every requirement to the parent objective it derives from, the design element that satisfies it, and the verification activity that proves it. Usually maintained as a matrix – a spreadsheet is perfectly adequate on a CubeSat. Its practical value shows up twice: when a late change forces you to identify what it breaks, and when the [V&V](#vv) program needs to demonstrate that every requirement has been closed out.
+
+### Rework
+Reprocessing a nonconforming item so that it conforms completely – a lifted part reseated, a bridge cleared, a wrong component replaced. NASA's workmanship standards draw a line between this and **repair**, which only reduces the effect of a nonconformance and leaves the item still outside its drawing. The distinction matters on flight hardware because a repair needs disposition and documentation where rework does not, and because every thermal excursion spends some of the board's remaining life. See [Tools – Soldering and rework](../development/tools.md#soldering-and-rework).
 
 ### Rideshare
 Flying as a secondary payload alongside a primary mission, sharing the cost of a launch. The dominant route to orbit for CubeSats, and the origin of most of their constraints: the primary's orbit is the orbit you get, and a set of "do no harm" requirements – restricting transmitters, deployments and hazardous materials – is imposed to protect the primary payload. See [Qualification and Launch](../development/launch.md#launch-procurement).
@@ -618,6 +639,9 @@ The solar radiant flux at 1 AU, **about 1361 W/m²** by current measurement. Old
 ### Solar string
 Cells wired in series so their voltages add – the unit a solar array is actually designed in, with a **module** being the physical assembly of one or more strings bonded to a panel. Strings are sized against the *hot* Vmp rather than the nominal, because a string that falls below what the charger needs delivers nothing at all rather than a little less. **Bypass diodes** across cells or sub-strings let current route around a shadowed cell instead of reverse-biasing it; blocking diodes stop the battery draining back through a shadowed or failed string. Since a series string is limited by its weakest cell, partial shadowing on a tumbling spacecraft costs more than the shadowed area suggests. See [EPS – Panel electrical design](../development/eps.md#panel-electrical-design).
 
+### Solder paste
+Solder powder suspended in [flux](#flux-soldering), typically 88–91% metal by weight, printed through a stencil or dispensed and then [reflowed](#reflow). Graded by particle size under IPC J-STD-005, from Type 3 at 25–45 µm to Type 6 at 5–15 µm – so a smaller type number means a coarser powder, which catches people out. Choose by the smallest stencil aperture rather than by fineness: finer powder carries more surface area per unit mass, oxidizes faster and has a shorter usable life. Stored refrigerated and brought to room temperature sealed. See [Tools – Solder paste and flux](../development/tools.md#solder-paste-and-flux).
+
 ### Specific impulse (Isp)
 The efficiency of a propulsion system, in seconds: the impulse delivered per unit weight of propellant, or equivalently exhaust velocity divided by g₀. It sets the exchange rate between [delta-v](#delta-v) and propellant mass through the rocket equation. Cold gas sits around 40–110 s, chemical monopropellants 150–310 s, electric propulsion from a few hundred to several thousand seconds – but electric systems buy that Isp with electrical power, which is the binding constraint on a CubeSat. See [Propulsion – Delta-v: The Currency](../development/propulsion.md#delta-v-the-currency).
 
@@ -663,6 +687,9 @@ A flexible conductive link that carries heat between two points while allowing t
 
 ### Time on air
 How long a packet actually occupies the channel, which for [LoRa](#lora) is considerably more than payload bits divided by bit rate. Preamble, explicit header, CRC and symbol-level rounding all add to it, and the symbol duration doubles with every step of [spreading factor](#spreading-factor), so a short packet at SF12 can sit on air for seconds. Low-data-rate optimization, mandatory at the highest spreading factors, lengthens it further. Time on air is what a regulatory or self-imposed [duty cycle](#duty-cycle) limit is measured against, and what sets a beacon's energy cost per transmission.
+
+### Tin whisker
+A single-crystal filament of tin that grows spontaneously out of a pure tin surface, with no applied voltage, over months to years. Whiskers reach millimeters and can short adjacent conductors – and in vacuum a whisker short can strike a plasma arc carrying far more current than the filament itself could sustain, which has taken commercial satellites out of service. NASA's conclusion after decades of investigation is that the only certain avoidance is not to use pure tin plating; alloying the tin with lead suppresses the growth, which is why spaceflight practice stayed with tin-lead while the rest of the industry moved to lead-free. [Conformal coating](#conformal-coating) is a mitigation, not a cure. See [Tools – Solder alloy and tin whiskers](../development/tools.md#solder-alloy-and-tin-whiskers).
 
 ### TLE
 **Two-Line Element set.** A standardized format for encoding a satellite's orbital parameters at a given epoch, used as input to propagators such as SGP4. TLEs are published by the US Space Surveillance Network (via Space-Track) and used widely for tracking and pass prediction. See [GNC – Orbit Representation / TLEs](../development/gnc.md#orbit-representation-tles).
@@ -714,6 +741,9 @@ A protection that disconnects the load when a cell falls below a set voltage, pr
 
 ### Watchdog
 A timer that resets or power-cycles a device unless it is periodically "kicked" by software that is proving itself healthy. The single most important reliability mechanism on a CubeSat, usually implemented as a hierarchy: an internal MCU watchdog, an external timer IC, and an [EPS](#eps)-level watchdog that cuts power to the whole processor. Kicking the watchdog from a bare timer interrupt defeats its purpose, since it will keep firing while the rest of the system is deadlocked. See [OBC](../development/obc.md#watchdogs).
+
+### Workmanship standard
+A document defining what a hand-built assembly has to look like to be accepted – wetting and fillet shape on a solder joint, strand damage on a crimp, coverage on a [conformal coat](#conformal-coating) – as opposed to a design standard, which says what to build. For spaceflight electronics the governing document is IPC J-STD-001 with its space addendum, with IPC-A-610 as the photographic acceptability counterpart and NASA-STD-8739.6 covering NASA implementation. A CubeSat flying as a secondary payload is rarely held to any of them, but they are what a trained inspector applies, and they are specific in a way no tutorial is. See [Standards – Workmanship](standards.md#workmanship).
 
 ---
 

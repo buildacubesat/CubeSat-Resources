@@ -112,7 +112,7 @@ Electrostatic discharge is a second constraint on polymers, and the relevant qua
 
 ### Outgassing
 
-Anything non-metallic – adhesives, conformal coatings, cable ties, printed parts, tapes, potting compounds – outgasses in vacuum. The escaping volatiles condense on the coldest, most valuable surfaces available: optics, radiators, solar cells.
+Anything non-metallic – adhesives, [conformal coatings](../references/glossary.md#conformal-coating), cable ties, printed parts, tapes, potting compounds – outgasses in vacuum. The escaping volatiles condense on the coldest, most valuable surfaces available: optics, radiators, solar cells.
 
 Materials are screened using **ASTM E595**, which measures **[total mass loss](../references/glossary.md#outgassing) (TML)**, **collected volatile condensable material (CVCM)** and **water vapor recovery (WVR)** after 24 hours at 125 °C in vacuum. NASA-STD-6016C sets the acceptance criteria, and the exact wording is worth having:[^nasa-std-6016]
 

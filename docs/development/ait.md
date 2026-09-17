@@ -59,7 +59,7 @@ Two rules govern everything below: assume you will take it apart again, and reco
 
 Harnessing is where a surprising share of CubeSat integration problems originate, and it is the least glamorous work in the program.
 
-- **ESD discipline from the moment the first board leaves its bag.** Mat, wrist strap, verified ground, and no exceptions for "just a quick check" – latent ESD damage passes every test you run and then fails in orbit. See [Tools – ESD control](tools.md#esd-control).
+- **[ESD](../references/glossary.md#esd) discipline from the moment the first board leaves its bag.** Mat, wrist strap, verified ground, and no exceptions for "just a quick check" – latent ESD damage passes every test you run and then fails in orbit. See [Tools – ESD control](tools.md#esd-control).
 - **Design the harness, don't grow it.** Produce a wiring diagram and a connector schedule before cutting wire. A harness that accreted during integration is impossible to verify and impossible to rebuild identically.
 - **Label both ends of every wire and every connector.** Use a scheme that survives handling and thermal cycling.
 - **Strain relief and routing.** Secure harness at regular intervals, keep service loops at anything that moves, respect minimum bend radii, and keep power and sensitive signal lines apart. Anything crossing a hinge needs particular attention – see [Structure – Deployables](structure.md#deployable-structures-and-mechanisms).
