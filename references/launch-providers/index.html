@@ -1,0 +1,2472 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curated resources for CubeSat development">
+      
+      
+        <meta name="author" content="Manuel Imboden (buildacubesat.space)">
+      
+      
+        <link rel="canonical" href="https://cubesat-resources.space/references/launch-providers/">
+      
+      
+        <link rel="prev" href="../glossary/">
+      
+      
+        <link rel="next" href="../missions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Launch Providers - CubeSat Resources</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/timeago.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#launch-providers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CubeSat Resources" class="md-header__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CubeSat Resources
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Launch Providers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About CubeSat Resources
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  References & Resources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../updates/" class="md-tabs__link">
+          
+  
+  
+  Updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contributing/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contributing
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Contact
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CubeSat Resources" class="md-nav__button md-logo" aria-label="CubeSat Resources" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.32.17.53.5.53.88zM12 4.15 6.04 7.5 12 10.85l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-6.7l-6 3.37v6.71z"/></svg>
+
+    </a>
+    CubeSat Resources
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/buildacubesat/CubeSat-Resources" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About CubeSat Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/systems-engineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems Engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/structure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/eps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Electrical Power Systems (EPS)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/obc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Onboard Computing (OBC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/flight-software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Flight Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/comms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/ground-segment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ground Segment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/gnc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guidance, Navigation, and Control (GNC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/propulsion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Propulsion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/thermal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Thermal Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/payload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Payload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/inhibits-hdrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhibits, Hold Down and Release Mechanisms (HDRM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/ait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assembly, Integration, and Testing (AIT)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qualification and Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools and Helpers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References & Resources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References & Resources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Books
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../communities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Communities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../courses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses, Events and Educational Kits
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Launch Providers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Launch Providers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-approach-a-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Approach a Provider
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Approach a Provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#making-first-contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making first contact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-comes-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What comes back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-things-that-catch-teams-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The things that catch teams out
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rideshare-brokers-and-integrators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rideshare Brokers and Integrators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rideshare-programs-you-can-book-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rideshare Programs You Can Book Directly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dedicated-small-launchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dedicated Small Launchers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orbital-transfer-vehicles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orbital Transfer Vehicles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iss-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISS Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free-and-subsidized-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free and Subsidized Programs
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../missions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CubeSat Missions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../newsletters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Newsletters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../papers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Papers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standards &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../videos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Videos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../websites/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Websites
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Updates
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Monthly Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    September 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    October 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    November 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2025-12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    December 2025
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    January 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    February 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    March 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    April 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    May 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    June 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    July 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../updates/2026-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    August 2026
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://buildacubesat.space/pages/contact" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-approach-a-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Approach a Provider
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Approach a Provider">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#making-first-contact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making first contact
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-comes-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What comes back
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-things-that-catch-teams-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The things that catch teams out
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rideshare-brokers-and-integrators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rideshare Brokers and Integrators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rideshare-programs-you-can-book-directly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rideshare Programs You Can Book Directly
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dedicated-small-launchers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dedicated Small Launchers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orbital-transfer-vehicles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orbital Transfer Vehicles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iss-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ISS Deployment
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#free-and-subsidized-programs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free and Subsidized Programs
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/buildacubesat/CubeSat-Resources/edit/main/docs/references/launch-providers.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="launch-providers">Launch Providers<a class="headerlink" href="#launch-providers" title="Permanent link">&para;</a></h1>
+<p>Who will actually fly your CubeSat, how to reach them, and what happens after you do. This page covers the routes to orbit as organizations rather than as engineering constraints – for the requirements a launch imposes on the spacecraft, see <a href="../../development/launch/">Qualification and Launch</a>.</p>
+<p>The market is unusually opaque for something this consequential. Most providers publish no price, several publish capacity figures against an orbit they do not name, and the list of who is flying changes every few months. What follows is organized by how you would actually buy: through a broker, directly from an operator, on a dedicated vehicle, or through a program that does not charge you at all.</p>
+<div class="admonition warning">
+<p class="admonition-title">Figures here go stale</p>
+<p>Prices, capacities and flight status in this field move faster than any list can track. Treat every number below as a starting point for a conversation rather than a quotation – and always check which orbit a capacity figure refers to, because vendors are inconsistent about this and the sun-synchronous number is almost always the smaller one.</p>
+</div>
+<h2 id="how-to-approach-a-provider">How to Approach a Provider<a class="headerlink" href="#how-to-approach-a-provider" title="Permanent link">&para;</a></h2>
+<h3 id="making-first-contact">Making first contact<a class="headerlink" href="#making-first-contact" title="Permanent link">&para;</a></h3>
+<p>Almost every organization on this page has a web enquiry form, and that is the right way in. A cold email to a generic address usually reaches the same inbox more slowly. Brokers in particular are used to hearing from university teams and first missions, and a serious enquiry gets a serious answer even from a team that has no money yet.</p>
+<p>What to have ready before you write, because the first reply will ask for most of it:</p>
+<ul>
+<li><strong>Form factor and mass.</strong> 1U through 16U, and your current best mass estimate with its uncertainty. Say that it is an estimate.</li>
+<li><strong>Target orbit</strong>, and how much of it is negotiable. Altitude, inclination, and whether sun-synchronous genuinely matters to the mission or is simply what you assumed.</li>
+<li><strong>Earliest and latest readiness dates.</strong> Both. The latest one is what decides whether a given slot fits.</li>
+<li><strong>Hazards.</strong> Batteries above the usual size, propulsion of any kind, pressurized volumes, deployables, lasers, RF power. These drive the safety review more than anything else, and a provider would much rather hear about them in the first exchange than in month nine.</li>
+<li><strong>Frequency status.</strong> Whether coordination has started, and with whom.</li>
+<li><strong>Who you are.</strong> University, company, agency-funded. It determines which programs and which contract forms apply to you.</li>
+</ul>
+<p>That list is not guesswork. Arrow Science and Technology's space logistics quote form asks for exactly it – target launch window, target orbit with altitude and inclination, payload size, whether the payload carries propulsion, whether it has batteries and of what size, whether it has deployable appendages, and the readiness date.<sup id="fnref:arrow-logistics"><a class="footnote-ref" href="#fn:arrow-logistics">10</a></sup> Expect the same questions from anyone else, and expect the three hazard questions to drive the rest of the conversation.</p>
+<p>Being early and vague is fine. Being late and precise is not, because the binding constraint is manifest availability: eighteen months before a target launch is a normal time to open the conversation. See <a href="../../development/launch/#timeline">Qualification and Launch – Timeline</a>.</p>
+<h3 id="what-comes-back">What comes back<a class="headerlink" href="#what-comes-back" title="Permanent link">&para;</a></h3>
+<p>The shape of the process is consistent across providers even where the commercial terms are not:</p>
+<ol>
+<li><strong>A capacity questionnaire</strong> or interface data sheet – a longer version of the list above, usually as a spreadsheet.</li>
+<li><strong>A quote against one or more candidate missions</strong>, each with its own orbit and readiness date. This is the point at which you find out whether your orbit exists on anybody's manifest.</li>
+<li><strong>A contract</strong>, after which you are on a manifest and the deadlines become real.</li>
+<li><strong>An ICD and a deployer manual.</strong> The manual governs your mechanical design from here and outranks the <a href="../glossary/#cds">CDS</a> where the two disagree. See <a href="../../development/launch/#interface-control-documents">Qualification and Launch – Interface Control Documents</a>.</li>
+<li><strong>A safety data package</strong>, submitted and iterated. Inhibits and batteries attract the most scrutiny. See <a href="../../development/launch/#documentation-checklist">Documentation checklist</a>.</li>
+<li><strong>A fit check</strong>, usually in a test pod first and often in the flight deployer before delivery.</li>
+<li><strong>Delivery</strong>, one to six months before launch depending on the provider and the route.</li>
+</ol>
+<!-- TO DO: The commercial terms of this process – deposit size, milestone payment structure, what a customer-side slip costs, and whether a booked slot can be moved to a later mission – are published by none of the providers surveyed and could not be sourced. They vary by provider and by contract. A first-hand account from someone who has signed one of these contracts would make this subsection considerably more useful than the procedural outline above. -->
+
+<h3 id="the-things-that-catch-teams-out">The things that catch teams out<a class="headerlink" href="#the-things-that-catch-teams-out" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>The deadline is delivery, not launch.</strong> Your whole schedule works backwards from a delivery date that can sit six months ahead of the rocket.</li>
+<li><strong>A late design change can invalidate test evidence you have already submitted</strong>, and re-testing at that stage is expensive in both time and hardware life.</li>
+<li><strong>Export control applies to the conversation, not only to the hardware.</strong> Sending technical data to a provider in another jurisdiction can itself require a license. See <a href="../../development/launch/#export-control">Export control</a>.</li>
+<li><strong>Your orbit may not be compliant.</strong> The commonly available sun-synchronous band at 500–600 km sits above the altitude where passive decay reliably meets current disposal rules. Check before you sign rather than after. See <a href="../../development/launch/#space-debris-mitigation">Space debris mitigation</a>.</li>
+</ul>
+<h2 id="rideshare-brokers-and-integrators">Rideshare Brokers and Integrators<a class="headerlink" href="#rideshare-brokers-and-integrators" title="Permanent link">&para;</a></h2>
+<p>The normal path for a first mission. Brokers buy launch capacity in bulk, supply the <a href="../glossary/#deployer">deployer</a>, handle integration and much of the interface work with the launch provider, and sell you a slot. For a team that has not done this before, the broker's experience is worth as much as the slot itself – they have seen the failure modes and will tell you about yours early.</p>
+<p>Scale gives a sense of how concentrated this is: Exolaunch alone managed 45 of the roughly 70 payloads on Transporter-14 in June 2025.<sup id="fnref:rideshare-market"><a class="footnote-ref" href="#fn:rideshare-market">13</a></sup></p>
+<p>How much a broker publishes before you talk to them varies more than the services do. Most quote nothing at all. RIDE! runs a self-service platform you can register on directly, and has held brokerage contracts on Vega-C and SpaceX since 2022 alongside framework agreements with Arianespace, Exotrail, CAS Space, Agnikul and Momentus.<sup id="fnref:ride"><a class="footnote-ref" href="#fn:ride">12</a></sup> At the hardware end, Arrow's XTERRA dispensers carry published list prices – from $44,750 for the convertible 1U–6U unit and $89,750 for the 12U/16U – which is rare enough to be worth knowing when you are trying to put a number against the deployer line, and their user guides are openly available in the way Exolaunch's are.<sup id="fnref:xterra"><a class="footnote-ref" href="#fn:xterra">11</a></sup></p>
+<!-- CSR-RESOURCES:START ref-launch-providers-brokers -->
+<ul>
+<li><strong><a href="https://exolaunch.com/">Exolaunch</a></strong> <code>Link</code> – German broker and the largest single integrator on SpaceX rideshare missions. Supplies the EXOpod Nova and EXOtube deployers and the CarboNIX separation system, and publishes its deployer manual openly, which makes it useful reading even if you fly with somebody else</li>
+<li><strong><a href="https://www.dorbit.space/">D-Orbit</a></strong> <code>Link</code> – Italian provider offering both brokerage and the ION orbital transfer vehicle, so a single contract can cover the ride and the orbit change afterwards</li>
+<li><strong><a href="https://www.isilaunch.com/">ISILaunch</a></strong> <code>Link</code> – Dutch broker, part of the ISISPACE group, with a long CubeSat track record and the ISIPOD and DuoPack deployers. Oriented toward European customers and university missions</li>
+<li><strong><a href="https://www.ridespace.io/">RIDE!</a></strong> <code>Link</code> – French broker and mission-planning platform, brokering on Vega-C, SpaceX and a range of other launchers and orbital transfer vehicles. Registration opens a self-service tool for comparing launch opportunities, so the first step can be a search rather than an email</li>
+<li><strong><a href="https://www.albaorbital.com/">Alba Orbital</a></strong> <code>Link</code> – Scottish broker specializing in PocketQubes rather than CubeSats, and effectively the only route to orbit for that form factor</li>
+<li><strong><a href="https://maverickspacesystems.com/">Maverick Space Systems</a></strong> <code>Link</code> – US integrator focused on non-standard form factors and custom deployment hardware, alongside the Mercury deployer series</li>
+<li><strong><a href="https://seops.space/">SEOPS</a></strong> <code>Link</code> – US mission integrator covering both rideshare and ISS deployment routes</li>
+<li><strong><a href="https://www.arrowscitech.com/space-logistics">Arrow Science and Technology</a></strong> <code>Link</code> – US mission integrator taking a turnkey approach: selecting the launch opportunity, writing the requirements, manifesting the payload and integrating it to the vehicle. Its XTERRA division builds the XCD CubeSat dispensers, user-convertible across 1U to 6UXL and 12U to 16U without mass model spacers, with openly published user guides and list prices</li>
+<li><strong><a href="https://voyagertechnologies.com/space-solutions/smallsat-microsat-deployment/">Voyager Technologies</a></strong> <code>Link</code> – Brokerage on SpaceX rideshare, PSLV and other vehicles, plus ISS deployment and external payload hosting. The former Nanoracks business, and the origin of the widely referenced NRCSD deployer</li>
+<li><strong><a href="https://preciouspayload.com/">Precious Payload</a></strong> <code>Link</code> – A launch marketplace and mission-planning tool rather than a broker, useful for surveying what is on the manifest before committing to one provider</li>
+</ul>
+<!-- CSR-RESOURCES:END ref-launch-providers-brokers -->
+
+<h2 id="rideshare-programs-you-can-book-directly">Rideshare Programs You Can Book Directly<a class="headerlink" href="#rideshare-programs-you-can-book-directly" title="Permanent link">&para;</a></h2>
+<p>Operators selling shared capacity on their own vehicles. You still need a deployer and, in practice, an integrator – booking directly does not remove that step, it only changes who you buy it from.</p>
+<p>SpaceX is the outlier in publishing a price you can act on without a conversation: NASA's survey records Transporter rides starting at $350k for around 50 kg, at a high cadence.<sup id="fnref:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup> Transporter missions go to sun-synchronous orbit and Bandwagon missions to mid-inclination, which matters if your mission does not want a polar orbit.</p>
+<p>Europe's equivalent is the <strong>Small Spacecraft Mission Service</strong> on Vega-C: a modular dispenser taking any combination from 1 kg CubeSats up to 400 kg minisatellites, whose proof-of-concept flight alone carried seven microsatellites and 46 CubeSats into sun-synchronous orbits at about 515 and 530 km. ESA owns the Vega-C program with Avio as prime contractor, and commercial exploitation of the launch system has been moving from Arianespace to Avio during 2026 – worth knowing, because it changes who you are contracting with.<sup id="fnref:vega-ssms"><a class="footnote-ref" href="#fn:vega-ssms">3</a></sup></p>
+<p>India's route is through ISRO's commercial arm, NewSpace India Limited, which has been placing customer satellites on PSLV since 1999 and sells both rideshare and dedicated missions across PSLV, SSLV, GSLV and LVM3.<sup id="fnref:nsil"><a class="footnote-ref" href="#fn:nsil">4</a></sup></p>
+<!-- CSR-RESOURCES:START ref-launch-providers-rideshare-programs -->
+<ul>
+<li><strong><a href="https://www.spacex.com/rideshare/">SpaceX Rideshare</a></strong> <code>Link</code> – Transporter missions to sun-synchronous orbit and Bandwagon missions to mid-inclination, with published pricing and a web booking tool that quotes against a mass and a readiness date</li>
+<li><strong><a href="https://www.esa.int/Enabling_Support/Space_Transportation/Vega/Vega-C">Vega-C and the Small Spacecraft Mission Service</a></strong> <code>Link</code> – Europe's dedicated rideshare route, with a modular dispenser sized from 1 kg CubeSats to 400 kg minisatellites, flying from Europe's Spaceport in French Guiana</li>
+<li><strong><a href="https://www.nsilindia.co.in/launch-services">NewSpace India Limited</a></strong> <code>Link</code> – ISRO's commercial arm, selling rideshare and dedicated missions on PSLV, SSLV, GSLV and LVM3 from Satish Dhawan Space Centre</li>
+<li><strong><a href="https://www.nasa.gov/smallsat-institute/sst-soa/integration-launch-and-deployment/">NASA VADR</a></strong> <code>Link</code> – Venture-class Acquisition of Dedicated and Rideshare, a NASA launch services contract with a Streamlined CubeSat Launch Services line alongside standard and anchor-payload rideshare. Relevant to NASA-funded missions rather than to the open market</li>
+</ul>
+<!-- CSR-RESOURCES:END ref-launch-providers-rideshare-programs -->
+
+<h2 id="dedicated-small-launchers">Dedicated Small Launchers<a class="headerlink" href="#dedicated-small-launchers" title="Permanent link">&para;</a></h2>
+<p>Substantially more expensive per kilogram, and in exchange you choose the orbit and the schedule instead of accepting the primary's. For a single CubeSat this is rarely the economic choice; for a constellation, a mission with an unusual orbit, or one that cannot wait for a manifest, it can be the only one.</p>
+<p>Read every capacity figure against the orbit it is quoted for. Rocket Lab publishes 300 kg to LEO for Electron, while Firefly publishes 1,030 kg to a 300 km LEO but 630 kg to a 500 km sun-synchronous orbit for Alpha – and the NASA survey lists both in a single column that silently mixes the two.<sup id="fnref:launcher-performance"><a class="footnote-ref" href="#fn:launcher-performance">2</a></sup> Electron was the most widely used small vehicle as of April 2026, with ten Electron rideshare missions completed during 2025.<sup id="fnref2:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup> It also uses a tab-type dispenser rather than a rail-type pod, so the choice is not transparent to your structure.</p>
+<!-- CSR-RESOURCES:START ref-launch-providers-small-launchers -->
+<ul>
+<li><strong><a href="https://www.rocketlabcorp.com/launch/electron/">Rocket Lab Electron</a></strong> <code>Link</code> – 300 kg to LEO from Māhia and Wallops, the highest-cadence small launcher currently flying. Uses the Advanced Satellite Dispenser, a tab-type design rather than a rail-type pod</li>
+<li><strong><a href="https://fireflyspace.com/alpha/">Firefly Alpha</a></strong> <code>Link</code> – 1,030 kg to a 300 km LEO, 630 kg to a 500 km sun-synchronous orbit</li>
+<li><strong><a href="https://www.nsilindia.co.in/launch-services">ISRO SSLV</a></strong> <code>Link</code> – 500 kg to a 500 km low Earth orbit, designed around launch on demand and a short turnaround. Manufacturing and marketing are being transferred to Hindustan Aeronautics Limited</li>
+<li><strong><a href="https://www.isaraerospace.com/">Isar Aerospace Spectrum</a></strong> <code>Link</code> – Up to 1,000 kg to LEO from Andøya in Norway, and the first European commercial launcher to reach orbit from continental Europe</li>
+<li><strong><a href="https://www.rfa.space/">Rocket Factory Augsburg RFA ONE</a></strong> <code>Link</code> – Targeting up to 500 kg to a 500 km sun-synchronous orbit from SaxaVord in Scotland. First flight still ahead</li>
+<li><strong><a href="https://pldspace.com/">PLD Space Miura 5</a></strong> <code>Link</code> – Up to 540 kg to sun-synchronous orbit from Europe's Spaceport in French Guiana, with a partially reusable first stage. In development, following the suborbital Miura 1</li>
+</ul>
+<!-- CSR-RESOURCES:END ref-launch-providers-small-launchers -->
+
+<div class="admonition note">
+<p class="admonition-title">The European Launcher Challenge is reshaping this list</p>
+<p>ESA awarded its first European Launcher Challenge contracts in August 2026 – €197.8 million to Isar Aerospace, €186.9 million to Rocket Factory Augsburg and €158.9 million to PLD Space, with MaiaSpace still in negotiation. Participants must reach orbit no later than 2027.<sup id="fnref:elc-contracts"><a class="footnote-ref" href="#fn:elc-contracts">6</a></sup> Isar met that milestone within days of signing: Spectrum lifted off from Andøya on 5 September 2026 and reached orbit on its second flight, carrying CubeSats and an experimental payload, after a first attempt in March 2025 that ended about thirty seconds after liftoff.<sup id="fnref:isar-orbit"><a class="footnote-ref" href="#fn:isar-orbit">5</a></sup> The same period removed an option – Orbex entered administration in February 2026 after funding talks collapsed.<sup id="fnref:orbex"><a class="footnote-ref" href="#fn:orbex">7</a></sup> If you are planning a European launch more than a year out, check the current status of anybody on this list before building a schedule around them.</p>
+</div>
+<h2 id="orbital-transfer-vehicles">Orbital Transfer Vehicles<a class="headerlink" href="#orbital-transfer-vehicles" title="Permanent link">&para;</a></h2>
+<p>A tug that takes you from the rideshare drop-off orbit to something closer to what the mission actually wanted. Increasingly relevant because the common sun-synchronous drop-off at 500–600 km sits above the altitude where passive deorbit reliably closes within five years. D-Orbit's ION is the most operationally proven of them, first flown in 2020 and flown 21 times as of December 2025.<sup id="fnref3:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup></p>
+<!-- CSR-RESOURCES:START ref-launch-providers-orbital-transfer -->
+<ul>
+<li><strong><a href="https://www.dorbit.space/">D-Orbit ION</a></strong> <code>Link</code> – The most flown orbital transfer vehicle in the small satellite market, carrying CubeSats from the rideshare drop-off to a chosen altitude and phasing</li>
+<li><strong><a href="https://www.impulsespace.com/">Impulse Space</a></strong> <code>Link</code> – Mira, a high-delta-v transfer vehicle for orbit changes beyond what a conventional tug offers</li>
+<li><strong><a href="https://momentus.space/">Momentus</a></strong> <code>Link</code> – Vigoride transfer vehicle and hosted payload services</li>
+<li><strong><a href="https://www.rocketlabcorp.com/">Rocket Lab Photon</a></strong> <code>Link</code> – Spacecraft platform usable as a transfer stage, generally in combination with an Electron launch</li>
+</ul>
+<!-- CSR-RESOURCES:END ref-launch-providers-orbital-transfer -->
+
+<h2 id="iss-deployment">ISS Deployment<a class="headerlink" href="#iss-deployment" title="Permanent link">&para;</a></h2>
+<p>Deployment from the International Space Station rather than directly from a launch vehicle. The trade is specific: the launch environment is gentler, some interface requirements are easier, and the safety requirements are the strictest of any route because the spacecraft spends time inside a crewed vehicle. The orbit is not negotiable – 51.6° inclination at 400–420 km, deployed one to three months after berthing<sup id="fnref4:nasa-soa-launch"><a class="footnote-ref" href="#fn:nasa-soa-launch">1</a></sup> – which gives a short natural lifetime, convenient for debris compliance and inconvenient for a long mission.</p>
+<p>The Japanese route is the most open to outside teams. JAXA's J-SSOD deploys 1U to 6U CubeSats through the Kibo module's airlock and robotic arm, and the reusable J-SSOD-R introduced in March 2021 carries up to 24U per deployment at 6U per deployer. JAXA names the lower launch vibration environment as the main advantage over direct deployment. Since 2018 the commercial slots have been sold not by JAXA but by two selected service providers, Space BD and Mitsui Bussan Aerospace – so for a paying customer, those are the addresses.<sup id="fnref:jssod"><a class="footnote-ref" href="#fn:jssod">8</a></sup></p>
+<!-- CSR-RESOURCES:START ref-launch-providers-iss-deployment -->
+<ul>
+<li><strong><a href="https://humans-in-space.jaxa.jp/en/biz-lab/experiment/facility/ef/jssod/">JAXA J-SSOD</a></strong> <code>Link</code> – The deployer itself, with its interface requirements and accommodation: 1U through 6U, deployed from the Kibo airlock by the station's robotic arm. Read this before approaching a service provider</li>
+<li><strong><a href="https://space-bd.com/en/">Space BD</a></strong> <code>Link</code> – One of two commercial J-SSOD service providers selected by JAXA, and a common route to a Kibo deployment slot for a non-Japanese customer</li>
+<li><strong><a href="https://www.mbac.co.jp/en/">Mitsui Bussan Aerospace</a></strong> <code>Link</code> – The other JAXA-selected commercial J-SSOD service provider</li>
+<li><strong><a href="https://voyagertechnologies.com/space-solutions/smallsat-microsat-deployment/">Voyager Technologies – ISS deployment</a></strong> <code>Link</code> – NRCSD deployment from the US segment, plus external hosted payload sites on the Bishop Airlock and the NREP platform for experiments that do not need to be free-flying satellites</li>
+</ul>
+<!-- CSR-RESOURCES:END ref-launch-providers-iss-deployment -->
+
+<h2 id="free-and-subsidized-programs">Free and Subsidized Programs<a class="headerlink" href="#free-and-subsidized-programs" title="Permanent link">&para;</a></h2>
+<p>Competitive, slow, and free. The application cycles are annual or less frequent, so these belong in your planning a long way ahead of anything else on this page – and an unsuccessful application is not wasted, because the proposal is most of a mission concept review. KiboCUBE, run by UNOOSA with JAXA, is aimed specifically at institutions in countries without an established satellite capability; its sixth-round awardee, from Mexico, was deployed from Kibo in February 2026.<sup id="fnref:kibocube"><a class="footnote-ref" href="#fn:kibocube">9</a></sup></p>
+<!-- CSR-RESOURCES:START ref-launch-providers-sponsored -->
+<ul>
+<li><strong><a href="https://www.nasa.gov/kennedy/launch-services-program/cubesat-launch-initiative">NASA CubeSat Launch Initiative</a></strong> <code>Link</code> – Launch opportunities for US educational institutions, non-profits and NASA centers, selected through a recurring announcement of opportunity</li>
+<li><strong><a href="https://www.esa.int/Education/Educational_Satellites">ESA Fly Your Satellite!</a></strong> <code>Link</code> – Support, test facilities, review cycles and launch opportunities for European university teams. The educational structure around it is worth as much as the launch</li>
+<li><strong><a href="https://www.unoosa.org/oosa/en/ourwork/access2space4all/KiboCUBE/KiboCUBE_Index.html">UNOOSA/JAXA KiboCUBE</a></strong> <code>Link</code> – Deployment from Kibo for institutions in countries without an established satellite capability, run in annual rounds</li>
+<li><strong><a href="https://humans-in-space.jaxa.jp/en/biz-lab/experiment/facility/ef/jssod/">JAXA J-CUBE</a></strong> <code>Link</code> – Kibo deployment opportunities established through an agreement between JAXA and the University Space Engineering Consortium (UNISEC)</li>
+</ul>
+<!-- CSR-RESOURCES:END ref-launch-providers-sponsored -->
+
+<hr />
+<p>Know a launch provider that belongs here? Please <a href="../../contributing/">contribute</a>.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:nasa-soa-launch">
+<p>NASA Small Spacecraft Systems Virtual Institute, <a href="https://www.nasa.gov/smallsat-institute/sst-soa/integration-launch-and-deployment/"><em>State of the Art in Small Spacecraft Technology</em>, Chapter 10: Integration, Launch, Deployment, and Orbital Transport</a> (revision dated 18 May 2026). Open access. Source for Transporter rides starting at $350k for roughly 50 kg at a high cadence, Electron being the most widely used small vehicle as of April 2026 with ten Electron rideshare missions in 2025, the NASA VADR contract structure including its Streamlined CubeSat Launch Services line, D-Orbit ION first flying in 2020 and flown 21 times as of December 2025, and ISS deployment at 51.6° inclination into a 400–420 km orbit one to three months after berthing.&#160;<a class="footnote-backref" href="#fnref:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:nasa-soa-launch" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:launcher-performance">
+<p>Manufacturer-published performance: Rocket Lab, <a href="https://www.rocketlabcorp.com/launch/electron/"><em>Electron</em></a>, states 300 kg to LEO; Firefly Aerospace, <a href="https://fireflyspace.com/alpha/"><em>Alpha</em></a>, states 1,030 kg to a 300 km LEO and 630 kg to a 500 km SSO. The NASA survey lists both vehicles in a single "performance to LEO" column, which for Alpha is actually its sun-synchronous figure. Always confirm the orbit a quoted capacity refers to.&#160;<a class="footnote-backref" href="#fnref:launcher-performance" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:vega-ssms">
+<p>European Space Agency, <a href="https://www.esa.int/Enabling_Support/Space_Transportation/Vega/Vega-C"><em>Vega-C</em></a>. Open access. The Small Spacecraft Mission Service dispenser accommodates any combination from 1 kg CubeSats up to 400 kg minisatellites. ESA owns the Vega-C program with Avio as prime contractor and design authority; Arianespace was responsible for commercial exploitation of the launch system until 2026, when Avio began taking it over. The SSMS proof-of-concept flight is described in ESA's <a href="https://www.esa.int/Enabling_Support/Space_Transportation/Vega/Vega_return_to_flight_proves_new_rideshare_service">return-to-flight release</a>, which records seven microsatellites of 15–150 kg and 46 CubeSats released into sun-synchronous orbits at about 515 km and 530 km.&#160;<a class="footnote-backref" href="#fnref:vega-ssms" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:nsil">
+<p>NewSpace India Limited, <a href="https://www.nsilindia.co.in/launch-services"><em>Launch services (SSLV, PSLV, GSLV-Mk-II and LVM-3)</em></a>. Open access. NSIL is ISRO's commercial arm and has provided launch services for customer satellites on PSLV since 1999, offering both rideshare and dedicated missions from Satish Dhawan Space Centre, with SSLV specified at 500 kg to a 500 km low Earth orbit. Note that the page's date for the 104-satellite PSLV record flight is wrong – it was PSLV-C37 in February 2017 – so treat its historical detail with care.&#160;<a class="footnote-backref" href="#fnref:nsil" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:isar-orbit">
+<p>European Space Agency, <a href="https://www.esa.int/Enabling_Support/Space_Transportation/First_contracts_kick_off_European_Launcher_Challenge"><em>Isar Aerospace Achieves First Launch to Orbit from Continental Europe</em></a>. Open access. Spectrum lifted off from Andøya Spaceport on 5 September 2026 and reached orbit on its second flight, carrying CubeSats and an experimental payload selected through the German Space Agency's Microlauncher Competition. Isar Aerospace became the first commercial company from Europe to deliver satellites into orbit with its own launcher, and the first European Launcher Challenge participant to meet the orbital milestone. The first flight, in March 2025, ended around thirty seconds after liftoff.&#160;<a class="footnote-backref" href="#fnref:isar-orbit" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:elc-contracts">
+<p>European Space Agency, <a href="https://www.esa.int/Enabling_Support/Space_Transportation/First_contracts_kick_off_European_Launcher_Challenge"><em>First contracts kick off European Launcher Challenge</em></a>, August 2026. Open access. Isar Aerospace €197.8 million, Rocket Factory Augsburg €186.9 million and PLD Space €158.9 million, with the MaiaSpace contract still in negotiation. Gives Spectrum at up to 1,000 kg to low Earth orbit from Andøya, RFA ONE flying from SaxaVord, and Miura 5 at up to 540 kg to sun-synchronous orbit from Europe's Spaceport. Participants are required to achieve an orbital launch no later than 2027.&#160;<a class="footnote-backref" href="#fnref:elc-contracts" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:orbex">
+<p>NASASpaceflight, <a href="https://www.nasaspaceflight.com/2026/08/esa-european-launcher-challenge-contracts/">"ESA awards first European Launcher Challenge contracts"</a>, August 2026. Free. Reports that Orbex, one of the original five European Launcher Challenge finalists, entered administration in February 2026 after fundraising and acquisition talks collapsed, received no contract, and that assets tied to its planned Sutherland spaceport have since been sold. Trade press rather than a primary source; the company's own position has not been checked.&#160;<a class="footnote-backref" href="#fnref:orbex" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+<li id="fn:jssod">
+<p>Japan Aerospace Exploration Agency, <a href="https://humans-in-space.jaxa.jp/en/biz-lab/experiment/facility/ef/jssod/"><em>JEM Small Satellite Orbital Deployer (J-SSOD)</em></a>. Open access. Covers the 1U–6U accommodation, the reusable J-SSOD-R introduced in March 2021 with a maximum 24U capability at 6U per deployer, the airlock and robotic-arm deployment sequence, the lower launch vibration environment compared with direct deployment, and JAXA's May 2018 selection of Space BD Inc. and Mitsui Bussan Aerospace Co., Ltd. as commercial J-SSOD service providers. The J-CUBE program is described there as a deployment opportunity established between JAXA and UNISEC.&#160;<a class="footnote-backref" href="#fnref:jssod" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+</li>
+<li id="fn:kibocube">
+<p>United Nations Office for Outer Space Affairs, <a href="https://www.unoosa.org/oosa/en/ourwork/access2space4all/KiboCUBE/KiboCUBE_Index.html"><em>KiboCUBE</em></a>. Open access. A UNOOSA program run with JAXA, providing ISS deployment opportunities to institutions in countries without an established satellite capability. A CubeSat from Universidad Popular Autónoma del Estado de Puebla, Mexico, selected in the sixth round, was deployed from the ISS on 3 February 2026.&#160;<a class="footnote-backref" href="#fnref:kibocube" title="Jump back to footnote 9 in the text">&#8617;</a></p>
+</li>
+<li id="fn:arrow-logistics">
+<p>Arrow Science and Technology, <a href="https://www.arrowscitech.com/space-logistics"><em>Space Logistics</em></a>. Free. Describes a turnkey service covering launch opportunity selection, requirements definition, test and flight support equipment, manifesting and payload integration to the launch vehicle. Its published quote form is the source for the intake fields listed above: target launch window, target orbit with altitude and inclination, payload size, propulsion, battery presence and size, deployable appendages, and payload readiness date.&#160;<a class="footnote-backref" href="#fnref:arrow-logistics" title="Jump back to footnote 10 in the text">&#8617;</a></p>
+</li>
+<li id="fn:xterra">
+<p>XTERRA, <a href="https://www.xterra.space/products"><em>Products</em></a> (page revisions dated 21 January 2026). Free. Arrow's own site mirrors this page at <code>arrowscitech.com/xterraproducts</code>, with two discrepancies – it calls the dispenser patented where XTERRA says patent-pending, and it gives the 12U/16U price basis as a 6U configuration where XTERRA says 16U. Prefer the XTERRA page. The XCD-3U/6U Hybrid is listed from $44,750 based on a standard 6U configuration, user-convertible across 1U, 2U, 3U and 6UXL in a single system without mass model spacers and combinable in pairs into a Quadpack-equivalent arrangement; the XCD-12U/16U Hybrid is listed from $89,750 and accepts satellites from 227 mm to 454 mm in length. User guides for both are published as free PDFs, and custom deployment systems are offered. List prices, not quotations.&#160;<a class="footnote-backref" href="#fnref:xterra" title="Jump back to footnote 11 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ride">
+<p>RIDE!, <a href="https://www.ridespace.io/about"><em>About RIDE!</em></a>. Free. Company timeline giving first platform prototype and a CNES contract in 2021, first brokerage contracts on Vega-C and SpaceX in 2022, and a first ESA contract in 2023 alongside framework agreements with Arianespace, Exotrail, CAS Space, Agnikul and Momentus. A self-published corporate source; the contract counts and network figures are the company's own and have not been independently checked.&#160;<a class="footnote-backref" href="#fnref:ride" title="Jump back to footnote 12 in the text">&#8617;</a></p>
+</li>
+<li id="fn:rideshare-market">
+<p>New Space Economy, <a href="https://newspaceeconomy.ca/2026/02/27/satellite-ridesharing-market-analysis-2026/">"Satellite Ridesharing Market Analysis 2026"</a>, February 2026. Free. Records Exolaunch managing 45 of the roughly 70 payloads on Transporter-14 in June 2025, and traces Transporter pricing from $5,000/kg with a 150 kg minimum in 2019 through a 50 kg minimum at $275,000 in October 2022 to $350,000 for 50 kg from Transporter-16 onward. Trade press rather than a primary source; the pricing figures agree with NASA's survey at the 50 kg entry point but the marginal per-kilogram rate is not independently confirmed.&#160;<a class="footnote-backref" href="#fnref:rideshare-market" title="Jump back to footnote 13 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="September 17, 2026 17:29:31 UTC"><span class="timeago" datetime="2026-09-17T17:29:31+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="September 17, 2026 17:29:31 UTC">2026-09-17</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/buildacubesat/CubeSat-Resources" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "content.action.edit", "content.icons", "content.tasklist"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../js/timeago.min.js"></script>
+      
+        <script src="../../js/timeago_mkdocs_material.js"></script>
+      
+    
+  </body>
+</html>
