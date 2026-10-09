@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use CubeSat Resources, please cite it as below."
+title: "CubeSat Resources"
+abstract: "A curated, open-access collection of resources for people building CubeSats, from first-time makers to experienced developers."
+type: software
+authors:
+  - given-names: Manuel
+    family-names: Imboden
+    orcid: "https://orcid.org/0009-0006-8222-7664"
+license: CC0-1.0
+url: "https://cubesat-resources.space"
+repository-code: "https://github.com/buildacubesat/CubeSat-Resources"
+keywords:
+  - CubeSat
+  - nanosatellite
+  - small satellites
+  - space engineering
+  - open access

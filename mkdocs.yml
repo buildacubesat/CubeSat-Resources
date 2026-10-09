@@ -4,6 +4,7 @@ repo_url: https://github.com/buildacubesat/CubeSat-Resources
 edit_uri: edit/main/docs/
 site_description: Curated resources for CubeSat development
 site_author: Manuel Imboden (buildacubesat.space)
+copyright: Content dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>
 
 theme:
   name: material
