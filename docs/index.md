@@ -27,6 +27,26 @@ To receive a monthly update of newly added resources to your inbox, [subscribe h
 
 Feel free to reach out, I'm happy to meet other CubeSat enthusiasts: [Contact Form :material-open-in-new:](https://buildacubesat.space/pages/contact){ target=_blank }
 
+## Citing CubeSat Resources
+
+CubeSat Resources is archived on [Zenodo](https://doi.org/10.5281/zenodo.23256397). If you use it in a paper, thesis or report, please cite it as:
+
+> Manuel Imboden, *CubeSat Resources*, Zenodo. [doi:10.5281/zenodo.23256397](https://doi.org/10.5281/zenodo.23256397)
+
+This DOI always resolves to the latest release. To cite the exact version you used, pick it from the version list on the Zenodo record.
+
+??? quote "BibTeX"
+
+    ```bibtex
+    @misc{imboden_cubesat_resources,
+      author    = {Imboden, Manuel},
+      title     = {CubeSat Resources},
+      publisher = {Zenodo},
+      doi       = {10.5281/zenodo.23256397},
+      url       = {https://cubesat-resources.space}
+    }
+    ```
+
 ## AI Attribution
 
 <div style="display: flex; align-items: center; white-space: nowrap; gap: 0.5rem; padding: 8px;">

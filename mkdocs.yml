@@ -4,7 +4,7 @@ repo_url: https://github.com/buildacubesat/CubeSat-Resources
 edit_uri: edit/main/docs/
 site_description: Curated resources for CubeSat development
 site_author: Manuel Imboden (buildacubesat.space)
-copyright: Content dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>
+copyright: Content dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> – <a href="https://doi.org/10.5281/zenodo.23256397">doi:10.5281/zenodo.23256397</a>
 
 theme:
   name: material
@@ -13,6 +13,7 @@ theme:
     - navigation.tabs
     - navigation.top
     - content.action.edit
+    - content.code.copy
     - content.icons
     - content.tasklist
   icon:
@@ -44,6 +45,8 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - pymdownx.details
+  - pymdownx.superfences
   - footnotes
   - def_list
   - attr_list
