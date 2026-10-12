@@ -205,6 +205,22 @@ A power budget tracks energy consumption and generation across mission modes. Se
 - **[Jan King Link Budget Calculators](https://iaru.amsat-uk.org/spreadsheet.htm)** `Link` – Collection of Excel link budget spreadsheets including the AMSAT/IARU Annotated Link Model System
 <!-- CSR-RESOURCES:END dev-tools-additional-calculators -->
 
+### Engineering notebooks
+
+Interactive first-order estimators that run in the browser, each one a single Python file as a [marimo](https://marimo.io) notebook. The four budget notebooks exchange one TOML mission profile, so an orbit and ground station entered once carry across the set, and every export names the tool version and its assumptions in the header.
+
+!!! warning "Work in progress – planning estimates only"
+
+    These notebooks are under active development. Their numbers are first-order figures for early mission planning: not validated against flight data or a qualified reference tool, with defaults that are placeholders for one demo mission, and a new version can change results. Use them to size a design and to see which parameter binds, not as evidence in a design review or a regulatory filing.
+
+- **[BAC Link Budget](https://bac.page/molab-link-budget)** (Build a CubeSat) – [link margin](../references/glossary.md#link-margin) against [elevation](../references/glossary.md#elevation-angle) in both directions, usable data per [pass](../references/glossary.md#pass) and per day from a two-body pass propagation, and the line-item budget in the AMSAT/IARU layout; [LoRa](../references/glossary.md#lora) rows use the SX1276 packet airtime. See [Comms – Link Budget](comms.md#link-budget).
+- **[BAC Optical Payload](https://bac.page/molab-optical-payload)** (Build a CubeSat) – what a camera on a small satellite produces: [ground sample distance](../references/glossary.md#ground-sample-distance-gsd), [swath](../references/glossary.md#swath) and field of view, Rayleigh spot and sampling factor Q, motion and attitude smear, [rolling-shutter](../references/glossary.md#rolling-shutter-global-shutter) skew, frame sizes and days to downlink, and access and illumination over a target. A second mode models a camera on a deployable boom looking back at the spacecraft. See [Payload – Imaging](payload.md#imaging).
+- **[BAC Power Budget](https://bac.page/molab-power-budget)** (Build a CubeSat) – an energy balance on one timeline: per-face illumination under three attitude models, an editable table of average watts per mode, beacon cadence and payload activations, integrated into a battery [state of charge](../references/glossary.md#state-of-charge-soc) with a safe-mode fallback. See [EPS – Power Requirements and Budgets](eps.md#power-requirements-and-budgets).
+- **[BAC Orbital Lifetime](https://bac.page/molab-orbital-lifetime)** (Build a CubeSat) – the [orbital lifetime](../references/glossary.md#orbital-lifetime) of a circular [LEO](../references/glossary.md#leo) orbit under [drag](../references/glossary.md#atmospheric-drag), with NRLMSIS 2.1 density, the observed [F10.7](../references/glossary.md#f107) and Ap record and the NOAA [Cycle 25](../references/glossary.md#solar-cycle) prediction; ten solar-activity scenarios give a lifetime band, judged against the 5-year and 25-year disposal rules. See [Qualification and Launch – Space debris mitigation](launch.md#space-debris-mitigation).
+- **[BAC Antenna Visualizer (demo)](https://bac.page/molab-antenna-viz-demo)** (Build a CubeSat) – sliders over an antenna's geometry, with [S-parameters](../references/glossary.md#s-parameters), a [Smith chart](../references/glossary.md#smith-chart), gain and [axial ratio](../references/glossary.md#axial-ratio), pattern cuts and the 3D pattern, interpolated between simulated cases. The hosted demo is a frozen snapshot with bundled sensitivity packs; the full notebook runs locally against `bac-antenna-optimizer` output.
+
+Source, version history and headless tests for all five are in [`bac-utils/notebooks`](https://github.com/buildacubesat/bac-utils/tree/main/notebooks) (MIT). Each notebook also runs locally with `uvx marimo edit --sandbox <file>`.
+
 ## Automation and Workflow Helpers
 
 Automation is where a small team buys back time, and the returns compound over a multi-year project.
