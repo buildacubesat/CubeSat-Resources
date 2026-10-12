@@ -41,6 +41,8 @@ Two different limits set what an imager can resolve, and they are routinely conf
 
 For a representative 3U imager – 5.5 µm pixels, 100 mm focal length, 500 km altitude – the GSD is about **27.5 m**, while a 90 mm aperture is diffraction-limited to about **3.7 m** at visible wavelengths.[^gsd] The instrument is pixel-limited by roughly a factor of seven, so the way to improve it is more focal length or smaller pixels, not a bigger front element. Knowing which limit binds tells you which parameter to spend on.
 
+The interactive [BAC Optical Payload notebook](tools.md#engineering-notebooks) works these figures – GSD, swath, Rayleigh spot, smear, frame sizes and access over a target – from sensor, lens and orbit; a work in progress, for planning only.
+
 Aperture becomes the binding constraint only when you want high resolution, and there the physics is unforgiving: sub-meter imaging from 500 km needs an aperture of roughly **340 mm**, larger than a 1U's entire cross-section.[^gsd] A 1U cannot produce sub-meter imagery regardless of how good the sensor is – not because of the sensor, but because the front of the spacecraft is too small.
 
 Three further parameters decide whether an imager works in practice, and all three are cheaper to fix on paper than after integration:
