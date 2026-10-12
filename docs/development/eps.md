@@ -44,7 +44,7 @@ Power is just one of many connected things to consider:
 
 ### Templates and worked examples
 
-For ready-to-use templates and reference analyses, see [Calculators and Reference Tools](tools.md#power-budget-templates).
+For ready-to-use templates and reference analyses, see [Calculators and Reference Tools](tools.md#power-budget-templates). For a first-order energy balance over the orbit with per-face illumination, eclipse and a load table per mode, the interactive [BAC Power Budget notebook](tools.md#engineering-notebooks) is a work in progress, for planning only.
 
 ## Solar Power Generation
 
