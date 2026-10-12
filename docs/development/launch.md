@@ -137,6 +137,8 @@ Debris rules have tightened significantly and now affect CubeSat design directly
 
 What this means in practice: **check your orbital lifetime during design, not after, and check it against 400 km rather than 600 km.** NASA's survey is blunt about where the boundary sits – small spacecraft "launched at or around 400 km altitude naturally decay in under five years, however at orbital altitudes beyond 500 km, there is no guarantee the spacecraft will deorbit within that timeframe, and some may not deorbit within 25 years".[^nasa-soa-deorbit] That puts the most commonly available rideshare orbit, sun-synchronous at 500–600 km, on the wrong side of the line for a passive CubeSat. Above roughly 400 km you should expect to demonstrate compliance rather than assume it, with a drag sail or deorbit device (effective up to about 800 km for suitable area-to-mass ratios),[^nasa-soa-deorbit] [propulsion](propulsion.md), an [orbital transfer vehicle](../references/glossary.md#otv) to a lower drop-off, or simply a lower orbit. You will also be asked for an **orbital debris assessment** and an end-of-life plan, including [passivation](../references/glossary.md#passivation) – safely discharging batteries and de-energizing the spacecraft so it cannot fragment.
 
+For a first look at where a design sits against these rules, the interactive [BAC Orbital Lifetime notebook](tools.md#engineering-notebooks) gives a lifetime band across solar-activity scenarios from size, mass, deployables and orbit – a work in progress, for planning only; a debris assessment needs a qualified tool such as NASA's Debris Assessment Software (DAS).
+
 ### Regulatory resources
 
 <!-- CSR-RESOURCES:START dev-launch-registration-and-frequency-management -->
