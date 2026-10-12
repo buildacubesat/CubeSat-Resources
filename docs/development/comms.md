@@ -66,6 +66,8 @@ A basic budget includes transmit power, transmit antenna gain, free-space path l
 
 Budgets are calculated for the worst case – maximum slant range at low elevation – and iterated alongside antenna, power and ADCS design.
 
+For a first-order estimate, the interactive [BAC Link Budget notebook](tools.md#engineering-notebooks) runs this arithmetic for every mode in a table and gives the usable data per pass and per day – a work in progress, for planning only.
+
 ### A worked example
 
 A conventional UHF downlink, to show the shape of the arithmetic:
