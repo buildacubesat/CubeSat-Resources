@@ -137,7 +137,21 @@ Debris rules have tightened significantly and now affect CubeSat design directly
 
 What this means in practice: **check your orbital lifetime during design, not after, and check it against 400 km rather than 600 km.** NASA's survey is blunt about where the boundary sits – small spacecraft "launched at or around 400 km altitude naturally decay in under five years, however at orbital altitudes beyond 500 km, there is no guarantee the spacecraft will deorbit within that timeframe, and some may not deorbit within 25 years".[^nasa-soa-deorbit] That puts the most commonly available rideshare orbit, sun-synchronous at 500–600 km, on the wrong side of the line for a passive CubeSat. Above roughly 400 km you should expect to demonstrate compliance rather than assume it, with a drag sail or deorbit device (effective up to about 800 km for suitable area-to-mass ratios),[^nasa-soa-deorbit] [propulsion](propulsion.md), an [orbital transfer vehicle](../references/glossary.md#otv) to a lower drop-off, or simply a lower orbit. You will also be asked for an **orbital debris assessment** and an end-of-life plan, including [passivation](../references/glossary.md#passivation) – safely discharging batteries and de-energizing the spacecraft so it cannot fragment.
 
-For a first look at where a design sits against these rules, the interactive [BAC Orbital Lifetime notebook](tools.md#engineering-notebooks) gives a lifetime band across solar-activity scenarios from size, mass, deployables and orbit – a work in progress, for planning only; a debris assessment needs a qualified tool such as NASA's Debris Assessment Software (DAS).
+For a first look at where a design sits against these rules, the BAC Orbital Lifetime notebook below gives a lifetime band across solar-activity scenarios from size, mass, deployables and orbit. It is an order-of-magnitude estimate for planning; a debris assessment needs a qualified tool such as NASA's Debris Assessment Software (DAS). See [Tools – Engineering notebooks](tools.md#engineering-notebooks).
+
+??? note "BAC Orbital Lifetime – interactive (work in progress, planning estimates only)"
+
+    Decay under drag with NRLMSIS 2.1 density and the observed F10.7 and Ap record; ten solar-activity scenarios give the band, judged against the 5-year and 25-year disposal rules. Full screen: [bac.page/molab-orbit-lifetime-app](https://bac.page/molab-orbit-lifetime-app) – editable notebook on molab: [bac.page/molab-orbital-lifetime](https://bac.page/molab-orbital-lifetime) – source and tests: [bac-utils](https://github.com/buildacubesat/bac-utils/tree/main/notebooks). The notebook runs in your browser and takes a moment to load.
+
+    <iframe
+      src="https://marimo.app/gh/buildacubesat/bac-utils/main/e?embed=true&entrypoint=notebooks%2Fbac-orbital-lifetime%2Fbac_orbital_lifetime.py&mode=read&show-code=false"
+      title="BAC Orbital Lifetime"
+      width="100%"
+      height="1000"
+      style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"
+      loading="lazy"
+      allow="clipboard-write; fullscreen">
+    </iframe>
 
 ### Regulatory resources
 
