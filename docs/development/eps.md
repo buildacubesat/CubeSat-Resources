@@ -44,7 +44,22 @@ Power is just one of many connected things to consider:
 
 ### Templates and worked examples
 
-For ready-to-use templates and reference analyses, see [Calculators and Reference Tools](tools.md#power-budget-templates). For a first-order energy balance over the orbit with per-face illumination, eclipse and a load table per mode, the interactive [BAC Power Budget notebook](tools.md#engineering-notebooks) is a work in progress, for planning only.
+For ready-to-use templates and reference analyses, see [Calculators and Reference Tools](tools.md#power-budget-templates). For a first-order energy balance over the orbit – per-face illumination, eclipse, a load table per mode, battery state of charge – the BAC Power Budget notebook below is a starting point for planning, not a substitute for the analysis above; see [Tools – Engineering notebooks](tools.md#engineering-notebooks).
+
+??? note "BAC Power Budget – interactive (work in progress, planning estimates only)"
+
+    Generation per face under three attitude models, an editable load table per mode, beacon and payload activations, integrated into a battery state of charge. Full screen: [bac.page/molab-power-budget-app](https://bac.page/molab-power-budget-app) – editable notebook on molab: [bac.page/molab-power-budget](https://bac.page/molab-power-budget) – source and tests: [bac-utils](https://github.com/buildacubesat/bac-utils/tree/main/notebooks). The notebook runs in your browser and takes a moment to load.
+
+    <iframe
+      src="https://marimo.app/gh/buildacubesat/bac-utils/main/e?embed=true&entrypoint=notebooks%2Fbac-power-budget%2Fbac_power_budget.py&mode=read&show-code=false"
+      title="BAC Power Budget"
+      width="100%"
+      height="1000"
+      style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"
+      loading="lazy"
+      allow="clipboard-write; fullscreen">
+    </iframe>
+
 
 ## Solar Power Generation
 
