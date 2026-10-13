@@ -66,7 +66,21 @@ A basic budget includes transmit power, transmit antenna gain, free-space path l
 
 Budgets are calculated for the worst case – maximum slant range at low elevation – and iterated alongside antenna, power and ADCS design.
 
-For a first-order estimate, the interactive [BAC Link Budget notebook](tools.md#engineering-notebooks) runs this arithmetic for every mode in a table and gives the usable data per pass and per day – a work in progress, for planning only.
+For a first-order estimate, the BAC Link Budget notebook below runs this arithmetic for every mode in a table and gives the usable data per pass and per day. Its numbers are for early planning, not for a design review – see [Tools – Engineering notebooks](tools.md#engineering-notebooks).
+
+??? note "BAC Link Budget – interactive (work in progress, planning estimates only)"
+
+    Margin against elevation in both directions, usable data per pass and per day, and the line-item budget in the AMSAT/IARU layout. Full screen: [bac.page/molab-link-budget-app](https://bac.page/molab-link-budget-app) – editable notebook on molab: [bac.page/molab-link-budget](https://bac.page/molab-link-budget) – source and tests: [bac-utils](https://github.com/buildacubesat/bac-utils/tree/main/notebooks). The notebook runs in your browser and takes a moment to load.
+
+    <iframe
+      src="https://marimo.app/gh/buildacubesat/bac-utils/main/e?embed=true&entrypoint=notebooks%2Fbac-link-budget%2Fbac_link_budget.py&mode=read&show-code=false"
+      title="BAC Link Budget"
+      width="100%"
+      height="1000"
+      style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"
+      loading="lazy"
+      allow="clipboard-write; fullscreen">
+    </iframe>
 
 ### A worked example
 
@@ -154,6 +168,22 @@ Nearly every CubeSat UHF or VHF antenna is a deployable: tape-spring monopoles, 
 Two design points that recur. A tumbling spacecraft has no fixed antenna orientation, so a near-omnidirectional pattern and an honest 0 dBi assumption in the link budget are worth more than a higher-gain pattern you cannot point. And a linearly polarized satellite antenna against a circularly polarized ground antenna costs a fixed 3 dB, which is cheaper to accept in the budget than to engineer away – see [Ground Segment – Polarization](ground-segment.md#polarization).
 
 Higher bands change the picture: patch antennas at S-band and reflectarrays at X- and Ka-band offer gain worth having, and immediately impose a pointing requirement on [GNC](gnc.md).
+
+How an antenna's numbers move when its geometry moves is easier to see than to read: the BAC Antenna Visualizer below puts a slider on every geometry parameter of one S-band patch and shows S-parameters, gain, axial ratio and patterns following – a demo of a work in progress, see [Tools – Engineering notebooks](tools.md#engineering-notebooks).
+
+??? note "BAC Antenna Visualizer (demo) – interactive (work in progress, planning estimates only)"
+
+    A frozen demo with bundled sensitivity packs for one S-band patch; the full notebook runs locally against `bac-antenna-optimizer` output. Full screen: [bac.page/molab-antenna-viz-app](https://bac.page/molab-antenna-viz-app) – editable notebook on molab: [bac.page/molab-antenna-viz](https://bac.page/molab-antenna-viz) – source and tests: [bac-utils](https://github.com/buildacubesat/bac-utils/tree/main/notebooks). The notebook runs in your browser and takes a moment to load. **The 3D views (pattern, fields, geometry) need WebGL and do not render inside this frame – open the full-screen app for them.**
+
+    <iframe
+      src="https://marimo.app/gh/buildacubesat/bac-utils/main/e?embed=true&entrypoint=notebooks%2Fbac-antenna-visualizer%2Fdemo%2Fbac_antenna_visualizer_demo.py&mode=read&show-code=false"
+      title="BAC Antenna Visualizer (demo)"
+      width="100%"
+      height="1000"
+      style="border: 1px solid var(--md-default-fg-color--lightest); border-radius: 4px;"
+      loading="lazy"
+      allow="clipboard-write; fullscreen">
+    </iframe>
 
 <!-- CSR-RESOURCES:START dev-comms-antenna-design -->
 - **[Antennas for CubeSat Communication (Miroslav Veljovic, EPFL doctoral thesis, 2020)](https://storage.googleapis.com/cubesat-resources/resources/antenna-design-papers/epfl-th7489.pdf)** `PDF` – Book-length treatment of CubeSat antenna design and the integration constraints that shape it; thesis no. 7489, DOI 10.5075/epfl-thesis-7489. Open access
