@@ -221,7 +221,7 @@ Interactive first-order estimators that run in the browser, each one a single Py
 - **[BAC Power Budget](https://bac.page/molab-power-budget-app)** `App` – An energy balance on one timeline: per-face illumination under three attitude models, an editable table of average watts per mode, beacon cadence and payload activations, integrated into a battery [state of charge](../references/glossary.md#state-of-charge-soc) with a safe-mode fallback. See [EPS – Power Requirements and Budgets](eps.md#power-requirements-and-budgets). Also as an editable notebook on molab: [bac.page/molab-power-budget](https://bac.page/molab-power-budget). Open source (MIT)
 <!-- CSR-RESOURCES:END dev-tools-engineering-notebooks -->
 
-The `App` link opens the notebook as a read-only app with the code hidden; the molab link opens the same file as an editable notebook. Both load the current file from [`bac-utils/notebooks`](https://github.com/buildacubesat/bac-utils/tree/main/notebooks), where source, version history and headless tests live. Each notebook also runs locally with `uvx marimo edit --sandbox <file>`.
+The `App` link opens the notebook as a read-only app with the code hidden; the molab link opens the same file as an editable notebook. Each one is also embedded on the subsystem page its *See* link points to. Both load the current file from [`bac-utils/notebooks`](https://github.com/buildacubesat/bac-utils/tree/main/notebooks), where source, version history and headless tests live. Each notebook also runs locally with `uvx marimo edit --sandbox <file>`.
 
 ## Automation and Workflow Helpers
 
