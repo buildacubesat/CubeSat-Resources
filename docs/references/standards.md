@@ -31,6 +31,14 @@ A CubeSat flying as a secondary payload is rarely held to either. Read them anyw
 - **[IPC-A-610J, Acceptability of Electronic Assemblies](https://webstore.ansi.org/standards/ipc/ipc610j2024)** `Link` – The acceptability counterpart, and the one with the photographs. J-STD-001 tells you the process; IPC-A-610 shows you what the result should look like, across three product classes, with criteria for handling and mechanical workmanship that sit outside J-STD-001's scope. Paywalled
 <!-- CSR-RESOURCES:END ref-standards-workmanship -->
 
+## Parts and derating
+
+[Derating](glossary.md#derating) is the practice of running every part below its ratings, and in Europe it is one document. It is written for screened, space-qualified parts, so for a CubeSat built from commercial parts it is guidance rather than a compliance target. What that means in practice, with the connector figures worked through, is on [EPS – Margins and derating](../development/eps.md#margins-and-derating).
+
+<!-- CSR-RESOURCES:START ref-standards-parts-derating -->
+- **[ECSS-Q-ST-30-11C Rev.2 – Space product assurance: Derating – EEE components](https://ecss.nl/standard/ecss-q-st-30-11c-rev-2-derating-eee-components-23-june-2021/)** `Link` – Load ratios and limits for electrical, electronic and electromechanical parts, family by family: capacitors, resistors, semiconductors, integrated circuits, relays, fuses, connectors, wire and cable sizing. Also carries layout and handling rules that are not derating at all, such as the 50-cycle connector mating limit. 23 June 2021. Free, registration required
+<!-- CSR-RESOURCES:END ref-standards-parts-derating -->
+
 ## Deployer manuals and payload user guides
 
 Whatever the CDS says, the document that governs a CubeSat's mechanical and safety design is the deployer manual or payload user guide of the provider it flies with. Four are openly published and make good worked examples of the class. Read at least one before freezing a structure, and note that a manual can be more permissive as well as more restrictive: the XCD guides allow 6.50 kg in a 3U and 13.00 kg in a 6U, above the 2 kg per U the [CDS](glossary.md#cds) specifies.[^xcd-guide]
