@@ -56,7 +56,7 @@ Alongside that:
 
 - **Test what you fly.** The PyCubed campaign is a good published model: MOSFETs (IRLML5103, IRLML2803) within spec beyond 35 krad, the ATSAMD51 showing flash memory issues from about **16 krad** while power and logic stayed functional past 35 krad.[^pycubed] That is enough evidence to justify a part for a short LEO mission – and it also tells you which failure to expect first.
 - **Prefer parts with published heritage.** Somebody else's radiation test report is cheap.
-- **Derate.** Run below maximum clock, voltage and temperature ratings.
+- **Derate.** Run below maximum clock, voltage and temperature ratings. See [EPS – Margins and derating](eps.md#margins-and-derating) for the ECSS ratios and what derating does and does not buy on a commercial part.
 - **Design for the failure rather than against it.** A part that occasionally upsets, in a system that detects and resets it, is more reliable overall than an expensive part in a system with no recovery path.
 
 ### Processor and avionics selection
