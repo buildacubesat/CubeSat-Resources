@@ -28,6 +28,7 @@ Recorded lecture series, channels worth subscribing to, and single videos that e
 - **[How Star Trackers Work](https://www.youtube.com/watch?v=hA1LsvgV2UY)** `Link` – Explanation of star tracker operating principles
 - **[Two Line Element Set Explained](https://www.youtube.com/watch?v=_C-GQy0qTY0)** `Link` – Field-by-field walkthrough of the TLE format
 - **[Classical Orbital Elements](https://www.youtube.com/watch?v=AReKBoiph6g)** `Link` – Introduction to the six classical orbital elements
+- **[Saveitforparts Book Review: The Spacecraft Hacker's Handbook](https://www.youtube.com/watch?v=BSx6ZP_DdGY)** `Link` – saveitforparts' review of the spacecraft cybersecurity book listed under [Books](books.md#security)
 <!-- CSR-RESOURCES:END ref-videos-topic-explainers -->
 
 ---
