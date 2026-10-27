@@ -26,6 +26,12 @@ Most of the classics are expensive. Before buying, check your university library
 - **[Fundamentals of Astrodynamics and Applications](https://www.abebooks.com/9781881883210/Fundamentals-Astrodynamics-Applications-Fifth-Edition-1881883213/plp)** `Link` – David A. Vallado, Microcosm Press. The practitioner's astrodynamics reference, notable for treating the algorithms and reference frames in enough detail to implement them – including SGP4, which matters if you are writing your own propagation
 <!-- CSR-RESOURCES:END ref-books-subsystem-references -->
 
+## Security
+
+<!-- CSR-RESOURCES:START ref-books-security -->
+- **[The Spacecraft Hacker's Handbook: Exploiting Ground Stations, Flight Software, and Satellite Terminals](https://nostarch.com/spacecraft-hackers-handbook)** `Link` – Andrzej Olchawa and Milenko Starcik, No Starch Press, 2026. A hands-on guide to spacecraft cybersecurity, organized into foundations, the ground segment, the space segment and the user segment. Labs cover flight software such as NASA's [F Prime](../development/flight-software.md) and cFS, CCSDS communications, mission control tools such as Yamcs and OpenC3 COSMOS, SATCOM terminals and GNSS attacks. Needs only a laptop with Docker, no radio hardware. Print edition includes a free ebook. A useful companion when threat-modeling your own [flight software](../development/flight-software.md) and [ground segment](../development/ground-segment.md)
+<!-- CSR-RESOURCES:END ref-books-security -->
+
 ## Open-access books and long-form guides
 
 These cost nothing and are worth reading.
