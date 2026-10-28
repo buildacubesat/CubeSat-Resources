@@ -4,6 +4,7 @@ CubeSat missions and open-source satellite projects with public schematics, soft
 
 <!-- CSR-RESOURCES:START ref-missions-open-source -->
 ## Open-Source (partially or fully)
+- [4111Spyglass](https://github.com/4111Spyglass) (1U CubeSat hardware and software stack in development, launch planned around 2030, not launched yet. [YouTube playlist](https://www.youtube.com/playlist?list=PL-BuJsdpn8J_IrrnlROzB7T2znai7scMF))
 - [AcubeSAT](https://gitlab.com/acubesat) ([landing page](https://acubesat.spacedot.gr))
 - [AlbertaSat](https://albertasat.ca/) (multiple missions, [landing page](https://albertasat.ca/))
 - [Alpha CubeSat](https://github.com/Alpha-CubeSat) ([landing page](https://alphacubesat.cornell.edu/components.html))
