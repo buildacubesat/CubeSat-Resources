@@ -111,6 +111,13 @@ Generated power scales with the cosine of the angle between the panel normal and
 - **[AZUR SPACE 3G30-Advanced triple-junction cell datasheet](https://www.azurspace.com/media/uploads/file_links/file/bdb_00010891-01-00_tj3g30-advanced_4x8.pdf)** `PDF` – 29.5% BOL efficiency 4x8 cm cell with full electrical, thermal and radiation degradation data
 <!-- CSR-RESOURCES:END dev-eps-solar-cell-datasheets -->
 
+### Open-source solar panel designs
+
+<!-- CSR-RESOURCES:START dev-eps-open-source-solar-panels -->
+- **[OreSat solar hardware](https://github.com/oresat/oresat-solar-hardware)** `Link` – Open-source (CERN-OHL-S v2) CAD for the OreSat solar modules from the Portland State Aerospace Society: 1U GaAs and silicon module designs, breakout boards and LTspice simulations. Each 1U panel carries its own [MPPT](../references/glossary.md#mppt) stage. The GaAs design has flown; the silicon design is in progress
+- **[OreSat Solar Module Design Notes](https://docs.google.com/document/d/1mogZjYhJievwLsnVkg4Q0sEF9xPMA5q7KPciky3YWKE/edit?tab=t.0#heading=h.ex958m6wzz8c)** `Link` – The design document for the repository above, covering how the modules were designed, built and tested. The best starting point for a custom panel
+<!-- CSR-RESOURCES:END dev-eps-open-source-solar-panels -->
+
 ## Energy Storage
 
 The battery carries the spacecraft through eclipse, supplies peak loads the array cannot (transmit bursts, magnetorquer pulses, deployment actuations), and keeps the bus alive during off-nominal attitudes. It is also the component most likely to end your mission early.
