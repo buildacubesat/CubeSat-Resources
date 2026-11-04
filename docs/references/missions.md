@@ -33,6 +33,7 @@ CubeSat missions and open-source satellite projects with public schematics, soft
 - [PWSat](https://github.com/PW-Sat2) ([landing page](https://ska.pw.edu.pl/article/pwsat))
 - [PyCubed-Mini](https://github.com/PyCubed-Mini) (1P PocketQube platform, CMU RExLab; first flown as PROMETHEUS-1, Jan 2025)
 - [PyCubed](https://pycubed.org/) (OSHW EPS and OBC, flown on multiple missions)
+- [REALOP](https://github.com/Space-and-Satellite-Systems-UC-Davis) (in development, not launched yet. [Orbital Platform OBC](https://github.com/uwu64/orbital-platform), [landing page](https://www.spacesystemsclub.org/))
 - [Quetzal-1](https://github.com/danalvarez/gr-quetzal1) ([landing page](https://www.uvg.edu.gt/cubesat-en/))
 - [RGSat](https://www.youtube.com/@RGSAT) (development stalled, not launched yet)
 - [SAMWISE](https://github.com/stanford-ssi)
