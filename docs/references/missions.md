@@ -19,7 +19,7 @@ CubeSat missions and open-source satellite projects with public schematics, soft
 - [FlapKit](https://github.com/flapkit) (kit, not launched yet. [Landing page](https://www.flapkit.org/))
 - [FOSSASAT](https://github.com/FOSSASystems/FOSSASAT-1) (PocketQube, multiple missions)
 - [FrontierSat (CTS-SAT-1)](https://github.com/calgarytospace) ([landing page](https://www.calgarytospace.ca/cts-sat-1), [mission log](https://github.com/CalgaryToSpace/CTS-SAT-1-Wiki/wiki/Mission-Operations))
-- [GASPACS](https://github.com/SmallSatGasTeam) (Utah State, open comms spec and decoder. [Landing page](https://smallsatgasteam.github.io/GASPACS-Comms-Info/))
+- [GASPACS](https://github.com/SmallSatGasTeam) (Utah State, open comms spec and decoder. [Landing page](https://smallsatgasteam.github.io/GASPACS-Comms-Info/), [club page](https://engineering.usu.edu/students/clubs/club/activities/show?gaspacs-cubesat))
 - [HuskySat](https://github.com/UWCubeSat) ([landing page](https://huskysat.org/))
 - [KENSAT](https://github.com/kenchangh/kensat) (not launched yet, [landing page](https://www.kensat.com/))
 - [MOVE-II](https://github.com/MOVE-II) (TU Munich, launched Dec 2018)
@@ -65,6 +65,7 @@ CubeSat missions and open-source satellite projects with public schematics, soft
 Collection of current and past Grafana mission dashboards: [SatNOGS Dashboards](https://dashboard.satnogs.org/). Some are very helpful for getting a sense of real-world mission data:
 - [AAUSAT4](https://dashboard.satnogs.org/d/QGujdBBZk/aausat4?orgId=1&from=now-10y&to=now&timezone=browser)
 - [COSMO](https://dashboard.satnogs.org/d/bfhvxrnomp91ca/cosmo?orgId=1&from=now-)
+- [GASPACS](https://dashboard.satnogs.org/d/u0rmzSx7k/gaspacs?orgId=1&from=2022-01-26T00:00:00.000Z&to=2022-05-28T00:00:00.000Z&timezone=utc)
 - [QMR-KWT 2](https://dashboard.satnogs.org/d/efgl2md8iap6oa/qmr-qwt-2?orgId=1&from=now-2d&to=now&timezone=utc&var-suid=67291&var-filter=)
 - [UMKA-1](https://dashboard.satnogs.org/d/ffc0ehd32qfpcc/umka-1?orgId=1&from=2021-01-30T04:28:17.186Z&to=2029-02-01T04:28:17.186Z&timezone=utc&var-suid=57172&var-filter=)
 <!-- CSR-RESOURCES:END ref-missions-satnogs-dashboards -->
